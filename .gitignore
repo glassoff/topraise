@@ -8,3 +8,7 @@ system/helper
 download/
 config.php
 admin/config.php
+.idea/*
+.idea
+/.idea
+.idea

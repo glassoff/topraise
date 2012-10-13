@@ -1,0 +1,72 @@
+<?php echo $header; ?>
+
+<div class="center page">
+    <div class="page__banner"><a href=""><img src="catalog/view/theme/topraise/images/banner.jpg"/></a></div>
+    <div class="page__middle">
+
+        <?php echo $column_left; ?>
+
+        <div class="page__middle__right content">
+            <h1 class="content__header"><?php echo $heading_title; ?></h1>
+
+            <?php if ($categories) { ?>
+                <div class="catalog-container">
+                <!-- categories -->
+                <?php foreach ($categories as $category) { ?>
+                    <div class="category-item">
+                        <h3 class="category-item__title"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></h3>
+                        <div class="category-item__img"></div>
+
+                        <div class="product-item product-item_full">
+                            <div class="product-item__img">
+                                <a href=""><img src="images/test.jpg" /></a>
+                            </div>
+                            <div class="product-item__middle">
+                                <h4 class="product-item__title"><a href="">Душевая кабина Borneo 822.960.141 90х90</a></h4>
+                                <div class="product-item__description">
+                                    <p>Тип—угловая</p>
+                                    <p>Ограждение—полностенное</p>
+                                    <p>Форма—четверть круга</p>
+                                    <p>Материал поддона—акрил</p>
+                                </div>
+                            </div>
+                            <div class="product-item__buy">
+                                <span class="price price__big">20000 <span class="price__sign">Р</span><span class="price__dot">уб.</span></span>
+                                <button class="button button_buy">Купить</button>
+                            </div>
+                        </div>
+
+                    </div>
+                <?php } ?>
+                <!-- categories -->
+                </div>
+                <h2 class="subheader"><?php echo $heading_title; ?></h2>
+                <?php echo $description; ?>
+            <?php } elseif($products) { ?>
+                <div class="catalog-container">
+                <!-- products -->
+                <?php foreach ($products as $product) { ?>
+                <div class="product-item product-item_full">
+                    <div class="product-item__img">
+                        <a href=""><img src="<?php echo $product['thumb']; ?>" /></a>
+                    </div>
+                    <div class="product-item__middle">
+                        <h4 class="product-item__title"><a href=""><?php echo $product['name']; ?></a></h4>
+                        <div class="product-item__description">
+                            <?php echo $product['description']; ?>
+                        </div>
+                    </div>
+                    <div class="product-item__buy">
+                        <span class="price price__big"><?php echo $product['price']; ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span>
+                        <button class="button button_buy">Купить</button>
+                    </div>
+                </div>
+                <?php } ?>
+                <!-- products -->
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+</div>
+
+<?php echo $footer; ?>

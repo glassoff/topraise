@@ -12,3 +12,6 @@ admin/config.php
 .idea
 /.idea
 .idea
+install/*
+.sass-cache
+.DS_Store

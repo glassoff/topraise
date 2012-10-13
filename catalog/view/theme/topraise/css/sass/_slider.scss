@@ -1,0 +1,82 @@
+/* gallery */
+
+$imageW: 190px;
+$imageH: 442px;
+$row: 1;
+
+.b-images{
+  padding:0px 90px 0px 90px;
+  position:relative;
+  //@include debug;
+  .b-images__scrollable{
+    position:relative;
+    overflow:hidden;
+    //height:$imageH * $row + 4px * $row;
+    //@include debug;
+    .b-images__pages{
+      width:20000em;
+      //position:absolute;
+      position: relative;
+      //@include debug;
+      ul{
+        float:left;
+        width:1000px;
+        //@include debug(yellow);
+        .b-images__item{
+          @include inline-block;
+          width:$imageW;
+          height:$imageH;
+          overflow:hidden;
+          margin:2px;
+          text-align:center;
+          line-height:$imageH;
+          a{
+            img{
+              vertical-align:middle;
+            }
+          }
+        }    
+      }    
+    }
+  }
+  .eg_previous_link, .eg_next_link{
+    position:absolute;
+    top:50%;
+    display:block;
+    width:46px;
+    background: url(../../images/arrows.png);
+    margin-top:-56px;
+    @include hide-text(156px);
+  }
+  .eg_previous_link{
+    left:0;
+    background-position: 0px 0;
+    &:hover{
+      background-position:-46px 0;
+    }
+    &:active{
+      background-position: -92px 0;
+    }
+    &.disabled{
+        background-position: -138px 0;
+        cursor: default;
+    }
+  }
+  .eg_next_link{
+    right:0;
+    background-position:-184px 0;
+    &:hover{
+      background-position:-230px 0;
+    }
+    &:active{
+      background-position:-276px 0;
+    }
+      &.disabled{
+          background-position: -322px 0;
+          cursor: default;
+      }
+  }
+  .eg_next_off, .eg_previous_off{
+    display:none;
+  }
+}

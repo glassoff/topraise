@@ -1,0 +1,409 @@
+/* ruble fonts */
+@font-face {
+  font-family: 'Rubl-Verdana';
+  src: url("../fonts/rub_verdana/alsrubl-verdana-italic.eot");
+  src: url("../fonts/rub_verdana/alsrubl-verdana-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/rub_verdana/alsrubl-verdana-italic.woff") format("woff"), url("../fonts/rub_verdana/alsrubl-verdana-italic.ttf") format("truetype"), url("../fonts/rub_verdana/alsrubl-verdana-italic.svg#ALSRublItalic") format("svg");
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* line 20, ../sass/layout.scss */
+body {
+  font-family: Verdana, sans-serif;
+  font-size: 10pt;
+  line-height: 1.25;
+}
+
+/* line 26, ../sass/layout.scss */
+button::-moz-focus-inner {
+  /* убираем внутренний отступ у кнопки в FF, который зарезервирован для рамки при фокусе */
+  padding: 0;
+  border: 0;
+}
+
+/* line 31, ../sass/layout.scss */
+a {
+  color: #0778ab;
+}
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+a:visited {
+  color: #900099;
+}
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+a:focus {
+  color: #fc5f5f;
+}
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+a:hover {
+  color: #fc5f5f;
+}
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+a:active {
+  color: #fc5f5f;
+}
+
+/* line 35, ../sass/layout.scss */
+p {
+  margin: 5px 0;
+}
+
+/* common layout */
+/* line 40, ../sass/layout.scss */
+.g-layout {
+  position: relative;
+  margin: 0 auto;
+  width: 1000px;
+}
+
+/* line 56, ../sass/layout.scss */
+.header {
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+  *zoom: 1;
+  background: 86px 0 no-repeat url(../../images/header-bg.jpg) white;
+}
+/* line 62, ../sass/layout.scss */
+.header .header-menu {
+  position: absolute;
+  bottom: 0;
+  left: 260px;
+}
+
+/* line 68, ../sass/layout.scss */
+.header__logo {
+  display: inline;
+  float: left;
+  margin: 0 0 0 52px;
+  padding: 34px 0 0;
+  width: 163px;
+  text-align: center;
+}
+
+/* line 76, ../sass/layout.scss */
+.header__logo__slogan {
+  margin: 5px 0 0;
+  background: 0 0 no-repeat url(../../images/slogan.png) white;
+  height: 0;
+  padding-top: 19px;
+  font-size: 0;
+  text-indent: -6000px;
+  width: 100%;
+}
+
+/* line 83, ../sass/layout.scss */
+.header__title {
+  position: absolute;
+  background: #fff;
+  top: 0;
+  left: 371px;
+  height: 43px;
+  line-height: 43px;
+  width: 258px;
+  border: 2px solid #c6c7c7;
+  border-top: none;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  text-align: center;
+  -webkit-box-shadow: #c6c7c7 0px 0px 8px;
+  -moz-box-shadow: #c6c7c7 0px 0px 8px;
+  box-shadow: #c6c7c7 0px 0px 8px;
+  font-size: 10pt;
+}
+
+/* line 98, ../sass/layout.scss */
+.header__content {
+  display: inline;
+  float: right;
+  margin: 20px 0 0;
+}
+
+/* line 103, ../sass/layout.scss */
+.header__content__right {
+  width: 240px;
+  background: right 15px no-repeat url(../../images/header-right-bg.png);
+}
+
+/* line 109, ../sass/layout.scss */
+.header__content__right__phone {
+  font-size: 18pt;
+  color: #000000;
+}
+
+/* line 113, ../sass/layout.scss */
+.header__content__right__action {
+  overflow: hidden;
+  *zoom: 1;
+}
+
+/* line 116, ../sass/layout.scss */
+.header__content__right__action__text {
+  font-size: 12pt;
+  display: inline;
+  float: left;
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  margin: 21px 0 0;
+}
+
+/* line 125, ../sass/layout.scss */
+.header__content__right__action__label {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  margin: 21px 30px 0 0;
+  display: inline;
+  float: right;
+}
+/* line 131, ../sass/layout.scss */
+.header__content__right__action__label img {
+  vertical-align: middle;
+}
+
+/* line 141, ../sass/layout.scss */
+.center {
+  margin: 28px 0 0;
+}
+
+/* footer */
+/* line 146, ../sass/layout.scss */
+.footer {
+  margin: 10px 0 0;
+  padding: 26px 33px 12px 33px;
+  background: -4px 0 repeat-x url(../../images/footer-bg.png) #0778ab;
+}
+
+/* line 151, ../sass/layout.scss */
+.footer__top {
+  overflow: hidden;
+  *zoom: 1;
+}
+
+/* line 154, ../sass/layout.scss */
+.footer__top__catalog {
+  display: inline;
+  float: left;
+}
+/* line 156, ../sass/layout.scss */
+.footer__top__catalog ul {
+  list-style: none inside;
+  margin: 0 0 0 31px;
+  color: #3da4d2;
+}
+/* line 160, ../sass/layout.scss */
+.footer__top__catalog ul a {
+  color: #3da4d2;
+}
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.footer__top__catalog ul a:visited {
+  color: #3da4d2;
+}
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.footer__top__catalog ul a:focus {
+  color: #fc5f5f;
+}
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.footer__top__catalog ul a:hover {
+  color: #fc5f5f;
+}
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.footer__top__catalog ul a:active {
+  color: #fc5f5f;
+}
+/* line 164, ../sass/layout.scss */
+.footer__top__catalog ul > li:before {
+  content: "\2043";
+  margin-right: 1ex;
+}
+
+/* line 169, ../sass/layout.scss */
+.footer__top__links {
+  display: inline;
+  float: left;
+  margin: 0 0 0 70px;
+}
+/* line 172, ../sass/layout.scss */
+.footer__top__links a {
+  color: #5fbde7;
+  text-decoration: none;
+}
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.footer__top__links a:visited {
+  color: #5fbde7;
+}
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.footer__top__links a:focus {
+  color: #fc5f5f;
+}
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.footer__top__links a:hover {
+  color: #fc5f5f;
+}
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.footer__top__links a:active {
+  color: #fc5f5f;
+}
+
+/* line 177, ../sass/layout.scss */
+.footer__top__contacts {
+  display: inline;
+  float: right;
+  color: #5fbde7;
+}
+
+/* line 181, ../sass/layout.scss */
+.footer__top__contacts__phone {
+  font-size: 14pt;
+}
+
+/* line 184, ../sass/layout.scss */
+.footer__top__contacts__email {
+  font-size: 14pt;
+}
+
+/* line 187, ../sass/layout.scss */
+.footer__bottom {
+  overflow: hidden;
+  *zoom: 1;
+  margin: 27px 0 0 0;
+  color: #fff;
+}
+
+/* line 192, ../sass/layout.scss */
+.footer__bottom__left {
+  display: inline;
+  float: left;
+}
+
+/* line 195, ../sass/layout.scss */
+.footer__bottom__right {
+  display: inline;
+  float: right;
+  color: #94c5db;
+}
+/* line 198, ../sass/layout.scss */
+.footer__bottom__right a {
+  color: #94c5db;
+}
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.footer__bottom__right a:visited {
+  color: #94c5db;
+}
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.footer__bottom__right a:focus {
+  color: #fc5f5f;
+}
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.footer__bottom__right a:hover {
+  color: #fc5f5f;
+}
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.footer__bottom__right a:active {
+  color: #fc5f5f;
+}
+
+/* home */
+/* line 209, ../sass/layout.scss */
+.home__info {
+  overflow: hidden;
+  *zoom: 1;
+  line-height: 1;
+}
+
+/* line 213, ../sass/layout.scss */
+.home__info__name {
+  display: inline;
+  float: left;
+  margin: 0 50px 0 5px;
+}
+
+/* page */
+/* line 228, ../sass/layout.scss */
+.page__middle {
+  overflow: hidden;
+  *zoom: 1;
+  margin: 8px 0 0 0;
+}
+
+/* line 232, ../sass/layout.scss */
+.page__middle__left {
+  display: inline;
+  float: left;
+  width: 276px;
+  margin: 30px 0 0 12px;
+}
+
+/* line 238, ../sass/layout.scss */
+.page__middle__right {
+  display: inline;
+  float: left;
+  width: 712px;
+}
+
+/* dots header */
+/* line 245, ../sass/layout.scss */
+.header-dots {
+  background: 0 19px repeat-x url(../../images/header-bg.png);
+  font-size: 23pt;
+  color: #0778ab;
+  padding: 0 0 0 40px;
+}
+/* line 250, ../sass/layout.scss */
+.header-dots b {
+  background-color: #fff;
+  padding: 0 17px 0 24px;
+}
+
+/* price */
+/* line 261, ../sass/layout.scss */
+.price__sign {
+  font-family: "Rubl-Verdana";
+  font-style: italic;
+}
+
+/* line 265, ../sass/layout.scss */
+.price__dot {
+  position: absolute;
+  text-indent: -1000em;
+}
+
+/* line 269, ../sass/layout.scss */
+.price__big {
+  font-size: 16pt;
+}
+
+/* line 272, ../sass/layout.scss */
+.price__small_italic {
+  font-size: 10pt;
+}
+
+/* button */
+/* line 277, ../sass/layout.scss */
+.button {
+  cursor: pointer;
+  border: none;
+}
+
+/* line 281, ../sass/layout.scss */
+.button_buy {
+  width: 61px;
+  height: 26px;
+  line-height: 26px;
+  background: 0 0 no-repeat url(../../images/button-buy.png);
+  color: #000;
+  margin: 0 0 0 3px;
+  font-size: 9pt;
+}
+/* line 289, ../sass/layout.scss */
+.button_buy:hover {
+  background-position: -61px 0;
+}
+/* line 292, ../sass/layout.scss */
+.button_buy:active {
+  background-position: -122px 0;
+}

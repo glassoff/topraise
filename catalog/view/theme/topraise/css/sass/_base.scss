@@ -1,0 +1,21 @@
+@mixin debug($color: #000){
+  outline: 1px solid $color;
+}
+
+@mixin hide-text($height){
+  height:0;
+  padding-top:$height;
+  font-size:0;
+  text-indent:-6000px;
+}
+
+@mixin dashedLink($color: #000){
+  text-decoration:none;
+  border-bottom:1px dashed $color;  
+}
+
+$aNormalColor: #0778ab;
+$aHoverColor: #fc5f5f;
+$aActiveColor: #fc5f5f;
+$aVisitedColor: #900099;
+$aFocusColor: #fc5f5f;

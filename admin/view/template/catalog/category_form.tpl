@@ -17,11 +17,13 @@
       <div id="tabs" class="htabs"><a href="#tab-general"><?php echo $tab_general; ?></a><a href="#tab-data"><?php echo $tab_data; ?></a><a href="#tab-design"><?php echo $tab_design; ?></a></div>
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form">
         <div id="tab-general">
+          <?php if(count($languages) > 1):?>
           <div id="languages" class="htabs">
             <?php foreach ($languages as $language) { ?>
             <a href="#language<?php echo $language['language_id']; ?>"><img src="view/image/flags/<?php echo $language['image']; ?>" title="<?php echo $language['name']; ?>" /> <?php echo $language['name']; ?></a>
             <?php } ?>
           </div>
+          <?php endif; ?>
           <?php foreach ($languages as $language) { ?>
           <div id="language<?php echo $language['language_id']; ?>">
             <table class="form">

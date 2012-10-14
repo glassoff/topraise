@@ -13,25 +13,23 @@
                 <div class="catalog-container">
                 <!-- categories -->
                 <?php foreach ($categories as $category) { ?>
+                    <?php $product = $category['main_product']; ?>
                     <div class="category-item">
                         <h3 class="category-item__title"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></h3>
                         <div class="category-item__img"></div>
 
                         <div class="product-item product-item_full">
                             <div class="product-item__img">
-                                <a href=""><img src="images/test.jpg" /></a>
+                                <a href=""><img src="<?php echo $product['thumb']; ?>" /></a>
                             </div>
                             <div class="product-item__middle">
-                                <h4 class="product-item__title"><a href="">Душевая кабина Borneo 822.960.141 90х90</a></h4>
+                                <h4 class="product-item__title"><a href=""><?php echo $product['name']; ?></a></h4>
                                 <div class="product-item__description">
-                                    <p>Тип—угловая</p>
-                                    <p>Ограждение—полностенное</p>
-                                    <p>Форма—четверть круга</p>
-                                    <p>Материал поддона—акрил</p>
+                                    <?php echo $product['description']; ?>
                                 </div>
                             </div>
                             <div class="product-item__buy">
-                                <span class="price price__big">20000 <span class="price__sign">Р</span><span class="price__dot">уб.</span></span>
+                                <span class="price price__big"><?php echo $product['price']; ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span>
                                 <button class="button button_buy">Купить</button>
                             </div>
                         </div>

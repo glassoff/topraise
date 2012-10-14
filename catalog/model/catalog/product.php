@@ -508,6 +508,21 @@ class ModelCatalogProduct extends Model {
 		} else {
 			return 0;	
 		}
-	}	
+	}
+
+    public function getCategoryMainProduct($categoryId)
+    {
+        $sql = "SELECT pc.product_id FROM " . DB_PREFIX . "product_to_category pc
+            WHERE pc.category_id = '$categoryId' LIMIT 0, 1";
+
+        $query = $this->db->query($sql);
+
+        if ($query->num_rows) {
+            $product_id = $query->row['product_id'];
+            return $this->getProduct($product_id);//XXX
+        } else {
+            return false;
+        }
+    }
 }
 ?>

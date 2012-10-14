@@ -12,7 +12,7 @@
     <!--[if lt IE 8]>
     <link href="catalog/view/theme/topraise/css/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/stylesheet1.css" />
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/topraise/css/stylesheets/default1.css" />
     <script src="catalog/view/theme/topraise/js/jquery-1.4.4.min.js"></script>
     <script src="catalog/view/theme/topraise/js/jquery.tools.min.js"></script>
     <script src="catalog/view/theme/topraise/js/gslider.js"></script>
@@ -54,12 +54,9 @@
             </div>
             <div class="header-menu">
                 <ul>
-                    <li><a href="">О нас</a></li>
-                    <li><a href="">Каталог</a></li>
-                    <li><a href="">Новости</a></li>
-                    <li><a href="">Доставка и покупка</a></li>
-                    <li><a href="">Услуги</a></li>
-                    <li><a href="">Контакты</a></li>
+                    <?php foreach($top_menu as $menu_item): ?>
+                    <li><a href="<?php echo $menu_item['href'] ?>"><?php echo $menu_item['title'] ?></a></li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>

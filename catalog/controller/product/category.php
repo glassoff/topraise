@@ -321,6 +321,7 @@ class ControllerProductCategory extends Controller {
 				
 			$this->response->setOutput($this->render());										
     	} else {
+            //not found category
 			$url = '';
 			
 			if (isset($this->request->get['path'])) {

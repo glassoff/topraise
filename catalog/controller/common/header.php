@@ -63,16 +63,16 @@ class ControllerCommonHeader extends Controller {
 		}
 		
 		// Menu
-		if (isset($this->request->get['path'])) {
+		/*if (isset($this->request->get['path'])) {
 			$parts = explode('_', (string)$this->request->get['path']);
 		} else {
 			$parts = array();
-		}
+		}*/
 
-		$this->load->model('catalog/category');
-		$this->load->model('catalog/product');
+		//$this->load->model('catalog/category');
+		//$this->load->model('catalog/product');
 		
-		$this->data['categories'] = array();
+		/*$this->data['categories'] = array();
 					
 		$categories = $this->model_catalog_category->getCategories(0);
 		
@@ -109,7 +109,18 @@ class ControllerCommonHeader extends Controller {
 					'href'     => $this->url->link('product/category', 'path=' . $category['category_id'])
 				);
 			}
-		}
+		}*/
+
+        //top menu
+        $topMenu = array(
+            array('title' => 'О нас', 'href' => $this->url->link('information/information', 'information_id=4')),
+            array('title' => 'Каталог', 'href' => $this->url->link('product/category')),
+            array('title' => 'Новости', 'href' => ''),
+            array('title' => 'Доставка и покупка', 'href' => ''),
+            array('title' => 'Услуги', 'href' => ''),
+            array('title' => 'Контакты', 'href' => ''),
+        );
+        $this->data['top_menu'] = $topMenu;
 		
 		$this->children = array(
 			'module/language',

@@ -32,7 +32,7 @@
         <div class="header">
             <div class="header__title">Интернет-магазин комфорта</div>
             <div class="header__logo">
-                <a href="" alt="TopRaise" title="Перейти на главную страницу"><img src="catalog/view/theme/topraise/images/logo.jpg" /></a>
+                <a href="<?php echo $home; ?>" alt="TopRaise" title="Перейти на главную страницу"><img src="catalog/view/theme/topraise/images/logo.jpg" /></a>
                 <div class="header__logo__slogan">Ключ к вашему комфорту</div>
             </div>
             <div class="header__content">

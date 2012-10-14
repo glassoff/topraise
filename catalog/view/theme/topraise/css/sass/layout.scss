@@ -171,7 +171,7 @@ p{
             margin: 0 0 0 70px;
             a{
                 @include link-colors(#5fbde7, $aHoverColor, $aActiveColor, #5fbde7, $aFocusColor);
-                text-decoration: none;
+                /*text-decoration: none;*/
             }
         }    
         .footer__top__contacts{

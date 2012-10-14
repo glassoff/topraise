@@ -5,14 +5,9 @@
             <div class="footer__top__catalog">
                 <h5 class="footer-icon">КАТАЛОГ</h5>
                 <ul>
-                    <li><a href="">Водонагреватели</a></li>
-                    <li><a href="">Смесители</a></li>
-                    <li><a href="">Душевые кабины</a></li>
-                    <li><a href="">Мебель для ванн</a></li>
-                    <li><a href="">Ванны</a></li>
-                    <li><a href="">Аксессуары</a></li>
-                    <li><a href="">Фитинги</a></li>
-                    <li><a href="">Запачасти</a></li>
+                    <?php foreach($categories as $category): ?>
+                    <li><a href="<?php echo $category['href'] ?>"><?php echo $category['title'] ?></a></li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
             <div class="footer__top__links">

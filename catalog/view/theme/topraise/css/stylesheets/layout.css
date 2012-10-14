@@ -230,7 +230,7 @@ p {
 /* line 172, ../sass/layout.scss */
 .footer__top__links a {
   color: #5fbde7;
-  text-decoration: none;
+  /*text-decoration: none;*/
 }
 /* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .footer__top__links a:visited {

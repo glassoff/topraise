@@ -44,6 +44,22 @@ class ControllerCommonFooter extends Controller {
 		$this->data['newsletter'] = $this->url->link('account/newsletter', '', 'SSL');		
 
 		$this->data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
+
+        //categories list
+        $this->load->model('catalog/category');
+
+        $this->data['categories'] = array();
+
+        $categories = $this->model_catalog_category->getCategories(0);
+
+        foreach ($categories as $category) {
+            $this->data['categories'][] = array(
+                'title' => $category['name'],
+                'href' => $this->url->link('product/category', 'path=' . $category['category_id']),
+            );
+        }
+
+
 		
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/footer.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/common/footer.tpl';

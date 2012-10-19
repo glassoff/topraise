@@ -323,14 +323,19 @@ p {
 }
 
 /* page */
-/* line 228, ../sass/layout.scss */
+/* line 222, ../sass/layout.scss */
+.page {
+  margin-bottom: 28px;
+}
+
+/* line 229, ../sass/layout.scss */
 .page__middle {
   overflow: hidden;
   *zoom: 1;
   margin: 8px 0 0 0;
 }
 
-/* line 232, ../sass/layout.scss */
+/* line 233, ../sass/layout.scss */
 .page__middle__left {
   display: inline;
   float: left;
@@ -338,7 +343,7 @@ p {
   margin: 30px 0 0 12px;
 }
 
-/* line 238, ../sass/layout.scss */
+/* line 239, ../sass/layout.scss */
 .page__middle__right {
   display: inline;
   float: left;
@@ -346,50 +351,55 @@ p {
 }
 
 /* dots header */
-/* line 245, ../sass/layout.scss */
+/* line 246, ../sass/layout.scss */
 .header-dots {
   background: 0 19px repeat-x url(../../images/header-bg.png);
   font-size: 23pt;
   color: #0778ab;
   padding: 0 0 0 40px;
 }
-/* line 250, ../sass/layout.scss */
+/* line 251, ../sass/layout.scss */
 .header-dots b {
   background-color: #fff;
   padding: 0 17px 0 24px;
 }
 
 /* price */
-/* line 261, ../sass/layout.scss */
+/* line 259, ../sass/layout.scss */
+.price {
+  font-size: 12pt;
+}
+
+/* line 262, ../sass/layout.scss */
 .price__sign {
   font-family: "Rubl-Verdana";
   font-style: italic;
 }
 
-/* line 265, ../sass/layout.scss */
+/* line 266, ../sass/layout.scss */
 .price__dot {
   position: absolute;
   text-indent: -1000em;
 }
 
-/* line 269, ../sass/layout.scss */
+/* line 270, ../sass/layout.scss */
 .price__big {
   font-size: 16pt;
 }
 
-/* line 272, ../sass/layout.scss */
+/* line 273, ../sass/layout.scss */
 .price__small_italic {
   font-size: 10pt;
 }
 
 /* button */
-/* line 277, ../sass/layout.scss */
+/* line 278, ../sass/layout.scss */
 .button {
   cursor: pointer;
   border: none;
 }
 
-/* line 281, ../sass/layout.scss */
+/* line 282, ../sass/layout.scss */
 .button_buy {
   width: 61px;
   height: 26px;
@@ -399,11 +409,29 @@ p {
   margin: 0 0 0 3px;
   font-size: 9pt;
 }
-/* line 289, ../sass/layout.scss */
+/* line 290, ../sass/layout.scss */
 .button_buy:hover {
   background-position: -61px 0;
 }
-/* line 292, ../sass/layout.scss */
+/* line 293, ../sass/layout.scss */
 .button_buy:active {
   background-position: -122px 0;
+}
+
+/* line 297, ../sass/layout.scss */
+.button_red {
+  width: 110px;
+  height: 24px;
+  line-height: 24px;
+  background: 0 0 no-repeat url(../../images/buttons.png);
+  color: #fff;
+  font-size: 10pt;
+}
+/* line 304, ../sass/layout.scss */
+.button_red:hover {
+  background-position: -110px 0;
+}
+/* line 307, ../sass/layout.scss */
+.button_red:active {
+  background-position: -220px 0;
 }

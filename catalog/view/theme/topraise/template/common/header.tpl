@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/topraise/css/stylesheets/default1.css" />
     <script src="catalog/view/theme/topraise/js/jquery-1.4.4.min.js"></script>
     <script src="catalog/view/theme/topraise/js/jquery.tools.min.js"></script>
+    <script type="text/javascript" src="catalog/view/javascript/jquery/tabs.js"></script>
     <script src="catalog/view/theme/topraise/js/gslider.js"></script>
     <script>
         $(function(){

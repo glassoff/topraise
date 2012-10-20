@@ -479,6 +479,10 @@
         .short-product-list__item__img{
             @include float-left;
             margin: 0 20px 0 0;
+            img{
+                width: 59px;
+                height: 100px;
+            }
         }
         .short-product-list__title{
             margin: 5px 0 0 0;

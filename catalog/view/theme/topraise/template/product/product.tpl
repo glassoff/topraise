@@ -65,34 +65,15 @@
 
             <h3 class="subsubheader">Рекомендуем</h3>
             <div class="short-product-list">
+                <?php foreach($products as $product): ?>
                 <div class="short-product-list__item">
-                    <a class="short-product-list__item__img" href="">
-                        <img src="catalog/view/theme/topraise/images/product-short.jpg" />
+                    <a class="short-product-list__item__img" href="<?php echo $product['href']; ?>" title="<?php echo $product['name']; ?>">
+                        <img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>"/>
                     </a>
-                    <h4 class="short-product-list__title"><a href="">Fresh H310 G 90 см</a></h4>
-                    <div class="short-product-list__price"><span class="price">20000 <span class="price__sign">Р</span><span class="price__dot">уб.</span></span></div>
+                    <h4 class="short-product-list__title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
+                    <div class="short-product-list__price"><span class="price"><?php echo $product['price']; ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span></div>
                 </div>
-                <div class="short-product-list__item">
-                    <a class="short-product-list__item__img" href="">
-                        <img src="catalog/view/theme/topraise/images/product-short.jpg" />
-                    </a>
-                    <h4 class="short-product-list__title"><a href="">Fresh H310 G 90 см</a></h4>
-                    <div class="short-product-list__price"><span class="price">20000 <span class="price__sign">Р</span><span class="price__dot">уб.</span></span></div>
-                </div>
-                <div class="short-product-list__item">
-                    <a class="short-product-list__item__img" href="">
-                        <img src="catalog/view/theme/topraise/images/product-short.jpg" />
-                    </a>
-                    <h4 class="short-product-list__title"><a href="">Fresh H310 G 90 см</a></h4>
-                    <div class="short-product-list__price"><span class="price">20000 <span class="price__sign">Р</span><span class="price__dot">уб.</span></span></div>
-                </div>
-                <div class="short-product-list__item">
-                    <a class="short-product-list__item__img" href="">
-                        <img src="catalog/view/theme/topraise/images/product-short.jpg" />
-                    </a>
-                    <h4 class="short-product-list__title"><a href="">Fresh H310 G 90 см</a></h4>
-                    <div class="short-product-list__price"><span class="price">20000 <span class="price__sign">Р</span><span class="price__dot">уб.</span></span></div>
-                </div>
+                <?php endforeach; ?>
             </div>
 
             <script type="text/javascript" src="../../javascript/jquery/tabs.js"></script>

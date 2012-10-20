@@ -63,6 +63,15 @@
                 <!-- products -->
                 </div>
             <?php } ?>
+
+            <?php if (!$categories && !$products) { ?>
+            <div class="content"><?php echo $text_empty; ?></div>
+            <br>
+            <div class="buttons">
+                <div class="right"><a href="<?php echo $continue; ?>" class="button button_a button_green"><?php echo $button_continue; ?></a></div>
+            </div>
+            <?php } ?>
+
         </div>
     </div>
 </div>

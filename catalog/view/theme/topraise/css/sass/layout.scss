@@ -282,6 +282,12 @@ p{
     cursor: pointer;
     border: none;
 }
+.button_a{
+    @include inline-block;
+    text-align: center;
+    text-decoration: none;
+    @include link-colors(#fff, #fff, #fff, #fff, #fff);
+}
 .button_buy{
     width:61px;
     height:26px;

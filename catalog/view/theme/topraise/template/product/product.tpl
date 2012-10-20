@@ -78,9 +78,6 @@
             </div>
             <?php endif; ?>
 
-            <script type="text/javascript" src="../../javascript/jquery/tabs.js"></script>
-            <script type="text/javascript" src="../../javascript/jquery/colorbox/jquery.colorbox-min.js"></script>
-            <link href="../../javascript/jquery/colorbox/colorbox.css" media="screen, projection" rel="stylesheet" type="text/css" />
             <script>
                 $(function(){
                     $('.product-tabs a').tabs();

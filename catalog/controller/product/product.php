@@ -94,6 +94,10 @@ class ControllerProductProduct extends Controller {
 		$product_info = $this->model_catalog_product->getProduct($product_id);
 		
 		$this->data['product_info'] = $product_info;
+
+        //
+        $this->document->addScript('catalog/view/javascript/jquery/colorbox/jquery.colorbox-min.js');
+        $this->document->addStyle('catalog/view/javascript/jquery/colorbox/colorbox.css');
 		
 		if ($product_info) {
 			$url = '';

@@ -144,8 +144,6 @@ class ControllerProductCategory extends Controller {
 				);
 							
 				$product_total = $this->model_catalog_product->getTotalProducts($data);
-
-                $mainProduct =
 				
 				$this->data['categories'][] = array(
 					'name'  => $result['name'] . ' (' . $product_total . ')',

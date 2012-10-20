@@ -4,7 +4,6 @@
 <head>
     <meta charset='utf-8' />
     <title>TopRaise</title>
-    <link href="catalog/view/theme/topraise/css/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <link href="catalog/view/theme/topraise/css/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
     <link href="catalog/view/theme/topraise/css/stylesheets/layout.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <link href="catalog/view/theme/topraise/css/stylesheets/elements.css" media="screen, projection" rel="stylesheet" type="text/css" />

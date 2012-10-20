@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="product-content__center__right product-tabs_content">
-                        <div id="description"><?php echo $description; ?></div>
+                        <div id="description" class="typography"><?php echo $description; ?></div>
                         <div id="specs">
                             <table class="specs__table">
                                 <tr>
@@ -63,6 +63,7 @@
 
             </div>
 
+            <?php if(count($products)): ?>
             <h3 class="subsubheader">Рекомендуем</h3>
             <div class="short-product-list">
                 <?php foreach($products as $product): ?>
@@ -75,6 +76,7 @@
                 </div>
                 <?php endforeach; ?>
             </div>
+            <?php endif; ?>
 
             <script type="text/javascript" src="../../javascript/jquery/tabs.js"></script>
             <script type="text/javascript" src="../../javascript/jquery/colorbox/jquery.colorbox-min.js"></script>

@@ -435,3 +435,21 @@ p {
 .button_red:active {
   background-position: -220px 0;
 }
+
+/* line 312, ../sass/layout.scss */
+.button_green {
+  width: 110px;
+  height: 24px;
+  line-height: 24px;
+  background: 0 -24px no-repeat url(../../images/buttons.png);
+  color: #fff;
+  font-size: 10pt;
+}
+/* line 319, ../sass/layout.scss */
+.button_green:hover {
+  background-position: -110px -24px;
+}
+/* line 322, ../sass/layout.scss */
+.button_green:active {
+  background-position: -220px -24px;
+}

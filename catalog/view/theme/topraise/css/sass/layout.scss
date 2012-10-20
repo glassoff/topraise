@@ -308,3 +308,18 @@ p{
         background-position: -220px 0;
     }
 }
+
+.button_green{
+    width: 110px;
+    height: 24px;
+    line-height: 24px;
+    background: 0 -24px no-repeat url(../../images/buttons.png);
+    color: #fff;
+    font-size: 10pt;
+    &:hover{
+        background-position: -110px -24px;
+    }
+    &:active{
+        background-position: -220px -24px;
+    }
+}

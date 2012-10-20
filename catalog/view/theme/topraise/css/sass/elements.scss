@@ -401,6 +401,11 @@
                 font-size: 10pt;
                 margin: 0 15px 0 0;
             }
+            .no-active, a.no-active{
+                color:#9c9c9c;
+                text-decoration: none;
+                cursor: default;
+            }
         }
     }
         .product-content__center{
@@ -445,6 +450,20 @@
                 }
             }
         }
+
+.specs__table{
+
+    tr{
+
+    }
+    td{
+        text-align: left;
+        padding: 10px 35px 10px 0;
+        &:last-child{
+            padding-right: 0;
+        }
+    }
+}
 
 /* short product list */
 .short-product-list{

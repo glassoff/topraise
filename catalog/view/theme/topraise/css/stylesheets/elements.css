@@ -691,15 +691,21 @@
 .product-content .compare-products a:active {
   color: #fc5f5f;
 }
+/* line 404, ../sass/elements.scss */
+.product-content .compare-products .no-active, .product-content .compare-products a.no-active {
+  color: #9c9c9c;
+  text-decoration: none;
+  cursor: default;
+}
 
-/* line 406, ../sass/elements.scss */
+/* line 411, ../sass/elements.scss */
 .product-content__center {
   overflow: hidden;
   *zoom: 1;
   margin: 50px 0 0 0;
 }
 
-/* line 410, ../sass/elements.scss */
+/* line 415, ../sass/elements.scss */
 .product-content__center__left {
   display: inline;
   float: left;
@@ -707,24 +713,24 @@
   text-align: center;
 }
 
-/* line 417, ../sass/elements.scss */
+/* line 422, ../sass/elements.scss */
 .product-content__center__right {
   display: inline;
   float: right;
   width: 420px;
 }
 
-/* line 422, ../sass/elements.scss */
+/* line 427, ../sass/elements.scss */
 .product-content__img {
   display: block;
   position: relative;
 }
-/* line 425, ../sass/elements.scss */
+/* line 430, ../sass/elements.scss */
 .product-content__img img {
   width: 120px;
   height: 230px;
 }
-/* line 429, ../sass/elements.scss */
+/* line 434, ../sass/elements.scss */
 .product-content__img .product-content__img__zoom {
   background: 0 0 no-repeat url(../../images/zoom-icon.png);
   width: 38px;
@@ -733,7 +739,7 @@
   bottom: 15px;
   right: 40px;
 }
-/* line 439, ../sass/elements.scss */
+/* line 444, ../sass/elements.scss */
 .product-content__img:hover .product-content__img__zoom {
   background: -38px 0 no-repeat url(../../images/zoom-icon.png);
   width: 43px;
@@ -742,8 +748,18 @@
   bottom: 10px;
 }
 
+/* line 459, ../sass/elements.scss */
+.specs__table td {
+  text-align: left;
+  padding: 10px 35px 10px 0;
+}
+/* line 462, ../sass/elements.scss */
+.specs__table td:last-child {
+  padding-right: 0;
+}
+
 /* short product list */
-/* line 453, ../sass/elements.scss */
+/* line 472, ../sass/elements.scss */
 .short-product-list__item {
   width: 180px;
   padding: 3px 5px;
@@ -758,18 +774,18 @@
   margin: 0 35px 10px 0;
 }
 
-/* line 460, ../sass/elements.scss */
+/* line 479, ../sass/elements.scss */
 .short-product-list__item__img {
   display: inline;
   float: left;
   margin: 0 20px 0 0;
 }
 
-/* line 464, ../sass/elements.scss */
+/* line 483, ../sass/elements.scss */
 .short-product-list__title {
   margin: 5px 0 0 0;
 }
-/* line 466, ../sass/elements.scss */
+/* line 485, ../sass/elements.scss */
 .short-product-list__title a {
   color: black;
 }
@@ -790,11 +806,11 @@
   color: #fc5f5f;
 }
 
-/* line 470, ../sass/elements.scss */
+/* line 489, ../sass/elements.scss */
 .short-product-list__price {
   margin: 14px 0 0 0;
 }
-/* line 472, ../sass/elements.scss */
+/* line 491, ../sass/elements.scss */
 .short-product-list__price .price {
   background: #4bb2e1;
   padding-left: 5px;

@@ -52,5 +52,11 @@ class ModelCatalogCategory extends Model {
 	public function getTotalCategoriesByCategoryId($parent_id = 0) {
 		return count($this->getCategories((int)$parent_id));
 	}
+
+    public function getStartCategory()
+    {
+        $categories = $this->getCategories(0);
+        return $categories[0]['category_id'];
+    }
 }
 ?>

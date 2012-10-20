@@ -66,7 +66,11 @@ class ControllerProductCategory extends Controller {
 		
 			$category_id = array_pop($parts);
 		} else {
-			$category_id = 0;
+            $category_id = $this->model_catalog_category->getStartCategory();
+            $url = $this->url->link('product/category', 'path=' . $category_id);
+            $this->response->redirect( str_replace('&amp;', '&', $url) );
+			//$category_id = 0;
+
 		}
 		
 		$category_info = $this->model_catalog_category->getCategory($category_id);

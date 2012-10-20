@@ -3,7 +3,22 @@
 <html>
 <head>
     <meta charset='utf-8' />
-    <title>TopRaise</title>
+
+    <title><?php echo $title; ?></title>
+    <base href="<?php echo $base; ?>" />
+    <?php if ($description) { ?>
+    <meta name="description" content="<?php echo $description; ?>" />
+    <?php } ?>
+    <?php if ($keywords) { ?>
+    <meta name="keywords" content="<?php echo $keywords; ?>" />
+    <?php } ?>
+    <?php if ($icon) { ?>
+    <link href="<?php echo $icon; ?>" rel="icon" />
+    <?php } ?>
+    <?php foreach ($links as $link) { ?>
+    <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
+    <?php } ?>
+
     <link href="catalog/view/theme/topraise/css/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
     <link href="catalog/view/theme/topraise/css/stylesheets/layout.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <link href="catalog/view/theme/topraise/css/stylesheets/elements.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -12,10 +27,20 @@
     <link href="catalog/view/theme/topraise/css/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/topraise/css/stylesheets/default1.css" />
+
+    <?php foreach ($styles as $style) { ?>
+    <link rel="<?php echo $style['rel']; ?>" type="text/css" href="<?php echo $style['href']; ?>" media="<?php echo $style['media']; ?>" />
+    <?php } ?>
+
     <script src="catalog/view/theme/topraise/js/jquery-1.4.4.min.js"></script>
     <script src="catalog/view/theme/topraise/js/jquery.tools.min.js"></script>
     <script type="text/javascript" src="catalog/view/javascript/jquery/tabs.js"></script>
     <script src="catalog/view/theme/topraise/js/gslider.js"></script>
+
+    <?php foreach ($scripts as $script) { ?>
+    <script type="text/javascript" src="<?php echo $script; ?>"></script>
+    <?php } ?>
+
     <script>
         $(function(){
             $('.evo-gallery').each(function(){
@@ -25,6 +50,8 @@
             });
         });
     </script>
+
+    <?php echo $google_analytics; ?>
 </head>
 <body>
 <div class="g-layout">

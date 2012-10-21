@@ -20,10 +20,10 @@
 
                         <div class="product-item product-item_full">
                             <div class="product-item__img">
-                                <a href=""><img src="<?php echo $product['thumb']; ?>" /></a>
+                                <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" /></a>
                             </div>
                             <div class="product-item__middle">
-                                <h4 class="product-item__title"><a href=""><?php echo $product['name']; ?></a></h4>
+                                <h4 class="product-item__title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
                                 <div class="product-item__description">
                                     <?php echo $product['description']; ?>
                                 </div>

@@ -36,26 +36,14 @@
                         <div id="description" class="typography"><?php echo $description; ?></div>
                         <div id="specs">
                             <table class="specs__table">
-                                <tr>
-                                    <td>Наличие крыши</td>
-                                    <td>нет</td>
-                                </tr>
-                                <tr>
-                                    <td>Конструкция дверей</td>
-                                    <td>раздвижные</td>
-                                </tr>
-                                <tr>
-                                    <td>Тип задней стенки</td>
-                                    <td>стеклянная</td>
-                                </tr>
-                                <tr>
-                                    <td>Цвет задних стекол</td>
-                                    <td>матовый</td>
-                                </tr>
-                                <tr>
-                                    <td>Цвет передних стекол</td>
-                                    <td>матовый</td>
-                                </tr>
+                                <?php foreach ($attribute_groups as $attribute_group): ?>
+                                    <?php foreach ($attribute_group['attribute'] as $attribute): ?>
+                                    <tr>
+                                        <td><?php echo $attribute['name'] ?></td>
+                                        <td><?php echo $attribute['text'] ?></td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                <?php endforeach; ?>
                             </table>
                         </div>
                     </div>

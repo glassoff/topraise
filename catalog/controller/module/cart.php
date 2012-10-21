@@ -50,7 +50,9 @@ class ControllerModuleCart extends Controller {
 		$this->data['heading_title'] = $this->language->get('heading_title');
 
         //
-        $this->data['count'] = $this->cart->countProducts();
+        $this->load->helper('functions');
+
+        $this->data['count'] = $this->cart->countProducts() . ' ' . productsFormat($this->cart->countProducts());
         $this->data['total'] = $total;
 
 

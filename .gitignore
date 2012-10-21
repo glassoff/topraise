@@ -4,7 +4,6 @@ system/database
 system/engine
 system/logs
 system/library
-system/helper
 download/
 .idea/*
 .idea

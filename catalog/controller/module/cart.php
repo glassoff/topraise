@@ -48,7 +48,12 @@ class ControllerModuleCart extends Controller {
 		$this->data['totals'] = $total_data;
 		
 		$this->data['heading_title'] = $this->language->get('heading_title');
-		
+
+        //
+        $this->data['count'] = $this->cart->countProducts();
+        $this->data['total'] = $total;
+
+
 		$this->data['text_items'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total));
 		$this->data['text_empty'] = $this->language->get('text_empty');
 		$this->data['text_cart'] = $this->language->get('text_cart');
@@ -60,7 +65,7 @@ class ControllerModuleCart extends Controller {
 		
 		$this->data['products'] = array();
 			
-		foreach ($this->cart->getProducts() as $product) {
+		/*foreach ($this->cart->getProducts() as $product) {
 			if ($product['image']) {
 				$image = $this->model_tool_image->resize($product['image'], $this->config->get('config_image_cart_width'), $this->config->get('config_image_cart_height'));
 			} else {
@@ -110,7 +115,7 @@ class ControllerModuleCart extends Controller {
 				'total'    => $total,	
 				'href'     => $this->url->link('product/product', 'product_id=' . $product['product_id'])		
 			);
-		}
+		}*/
 		
 		// Gift Voucher
 		$this->data['vouchers'] = array();

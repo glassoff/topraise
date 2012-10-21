@@ -34,6 +34,7 @@
 
     <script src="catalog/view/theme/topraise/js/jquery-1.4.4.min.js"></script>
     <script src="catalog/view/theme/topraise/js/jquery.tools.min.js"></script>
+    <script src="catalog/view/theme/topraise/js/common.js"></script>
     <script type="text/javascript" src="catalog/view/javascript/jquery/tabs.js"></script>
     <script src="catalog/view/theme/topraise/js/gslider.js"></script>
 
@@ -69,13 +70,8 @@
                         <a class="header__content__right__action__text" href="">Наши акции</a>
                         <div class="header__content__right__action__label"><img src="catalog/view/theme/topraise/images/action-new.png" /></div>
                     </div>
-                    <div class="header__content__right__cart cartbar">
-                        <div class="cartbar__content">
-                            <p><a href="">Ваша корзина</a></p>
-                            <p><span class="price price__small_italic">20000 <span class="price__sign">Р</span><span class="price__dot">уб.</span></span></p>
-                            <p>1 товар</p>
-                        </div>
-                        <a href="" class="cartbar__icon"><img src="catalog/view/theme/topraise/images/cart-icon.png" /></a>
+                    <div class="header__content__right__cart">
+                        <?php echo $cart; ?>
                     </div>
                 </div>
             </div>

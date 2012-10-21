@@ -30,7 +30,7 @@
                             </div>
                             <div class="product-item__buy">
                                 <span class="price price__big"><?php echo $product['price']; ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span>
-                                <button class="button button_buy">Купить</button>
+                                <button class="button button_buy tocart" data-productid="<?php echo $product['product_id']; ?>">Купить</button>
                             </div>
                         </div>
 
@@ -56,7 +56,7 @@
                     </div>
                     <div class="product-item__buy">
                         <span class="price price__big"><?php echo $product['price']; ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span>
-                        <button class="button button_buy">Купить</button>
+                        <button class="button button_buy tocart">Купить</button>
                     </div>
                 </div>
                 <?php } ?>

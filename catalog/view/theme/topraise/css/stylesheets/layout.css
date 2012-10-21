@@ -713,3 +713,76 @@ p {
 .button_green:active {
   background-position: -220px -24px;
 }
+
+/* notifications */
+/* line 338, ../sass/layout.scss */
+.success, .warning, .attention, .information {
+  padding: 10px 10px 10px 33px;
+  margin-bottom: 15px;
+  color: #555555;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -khtml-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  line-height: 1;
+  margin-top: 6px;
+}
+
+/* line 349, ../sass/layout.scss */
+.success {
+  background: #eaf7d9 url("../../../default/image/success.png") 10px center no-repeat;
+  border: 1px solid #BBDF8D;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -khtml-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+/* line 357, ../sass/layout.scss */
+.warning {
+  background: #ffd1d1 url("../../../default/image/warning.png") 10px center no-repeat;
+  border: 1px solid #F8ACAC;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -khtml-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+/* line 365, ../sass/layout.scss */
+.attention {
+  background: #fff5cc url("../../../default/image/attention.png") 10px center no-repeat;
+  border: 1px solid #F2DD8C;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -khtml-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+/* line 373, ../sass/layout.scss */
+.success .close, .warning .close, .attention .close, .information .close {
+  float: right;
+  padding-top: 4px;
+  padding-right: 4px;
+  cursor: pointer;
+}
+
+/* line 379, ../sass/layout.scss */
+.required {
+  color: #FF0000;
+  font-weight: bold;
+}
+
+/* line 383, ../sass/layout.scss */
+.error {
+  display: block;
+  color: #FF0000;
+}
+
+/* line 387, ../sass/layout.scss */
+.help {
+  color: #999;
+  font-size: 10px;
+  font-weight: normal;
+  font-family: Verdana, Geneva, sans-serif;
+  display: block;
+}

@@ -2,6 +2,12 @@ $(function(){
     $('.tocart').click(function(){
         addToCart($(this).data('productid'));
     });
+
+    $('.success img, .warning img, .attention img, .information img').live('click', function() {
+        $(this).parent().fadeOut('slow', function() {
+            $(this).remove();
+        });
+    });
 });
 
 function addToCart(product_id, quantity) {

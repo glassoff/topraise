@@ -19,7 +19,6 @@ class ControllerCommonHome extends Controller {
 			'common/content_bottom',
 			'common/footer',
 			'common/header',
-            'module/homeLatest',
 		);
 										
 		$this->response->setOutput($this->render());

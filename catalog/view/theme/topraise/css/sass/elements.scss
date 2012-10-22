@@ -163,7 +163,10 @@
             &:last-child{
                 margin-right:0px;
             }
-        }        
+        }
+        .eg_previous_link, .eg_next_link{
+            top:40%;
+        }
     }
 
 /* product item */

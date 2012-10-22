@@ -153,55 +153,11 @@
             </div></div></div>
         </div>
     </div>
+
     <div class="home__new">
         <h2 class="header-dots"><b>Наши новинки</b></h2>
-        <div class="home__new__content">
-            <div class="b-images evo-gallery" data-totalPages="2"><div class="b-images__scrollable"><div class="b-images__pages">
-                <!-- new -->
-                <ul>
-                    <li class="product-item product-item_short">
-                        <div class="product-item__img">
-                            <a href=""><img src="catalog/view/theme/topraise/images/test1.jpg" /></a>
-                        </div>
-                        <h4 class="product-item__title"><a href="">Душевая кабина Borneo 822.960.141 90х90</a></h4>
-                    </li>
-                    <li class="product-item product-item_short">
-                        <div class="product-item__img">
-                            <a href=""><img src="catalog/view/theme/topraise/images/test1.jpg" /></a>
-                        </div>
-                        <h4 class="product-item__title"><a href="">Душевая кабина Borneo 822.960.141 90х90</a></h4>
-                    </li>
-                    <li class="product-item product-item_short">
-                        <div class="product-item__img">
-                            <a href=""><img src="catalog/view/theme/topraise/images/test1.jpg" /></a>
-                        </div>
-                        <h4 class="product-item__title"><a href="">Душевая кабина Borneo 822.960.141 90х90</a></h4>
-                    </li>
-                    <li class="product-item product-item_short">
-                        <div class="product-item__img">
-                            <a href=""><img src="catalog/view/theme/topraise/images/test1.jpg" /></a>
-                        </div>
-                        <h4 class="product-item__title"><a href="">Душевая кабина Borneo 822.960.141 90х90</a></h4>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="product-item product-item_short">
-                        <div class="product-item__img">
-                            <a href=""><img src="catalog/view/theme/topraise/images/test1.jpg" /></a>
-                        </div>
-                        <h4 class="product-item__title"><a href="">Душевая кабина Borneo 822.960.141 90х90</a></h4>
-                    </li>
-                    <li class="product-item product-item_short">
-                        <div class="product-item__img">
-                            <a href=""><img src="catalog/view/theme/topraise/images/test1.jpg" /></a>
-                        </div>
-                        <h4 class="product-item__title"><a href="">Душевая кабина Borneo 822.960.141 90х90</a></h4>
-                    </li>
-                </ul>
-                <!-- new -->
-            </div></div></div>
-        </div>
-    </div>
+        <?php echo $homeLatest ?>
+     </div>
 </div>
 
 <?php echo $footer; ?>

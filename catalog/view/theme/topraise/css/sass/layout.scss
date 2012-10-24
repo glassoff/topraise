@@ -231,12 +231,12 @@ p{
     }
     .page__middle{
         @include clearfix;
-        margin: 8px 0 0 0;
+        margin: 8px 0 0 12px;
     }
         .page__middle__left{
             @include float-left;
             width:276px;
-            margin: 30px 0 0 12px;
+            margin: 30px 0 0 0;
             //@include debug;
         }
         .page__middle__right{

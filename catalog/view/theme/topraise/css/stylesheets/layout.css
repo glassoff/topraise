@@ -563,7 +563,7 @@ p {
 .page__middle {
   overflow: hidden;
   *zoom: 1;
-  margin: 8px 0 0 0;
+  margin: 8px 0 0 12px;
 }
 
 /* line 236, ../sass/layout.scss */
@@ -571,7 +571,7 @@ p {
   display: inline;
   float: left;
   width: 276px;
-  margin: 30px 0 0 12px;
+  margin: 30px 0 0 0;
 }
 
 /* line 242, ../sass/layout.scss */

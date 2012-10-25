@@ -566,6 +566,28 @@
                 left:88px;
             }
 
+/* checkout amount */
+.checkout-amount{
+    @include float-right;
+
+}
+
+/* checkout price */
+.checkout-price{
+    .price{
+        font-size: 18pt;
+    }
+}
+    .checkout-price__title{
+        @include inline-block;
+        height: 18pt;
+        line-height: 18pt;
+        margin: 0 10px 0 0;
+    }
+    .checkout-price__value{
+        @include inline-block;
+    }
+
 
 
 

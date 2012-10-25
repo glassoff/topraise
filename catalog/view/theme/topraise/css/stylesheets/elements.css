@@ -882,3 +882,39 @@
   top: 9px;
   left: 88px;
 }
+
+/* checkout amount */
+/* line 570, ../sass/elements.scss */
+.checkout-amount {
+  display: inline;
+  float: right;
+}
+
+/* checkout price */
+/* line 577, ../sass/elements.scss */
+.checkout-price .price {
+  font-size: 18pt;
+}
+
+/* line 581, ../sass/elements.scss */
+.checkout-price__title {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  height: 18pt;
+  line-height: 18pt;
+  margin: 0 10px 0 0;
+}
+
+/* line 587, ../sass/elements.scss */
+.checkout-price__value {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}

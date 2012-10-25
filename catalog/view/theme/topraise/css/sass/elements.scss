@@ -588,6 +588,7 @@
         @include inline-block;
     }
 
+
 /* cart table */
 .cart-table{
     width: 100%;
@@ -651,5 +652,26 @@
             font-size: 9pt;
         }
 
+/* checkout button */
+.content_checkout__button{
+    width: 133px;
+    height: 39px;
+    line-height: 39px;
+    font-size: 13pt;
+    background: 0 0 no-repeat url(../../images/checkout-button.png);
+    &:hover{
+        background-position: -133px 0;
+    }
+    &:active{
+        background-position: -266px 0;
+    }
+}
+.content_checkout__button_disabled{
+    background-position: -399px 0;
+}
+.content_checkout__button_next{
+    @include float-right;
+    margin-left: 23px;
+}
 
 

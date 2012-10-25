@@ -920,36 +920,36 @@
 }
 
 /* cart table */
-/* line 592, ../sass/elements.scss */
+/* line 593, ../sass/elements.scss */
 .cart-table {
   width: 100%;
   margin: 30px 0 0 0;
 }
-/* line 598, ../sass/elements.scss */
+/* line 599, ../sass/elements.scss */
 .cart-table th, .cart-table td {
   text-align: center;
   border-bottom: 1px dashed #000;
 }
-/* line 603, ../sass/elements.scss */
+/* line 604, ../sass/elements.scss */
 .cart-table th {
   padding: 12px 0;
 }
-/* line 606, ../sass/elements.scss */
+/* line 607, ../sass/elements.scss */
 .cart-table td {
   padding: 20px 0;
 }
-/* line 608, ../sass/elements.scss */
+/* line 609, ../sass/elements.scss */
 .cart-table td .product-item-left {
   margin: 0 auto;
 }
 
-/* line 614, ../sass/elements.scss */
+/* line 615, ../sass/elements.scss */
 .cart-table__count-field {
   width: 30px;
   text-align: right;
 }
 
-/* line 618, ../sass/elements.scss */
+/* line 619, ../sass/elements.scss */
 .cart-table__checkbox {
   width: 34px;
   height: 38px;
@@ -957,38 +957,68 @@
   margin: 0 auto;
 }
 
-/* line 624, ../sass/elements.scss */
+/* line 625, ../sass/elements.scss */
 .cart-table__checkbox_active {
   background: -34px 0 no-repeat url(../../images/cart-sprite.png);
 }
 
 /* product item left */
-/* line 629, ../sass/elements.scss */
+/* line 630, ../sass/elements.scss */
 .product-item-left {
   overflow: hidden;
   *zoom: 1;
   width: 270px;
 }
 
-/* line 634, ../sass/elements.scss */
+/* line 635, ../sass/elements.scss */
 .product-item-left__img {
   display: inline;
   float: left;
   margin: 0 20px 0 0;
 }
-/* line 636, ../sass/elements.scss */
+/* line 637, ../sass/elements.scss */
 .product-item-left__img img {
   width: 59px;
   height: 100px;
 }
 
-/* line 642, ../sass/elements.scss */
+/* line 643, ../sass/elements.scss */
 .product-item-left__content {
   text-align: left;
 }
 
-/* line 649, ../sass/elements.scss */
+/* line 650, ../sass/elements.scss */
 .product-item-left__content__description {
   margin: 8px 0 0 0;
   font-size: 9pt;
+}
+
+/* checkout button */
+/* line 656, ../sass/elements.scss */
+.content_checkout__button {
+  width: 133px;
+  height: 39px;
+  line-height: 39px;
+  font-size: 13pt;
+  background: 0 0 no-repeat url(../../images/checkout-button.png);
+}
+/* line 662, ../sass/elements.scss */
+.content_checkout__button:hover {
+  background-position: -133px 0;
+}
+/* line 665, ../sass/elements.scss */
+.content_checkout__button:active {
+  background-position: -266px 0;
+}
+
+/* line 669, ../sass/elements.scss */
+.content_checkout__button_disabled {
+  background-position: -399px 0;
+}
+
+/* line 672, ../sass/elements.scss */
+.content_checkout__button_next {
+  display: inline;
+  float: right;
+  margin-left: 23px;
 }

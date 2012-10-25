@@ -391,3 +391,17 @@ p{
     font-family: Verdana, Geneva, sans-serif;
     display: block;
 }
+
+/* content */
+.content{
+
+}
+.content_checkout{
+
+}
+    .content_checkout__top{
+        @include clearfix;
+    }
+    .content_checkout__bottom{
+        margin-top: 30px;
+    }

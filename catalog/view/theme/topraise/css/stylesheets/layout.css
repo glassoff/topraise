@@ -786,3 +786,15 @@ p {
   font-family: Verdana, Geneva, sans-serif;
   display: block;
 }
+
+/* content */
+/* line 402, ../sass/layout.scss */
+.content_checkout__top {
+  overflow: hidden;
+  *zoom: 1;
+}
+
+/* line 405, ../sass/layout.scss */
+.content_checkout__bottom {
+  margin-top: 30px;
+}

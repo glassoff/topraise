@@ -626,6 +626,18 @@
         background: -34px 0 no-repeat url(../../images/cart-sprite.png);
     }
 
+    .cart-table__delete{
+        width: 20px;
+        height: 20px;
+        background: -68px 0 no-repeat url(../../images/cart-sprite.png);
+        margin: 0 auto;
+        margin-top: 15px;
+        display: block;
+        &:hover{
+            background-position: -88px 0;
+        }
+    }
+
 /* product item left */
 .product-item-left{
     //@include debug;

@@ -962,39 +962,53 @@
   background: -34px 0 no-repeat url(../../images/cart-sprite.png);
 }
 
+/* line 629, ../sass/elements.scss */
+.cart-table__delete {
+  width: 20px;
+  height: 20px;
+  background: -68px 0 no-repeat url(../../images/cart-sprite.png);
+  margin: 0 auto;
+  margin-top: 15px;
+  display: block;
+}
+/* line 636, ../sass/elements.scss */
+.cart-table__delete:hover {
+  background-position: -88px 0;
+}
+
 /* product item left */
-/* line 630, ../sass/elements.scss */
+/* line 642, ../sass/elements.scss */
 .product-item-left {
   overflow: hidden;
   *zoom: 1;
   width: 270px;
 }
 
-/* line 635, ../sass/elements.scss */
+/* line 647, ../sass/elements.scss */
 .product-item-left__img {
   display: inline;
   float: left;
   margin: 0 20px 0 0;
 }
-/* line 637, ../sass/elements.scss */
+/* line 649, ../sass/elements.scss */
 .product-item-left__img img {
   width: 59px;
   height: 100px;
 }
 
-/* line 643, ../sass/elements.scss */
+/* line 655, ../sass/elements.scss */
 .product-item-left__content {
   text-align: left;
 }
 
-/* line 650, ../sass/elements.scss */
+/* line 662, ../sass/elements.scss */
 .product-item-left__content__description {
   margin: 8px 0 0 0;
   font-size: 9pt;
 }
 
 /* checkout button */
-/* line 656, ../sass/elements.scss */
+/* line 668, ../sass/elements.scss */
 .content_checkout__button {
   width: 133px;
   height: 39px;
@@ -1002,21 +1016,21 @@
   font-size: 13pt;
   background: 0 0 no-repeat url(../../images/checkout-button.png);
 }
-/* line 662, ../sass/elements.scss */
+/* line 674, ../sass/elements.scss */
 .content_checkout__button:hover {
   background-position: -133px 0;
 }
-/* line 665, ../sass/elements.scss */
+/* line 677, ../sass/elements.scss */
 .content_checkout__button:active {
   background-position: -266px 0;
 }
 
-/* line 669, ../sass/elements.scss */
+/* line 681, ../sass/elements.scss */
 .content_checkout__button_disabled {
   background-position: -399px 0;
 }
 
-/* line 672, ../sass/elements.scss */
+/* line 684, ../sass/elements.scss */
 .content_checkout__button_next {
   display: inline;
   float: right;

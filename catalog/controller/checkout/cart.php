@@ -228,7 +228,7 @@ class ControllerCheckoutCart extends Controller {
 				} else {
 					$total = false;
 				}
-				
+
         		$this->data['products'][] = array(
           			'key'      => $product['key'],
           			'thumb'    => $image,
@@ -241,7 +241,8 @@ class ControllerCheckoutCart extends Controller {
 					'price'    => $price,
 					'total'    => $total,
 					'href'     => $this->url->link('product/product', 'product_id=' . $product['product_id']),
-					'remove'   => $this->url->link('checkout/cart', 'remove=' . $product['key'])
+					'remove'   => $this->url->link('checkout/cart', 'remove=' . $product['key']),
+                    'description' => $product['description'],
 				);
       		}
 			
@@ -370,6 +371,8 @@ class ControllerCheckoutCart extends Controller {
 			}
 			
 			$this->data['totals'] = $total_data;
+
+            $this->data['total'] = $total;
 						
 			$this->data['continue'] = $this->url->link('common/home');
 						

@@ -249,6 +249,7 @@ class ControllerCheckoutCart extends Controller {
 					'href'     => $this->url->link('product/product', 'product_id=' . $product['product_id']),
 					'remove'   => $this->url->link('checkout/cart', 'remove=' . $product['key']),
                     'description' => $product['description'],
+                    'prevquantity' => $product['prevquantity'],
 				);
       		}
 			

@@ -32,7 +32,7 @@
     </div>
 </div>
 
-<form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
+<form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="cart-form">
     <table class="cart-table">
         <tr>
             <th></th>
@@ -42,9 +42,9 @@
             <th>Стоимость</th>
         </tr>
         <?php foreach ($products as $product): ?>
-        <tr>
+        <tr class="<?php if($product['quantity'] == 0): ?> excluded <?php endif; ?>">
             <td>
-                <div class="cart-table__checkbox cart-table__checkbox_active"></div>
+                <div class="cart-table__checkbox cart-checkbox <?php if($product['quantity'] > 0): ?> cart-table__checkbox_active <?php endif; ?>" data-productid="<?php echo $product['key']; ?>"></div>
             </td>
             <td>
                 <div class="product-item-left">
@@ -65,6 +65,7 @@
                 <span class="price"><?php echo $product['price']; ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span>
             </td>
             <td>
+                <input type="hidden" name="prevquantity[<?php echo $product['key']; ?>]" value="<?php echo $product['prevquantity']; ?>" />
                 <input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" class="cart-table__count-field"/>
             </td>
             <td>

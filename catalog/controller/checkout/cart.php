@@ -186,7 +186,7 @@ class ControllerCheckoutCart extends Controller {
 			
       		$this->data['products'] = array();
 			
-			$products = $this->cart->getProducts();
+			$products = $this->cart->getProducts(true);
 
       		foreach ($products as $product) {
 				$product_total = 0;
@@ -197,7 +197,7 @@ class ControllerCheckoutCart extends Controller {
 					}
 				}			
 				
-				if ($product['minimum'] > $product_total) {
+				if ($product_total > 0 && $product['minimum'] > $product_total) {
 					$this->data['error_warning'] = sprintf($this->language->get('error_minimum'), $product['name'], $product['minimum']);
 				}				
 					

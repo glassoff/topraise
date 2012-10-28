@@ -14,10 +14,14 @@ class Cart {
       		$this->session->data['cart'] = array();
     	}
 	}
-	      
-  	public function getProducts() {
-		if (!$this->data) {
+
+  	public function getProducts($all = false) {
+        $type = $all ? 'all' : 'normal';
+		if (!isset($this->data[$type]) || !$this->data[$type]) {
 			foreach ($this->session->data['cart'] as $key => $quantity) {
+                if(!$all && $quantity <= 0){
+                    continue;
+                }
 				$product = explode(':', $key);
 				$product_id = $product[0];
 				$stock = true;
@@ -215,7 +219,7 @@ class Cart {
 						$stock = false;
 					}
 					
-					$this->data[$key] = array(
+					$this->data[$type][$key] = array(
 						'key'             => $key,
 						'product_id'      => $product_query->row['product_id'],
 						'name'            => $product_query->row['name'],
@@ -248,7 +252,7 @@ class Cart {
 			}
 		}
 		
-		return $this->data;
+		return $this->data[$type];
   	}
 		  
   	public function add($product_id, $qty = 1, $option = array()) {

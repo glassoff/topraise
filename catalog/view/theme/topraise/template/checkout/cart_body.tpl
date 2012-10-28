@@ -1,3 +1,13 @@
+<?php if ($attention) { ?>
+<div class="attention"><?php echo $attention; ?><img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>
+<?php } ?>
+<?php if ($success) { ?>
+<div class="success"><?php echo $success; ?><img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>
+<?php } ?>
+<?php if ($error_warning) { ?>
+<div class="warning"><?php echo $error_warning; ?><img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>
+<?php } ?>
+
 <div class="content_checkout__top">
     <div class="checkout-steps">
         <div class="checkout-steps__title">Этапы покупки: </div>
@@ -53,7 +63,12 @@
                     </a>
                     <div class="product-item-left__content">
                         <h4 class="product-item-left__content__title">
-                            <a href="<?php echo $product['href']; ?>" title="<?php echo $product['name']; ?>"><?php echo $product['name']; ?></a>
+                            <a href="<?php echo $product['href']; ?>" title="<?php echo $product['name']; ?>">
+                                <?php echo $product['name']; ?>
+                            </a>
+                            <?php if (!$product['stock']) { ?>
+                            <span class="stock">***</span>
+                            <?php } ?>
                         </h4>
                         <div class="product-item-left__content__description">
                             <?php //echo $product['description'] ?>

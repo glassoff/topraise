@@ -1,9 +1,7 @@
 image/cache
 system/cache
 system/database
-system/engine
 system/logs
-system/library
 download/
 .idea/*
 .idea

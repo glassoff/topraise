@@ -389,6 +389,12 @@ class ControllerCheckoutCart extends Controller {
 			$this->data['checkout'] = $this->url->link('checkout/checkout', '', 'SSL');
 
             //
+            $this->load->helper('functions');
+
+            $this->data['count'] = $this->cart->countProducts() . ' ' . productsFormat($this->cart->countProducts());
+            $this->data['total'] = $total;
+
+            //
             if($this->isAjax()){
                 $this->template = $this->config->get('config_template') . '/template/checkout/cart_body.tpl';
             }

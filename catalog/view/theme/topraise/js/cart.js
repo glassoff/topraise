@@ -36,7 +36,9 @@ $(function(){
 
 
     $('.cart-delete').live('click', function(){
-        $('#cart-body').load($(this).attr('href'));
+        $('#cart-body').load($(this).attr('href'), function(data){
+            onCartUpdate(data);
+        });
         return false;
     });
 
@@ -51,8 +53,15 @@ $(function(){
             data: form.serializeArray(),
             success: function(data){
                 $('#cart-body').html(data);
+                onCartUpdate(data);
             }
         });
+    }
+
+    function onCartUpdate(data)
+    {
+        $('#cart-total').html(cartCount);
+        $('#cart-total-price').html(cartTotal);
     }
 
 });

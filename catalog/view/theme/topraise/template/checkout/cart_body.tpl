@@ -91,3 +91,8 @@
     </div>
 
 </div>
+
+<script>
+    var cartCount = '<?php echo $count ?>';
+    var cartTotal = '<?php echo $total ?>';
+</script>

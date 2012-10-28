@@ -20,8 +20,11 @@ class ControllerCheckoutCart extends Controller {
 			unset($this->session->data['payment_method']);
 			unset($this->session->data['payment_methods']); 
 			unset($this->session->data['reward']);
-			
-			$this->redirect($this->url->link('checkout/cart'));  			
+
+            //
+            if(!$this->isAjax()){
+                $this->redirect($this->url->link('checkout/cart'));
+            }
 		}
        	
 		// Remove
@@ -80,6 +83,9 @@ class ControllerCheckoutCart extends Controller {
 		}
 		
 		$this->document->setTitle($this->language->get('heading_title'));
+
+        //
+        $this->document->addScript('catalog/view/theme/topraise/js/cart.js');
 
       	$this->data['breadcrumbs'] = array();
 
@@ -378,23 +384,33 @@ class ControllerCheckoutCart extends Controller {
 						
 			$this->data['checkout'] = $this->url->link('checkout/checkout', '', 'SSL');
 
-			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/cart.tpl')) {
-				$this->template = $this->config->get('config_template') . '/template/checkout/cart.tpl';
-			} else {
-				$this->template = 'default/template/checkout/cart.tpl';
-			}
-			
-			$this->children = array(
-				'common/column_left',
-				'common/column_right',
-				'common/content_bottom',
-				'common/content_top',
-				'common/footer',
-				'common/header'	
-			);
-						
-			$this->response->setOutput($this->render());					
+            //
+            if($this->isAjax()){
+                $this->template = $this->config->get('config_template') . '/template/checkout/cart_body.tpl';
+            }
+            else{
+                if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/cart.tpl')) {
+                    $this->template = $this->config->get('config_template') . '/template/checkout/cart.tpl';
+                } else {
+                    $this->template = 'default/template/checkout/cart.tpl';
+                }
+
+                $this->children = array(
+                    'common/column_left',
+                    'common/column_right',
+                    'common/content_bottom',
+                    'common/content_top',
+                    'common/footer',
+                    'common/header'
+                );
+
+            }
+
+			$this->response->setOutput($this->render());
+
     	} else {
+            //TODO ajax
+
       		$this->data['heading_title'] = $this->language->get('heading_title');
 
       		$this->data['text_error'] = $this->language->get('text_empty');

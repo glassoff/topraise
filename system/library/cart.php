@@ -250,6 +250,10 @@ class Cart {
 					$this->remove($key);
 				}
 			}
+
+            if (!isset($this->data[$type]) || !$this->data[$type]){
+                $this->data[$type] = array();
+            }
 		}
 		
 		return $this->data[$type];

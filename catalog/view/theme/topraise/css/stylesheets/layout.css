@@ -730,8 +730,8 @@ p {
 
 /* line 349, ../sass/layout.scss */
 .success {
-  background: #eaf7d9 url("../../../default/image/success.png") 10px center no-repeat;
-  border: 1px solid #BBDF8D;
+  background: #d9eaf7 url("../../../default/image/success.png") 10px center no-repeat;
+  border: 1px solid #8dbcdf;
   -webkit-border-radius: 5px 5px 5px 5px;
   -moz-border-radius: 5px 5px 5px 5px;
   -khtml-border-radius: 5px 5px 5px 5px;

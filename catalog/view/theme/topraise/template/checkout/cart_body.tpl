@@ -70,7 +70,7 @@
             </td>
             <td>
                 <span class="price"><?php echo $product['total']; ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span>
-                <a class="cart-table__delete" href="<?php echo $product['remove']; ?>" title="<?php echo $button_remove; ?>"></a>
+                <a class="cart-table__delete cart-delete" href="<?php echo $product['remove']; ?>" title="<?php echo $button_remove; ?>"></a>
             </td>
         </tr>
         <?php endforeach; ?>

@@ -39,9 +39,12 @@ class ControllerCheckoutCart extends Controller {
 			unset($this->session->data['shipping_methods']);
 			unset($this->session->data['payment_method']);
 			unset($this->session->data['payment_methods']); 
-			unset($this->session->data['reward']);  
-								
-			$this->redirect($this->url->link('checkout/cart'));
+			unset($this->session->data['reward']);
+
+            //
+            if(!$this->isAjax()){
+			    $this->redirect($this->url->link('checkout/cart'));
+            }
 		}
 			
 		// Coupon    
@@ -410,7 +413,6 @@ class ControllerCheckoutCart extends Controller {
 			$this->response->setOutput($this->render());
 
     	} else {
-            //TODO ajax
 
       		$this->data['heading_title'] = $this->language->get('heading_title');
 
@@ -422,20 +424,26 @@ class ControllerCheckoutCart extends Controller {
 
 			unset($this->session->data['success']);
 
-			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/error/not_found.tpl')) {
-				$this->template = $this->config->get('config_template') . '/template/error/not_found.tpl';
-			} else {
-				$this->template = 'default/template/error/not_found.tpl';
-			}
-			
-			$this->children = array(
-				'common/column_left',
-				'common/column_right',
-				'common/content_top',
-				'common/content_bottom',
-				'common/footer',
-				'common/header'	
-			);
+            if($this->isAjax()){
+                $this->template = $this->config->get('config_template') . '/template/error/not_found_content.tpl';
+            }
+            else{
+                if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/error/not_found.tpl')) {
+                    $this->template = $this->config->get('config_template') . '/template/error/not_found.tpl';
+                } else {
+                    $this->template = 'default/template/error/not_found.tpl';
+                }
+
+                $this->children = array(
+                    'common/column_left',
+                    'common/column_right',
+                    'common/content_top',
+                    'common/content_bottom',
+                    'common/footer',
+                    'common/header'
+                );
+            }
+
 					
 			$this->response->setOutput($this->render());			
     	}

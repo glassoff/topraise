@@ -35,6 +35,12 @@ $(function(){
     });
 
 
+    $('.cart-delete').live('click', function(){
+        $('#cart-body').load($(this).attr('href'));
+        return false;
+    });
+
+
     function updateCart()
     {
         var form = $('#cart-form');

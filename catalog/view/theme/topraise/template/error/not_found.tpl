@@ -9,7 +9,8 @@
         <div class="page__middle__right content">
             <h1 class="content__header"><?php echo $heading_title; ?></h1>
 
-            <?php echo $text_error; ?>
+            <?php require_once('not_found.tpl') ?>
+
         </div>
     </div>
 </div>

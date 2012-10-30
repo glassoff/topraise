@@ -1044,22 +1044,31 @@
   line-height: 39px;
   font-size: 13pt;
   background: 0 0 no-repeat url(../../images/checkout-button.png);
+  /*@include link-colors(#000, #000, #000, #000, #000);*/
 }
-/* line 683, ../sass/elements.scss */
+/* line 684, ../sass/elements.scss */
 .content_checkout__button:hover {
   background-position: -133px 0;
 }
-/* line 686, ../sass/elements.scss */
+/* line 687, ../sass/elements.scss */
 .content_checkout__button:active {
   background-position: -266px 0;
 }
 
-/* line 690, ../sass/elements.scss */
+/* line 691, ../sass/elements.scss */
 .content_checkout__button_disabled {
   background-position: -399px 0;
 }
-
 /* line 693, ../sass/elements.scss */
+.content_checkout__button_disabled:hover {
+  background-position: -399px 0;
+}
+/* line 696, ../sass/elements.scss */
+.content_checkout__button_disabled:active {
+  background-position: -399px 0;
+}
+
+/* line 700, ../sass/elements.scss */
 .content_checkout__button_next {
   display: inline;
   float: right;

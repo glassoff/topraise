@@ -680,6 +680,7 @@
     line-height: 39px;
     font-size: 13pt;
     background: 0 0 no-repeat url(../../images/checkout-button.png);
+    /*@include link-colors(#000, #000, #000, #000, #000);*/
     &:hover{
         background-position: -133px 0;
     }
@@ -689,6 +690,12 @@
 }
 .content_checkout__button_disabled{
     background-position: -399px 0;
+    &:hover{
+        background-position: -399px 0;
+    }
+    &:active{
+        background-position: -399px 0;
+    }
 }
 .content_checkout__button_next{
     @include float-right;

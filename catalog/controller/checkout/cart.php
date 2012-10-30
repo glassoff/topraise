@@ -174,7 +174,7 @@ class ControllerCheckoutCart extends Controller {
 				$this->data['success'] = '';
 			}
 			
-			$this->data['action'] = $this->url->link('checkout/cart');   
+			$this->data['action'] = $this->url->link('checkout/cart');
 						
 			if ($this->config->get('config_cart_weight')) {
 				$this->data['weight'] = $this->weight->format($this->cart->getWeight(), $this->config->get('config_weight_class_id'), $this->language->get('decimal_point'), $this->language->get('thousand_point'));
@@ -397,6 +397,10 @@ class ControllerCheckoutCart extends Controller {
             //
             if($this->isAjax()){
                 $this->template = $this->config->get('config_template') . '/template/checkout/cart_body.tpl';
+
+                $this->children = array(
+                    'checkout/shipping_method',
+                );
             }
             else{
                 if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/cart.tpl')) {
@@ -411,7 +415,8 @@ class ControllerCheckoutCart extends Controller {
                     'common/content_bottom',
                     'common/content_top',
                     'common/footer',
-                    'common/header'
+                    'common/header',
+                    'checkout/shipping_method',
                 );
 
             }

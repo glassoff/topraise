@@ -10,8 +10,14 @@ class ControllerCheckoutShippingMethod extends Controller {
 		} elseif (isset($this->session->data['guest'])) {
 			$shipping_address = $this->session->data['guest']['shipping'];
 		}
+          else{
+                $shipping_address = array(
+                    'country_id' => 176,
+                    'zone_id' => 2789
+                );
+          }
 		
-		if (!empty($shipping_address)) {
+		//if (!empty($shipping_address)) {
 			// Shipping Methods
 			$quote_data = array();
 			
@@ -23,7 +29,7 @@ class ControllerCheckoutShippingMethod extends Controller {
 				if ($this->config->get($result['code'] . '_status')) {
 					$this->load->model('shipping/' . $result['code']);
 					
-					$quote = $this->{'model_shipping_' . $result['code']}->getQuote($shipping_address); 
+					$quote = $this->{'model_shipping_' . $result['code']}->getQuote($shipping_address);
 		
 					if ($quote) {
 						$quote_data[$result['code']] = array( 
@@ -45,7 +51,7 @@ class ControllerCheckoutShippingMethod extends Controller {
 			array_multisort($sort_order, SORT_ASC, $quote_data);
 			
 			$this->session->data['shipping_methods'] = $quote_data;
-		}
+		//}
 					
 		$this->data['text_shipping_method'] = $this->language->get('text_shipping_method');
 		$this->data['text_comments'] = $this->language->get('text_comments');
@@ -103,6 +109,13 @@ class ControllerCheckoutShippingMethod extends Controller {
 		} elseif (isset($this->session->data['guest'])) {
 			$shipping_address = $this->session->data['guest']['shipping'];
 		}
+        else{
+            //
+            $shipping_address = array(
+                'country_id' => 176,
+                'zone_id' => 2789
+            );
+        }
 		
 		if (empty($shipping_address)) {								
 			$json['redirect'] = $this->url->link('checkout/checkout', '', 'SSL');
@@ -152,7 +165,8 @@ class ControllerCheckoutShippingMethod extends Controller {
 			}							
 		}
 		
-		$this->response->setOutput(json_encode($json));	
+		$this->response->setOutput(json_encode($json));
+
 	}
 }
 ?>

@@ -92,8 +92,13 @@
     </table>
 </form>
 
+<?php echo $shipping_method ?>
+
 <div class="content_checkout__bottom">
-    <button class="button content_checkout__button content_checkout__button_next">Продолжить</button>
+    <form action="index.php?route=checkout/payment_address" method="get">
+        <input type="hidden" name="route" value="checkout/payment_address" />
+        <button class="button content_checkout__button content_checkout__button_next" type="submit" id="next-button">Продолжить</button>
+    </form>
     <div class="checkout-amount">
         <div class="checkout-price">
             <div class="checkout-price__title">
@@ -106,6 +111,7 @@
     </div>
 
 </div>
+
 
 <script>
     var cartCount = '<?php echo $count ?>';

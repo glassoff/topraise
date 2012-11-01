@@ -13,7 +13,7 @@ class ControllerCheckoutConfirm extends Controller {
 				$shipping_address = $this->session->data['guest']['shipping'];
 			}
 			
-			if (empty($shipping_address)) {								
+			if (empty($shipping_address)) {
 				$redirect = $this->url->link('checkout/checkout', '', 'SSL');
 			}
 			
@@ -382,13 +382,24 @@ class ControllerCheckoutConfirm extends Controller {
 			$this->data['payment'] = $this->getChild('payment/' . $this->session->data['payment_method']['code']);
 		} else {
 			$this->data['redirect'] = $redirect;
-		}			
+		}
+
+        $this->data['total'] = $total;
 		
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/confirm.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/checkout/confirm.tpl';
 		} else {
 			$this->template = 'default/template/checkout/confirm.tpl';
 		}
+
+        $this->children = array(
+            'common/column_left',
+            'common/column_right',
+            'common/content_bottom',
+            'common/content_top',
+            'common/footer',
+            'common/header',
+        );
 		
 		$this->response->setOutput($this->render());	
   	}

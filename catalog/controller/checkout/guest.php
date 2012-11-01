@@ -145,6 +145,50 @@ class ControllerCheckoutGuest extends Controller {
 		$this->data['countries'] = $this->model_localisation_country->getCountries();
 		
 		$this->data['shipping_required'] = $this->cart->hasShipping();
+
+
+          //
+          // Totals
+          $this->load->model('setting/extension');
+
+          $total_data = array();
+          $total = 0;
+          $taxes = $this->cart->getTaxes();
+
+          // Display prices
+          if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
+              $sort_order = array();
+
+              $results = $this->model_setting_extension->getExtensions('total');
+
+              foreach ($results as $key => $value) {
+                  $sort_order[$key] = $this->config->get($value['code'] . '_sort_order');
+              }
+
+              array_multisort($sort_order, SORT_ASC, $results);
+
+              foreach ($results as $result) {
+                  if ($this->config->get($result['code'] . '_status')) {
+                      $this->load->model('total/' . $result['code']);
+
+                      $this->{'model_total_' . $result['code']}->getTotal($total_data, $total, $taxes);
+                  }
+
+                  $sort_order = array();
+
+                  foreach ($total_data as $key => $value) {
+                      $sort_order[$key] = $value['sort_order'];
+                  }
+
+                  array_multisort($sort_order, SORT_ASC, $total_data);
+              }
+          }
+
+          $this->data['totals'] = $total_data;
+
+          $this->data['total'] = $total;
+
+
 		
 		if (isset($this->session->data['guest']['shipping_address'])) {
 			$this->data['shipping_address'] = $this->session->data['guest']['shipping_address'];			
@@ -157,6 +201,15 @@ class ControllerCheckoutGuest extends Controller {
 		} else {
 			$this->template = 'default/template/checkout/guest.tpl';
 		}
+
+          $this->children = array(
+              'common/column_left',
+              'common/column_right',
+              'common/content_bottom',
+              'common/content_top',
+              'common/footer',
+              'common/header',
+          );
 		
 		$this->response->setOutput($this->render());		
   	}
@@ -351,11 +404,34 @@ class ControllerCheckoutGuest extends Controller {
 			}
 			
 			$this->session->data['account'] = 'guest';
+
+            //set payment method ##
+            $method_data = array();
+
+            $this->load->model('setting/extension');
+
+            $results = $this->model_setting_extension->getExtensions('payment');
+
+            foreach ($results as $result) {
+                if ($this->config->get($result['code'] . '_status')) {
+                    $this->load->model('payment/' . $result['code']);
+
+                    $total = 0;//
+                    $method = $this->{'model_payment_' . $result['code']}->getMethod($this->session->data['guest']['payment'], $total);
+
+                    if ($method) {
+                        $method_data[$result['code']] = $method;
+                    }
+                }
+            }
+            //print_r($method_data);die();
+            $this->session->data['payment_method'] = $method_data['free_checkout'];
+
 			
-			unset($this->session->data['shipping_method']);
-			unset($this->session->data['shipping_methods']);
-			unset($this->session->data['payment_method']);
-			unset($this->session->data['payment_methods']);
+			//unset($this->session->data['shipping_method']);
+			//unset($this->session->data['shipping_methods']);
+			//unset($this->session->data['payment_method']);
+			//unset($this->session->data['payment_methods']);
 		}
 					
 		$this->response->setOutput(json_encode($json));	

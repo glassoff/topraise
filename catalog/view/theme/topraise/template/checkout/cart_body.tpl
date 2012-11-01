@@ -96,7 +96,7 @@
 
 <div class="content_checkout__bottom">
     <form action="index.php?route=checkout/payment_address" method="get">
-        <input type="hidden" name="route" value="checkout/payment_address" />
+        <input type="hidden" name="route" value="checkout/guest" />
         <button class="button content_checkout__button content_checkout__button_next" type="submit" id="next-button">Продолжить</button>
     </form>
     <div class="checkout-amount">

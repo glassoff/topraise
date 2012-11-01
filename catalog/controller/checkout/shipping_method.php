@@ -17,7 +17,7 @@ class ControllerCheckoutShippingMethod extends Controller {
                 );
           }
 		
-		//if (!empty($shipping_address)) {
+		if (!empty($shipping_address)) {
 			// Shipping Methods
 			$quote_data = array();
 			
@@ -51,7 +51,7 @@ class ControllerCheckoutShippingMethod extends Controller {
 			array_multisort($sort_order, SORT_ASC, $quote_data);
 			
 			$this->session->data['shipping_methods'] = $quote_data;
-		//}
+		}
 					
 		$this->data['text_shipping_method'] = $this->language->get('text_shipping_method');
 		$this->data['text_comments'] = $this->language->get('text_comments');

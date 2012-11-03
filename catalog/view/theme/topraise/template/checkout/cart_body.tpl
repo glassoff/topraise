@@ -92,7 +92,10 @@
     </table>
 </form>
 
-<?php echo $shipping_method ?>
+<div id="shipping-method">
+    <?php echo $shipping_method ?>
+</div>
+
 
 <div class="content_checkout__bottom">
     <form action="index.php?route=checkout/payment_address" method="get">
@@ -114,6 +117,7 @@
 
 
 <script>
+    var hasError = <?php if($error_warning): ?>true<?php else: ?>false<?php endif;?>;
     var cartCount = '<?php echo $count ?>';
     var cartTotal = '<?php echo $total ?>';
 </script>

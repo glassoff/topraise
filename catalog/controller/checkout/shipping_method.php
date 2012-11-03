@@ -11,6 +11,7 @@ class ControllerCheckoutShippingMethod extends Controller {
 			$shipping_address = $this->session->data['guest']['shipping'];
 		}
           else{
+              //##
                 $shipping_address = array(
                     'country_id' => 176,
                     'zone_id' => 2789
@@ -145,7 +146,7 @@ class ControllerCheckoutShippingMethod extends Controller {
 			}				
 		}
 				
-		if (!$json) {
+		//if (!$json) {
 			if (!isset($this->request->post['shipping_method'])) {
 				$json['error']['warning'] = $this->language->get('error_shipping');
 			} else {
@@ -156,15 +157,15 @@ class ControllerCheckoutShippingMethod extends Controller {
 				}
 			}
 			
-			if (!$json) {
+			if (!isset($json['error']['warning']) || !$json['error']['warning']) {
 				$shipping = explode('.', $this->request->post['shipping_method']);
 					
 				$this->session->data['shipping_method'] = $this->session->data['shipping_methods'][$shipping[0]]['quote'][$shipping[1]];
 				
 				$this->session->data['comment'] = strip_tags($this->request->post['comment']);
-			}							
-		}
-		
+			}
+		//}
+
 		$this->response->setOutput(json_encode($json));
 
 	}

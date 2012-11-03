@@ -55,11 +55,17 @@ $(function(){
                     disabledNext = true;
                     disableNext();
                 }
+                else if (json['error']){
+                    if (json['error']['warning']) {
+                        $('#shipping-method').prepend('<div class="warning" style="display: none;">' + json['error']['warning'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+
+                        $('.warning').fadeIn('slow');
+                    }
+                }
                 else{
                     disabledNext = false;
-                    enableNext();
                 }
-
+                updateCart();
             }
         });
     });
@@ -74,16 +80,20 @@ $(function(){
     });
 
 
+    $('#next-button').live('click', function(){
+        return !disabledNext;
+    });
+
     function disableNext()
     {
-        $('#next-button').addClass('content_checkout__button_disabled').attr('disabled', 'disabled').parents('form').submit(function(){return false;});
+        $('#next-button').addClass('content_checkout__button_disabled').attr('disabled', 'disabled');
+        disabledNext = true;
     }
 
     function enableNext()
     {
-        console.log(disabledNext)
         if(!disabledNext){
-            $('#next-button').removeClass('content_checkout__button_disabled').attr('disabled', '').parents('form').submit(function(){return true;});
+            $('#next-button').removeClass('content_checkout__button_disabled').attr('disabled', '');
         }
 
     }
@@ -109,7 +119,14 @@ $(function(){
         $('#cart-total').html(cartCount);
         $('#cart-total-price').html(cartTotal);
 
-        $('[name=shipping_method]:checked').trigger('click');
+        //$('[name=shipping_method]:checked').trigger('click');
+        if(hasError){
+            disabledNext = true;
+            disableNext();
+        }
+        else{
+            disabledNext = false;
+        }
     }
 
 });

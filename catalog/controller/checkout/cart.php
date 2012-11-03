@@ -15,8 +15,8 @@ class ControllerCheckoutCart extends Controller {
 				$this->cart->update($key, $value);
 			}
 			
-			unset($this->session->data['shipping_method']);
-			unset($this->session->data['shipping_methods']);
+			//unset($this->session->data['shipping_method']);
+			//unset($this->session->data['shipping_methods']);
 			unset($this->session->data['payment_method']);
 			unset($this->session->data['payment_methods']); 
 			unset($this->session->data['reward']);
@@ -35,8 +35,8 @@ class ControllerCheckoutCart extends Controller {
 			
 			$this->session->data['success'] = $this->language->get('text_remove');
 		
-			unset($this->session->data['shipping_method']);
-			unset($this->session->data['shipping_methods']);
+			//unset($this->session->data['shipping_method']);
+			//unset($this->session->data['shipping_methods']);
 			unset($this->session->data['payment_method']);
 			unset($this->session->data['payment_methods']); 
 			unset($this->session->data['reward']);
@@ -581,8 +581,8 @@ class ControllerCheckoutCart extends Controller {
 
 				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
 				
-				unset($this->session->data['shipping_method']);
-				unset($this->session->data['shipping_methods']);
+				//unset($this->session->data['shipping_method']);
+				//unset($this->session->data['shipping_methods']);
 				unset($this->session->data['payment_method']);
 				unset($this->session->data['payment_methods']);
 				

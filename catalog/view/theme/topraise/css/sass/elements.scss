@@ -702,4 +702,31 @@
     margin-left: 23px;
 }
 
+/* shipping methods */
+.shipping-methods{
+    padding-left: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #000;
+    .subsubheader{
+        margin-top: 20px;
+    }
+    table{
+        tr{
+
+        }
+        td{
+            padding: 6px 0;
+        }
+        b{
+            font-weight: bold;
+        }
+        label{
+            margin-left: 6px;
+        }
+    }
+    .price{
+        font-size: 11pt;
+    }
+}
+
 

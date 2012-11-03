@@ -17,6 +17,7 @@ class ModelShippingDistance extends Model {
 
         if ($status) {
             $cost = 0;
+            $costKm = 0;
             $weight = $this->cart->getWeight();
 
             $rates = explode(',', $this->config->get('distance_rate'));
@@ -31,10 +32,10 @@ class ModelShippingDistance extends Model {
 
                 $quote_data['distance_' . $km] = array(
                     'code'         => 'distance.distance_' . $km,
-                    'title'        => $this->language->get('text_title') . '  (' . $this->language->get('text_weight') . ' ' . $this->weight->format($weight, $this->config->get('config_weight_class_id')) . ')',
+                    'title'        => 'в пределах ' .$km. ' км от города',//$this->language->get('text_title') . '  (' . $this->language->get('text_weight') . ' ' . $this->weight->format($weight, $this->config->get('config_weight_class_id')) . ')',
                     'cost'         => $costKm,
                     'tax_class_id' => $this->config->get('distance_tax_class_id'),
-                    'text'         => $this->currency->format($this->tax->calculate($cost, $this->config->get('distance_tax_class_id'), $this->config->get('config_tax')))
+                    'text'         => $this->currency->format($this->tax->calculate($costKm, $this->config->get('distance_tax_class_id'), $this->config->get('config_tax')))
                 );
 
                 /*if ($data[0] >= $weight) {

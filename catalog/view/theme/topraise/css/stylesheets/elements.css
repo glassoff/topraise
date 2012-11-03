@@ -1074,3 +1074,31 @@
   float: right;
   margin-left: 23px;
 }
+
+/* shipping methods */
+/* line 706, ../sass/elements.scss */
+.shipping-methods {
+  padding-left: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #000;
+}
+/* line 710, ../sass/elements.scss */
+.shipping-methods .subsubheader {
+  margin-top: 20px;
+}
+/* line 717, ../sass/elements.scss */
+.shipping-methods table td {
+  padding: 6px 0;
+}
+/* line 720, ../sass/elements.scss */
+.shipping-methods table b {
+  font-weight: bold;
+}
+/* line 723, ../sass/elements.scss */
+.shipping-methods table label {
+  margin-left: 6px;
+}
+/* line 727, ../sass/elements.scss */
+.shipping-methods .price {
+  font-size: 11pt;
+}

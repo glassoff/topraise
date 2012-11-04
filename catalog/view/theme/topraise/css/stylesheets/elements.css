@@ -1040,11 +1040,27 @@
 /* line 677, ../sass/elements.scss */
 .content_checkout__button {
   width: 133px;
-  height: 39px;
-  line-height: 39px;
+  height: 38px;
+  line-height: 38px;
   font-size: 13pt;
   background: 0 0 no-repeat url(../../images/checkout-button.png);
-  /*@include link-colors(#000, #000, #000, #000, #000);*/
+  color: black;
+}
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.content_checkout__button:visited {
+  color: black;
+}
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.content_checkout__button:focus {
+  color: black;
+}
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.content_checkout__button:hover {
+  color: black;
+}
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.content_checkout__button:active {
+  color: black;
 }
 /* line 684, ../sass/elements.scss */
 .content_checkout__button:hover {
@@ -1128,24 +1144,29 @@
 }
 
 /* checkout address */
-/* line 752, ../sass/elements.scss */
+/* line 751, ../sass/elements.scss */
+.checkout-address {
+  border-bottom: 1px dashed #000;
+  padding-bottom: 15px;
+}
+/* line 754, ../sass/elements.scss */
 .checkout-address .subsubheader {
   margin-top: 20px;
 }
-/* line 759, ../sass/elements.scss */
+/* line 761, ../sass/elements.scss */
 .checkout-address table td {
   vertical-align: top;
   padding: 6px 0;
   color: #0778ab;
 }
-/* line 764, ../sass/elements.scss */
+/* line 766, ../sass/elements.scss */
 .checkout-address table input, .checkout-address table textarea {
   border: 1px solid #0778ab;
   padding: 5px 5px;
   margin-top: -2px;
   width: 200px;
 }
-/* line 770, ../sass/elements.scss */
+/* line 772, ../sass/elements.scss */
 .checkout-address table textarea {
   width: 300px;
 }

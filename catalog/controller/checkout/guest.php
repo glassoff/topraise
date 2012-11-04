@@ -188,7 +188,7 @@ class ControllerCheckoutGuest extends Controller {
 
           $this->data['total'] = $total;
 
-
+        $this->data['back'] = $this->url->link('checkout/cart', '', 'SSL');
 		
 		if (isset($this->session->data['guest']['shipping_address'])) {
 			$this->data['shipping_address'] = $this->session->data['guest']['shipping_address'];			

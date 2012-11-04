@@ -48,8 +48,8 @@
         </div>
 
 
-
         <div class="content_checkout__bottom">
+            <a class="button button_a content_checkout__button" href="<?php echo $back; ?>">Вернуться</a>
             <button class="button content_checkout__button content_checkout__button_next" type="submit" id="button-guest">Продолжить</button>
             <div class="checkout-amount">
                 <div class="checkout-price">

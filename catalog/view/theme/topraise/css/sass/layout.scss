@@ -285,9 +285,13 @@ p{
 }
 .button_a{
     @include inline-block;
+    vertical-align: baseline;
     text-align: center;
     text-decoration: none;
     @include link-colors(#fff, #fff, #fff, #fff, #fff);
+    &:active{
+        text-indent: 1px;
+    }
 }
 .button_buy{
     width:61px;

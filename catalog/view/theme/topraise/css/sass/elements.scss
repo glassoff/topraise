@@ -676,11 +676,11 @@
 /* checkout button */
 .content_checkout__button{
     width: 133px;
-    height: 39px;
-    line-height: 39px;
+    height: 38px;
+    line-height: 38px;
     font-size: 13pt;
     background: 0 0 no-repeat url(../../images/checkout-button.png);
-    /*@include link-colors(#000, #000, #000, #000, #000);*/
+    @include link-colors(#000, #000, #000, #000, #000);
     &:hover{
         background-position: -133px 0;
     }
@@ -749,6 +749,8 @@
 
 /* checkout address */
 .checkout-address{
+    border-bottom: 1px dashed #000;
+    padding-bottom: 15px;
     .subsubheader{
         margin-top: 20px;
     }

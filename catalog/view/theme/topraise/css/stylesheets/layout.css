@@ -639,6 +639,7 @@ p {
   *vertical-align: auto;
   zoom: 1;
   *display: inline;
+  vertical-align: baseline;
   text-align: center;
   text-decoration: none;
   color: white;
@@ -659,8 +660,12 @@ p {
 .button_a:active {
   color: white;
 }
-
 /* line 292, ../sass/layout.scss */
+.button_a:active {
+  text-indent: 1px;
+}
+
+/* line 296, ../sass/layout.scss */
 .button_buy {
   width: 61px;
   height: 26px;
@@ -670,16 +675,16 @@ p {
   margin: 0 0 0 3px;
   font-size: 9pt;
 }
-/* line 300, ../sass/layout.scss */
+/* line 304, ../sass/layout.scss */
 .button_buy:hover {
   background-position: -61px 0;
 }
-/* line 303, ../sass/layout.scss */
+/* line 307, ../sass/layout.scss */
 .button_buy:active {
   background-position: -122px 0;
 }
 
-/* line 307, ../sass/layout.scss */
+/* line 311, ../sass/layout.scss */
 .button_red {
   width: 110px;
   height: 24px;
@@ -688,16 +693,16 @@ p {
   color: #fff;
   font-size: 10pt;
 }
-/* line 314, ../sass/layout.scss */
+/* line 318, ../sass/layout.scss */
 .button_red:hover {
   background-position: -110px 0;
 }
-/* line 317, ../sass/layout.scss */
+/* line 321, ../sass/layout.scss */
 .button_red:active {
   background-position: -220px 0;
 }
 
-/* line 322, ../sass/layout.scss */
+/* line 326, ../sass/layout.scss */
 .button_green {
   width: 110px;
   height: 24px;
@@ -706,17 +711,17 @@ p {
   color: #fff;
   font-size: 10pt;
 }
-/* line 329, ../sass/layout.scss */
+/* line 333, ../sass/layout.scss */
 .button_green:hover {
   background-position: -110px -24px;
 }
-/* line 332, ../sass/layout.scss */
+/* line 336, ../sass/layout.scss */
 .button_green:active {
   background-position: -220px -24px;
 }
 
 /* notifications */
-/* line 339, ../sass/layout.scss */
+/* line 343, ../sass/layout.scss */
 .success, .warning, .attention, .information {
   padding: 10px 10px 10px 33px;
   margin-bottom: 15px;
@@ -729,7 +734,7 @@ p {
   margin-top: 6px;
 }
 
-/* line 350, ../sass/layout.scss */
+/* line 354, ../sass/layout.scss */
 .success {
   background: #d9eaf7 url("../../../default/image/success.png") 10px center no-repeat;
   border: 1px solid #8dbcdf;
@@ -739,7 +744,7 @@ p {
   border-radius: 5px 5px 5px 5px;
 }
 
-/* line 358, ../sass/layout.scss */
+/* line 362, ../sass/layout.scss */
 .warning {
   background: #ffd1d1 url("../../../default/image/warning.png") 10px center no-repeat;
   border: 1px solid #F8ACAC;
@@ -749,7 +754,7 @@ p {
   border-radius: 5px 5px 5px 5px;
 }
 
-/* line 366, ../sass/layout.scss */
+/* line 370, ../sass/layout.scss */
 .attention {
   background: #fff5cc url("../../../default/image/attention.png") 10px center no-repeat;
   border: 1px solid #F2DD8C;
@@ -759,7 +764,7 @@ p {
   border-radius: 5px 5px 5px 5px;
 }
 
-/* line 374, ../sass/layout.scss */
+/* line 378, ../sass/layout.scss */
 .success .close, .warning .close, .attention .close, .information .close {
   float: right;
   padding-top: 4px;
@@ -767,19 +772,19 @@ p {
   cursor: pointer;
 }
 
-/* line 380, ../sass/layout.scss */
+/* line 384, ../sass/layout.scss */
 .required {
   color: #FF0000;
   font-weight: bold;
 }
 
-/* line 384, ../sass/layout.scss */
+/* line 388, ../sass/layout.scss */
 .error {
   display: block;
   color: #FF0000;
 }
 
-/* line 388, ../sass/layout.scss */
+/* line 392, ../sass/layout.scss */
 .help {
   color: #999;
   font-size: 10px;
@@ -789,13 +794,13 @@ p {
 }
 
 /* content */
-/* line 403, ../sass/layout.scss */
+/* line 407, ../sass/layout.scss */
 .content_checkout__top {
   overflow: hidden;
   *zoom: 1;
 }
 
-/* line 406, ../sass/layout.scss */
+/* line 410, ../sass/layout.scss */
 .content_checkout__bottom {
   overflow: hidden;
   *zoom: 1;

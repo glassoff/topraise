@@ -1102,3 +1102,27 @@
 .shipping-methods .price {
   font-size: 11pt;
 }
+
+/* checkout product list */
+/* line 733, ../sass/elements.scss */
+.checkout-products-list {
+  margin: 25px 0 0 0;
+  border: 1px dashed #000;
+  border-width: 1px 0;
+  padding: 0 0 10px 10px;
+}
+/* line 739, ../sass/elements.scss */
+.checkout-products-list .product-item-left {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin-top: 10px;
+  width: 240px;
+}
+/* line 745, ../sass/elements.scss */
+.checkout-products-list .price {
+  font-size: 11pt;
+}

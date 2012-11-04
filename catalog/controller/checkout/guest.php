@@ -209,6 +209,7 @@ class ControllerCheckoutGuest extends Controller {
               'common/content_top',
               'common/footer',
               'common/header',
+              'module/cart_products',
           );
 		
 		$this->response->setOutput($this->render());		

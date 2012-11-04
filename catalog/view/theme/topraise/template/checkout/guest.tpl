@@ -39,6 +39,9 @@
             </div>
         </div>
 
+        <div class="content_checkout__products">
+            <?php echo $cart_products; ?>
+        </div>
 
         <div id="payment-address">
             <?php require_once('guest_body.tpl') ?>

@@ -729,4 +729,22 @@
     }
 }
 
+/* checkout product list */
+.checkout-products-list{
+    margin: 25px 0 0 0;
+    border: 1px dashed #000;
+    border-width: 1px 0;
+    padding: 0 0 10px 10px;
+    //@include debug;
+    .product-item-left{
+        @include inline-block;
+        margin-top: 10px;
+        width: 240px;
+        //@include debug;
+    }
+    .price{
+        font-size: 11pt;
+    }
+}
+
 

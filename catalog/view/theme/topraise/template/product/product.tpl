@@ -63,9 +63,15 @@
 
                             if (json['error']) {
                                 if (json['error']['option']) {
-                                    for (i in json['error']['option']) {
+                                    /*for (i in json['error']['option']) {
                                         $('#option-' + i).after('<span class="error">' + json['error']['option'][i] + '</span>');
-                                    }
+                                    }*/
+                                    $('#notification').html('<div class="warning" style="display: none;">Ошибка при добавлении в корзину<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+
+                                    $('.warning').fadeIn('slow');
+
+                                    $('html, body').animate({ scrollTop: 0 }, 'slow');
+
                                 }
                             }
 

@@ -43,7 +43,7 @@
             <?php echo $cart_products; ?>
         </div>
 
-        <div id="payment-address">
+        <div id="payment-address" class="checkout-address">
             <?php require_once('guest_body.tpl') ?>
         </div>
 
@@ -70,7 +70,7 @@
                 $.ajax({
                     url: 'index.php?route=checkout/guest/validate',
                     type: 'post',
-                    data: $('#payment-address input[type=\'text\'], #payment-address input[type=\'hidden\'], #payment-address input[type=\'checkbox\']:checked, #payment-address select'),
+                    data: $('#payment-address input[type=\'text\'], #payment-address textarea, #payment-address input[type=\'hidden\'], #payment-address input[type=\'checkbox\']:checked, #payment-address select'),
                     dataType: 'json',
                     beforeSend: function() {
                         $('#button-guest').attr('disabled', true);
@@ -117,7 +117,7 @@
                             }
 
                             if (json['error']['address_1']) {
-                                $('#payment-address input[name=\'address_1\'] + br').after('<span class="error">' + json['error']['address_1'] + '</span>');
+                                $('#payment-address [name=\'address_1\'] + br').after('<span class="error">' + json['error']['address_1'] + '</span>');
                             }
 
                             if (json['error']['city']) {

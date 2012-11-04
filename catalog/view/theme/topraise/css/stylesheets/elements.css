@@ -1109,7 +1109,7 @@
   margin: 25px 0 0 0;
   border: 1px dashed #000;
   border-width: 1px 0;
-  padding: 0 0 10px 10px;
+  padding: 10px 0 10px 10px;
 }
 /* line 739, ../sass/elements.scss */
 .checkout-products-list .product-item-left {
@@ -1125,4 +1125,27 @@
 /* line 745, ../sass/elements.scss */
 .checkout-products-list .price {
   font-size: 11pt;
+}
+
+/* checkout address */
+/* line 752, ../sass/elements.scss */
+.checkout-address .subsubheader {
+  margin-top: 20px;
+}
+/* line 759, ../sass/elements.scss */
+.checkout-address table td {
+  vertical-align: top;
+  padding: 6px 0;
+  color: #0778ab;
+}
+/* line 764, ../sass/elements.scss */
+.checkout-address table input, .checkout-address table textarea {
+  border: 1px solid #0778ab;
+  padding: 5px 5px;
+  margin-top: -2px;
+  width: 200px;
+}
+/* line 770, ../sass/elements.scss */
+.checkout-address table textarea {
+  width: 300px;
 }

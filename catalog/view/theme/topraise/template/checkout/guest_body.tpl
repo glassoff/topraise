@@ -1,37 +1,38 @@
-<div class="left">
-    <h2><?php echo $text_your_details; ?></h2>
-    <span class="required">*</span> <?php echo $entry_firstname; ?><br />
-    <input type="text" name="firstname" value="<?php echo $firstname; ?>" class="large-field" />
-    <br />
-    <br />
-    <span class="required">*</span> <?php echo $entry_lastname; ?><br />
-    <input type="text" name="lastname" value="<?php echo $lastname; ?>" class="large-field" />
-    <br />
-    <br />
-    <span class="required">*</span> <?php echo $entry_email; ?><br />
-    <input type="text" name="email" value="<?php echo $email; ?>" class="large-field" />
-    <br />
-    <br />
-    <span class="required">*</span> <?php echo $entry_telephone; ?><br />
-    <input type="text" name="telephone" value="<?php echo $telephone; ?>" class="large-field" />
-    <br />
-    <br />
-</div>
-<div class="right">
-    <h2><?php echo $text_your_address; ?></h2>
-    <span class="required">*</span> <?php echo $entry_address_1; ?><br />
-    <input type="text" name="address_1" value="<?php echo $address_1; ?>" class="large-field" />
-    <br />
-    <br />
-    <?php echo $entry_address_2; ?><br />
-    <input type="text" name="address_2" value="<?php echo $address_2; ?>" class="large-field" />
-    <br />
-    <br />
-    <span class="required">*</span> <?php echo $entry_city; ?><br />
-    <input type="text" name="city" value="<?php echo $city; ?>" class="large-field" />
-    <br />
-    <br />
-</div>
+<h3 class="subsubheader"><?php echo $text_your_details; ?></h3>
+<table>
+    <tr>
+        <td style="width: 200px;"><?php echo $entry_firstname; ?></td>
+        <td><input type="text" name="firstname" value="<?php echo $firstname; ?>" /><br/></td>
+    </tr>
+    <tr>
+        <td><?php echo $entry_lastname; ?></td>
+        <td><input type="text" name="lastname" value="<?php echo $lastname; ?>" /><br/></td>
+    </tr>
+    <tr>
+        <td><?php echo $entry_email; ?></td>
+        <td><input type="text" name="email" value="<?php echo $email; ?>" /><br/></td>
+    </tr>
+    <tr>
+        <td><?php echo $entry_telephone; ?></td>
+        <td><input type="text" name="telephone" value="<?php echo $telephone; ?>" /><br/></td>
+    </tr>
+</table>
+<h3 class="subsubheader"><?php echo $text_your_address; ?></h3>
+<table>
+    <tr>
+        <td><?php echo $entry_city; ?></td>
+        <td><input type="text" name="city" value="<?php echo $city; ?>" /><br/></td>
+    </tr>
+    <tr>
+        <td style="width: 200px;"><?php echo $entry_address_1; ?></td>
+        <td><textarea name="address_1"><?php echo $address_1; ?></textarea><br/></td>
+    </tr>
+    <tr>
+        <td><?php echo $entry_address_2; ?></td>
+        <td><textarea name="address_2"><?php echo $address_2; ?></textarea><br/></td>
+    </tr>
+</table>
+
 <?php if ($shipping_required) { ?>
 <input type="hidden" name="shipping_address" value="1" />
 <?php } ?>

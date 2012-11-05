@@ -1170,3 +1170,25 @@
 .checkout-address table textarea {
   width: 300px;
 }
+
+/* checkout info */
+/* line 779, ../sass/elements.scss */
+.checkout-info {
+  margin: 10px 0 0 0;
+  border-bottom: 1px dashed #000;
+  padding: 0 0 15px 0;
+}
+/* line 787, ../sass/elements.scss */
+.checkout-info table td {
+  vertical-align: middle;
+  padding: 6px 40px 6px 0;
+}
+
+/* line 793, ../sass/elements.scss */
+.checkout-info__big {
+  font-size: 18pt;
+}
+/* line 795, ../sass/elements.scss */
+.checkout-info__big td {
+  padding-top: 10px !important;
+}

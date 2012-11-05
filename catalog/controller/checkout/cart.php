@@ -200,7 +200,7 @@ class ControllerCheckoutCart extends Controller {
 				if ($product_total > 0 && $product['minimum'] > $product_total) {
 					$this->data['error_warning'] = sprintf($this->language->get('error_minimum'), $product['name'], $product['minimum']);
 				}				
-					
+
 				if ($product['image']) {
 					$image = $this->model_tool_image->resize($product['image'], $this->config->get('config_image_cart_width'), $this->config->get('config_image_cart_height'));
 				} else {

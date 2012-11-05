@@ -215,9 +215,11 @@ class ControllerCheckoutConfirm extends Controller {
 				$data['shipping_method'] = '';
 				$data['shipping_code'] = '';
 			}
-			
+
 			$product_data = array();
-		
+
+            $this->load->model('tool/image');
+
 			foreach ($this->cart->getProducts() as $product) {
 				$option_data = array();
 	
@@ -238,7 +240,7 @@ class ControllerCheckoutConfirm extends Controller {
 						'type'                    => $option['type']
 					);					
 				}
-	 
+
 				$product_data[] = array(
 					'product_id' => $product['product_id'],
 					'name'       => $product['name'],
@@ -250,7 +252,7 @@ class ControllerCheckoutConfirm extends Controller {
 					'price'      => $product['price'],
 					'total'      => $product['total'],
 					'tax'        => $this->tax->getTax($product['price'], $product['tax_class_id']),
-					'reward'     => $product['reward']
+					'reward'     => $product['reward'],
 				); 
 			}
 			
@@ -336,6 +338,12 @@ class ControllerCheckoutConfirm extends Controller {
 	
 			foreach ($this->cart->getProducts() as $product) {
 				$option_data = array();
+
+                if ($product['image']) {
+                    $image = $this->model_tool_image->resize($product['image'], $this->config->get('config_image_cart_width'), $this->config->get('config_image_cart_height'));
+                } else {
+                    $image = '';
+                }
 	
 				foreach ($product['option'] as $option) {
 					if ($option['type'] != 'file') {
@@ -361,7 +369,8 @@ class ControllerCheckoutConfirm extends Controller {
 					'subtract'   => $product['subtract'],
 					'price'      => $this->currency->format($this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax'))),
 					'total'      => $this->currency->format($this->tax->calculate($product['total'], $product['tax_class_id'], $this->config->get('config_tax'))),
-					'href'       => $this->url->link('product/product', 'product_id=' . $product['product_id'])
+					'href'       => $this->url->link('product/product', 'product_id=' . $product['product_id']),
+                    'thumb' => $image,
 				); 
 			} 
 			
@@ -376,7 +385,7 @@ class ControllerCheckoutConfirm extends Controller {
 					);
 				}
 			}  
-						
+
 			$this->data['totals'] = $total_data;
 	
 			$this->data['payment'] = $this->getChild('payment/' . $this->session->data['payment_method']['code']);
@@ -385,7 +394,12 @@ class ControllerCheckoutConfirm extends Controller {
 		}
 
         $this->data['total'] = $total;
-		
+
+        $this->data['back'] = $this->url->link('checkout/guest', '', 'SSL');
+
+        unset($data['products']);
+        $this->data = array_merge($this->data, $data);
+
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/confirm.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/checkout/confirm.tpl';
 		} else {
@@ -400,7 +414,7 @@ class ControllerCheckoutConfirm extends Controller {
             'common/footer',
             'common/header',
         );
-		
+
 		$this->response->setOutput($this->render());	
   	}
 }

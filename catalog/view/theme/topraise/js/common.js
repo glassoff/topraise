@@ -1,3 +1,6 @@
+var ajaxProcess = false;
+var showLoaderTime = 0;
+
 $(function(){
     $('.tocart').click(function(){
         addToCart($(this).data('productid'));
@@ -8,6 +11,31 @@ $(function(){
             $(this).remove();
         });
     });
+
+    $(document).ajaxStart(function(){
+        ajaxProcess = true;
+        window.setTimeout(function(){
+            if(ajaxProcess){
+                showLoader();
+                showLoaderTime = new Date().getTime();
+            }
+        }, 1000);
+
+    });
+    $(document).ajaxStop(function(){
+        ajaxProcess = false;
+        if((new Date().getTime()) - showLoaderTime > 1000){
+            hideLoader();
+        }
+        else{
+            window.setTimeout(function(){
+                if(!ajaxProcess){
+                    hideLoader();
+                }
+            }, 300);
+        }
+    });
+
 });
 
 function addToCart(product_id, quantity) {
@@ -38,4 +66,26 @@ function addToCart(product_id, quantity) {
             }
         }
     });
+}
+
+function showLoader()
+{
+    var html = $(document.documentElement);
+    var body = $(document.body);
+    var page = $('body');
+
+    page.width(body.width());
+
+    $('.overlay, .preloader').show();
+    $('body').css('overflow', 'hidden');
+}
+
+function hideLoader()
+{
+    var page = $('body');
+
+    page.width('');
+
+    $('.overlay, .preloader').hide();
+    $('body').css('overflow', 'visible');
 }

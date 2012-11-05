@@ -413,3 +413,27 @@ p{
         height: 39px;
         line-height: 39px;
     }
+
+/* overlay */
+.overlay{
+    background: none repeat scroll 0 0 #000000;
+    display: none;
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+.preloader{
+    display: none;
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    position: fixed;
+    top: 50%;
+    width: 100%;
+    z-index: 1000;
+    text-align: center;
+}

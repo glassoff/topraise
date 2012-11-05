@@ -41,5 +41,9 @@
     </div>
 </div>
 </div>
+
+<div class="overlay"></div>
+<div class="preloader"><img src="catalog/view/theme/topraise/images/loader.gif"/></div>
+
 </body>
 </html>

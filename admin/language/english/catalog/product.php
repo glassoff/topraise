@@ -26,9 +26,6 @@ $_['column_action']          = 'Action';
 
 // Entry
 $_['entry_name']             = 'Product Name:';
-// Add
-$_['column_category']        = 'Category';
-// End add
 $_['entry_meta_keyword'] 	 = 'Meta Tag Keywords:';
 $_['entry_meta_description'] = 'Meta Tag Description:';
 $_['entry_description']      = 'Description:';
@@ -72,6 +69,9 @@ $_['entry_related']          = 'Related Products:<br /><span class="help">(Autoc
 $_['entry_tag']          	 = 'Product Tags:<br /><span class="help">comma separated</span>';
 $_['entry_reward']           = 'Reward Points:';
 $_['entry_layout']           = 'Layout Override:';
+$_['entry_main_category']    = 'Category:';
+$_['entry_seo_title']        = 'HTML Tag Title:';
+$_['entry_seo_h1']           = 'HTML Tag H1:';
 
 // Error
 $_['error_warning']          = 'Warning: Please check the form carefully for errors!';

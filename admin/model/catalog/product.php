@@ -10,7 +10,7 @@ class ModelCatalogProduct extends Model {
 		}
 		
 		foreach ($data['product_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "product_description SET product_id = '" . (int)$product_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', description = '" . $this->db->escape($value['description']) . "'");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "product_description SET product_id = '" . (int)$product_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', description = '" . $this->db->escape($value['description']) . "', seo_title = '" . $this->db->escape($value['seo_title']) . "', seo_h1 = '" . $this->db->escape($value['seo_h1']) . "'");
 		}
 		
 		if (isset($data['product_store'])) {
@@ -79,6 +79,13 @@ class ModelCatalogProduct extends Model {
 			}
 		}
 		
+		if (isset($data['main_category_id']) && $data['main_category_id'] > 0) {
+			$this->db->query("DELETE FROM " . DB_PREFIX . "product_to_category WHERE product_id = '" . (int)$product_id . "' AND category_id = '" . (int)$data['main_category_id'] . "'");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "product_to_category SET product_id = '" . (int)$product_id . "', category_id = '" . (int)$data['main_category_id'] . "', main_category = 1");
+		} elseif (isset($data['product_category'][0])) {
+			$this->db->query("UPDATE " . DB_PREFIX . "product_to_category SET main_category = 1 WHERE product_id = '" . (int)$product_id . "' AND category_id = '" . (int)$data['product_category'][0] . "'");
+		}
+
 		if (isset($data['product_related'])) {
 			foreach ($data['product_related'] as $related_id) {
 				$this->db->query("DELETE FROM " . DB_PREFIX . "product_related WHERE product_id = '" . (int)$product_id . "' AND related_id = '" . (int)$related_id . "'");
@@ -129,7 +136,7 @@ class ModelCatalogProduct extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_description WHERE product_id = '" . (int)$product_id . "'");
 		
 		foreach ($data['product_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "product_description SET product_id = '" . (int)$product_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', description = '" . $this->db->escape($value['description']) . "'");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "product_description SET product_id = '" . (int)$product_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', description = '" . $this->db->escape($value['description']) . "', seo_title = '" . $this->db->escape($value['seo_title']) . "', seo_h1 = '" . $this->db->escape($value['seo_h1']) . "'");
 		}
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_to_store WHERE product_id = '" . (int)$product_id . "'");
@@ -215,6 +222,13 @@ class ModelCatalogProduct extends Model {
 			}		
 		}
 
+		if (isset($data['main_category_id']) && $data['main_category_id'] > 0) {
+			$this->db->query("DELETE FROM " . DB_PREFIX . "product_to_category WHERE product_id = '" . (int)$product_id . "' AND category_id = '" . (int)$data['main_category_id'] . "'");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "product_to_category SET product_id = '" . (int)$product_id . "', category_id = '" . (int)$data['main_category_id'] . "', main_category = 1");
+		} elseif (isset($data['product_category'])) {
+			$this->db->query("UPDATE " . DB_PREFIX . "product_to_category SET main_category = 1 WHERE product_id = '" . (int)$product_id . "' AND category_id = '" . (int)$data['product_category'][0] . "'");
+		}
+
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_related WHERE product_id = '" . (int)$product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "product_related WHERE related_id = '" . (int)$product_id . "'");
 
@@ -281,7 +295,16 @@ class ModelCatalogProduct extends Model {
 			$data = array_merge($data, array('product_attribute' => $this->getProductAttributes($product_id)));
 			$data = array_merge($data, array('product_description' => $this->getProductDescriptions($product_id)));			
 			$data = array_merge($data, array('product_discount' => $this->getProductDiscounts($product_id)));
-			$data = array_merge($data, array('product_image' => $this->getProductImages($product_id)));		
+			$data = array_merge($data, array('product_image' => $this->getProductImages($product_id)));
+			
+			$data['product_image'] = array();
+			
+			$results = $this->getProductImages($product_id);
+			
+			foreach ($results as $result) {
+				$data['product_image'][] = $result['image'];
+			}
+						
 			$data = array_merge($data, array('product_option' => $this->getProductOptions($product_id)));
 			$data = array_merge($data, array('product_related' => $this->getProductRelated($product_id)));
 			$data = array_merge($data, array('product_reward' => $this->getProductRewards($product_id)));
@@ -330,8 +353,7 @@ class ModelCatalogProduct extends Model {
 		if ($data) {
 			$sql = "SELECT * FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id)";
 			
-			// renamed filter_category_id to filter_category
-			if (!empty($data['filter_category'])) {
+			if (!empty($data['filter_category_id'])) {
 				$sql .= " LEFT JOIN " . DB_PREFIX . "product_to_category p2c ON (p.product_id = p2c.product_id)";			
 			}
 					
@@ -356,17 +378,16 @@ class ModelCatalogProduct extends Model {
 			if (isset($data['filter_status']) && !is_null($data['filter_status'])) {
 				$sql .= " AND p.status = '" . (int)$data['filter_status'] . "'";
 			}
-			
-			// renamed filter_category_id to filter_category
-			if (!empty($data['filter_category'])) {
+					
+			if (!empty($data['filter_category_id'])) {
 				if (!empty($data['filter_sub_category'])) {
 					$implode_data = array();
 					
-					$implode_data[] = "category_id = '" . (int)$data['filter_category'] . "'";
+					$implode_data[] = "category_id = '" . (int)$data['filter_category_id'] . "'";
 					
 					$this->load->model('catalog/category');
 					
-					$categories = $this->model_catalog_category->getCategories($data['filter_category']);
+					$categories = $this->model_catalog_category->getCategories($data['filter_category_id']);
 					
 					foreach ($categories as $category) {
 						$implode_data[] = "p2c.category_id = '" . (int)$category['category_id'] . "'";
@@ -374,7 +395,7 @@ class ModelCatalogProduct extends Model {
 					
 					$sql .= " AND (" . implode(' OR ', $implode_data) . ")";			
 				} else {
-					$sql .= " AND p2c.category_id = '" . (int)$data['filter_category'] . "'";
+					$sql .= " AND p2c.category_id = '" . (int)$data['filter_category_id'] . "'";
 				}
 			}
 			
@@ -384,9 +405,6 @@ class ModelCatalogProduct extends Model {
 				'pd.name',
 				'p.model',
 				'p.price',
-				// add
-                'p2c.category_id',
-				// end
 				'p.quantity',
 				'p.status',
 				'p.sort_order'
@@ -447,6 +465,8 @@ class ModelCatalogProduct extends Model {
 		
 		foreach ($query->rows as $result) {
 			$product_description_data[$result['language_id']] = array(
+				'seo_title'        => $result['seo_title'],
+				'seo_h1'           => $result['seo_h1'],
 				'name'             => $result['name'],
 				'description'      => $result['description'],
 				'meta_keyword'     => $result['meta_keyword'],
@@ -610,6 +630,12 @@ class ModelCatalogProduct extends Model {
 		return $product_category_data;
 	}
 
+	public function getProductMainCategoryId($product_id) {
+		$query = $this->db->query("SELECT category_id FROM " . DB_PREFIX . "product_to_category WHERE product_id = '" . (int)$product_id . "' AND main_category = '1' LIMIT 1");
+
+		return ($query->num_rows ? (int)$query->row['category_id'] : 0);
+	}
+	
 	public function getProductRelated($product_id) {
 		$product_related_data = array();
 		
@@ -643,8 +669,7 @@ class ModelCatalogProduct extends Model {
 	public function getTotalProducts($data = array()) {
 		$sql = "SELECT COUNT(DISTINCT p.product_id) AS total FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id)";
 
-		// renamed
-		if (!empty($data['filter_category'])) {
+		if (!empty($data['filter_category_id'])) {
 			$sql .= " LEFT JOIN " . DB_PREFIX . "product_to_category p2c ON (p.product_id = p2c.product_id)";			
 		}
 		 
@@ -670,16 +695,15 @@ class ModelCatalogProduct extends Model {
 			$sql .= " AND p.status = '" . (int)$data['filter_status'] . "'";
 		}
 
-		// renamed
-		if (!empty($data['filter_category'])) {
+		if (!empty($data['filter_category_id'])) {
 			if (!empty($data['filter_sub_category'])) {
 				$implode_data = array();
 				
-				$implode_data[] = "p2c.category_id = '" . (int)$data['filter_category'] . "'";
+				$implode_data[] = "p2c.category_id = '" . (int)$data['filter_category_id'] . "'";
 				
 				$this->load->model('catalog/category');
 				
-				$categories = $this->model_catalog_category->getCategories($data['filter_category']);
+				$categories = $this->model_catalog_category->getCategories($data['filter_category_id']);
 				
 				foreach ($categories as $category) {
 					$implode_data[] = "p2c.category_id = '" . (int)$category['category_id'] . "'";
@@ -687,7 +711,7 @@ class ModelCatalogProduct extends Model {
 				
 				$sql .= " AND (" . implode(' OR ', $implode_data) . ")";			
 			} else {
-				$sql .= " AND p2c.category_id = '" . (int)$data['filter_category'] . "'";
+				$sql .= " AND p2c.category_id = '" . (int)$data['filter_category_id'] . "'";
 			}
 		}
 		

@@ -26,9 +26,6 @@ $_['column_action']          = 'Действие';
 
 // Entry
 $_['entry_name']             = 'Название товара:';
-// Add
-$_['column_category']        = 'Категория';
-// End add
 $_['entry_meta_keyword']     = 'Мета-тег Keywords:';
 $_['entry_meta_description'] = 'Мета-тег "Описание":';
 $_['entry_description']      = 'Описание:';

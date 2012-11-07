@@ -804,6 +804,10 @@
     .news-list-item__header{
         font-size: 12pt;
         font-weight: bold;
+        a{
+            text-decoration: none;
+            @include link-colors(#000, #000, #000, #000, #000);
+        }
     }
     .news-list-item__date{
         font-size: 14pt;
@@ -815,7 +819,7 @@
     }
         .news-list-item__content__image{
             @include float-left;
-            margin: 0 40px 0 0;
+            margin: 0 20px 20px 0;
         }
         .news-list-item__content__more{
             margin: 15px 0 0 0;
@@ -825,5 +829,37 @@
                 @include link-colors(#4bb2e1, $aHoverColor, $aActiveColor, $aVisitedColor, $aFocusColor);
             }
         }
+
+.news_header{
+    color: #000;
+    line-height: 1;
+}
+
+.news-item{
+
+}
+    .news-item__date{
+        color: #4bb2e1;
+        font-size: 14pt;
+    }
+    .news-item__content{
+        margin: 20px 0 0 0;
+    }
+        .news-item__content__image{
+            @include float-left;
+            margin: 0 20px 20px 0;
+        }
+    .news-item__back{
+        margin: 40px 0 0 0;
+        font-size: 10pt;
+        background: left center no-repeat url(../../images/news-back.png);
+        height: 19px;
+        line-height: 19px;
+        display: block;
+        padding: 0 0 0 25px;
+        cursor: pointer;
+        text-decoration: underline;
+        @include link-colors(#000, $aHoverColor, $aActiveColor, $aVisitedColor, $aFocusColor);
+    }
 
 

@@ -1204,33 +1204,54 @@
   font-size: 12pt;
   font-weight: bold;
 }
+/* line 807, ../sass/elements.scss */
+.news-list-item__header a {
+  text-decoration: none;
+  color: black;
+}
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.news-list-item__header a:visited {
+  color: black;
+}
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.news-list-item__header a:focus {
+  color: black;
+}
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.news-list-item__header a:hover {
+  color: black;
+}
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.news-list-item__header a:active {
+  color: black;
+}
 
-/* line 808, ../sass/elements.scss */
+/* line 812, ../sass/elements.scss */
 .news-list-item__date {
   font-size: 14pt;
   color: #4bb2e1;
   margin: 12px 0 0 0;
 }
 
-/* line 813, ../sass/elements.scss */
+/* line 817, ../sass/elements.scss */
 .news-list-item__content {
   margin: 20px 0 0 0;
 }
 
-/* line 816, ../sass/elements.scss */
+/* line 820, ../sass/elements.scss */
 .news-list-item__content__image {
   display: inline;
   float: left;
-  margin: 0 40px 0 0;
+  margin: 0 20px 20px 0;
 }
 
-/* line 820, ../sass/elements.scss */
+/* line 824, ../sass/elements.scss */
 .news-list-item__content__more {
   margin: 15px 0 0 0;
   text-align: right;
   font-size: 14pt;
 }
-/* line 824, ../sass/elements.scss */
+/* line 828, ../sass/elements.scss */
 .news-list-item__content__more a {
   color: #4bb2e1;
 }
@@ -1248,5 +1269,59 @@
 }
 /* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .news-list-item__content__more a:active {
+  color: #fc5f5f;
+}
+
+/* line 833, ../sass/elements.scss */
+.news_header {
+  color: #000;
+  line-height: 1;
+}
+
+/* line 841, ../sass/elements.scss */
+.news-item__date {
+  color: #4bb2e1;
+  font-size: 14pt;
+}
+
+/* line 845, ../sass/elements.scss */
+.news-item__content {
+  margin: 20px 0 0 0;
+}
+
+/* line 848, ../sass/elements.scss */
+.news-item__content__image {
+  display: inline;
+  float: left;
+  margin: 0 20px 20px 0;
+}
+
+/* line 852, ../sass/elements.scss */
+.news-item__back {
+  margin: 40px 0 0 0;
+  font-size: 10pt;
+  background: left center no-repeat url(../../images/news-back.png);
+  height: 19px;
+  line-height: 19px;
+  display: block;
+  padding: 0 0 0 25px;
+  cursor: pointer;
+  text-decoration: underline;
+  color: black;
+}
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.news-item__back:visited {
+  color: #900099;
+}
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.news-item__back:focus {
+  color: #fc5f5f;
+}
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.news-item__back:hover {
+  color: #fc5f5f;
+}
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.news-item__back:active {
   color: #fc5f5f;
 }

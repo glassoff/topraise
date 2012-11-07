@@ -51,6 +51,8 @@ class ControllerInformationNews extends Controller {
 				$this->data['image'] = FALSE;
 			}
 
+            $this->data['date_added'] = date($this->language->get('date_format_short'), strtotime($news_info['date_added']));
+
 			$this->data['min_height'] = $this->config->get('news_thumb_height');
 
 			$this->data['thumb'] = $this->model_tool_image->resize($news_info['image'], $this->config->get('news_thumb_width'), $this->config->get('news_thumb_height'));

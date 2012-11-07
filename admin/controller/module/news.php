@@ -484,7 +484,7 @@ class ControllerModuleNews extends Controller {
 		}
 
 		foreach ($this->request->post['news_description'] as $language_id => $value) {
-			if ((strlen($value['title']) < 3) || (strlen($value['title']) > 32)) {
+			if ((strlen($value['title']) < 3) || (strlen($value['title']) > 256)) {
 				$this->error['title'][$language_id] = $this->language->get('error_title');
 			}
 

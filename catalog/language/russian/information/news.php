@@ -1,11 +1,11 @@
 ﻿<?php
 // Heading 
-$_['heading_title']   = 'Новости / Блог - Новости';
+$_['heading_title']   = 'Новости';
 
 // Text
-$_['text_error']      = 'Отсутствие вестей - само по себе неплохая весть!';
-$_['text_read_more']  = 'читать далее';
-$_['text_date_added'] = 'Добавленно:';
+$_['text_error']      = 'Новостей нет';
+$_['text_read_more']  = 'подробнее';
+$_['text_date_added'] = 'Добавлено:';
 
 // Buttons
 $_['button_news']     = 'Последние новости';

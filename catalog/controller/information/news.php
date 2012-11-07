@@ -81,11 +81,18 @@ class ControllerInformationNews extends Controller {
 
 	  		if ($news_data) {
 				foreach ($news_data as $result) {
+                    $thumb = false;
+                    if($result['image']){
+                        $this->load->model('tool/image');
+
+                        $thumb = $this->model_tool_image->resize($result['image'], $this->config->get('news_thumb_width'), $this->config->get('news_thumb_height'));
+                    }
 					$this->data['news_data'][] = array(
 						'title'        => $result['title'],
 						'description'  => substr(html_entity_decode($result['description']), 0, $this->config->get('news_headline_chars')),
 						'href'         => $this->url->link('information/news', 'news_id=' . $result['news_id']),
-						'date_added'   => date($this->language->get('date_format_short'), strtotime($result['date_added']))
+						'date_added'   => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
+                        'thumb' => $thumb,
 					);
 				}
 

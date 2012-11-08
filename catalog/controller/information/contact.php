@@ -83,6 +83,15 @@ class ControllerInformationContact extends Controller {
 		$this->data['store'] = $this->config->get('config_name');
     	$this->data['address'] = nl2br($this->config->get('config_address'));
           $this->data['times'] = nl2br($this->config->get('config_times'));
+
+          if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
+              $server = HTTPS_IMAGE;
+          } else {
+              $server = HTTP_IMAGE;
+          }
+
+          $this->data['map'] = $server . $this->config->get('config_map');
+
     	$this->data['telephone'] = $this->config->get('config_telephone');
     	$this->data['fax'] = $this->config->get('config_fax');
     	

@@ -25,7 +25,7 @@
             <div class="contacts-map">
                 <div class="contacts-map__container">
                     <div class="contacts-map__content">
-                        MAP
+                        <img src="<?php echo $map ?>" />
                     </div>
                 </div>
             </div>

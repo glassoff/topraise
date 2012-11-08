@@ -67,6 +67,14 @@
               <td><?php echo $entry_fax; ?></td>
               <td><input type="text" name="config_fax" value="<?php echo $config_fax; ?>" /></td>
             </tr>
+            <tr>
+                <td>Карта</td>
+                <td><div class="image"><img src="<?php echo $map; ?>" alt="" id="thumb-map" />
+                    <input type="hidden" name="config_map" value="<?php echo $config_map; ?>" id="map" />
+                    <br />
+                    <a onclick="image_upload('map', 'thumb-map');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a onclick="$('#thumb-map').attr('src', '<?php echo $no_image; ?>'); $('#map').attr('value', '');"><?php echo $text_clear; ?></a></div></td>
+            </tr>
           </table>
         </div>
         <div id="tab-store">

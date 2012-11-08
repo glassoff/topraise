@@ -691,11 +691,23 @@ class ControllerSettingSetting extends Controller {
 			$this->data['config_logo'] = $this->config->get('config_logo');			
 		}
 
+        if (isset($this->request->post['config_map'])) {
+            $this->data['config_map'] = $this->request->post['config_map'];
+        } else {
+            $this->data['config_map'] = $this->config->get('config_map');
+        }
+
 		if ($this->config->get('config_logo') && file_exists(DIR_IMAGE . $this->config->get('config_logo')) && is_file(DIR_IMAGE . $this->config->get('config_logo'))) {
 			$this->data['logo'] = $this->model_tool_image->resize($this->config->get('config_logo'), 100, 100);		
 		} else {
 			$this->data['logo'] = $this->model_tool_image->resize('no_image.jpg', 100, 100);
 		}
+
+        if ($this->config->get('config_map') && file_exists(DIR_IMAGE . $this->config->get('config_map')) && is_file(DIR_IMAGE . $this->config->get('config_map'))) {
+            $this->data['map'] = $this->model_tool_image->resize($this->config->get('config_map'), 100, 100);
+        } else {
+            $this->data['map'] = $this->model_tool_image->resize('no_image.jpg', 100, 100);
+        }
 
 		if (isset($this->request->post['config_icon'])) {
 			$this->data['config_icon'] = $this->request->post['config_icon'];

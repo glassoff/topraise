@@ -1376,8 +1376,15 @@
 /* line 898, ../sass/elements.scss */
 .contacts-map__container {
   margin: 0 auto;
-  padding: 15px;
+  padding: 15px 13px;
   width: 624px;
   height: 364px;
   background: 0 0 no-repeat url(../../images/map-bg.png);
+}
+
+/* line 905, ../sass/elements.scss */
+.contacts-map__content {
+  width: 598px;
+  height: 326px;
+  overflow: hidden;
 }

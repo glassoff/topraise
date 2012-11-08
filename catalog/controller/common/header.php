@@ -118,7 +118,7 @@ class ControllerCommonHeader extends Controller {
             array('title' => 'Новости', 'href' => $this->url->link('information/news')),
             array('title' => 'Доставка и покупка', 'href' => ''),
             array('title' => 'Услуги', 'href' => ''),
-            array('title' => 'Контакты', 'href' => ''),
+            array('title' => 'Контакты', 'href' => $this->url->link('information/contact')),
         );
         $this->data['top_menu'] = $topMenu;
 		

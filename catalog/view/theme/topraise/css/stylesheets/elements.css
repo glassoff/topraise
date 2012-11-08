@@ -1325,3 +1325,59 @@
 .news-item__back:active {
   color: #fc5f5f;
 }
+
+/* contacts */
+/* line 866, ../sass/elements.scss */
+.contacts-info {
+  overflow: hidden;
+  *zoom: 1;
+}
+
+/* line 869, ../sass/elements.scss */
+.contacts-info__address {
+  display: inline;
+  float: left;
+  margin-right: 38px;
+}
+/* line 872, ../sass/elements.scss */
+.contacts-info__address table {
+  height: 55px;
+}
+/* line 874, ../sass/elements.scss */
+.contacts-info__address table td {
+  vertical-align: middle;
+  text-align: left;
+}
+/* line 877, ../sass/elements.scss */
+.contacts-info__address table td.left {
+  padding-right: 11px;
+  border-right: 1px solid #0778ab;
+}
+/* line 881, ../sass/elements.scss */
+.contacts-info__address table td.right {
+  padding-left: 11px;
+  width: 170px;
+}
+
+/* line 888, ../sass/elements.scss */
+.contacts-info__times {
+  display: inline;
+  float: left;
+  background: left center no-repeat url(../../images/times.png);
+  padding: 0 0 0 45px;
+}
+
+/* line 894, ../sass/elements.scss */
+.contacts-map {
+  margin: 30px 0 0 0;
+  text-align: center;
+}
+
+/* line 898, ../sass/elements.scss */
+.contacts-map__container {
+  margin: 0 auto;
+  padding: 15px;
+  width: 624px;
+  height: 364px;
+  background: 0 0 no-repeat url(../../images/map-bg.png);
+}

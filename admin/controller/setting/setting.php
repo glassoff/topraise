@@ -186,6 +186,12 @@ class ControllerSettingSetting extends Controller {
 		} else {
 			$this->data['error_address'] = '';
 		}
+
+        if (isset($this->error['times'])) {
+            $this->data['error_times'] = $this->error['times'];
+        } else {
+            $this->data['error_times'] = '';
+        }
 		
  		if (isset($this->error['email'])) {
 			$this->data['error_email'] = $this->error['email'];
@@ -340,6 +346,12 @@ class ControllerSettingSetting extends Controller {
 		} else {
 			$this->data['config_address'] = $this->config->get('config_address');
 		}
+
+        if (isset($this->request->post['config_times'])) {
+            $this->data['config_times'] = $this->request->post['config_times'];
+        } else {
+            $this->data['config_times'] = $this->config->get('config_times');
+        }
 		
 		if (isset($this->request->post['config_email'])) {
 			$this->data['config_email'] = $this->request->post['config_email'];

@@ -862,4 +862,46 @@
         @include link-colors(#000, $aHoverColor, $aActiveColor, $aVisitedColor, $aFocusColor);
     }
 
+/* contacts */
+.contacts-info{
+    @include clearfix;
+}
+    .contacts-info__address{
+        @include float-left;
+        margin-right: 38px;
+        table{
+            height: 55px;
+            td{
+                vertical-align: middle;
+                text-align: left;
+                &.left{
+                    padding-right: 11px;
+                    border-right: 1px solid #0778ab;
+                }
+                &.right{
+                    padding-left: 11px;
+                    width: 170px;
+                }
+            }
+        }
+    }
+    .contacts-info__times{
+        @include float-left;
+        background: left center no-repeat url(../../images/times.png);
+        padding: 0 0 0 45px;
+    }
 
+.contacts-map{
+    margin: 30px 0 0 0;
+    text-align: center;
+}
+    .contacts-map__container{
+        margin: 0 auto;
+        padding: 15px;
+        width: 624px;
+        height: 364px;
+        background: 0 0 no-repeat url(../../images/map-bg.png);
+    }
+        .contacts-map__content{
+
+        }

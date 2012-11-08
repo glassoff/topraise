@@ -19,14 +19,14 @@
             <div class="footer__top__contacts">
                 <p>
                     Наш адрес Магазин-склад<br>
-                    Россия, г. Томск, Иркутский проезд, 1
+                    <?php echo $address ?>
                 </p>
                 <p>
                     Есть вопросы? Звоните<br>
-                    <span class="footer__top__contacts__phone">(3822)65-65-82</span>
+                    <span class="footer__top__contacts__phone"><?php echo $telephone ?></span>
                 </p>
                 <p>
-                    <span class="footer__top__contacts__email">ooosefi@mail.ru</span>
+                    <span class="footer__top__contacts__email"><?php echo $email ?></span>
                 </p>
             </div>
         </div>

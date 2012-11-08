@@ -111,6 +111,12 @@ class ControllerCommonHeader extends Controller {
 			}
 		}*/
 
+        $this->data['address'] = nl2br($this->config->get('config_address'));
+
+        $this->data['telephone'] = nl2br($this->config->get('config_telephone'));
+
+        $this->data['email'] = nl2br($this->config->get('config_email'));
+
         //top menu
         $topMenu = array(
             array('title' => 'О нас', 'href' => $this->url->link('information/information', 'information_id=4')),

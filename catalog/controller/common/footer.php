@@ -45,6 +45,12 @@ class ControllerCommonFooter extends Controller {
 
 		$this->data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
 
+        $this->data['address'] = nl2br($this->config->get('config_address'));
+
+        $this->data['telephone'] = nl2br($this->config->get('config_telephone'));
+
+        $this->data['email'] = nl2br($this->config->get('config_email'));
+
         //categories list
         $this->load->model('catalog/category');
 

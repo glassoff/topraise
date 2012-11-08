@@ -65,7 +65,7 @@
             </div>
             <div class="header__content">
                 <div class="header__content__right">
-                    <div class="header__content__right__phone">(3822) 65-65-82</div>
+                    <div class="header__content__right__phone"><?php echo $telephone ?></div>
                     <div class="header__content__right__action">
                         <a class="header__content__right__action__text" href="">Наши акции</a>
                         <div class="header__content__right__action__label"><img src="catalog/view/theme/topraise/images/action-new.png" /></div>

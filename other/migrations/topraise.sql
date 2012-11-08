@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 05 2012 г., 19:24
+-- Время создания: Ноя 08 2012 г., 21:46
 -- Версия сервера: 5.1.65
 -- Версия PHP: 5.3.17
 
@@ -168,7 +168,7 @@ INSERT INTO `attribute_description` (`attribute_id`, `language_id`, `name`) VALU
 (3, 1, 'Clockspeed'),
 (16, 1, 'Цвет корпуса'),
 (15, 1, 'Размер'),
-(14, 1, '﻿Поддон'),
+(14, 1, 'Поддон'),
 (13, 1, 'Вход'),
 (12, 1, 'Наличие крыши'),
 (17, 1, 'Габариты (В х Ш х Г)'),
@@ -857,9 +857,9 @@ CREATE TABLE IF NOT EXISTS `currency` (
 --
 
 INSERT INTO `currency` (`currency_id`, `title`, `code`, `symbol_left`, `symbol_right`, `decimal_place`, `value`, `status`, `date_modified`) VALUES
-(1, 'Рубль', 'RUB', '', '', '0', 1.00000000, 1, '2012-11-05 12:17:34'),
-(2, 'US Dollar', 'USD', '$', '', '2', 0.03160000, 1, '2012-11-05 10:00:08'),
-(3, 'Euro', 'EUR', '', '€', '2', 0.02470000, 1, '2012-11-05 10:00:08');
+(1, 'Рубль', 'RUB', '', '', '0', 1.00000000, 1, '2012-11-07 15:03:46'),
+(2, 'US Dollar', 'USD', '$', '', '2', 0.03180000, 1, '2012-11-07 14:27:44'),
+(3, 'Euro', 'EUR', '', '€', '2', 0.02490000, 1, '2012-11-07 14:27:44');
 
 -- --------------------------------------------------------
 
@@ -1033,7 +1033,7 @@ CREATE TABLE IF NOT EXISTS `extension` (
   `type` varchar(32) NOT NULL,
   `code` varchar(32) NOT NULL,
   PRIMARY KEY (`extension_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=449 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=452 ;
 
 --
 -- Дамп данных таблицы `extension`
@@ -1048,6 +1048,7 @@ INSERT INTO `extension` (`extension_id`, `type`, `code`) VALUES
 (430, 'module', 'category'),
 (411, 'module', 'affiliate'),
 (408, 'module', 'account'),
+(451, 'module', 'news'),
 (438, 'payment', 'free_checkout'),
 (447, 'shipping', 'flat'),
 (432, 'module', 'latest'),
@@ -1122,9 +1123,9 @@ CREATE TABLE IF NOT EXISTS `information_description` (
 --
 
 INSERT INTO `information_description` (`information_id`, `language_id`, `title`, `description`, `meta_description`, `meta_keyword`, `seo_title`, `seo_h1`) VALUES
-(4, 1, 'О нас', '&lt;p&gt;\r\n	О нас&lt;/p&gt;\r\n', '', '', '', ''),
 (5, 1, 'Условия соглашения', '&lt;p&gt;\r\n	Условия соглашения&lt;/p&gt;\r\n', '', '', '', ''),
-(3, 1, 'Политика Безопасности', '&lt;p&gt;\r\n	Политика Безопасности&lt;/p&gt;\r\n', '', '', '', '');
+(3, 1, 'Политика Безопасности', '&lt;p&gt;\r\n	Политика Безопасности&lt;/p&gt;\r\n', '', '', '', ''),
+(4, 1, 'О нас', '&lt;p&gt;\r\n	Мы специализированный интернет-магазин сантехники. У нас вы найдете самый большой выбор смесителей, аксессуаров и мебели для ванных комнат, стеклянных раковин, кухонных моек, зеркал и душевых кабин. На ваш выбор представлена эксклюзивная продукция на российском рынке сантехники — стеклянная мебель для ванных комнат, зеркала и раковины.&lt;br /&gt;\r\n	&lt;br /&gt;\r\n	Продукции торговых марок которые мы предлагаем имеет современный дизайн, уютную конструкцию, проста в установке и использовании, высокое качество по разумной цене. Все создана с использованием высоких технологий для современной жизни. Продукция имеет сервисное обслуживание по установке, ремонту,&amp;nbsp; уходу. Товарный знак, упаковка, маркировка защищены патентным правом, имеют сертификаты качества, гигиенические сертификаты и другие сертификаты. Продукция реализуется по всей России, имеет хорошие отзывы&amp;nbsp; потребителей разных стран Мира, в том числе и в России.&lt;br /&gt;\r\n	&lt;br /&gt;\r\n	Ознакомиться с полным ассортиментом нашего интернет-магазина Вы можете &lt;a href=&quot;/index.php?route=product/category&quot;&gt;здесь&lt;/a&gt;.&lt;br /&gt;\r\n	&lt;br /&gt;\r\n	Покупая нужный Вам товар в нашем интернет-магазине сантехники, вы экономите не только деньги, но и драгоценное время которого нам всем всегда не хватает!&lt;/p&gt;\r\n', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1371,6 +1372,72 @@ INSERT INTO `manufacturer_to_store` (`manufacturer_id`, `store_id`) VALUES
 (8, 0),
 (9, 0),
 (10, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `news`
+--
+
+CREATE TABLE IF NOT EXISTS `news` (
+  `news_id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` int(1) NOT NULL DEFAULT '0',
+  `image` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `image_size` int(1) NOT NULL DEFAULT '0',
+  `date_added` datetime DEFAULT NULL,
+  PRIMARY KEY (`news_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
+
+--
+-- Дамп данных таблицы `news`
+--
+
+INSERT INTO `news` (`news_id`, `status`, `image`, `image_size`, `date_added`) VALUES
+(1, 1, 'data/canon_eos_5d_1.jpg', 0, '2012-11-07 21:42:58'),
+(2, 1, '', 0, '2012-11-07 21:44:24');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `news_description`
+--
+
+CREATE TABLE IF NOT EXISTS `news_description` (
+  `news_id` int(11) NOT NULL DEFAULT '0',
+  `language_id` int(11) NOT NULL DEFAULT '0',
+  `title` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `meta_description` varchar(255) COLLATE utf8_bin NOT NULL,
+  `description` text COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`news_id`,`language_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Дамп данных таблицы `news_description`
+--
+
+INSERT INTO `news_description` (`news_id`, `language_id`, `title`, `meta_description`, `description`) VALUES
+(1, 1, 'News1', 'description', '&lt;p&gt;\r\n	Следствие выявило зачинщиков массовой драки строителей олимпийского объекта в Сочи, в которой приняли участие более 240 человек, и предъявило обвинение пятерым участникам конфликта по статье &quot;хулиганство с применением оружия&quot;. Об этом сообщает &lt;a href=&quot;http://www.interfax.ru/&quot; target=&quot;_blank&quot;&gt;&quot;Интерфакс&quot;&lt;/a&gt; со ссылкой на пресс-службу УВД города.&lt;/p&gt;\r\n&lt;p&gt;\r\n	Прочие участники конфликта привлечены к административной ответственности. В ходе пресечения конфликта в отдел полиции Красная Поляна были доставлены 243 человека, из них 210 являются гражданами Узбекистана, 33 - гражданами Таджикистана. Подрядчики уже приняли решение уволить гастарбайтеров, принявших участие в драке, и намерены отправить их &quot;к местам постоянного проживания&quot;.&lt;/p&gt;\r\n&lt;p&gt;\r\n	Инцидент произошел 5 ноября на территории строительства спортивно-туристического комплекса &quot;Горная карусель&quot; в Адлерском районе Сочи. По версии сотрудников полиции, причиной драки стал камушек, брошенный в одного из строителей. Однако &quot;Аргументы и Факты&quot; &lt;a href=&quot;http://www.kuban.aif.ru/crime/news/64272&quot;&gt;утверждают&lt;/a&gt;, что конфликт начался из-за того, что в одной из бытовок были обнаружены грязные носки.&lt;/p&gt;\r\n&lt;p&gt;\r\n	По данным издания, некоторые участники потасовки были задержаны на месте. Однако часть строителей вброд перешла реку Мзымта и скрылась в особо охраняемой пограничной зоне, где можно находиться лишь при наличии спецпропуска. Как сообщает газета, &quot;в связи с массовым забегом в сторону государственной границы, сотрудники пограничной части были экстренно подняты по команде &quot;В ружье&quot;.&lt;/p&gt;\r\n&lt;p&gt;\r\n	Сбежавших гастарбайтеров на протяжении нескольких часов ловили пограничники с собаками. По данным &quot;АиФ&quot;, 6 ноября в суд были доставлены под конвоем на трех автобусах 238 человек. Пятерых зачинщиков приговорили к 10 суткам за &quot;неповиновение законному распоряжению сотрудника полиции&quot;, остальных задержали на сутки.&lt;/p&gt;\r\n'),
+(2, 1, 'Американцы испытали самолет на чистом биотопливе', 'dfdg', '&lt;p&gt;\r\n	Исследовательская лаборатория ВВС США (AFRL) и Национальный исследовательский совет Канады (NRC) провели совместные испытания реактивного самолета Dassault Falcon 20 на 100-процентном биотопливе. Об этом сообщает &lt;a href=&quot;http://www.janes.com&quot; target=&quot;_blank&quot;&gt;Jane''s&lt;/a&gt;.&lt;/p&gt;\r\n&lt;p&gt;\r\n	Испытания прошли 29 октября, однако известно о них стало только сейчас. Как отмечает издание, до сих пор самолеты, на которых испытывают альтернативное топливо, заправлялись смесью обычного и биотоплива (как правило, в пропорции один к одному).&lt;/p&gt;\r\n');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `news_to_store`
+--
+
+CREATE TABLE IF NOT EXISTS `news_to_store` (
+  `news_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL,
+  PRIMARY KEY (`news_id`,`store_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Дамп данных таблицы `news_to_store`
+--
+
+INSERT INTO `news_to_store` (`news_id`, `store_id`) VALUES
+(1, 0),
+(2, 0);
 
 -- --------------------------------------------------------
 
@@ -2698,9 +2765,9 @@ INSERT INTO `product` (`product_id`, `model`, `sku`, `upc`, `location`, `quantit
 (46, 'Товар 19', '', '', '', 1000, 5, 'data/sony_vaio_1.jpg', 10, 1, '1000.0000', 0, 9, '2009-02-03', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 2, 1, 1, 0, 1, '2009-02-03 21:08:29', '2011-09-30 01:06:39', 2),
 (47, 'Товар 21', '', '', '', 1000, 5, 'data/hp_1.jpg', 7, 1, '100.0000', 400, 9, '2009-02-03', '1.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 0, 1, 0, 1, '2009-02-03 21:08:40', '2011-09-30 01:05:28', 4),
 (48, 'Товар 20', 'test 1', '', 'test 2', 995, 5, 'data/ipod_classic_1.jpg', 8, 1, '100.0000', 0, 9, '2009-02-08', '1.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 2, 1, 1, 0, 1, '2009-02-08 17:21:51', '2011-09-30 01:07:06', 0),
-(49, 'SAM1', '', '', '', 0, 8, 'data/samsung_tab_1.jpg', 0, 1, '199.9900', 0, 9, '2011-04-25', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, '2011-04-26 08:57:34', '2011-09-30 01:06:23', 13),
+(49, 'SAM1', '', '', '', 0, 8, 'data/samsung_tab_1.jpg', 0, 1, '199.9900', 0, 9, '2011-04-25', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, '2011-04-26 08:57:34', '2011-09-30 01:06:23', 14),
 (64, 'Товар 01', '', '', '', 946, 7, 'data/htc_touch_hd_1.jpg', 5, 1, '500.0000', 200, 9, '2009-02-03', '146.40000000', 2, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 0, 0, '2011-05-24 23:48:34', '0000-00-00 00:00:00', 0),
-(65, '133', '', '', '', 1, 5, 'data/test.jpg', 0, 1, '15000.0000', 0, 0, '2012-10-19', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, '2012-10-21 01:25:43', '2012-10-21 14:01:57', 45),
+(65, '133', '', '', '', 1, 5, 'data/test.jpg', 0, 1, '15000.0000', 0, 0, '2012-10-19', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 1, '2012-10-21 01:25:43', '2012-11-06 23:29:04', 45),
 (66, '133', '', '', '', 1, 5, 'data/test.jpg', 0, 1, '15000.0000', 0, 0, '2012-10-19', '0.00000000', 1, '0.00000000', '0.00000000', '0.00000000', 1, 1, 1, 1, 0, '2012-10-21 01:37:24', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
@@ -2726,10 +2793,10 @@ INSERT INTO `product_attribute` (`product_id`, `attribute_id`, `language_id`, `t
 (47, 2, 1, '4'),
 (43, 4, 1, '8гб'),
 (47, 4, 1, '16ГБ'),
-(65, 13, 1, 'есть'),
+(65, 12, 1, 'да'),
 (42, 3, 1, '100мгц'),
 (66, 12, 1, 'да'),
-(65, 12, 1, 'да');
+(65, 13, 1, 'есть');
 
 -- --------------------------------------------------------
 
@@ -3003,14 +3070,14 @@ CREATE TABLE IF NOT EXISTS `product_reward` (
   `customer_group_id` int(11) NOT NULL DEFAULT '0',
   `points` int(8) NOT NULL DEFAULT '0',
   PRIMARY KEY (`product_reward_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=559 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=560 ;
 
 --
 -- Дамп данных таблицы `product_reward`
 --
 
 INSERT INTO `product_reward` (`product_reward_id`, `product_id`, `customer_group_id`, `points`) VALUES
-(558, 65, 1, 0),
+(559, 65, 1, 0),
 (549, 42, 1, 0),
 (520, 47, 6, 30),
 (519, 47, 8, 300),
@@ -3369,7 +3436,7 @@ CREATE TABLE IF NOT EXISTS `setting` (
   `value` text NOT NULL,
   `serialized` tinyint(1) NOT NULL,
   PRIMARY KEY (`setting_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1561 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1567 ;
 
 --
 -- Дамп данных таблицы `setting`
@@ -3387,6 +3454,10 @@ INSERT INTO `setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `seria
 (1079, 0, 'free_checkout', 'free_checkout_order_status_id', '14', 0),
 (14, 0, 'shipping', 'shipping_status', '1', 0),
 (15, 0, 'shipping', 'shipping_estimator', '1', 0),
+(1564, 0, 'news', 'news_popup_width', '310', 0),
+(1563, 0, 'news', 'news_thumb_height', '136', 0),
+(1562, 0, 'news', 'news_thumb_width', '310', 0),
+(1561, 0, 'news', 'news_headline_chars', '500', 0),
 (1560, 0, 'config', 'config_google_analytics', '', 0),
 (1558, 0, 'config', 'config_error_log', '1', 0),
 (1128, 0, 'distance', 'distance_rate', '100:400.00,200:500.00,500:1000.00,1000:1500.00', 0),
@@ -3394,6 +3465,8 @@ INSERT INTO `setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `seria
 (1557, 0, 'config', 'config_error_display', '1', 0),
 (1556, 0, 'config', 'config_compression', '0', 0),
 (1555, 0, 'config', 'config_encryption', 'dfbec5b4a36a9c39ddbe3cd1078e7929', 0),
+(1566, 0, 'news', 'news_headline_module', '0', 0),
+(1565, 0, 'news', 'news_popup_height', '136', 0),
 (1152, 0, 'flat', 'flat_sort_order', '1', 0),
 (1151, 0, 'flat', 'flat_status', '1', 0),
 (1150, 0, 'flat', 'flat_geo_zone_id', '0', 0),
@@ -3649,7 +3722,7 @@ CREATE TABLE IF NOT EXISTS `url_alias` (
   `query` varchar(255) NOT NULL,
   `keyword` varchar(255) NOT NULL,
   PRIMARY KEY (`url_alias_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=780 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=782 ;
 
 --
 -- Дамп данных таблицы `url_alias`
@@ -3661,7 +3734,7 @@ INSERT INTO `url_alias` (`url_alias_id`, `query`, `keyword`) VALUES
 (503, 'category_id=26', 'pc'),
 (505, 'category_id=27', 'mac'),
 (730, 'manufacturer_id=8', 'apple'),
-(779, 'information_id=4', 'about_us'),
+(781, 'information_id=4', 'about_us'),
 (776, 'product_id=42', 'test'),
 (767, 'category_id=34', 'mp3-players'),
 (536, 'category_id=36', 'Normal');
@@ -3713,7 +3786,7 @@ CREATE TABLE IF NOT EXISTS `user_group` (
 --
 
 INSERT INTO `user_group` (`user_group_id`, `name`, `permission`) VALUES
-(1, 'Главный администратор', 'a:2:{s:6:"access";a:142:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:19:"catalog/information";i:5;s:20:"catalog/manufacturer";i:6;s:14:"catalog/option";i:7;s:15:"catalog/product";i:8;s:14:"catalog/review";i:9;s:18:"common/filemanager";i:10;s:13:"design/banner";i:11;s:13:"design/layout";i:12;s:14:"extension/feed";i:13;s:16:"extension/module";i:14;s:17:"extension/payment";i:15;s:18:"extension/shipping";i:16;s:15:"extension/total";i:17;s:16:"feed/google_base";i:18;s:19:"feed/google_sitemap";i:19;s:18:"feed/yandex_market";i:20;s:20:"localisation/country";i:21;s:21:"localisation/currency";i:22;s:21:"localisation/geo_zone";i:23;s:21:"localisation/language";i:24;s:25:"localisation/length_class";i:25;s:25:"localisation/order_status";i:26;s:26:"localisation/return_action";i:27;s:26:"localisation/return_reason";i:28;s:26:"localisation/return_status";i:29;s:25:"localisation/stock_status";i:30;s:22:"localisation/tax_class";i:31;s:21:"localisation/tax_rate";i:32;s:25:"localisation/weight_class";i:33;s:17:"localisation/zone";i:34;s:14:"module/account";i:35;s:16:"module/affiliate";i:36;s:13:"module/banner";i:37;s:17:"module/bestseller";i:38;s:15:"module/carousel";i:39;s:15:"module/category";i:40;s:15:"module/featured";i:41;s:18:"module/google_talk";i:42;s:18:"module/information";i:43;s:13:"module/latest";i:44;s:16:"module/slideshow";i:45;s:14:"module/special";i:46;s:12:"module/store";i:47;s:14:"module/welcome";i:48;s:16:"payment/alertpay";i:49;s:24:"payment/authorizenet_aim";i:50;s:21:"payment/bank_transfer";i:51;s:14:"payment/cheque";i:52;s:11:"payment/cod";i:53;s:21:"payment/free_checkout";i:54;s:14:"payment/liqpay";i:55;s:20:"payment/moneybookers";i:56;s:14:"payment/nochex";i:57;s:15:"payment/paymate";i:58;s:16:"payment/paypoint";i:59;s:26:"payment/perpetual_payments";i:60;s:14:"payment/pp_pro";i:61;s:17:"payment/pp_pro_uk";i:62;s:19:"payment/pp_standard";i:63;s:15:"payment/sagepay";i:64;s:22:"payment/sagepay_direct";i:65;s:18:"payment/sagepay_us";i:66;s:25:"payment/sberbank_transfer";i:67;s:19:"payment/twocheckout";i:68;s:28:"payment/web_payment_software";i:69;s:20:"payment/webmoney_wme";i:70;s:20:"payment/webmoney_wmr";i:71;s:20:"payment/webmoney_wmu";i:72;s:20:"payment/webmoney_wmz";i:73;s:16:"payment/worldpay";i:74;s:27:"report/affiliate_commission";i:75;s:22:"report/customer_credit";i:76;s:21:"report/customer_order";i:77;s:22:"report/customer_reward";i:78;s:24:"report/product_purchased";i:79;s:21:"report/product_viewed";i:80;s:18:"report/sale_coupon";i:81;s:17:"report/sale_order";i:82;s:18:"report/sale_return";i:83;s:20:"report/sale_shipping";i:84;s:15:"report/sale_tax";i:85;s:14:"sale/affiliate";i:86;s:12:"sale/contact";i:87;s:11:"sale/coupon";i:88;s:13:"sale/customer";i:89;s:23:"sale/customer_blacklist";i:90;s:19:"sale/customer_group";i:91;s:10:"sale/order";i:92;s:11:"sale/return";i:93;s:12:"sale/voucher";i:94;s:18:"sale/voucher_theme";i:95;s:15:"setting/setting";i:96;s:13:"setting/store";i:97;s:17:"shipping/citylink";i:98;s:13:"shipping/flat";i:99;s:13:"shipping/free";i:100;s:13:"shipping/item";i:101;s:23:"shipping/parcelforce_48";i:102;s:15:"shipping/pickup";i:103;s:19:"shipping/royal_mail";i:104;s:12:"shipping/ups";i:105;s:13:"shipping/usps";i:106;s:15:"shipping/weight";i:107;s:11:"tool/backup";i:108;s:14:"tool/error_log";i:109;s:12:"total/coupon";i:110;s:12:"total/credit";i:111;s:14:"total/handling";i:112;s:19:"total/low_order_fee";i:113;s:12:"total/reward";i:114;s:14:"total/shipping";i:115;s:15:"total/sub_total";i:116;s:9:"total/tax";i:117;s:11:"total/total";i:118;s:13:"total/voucher";i:119;s:9:"user/user";i:120;s:20:"user/user_permission";i:121;s:13:"module/latest";i:122;s:15:"module/featured";i:123;s:15:"module/category";i:124;s:17:"module/bestseller";i:125;s:13:"module/latest";i:126;s:15:"shipping/pickup";i:127;s:17:"shipping/citylink";i:128;s:13:"shipping/flat";i:129;s:13:"shipping/item";i:130;s:15:"shipping/weight";i:131;s:21:"payment/free_checkout";i:132;s:13:"shipping/free";i:133;s:23:"shipping/parcelforce_48";i:134;s:19:"shipping/royal_mail";i:135;s:12:"shipping/ups";i:136;s:13:"shipping/usps";i:137;s:17:"shipping/distance";i:138;s:17:"shipping/distance";i:139;s:15:"shipping/pickup";i:140;s:13:"shipping/flat";i:141;s:11:"payment/cod";}s:6:"modify";a:142:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:19:"catalog/information";i:5;s:20:"catalog/manufacturer";i:6;s:14:"catalog/option";i:7;s:15:"catalog/product";i:8;s:14:"catalog/review";i:9;s:18:"common/filemanager";i:10;s:13:"design/banner";i:11;s:13:"design/layout";i:12;s:14:"extension/feed";i:13;s:16:"extension/module";i:14;s:17:"extension/payment";i:15;s:18:"extension/shipping";i:16;s:15:"extension/total";i:17;s:16:"feed/google_base";i:18;s:19:"feed/google_sitemap";i:19;s:18:"feed/yandex_market";i:20;s:20:"localisation/country";i:21;s:21:"localisation/currency";i:22;s:21:"localisation/geo_zone";i:23;s:21:"localisation/language";i:24;s:25:"localisation/length_class";i:25;s:25:"localisation/order_status";i:26;s:26:"localisation/return_action";i:27;s:26:"localisation/return_reason";i:28;s:26:"localisation/return_status";i:29;s:25:"localisation/stock_status";i:30;s:22:"localisation/tax_class";i:31;s:21:"localisation/tax_rate";i:32;s:25:"localisation/weight_class";i:33;s:17:"localisation/zone";i:34;s:14:"module/account";i:35;s:16:"module/affiliate";i:36;s:13:"module/banner";i:37;s:17:"module/bestseller";i:38;s:15:"module/carousel";i:39;s:15:"module/category";i:40;s:15:"module/featured";i:41;s:18:"module/google_talk";i:42;s:18:"module/information";i:43;s:13:"module/latest";i:44;s:16:"module/slideshow";i:45;s:14:"module/special";i:46;s:12:"module/store";i:47;s:14:"module/welcome";i:48;s:16:"payment/alertpay";i:49;s:24:"payment/authorizenet_aim";i:50;s:21:"payment/bank_transfer";i:51;s:14:"payment/cheque";i:52;s:11:"payment/cod";i:53;s:21:"payment/free_checkout";i:54;s:14:"payment/liqpay";i:55;s:20:"payment/moneybookers";i:56;s:14:"payment/nochex";i:57;s:15:"payment/paymate";i:58;s:16:"payment/paypoint";i:59;s:26:"payment/perpetual_payments";i:60;s:14:"payment/pp_pro";i:61;s:17:"payment/pp_pro_uk";i:62;s:19:"payment/pp_standard";i:63;s:15:"payment/sagepay";i:64;s:22:"payment/sagepay_direct";i:65;s:18:"payment/sagepay_us";i:66;s:25:"payment/sberbank_transfer";i:67;s:19:"payment/twocheckout";i:68;s:28:"payment/web_payment_software";i:69;s:20:"payment/webmoney_wme";i:70;s:20:"payment/webmoney_wmr";i:71;s:20:"payment/webmoney_wmu";i:72;s:20:"payment/webmoney_wmz";i:73;s:16:"payment/worldpay";i:74;s:27:"report/affiliate_commission";i:75;s:22:"report/customer_credit";i:76;s:21:"report/customer_order";i:77;s:22:"report/customer_reward";i:78;s:24:"report/product_purchased";i:79;s:21:"report/product_viewed";i:80;s:18:"report/sale_coupon";i:81;s:17:"report/sale_order";i:82;s:18:"report/sale_return";i:83;s:20:"report/sale_shipping";i:84;s:15:"report/sale_tax";i:85;s:14:"sale/affiliate";i:86;s:12:"sale/contact";i:87;s:11:"sale/coupon";i:88;s:13:"sale/customer";i:89;s:23:"sale/customer_blacklist";i:90;s:19:"sale/customer_group";i:91;s:10:"sale/order";i:92;s:11:"sale/return";i:93;s:12:"sale/voucher";i:94;s:18:"sale/voucher_theme";i:95;s:15:"setting/setting";i:96;s:13:"setting/store";i:97;s:17:"shipping/citylink";i:98;s:13:"shipping/flat";i:99;s:13:"shipping/free";i:100;s:13:"shipping/item";i:101;s:23:"shipping/parcelforce_48";i:102;s:15:"shipping/pickup";i:103;s:19:"shipping/royal_mail";i:104;s:12:"shipping/ups";i:105;s:13:"shipping/usps";i:106;s:15:"shipping/weight";i:107;s:11:"tool/backup";i:108;s:14:"tool/error_log";i:109;s:12:"total/coupon";i:110;s:12:"total/credit";i:111;s:14:"total/handling";i:112;s:19:"total/low_order_fee";i:113;s:12:"total/reward";i:114;s:14:"total/shipping";i:115;s:15:"total/sub_total";i:116;s:9:"total/tax";i:117;s:11:"total/total";i:118;s:13:"total/voucher";i:119;s:9:"user/user";i:120;s:20:"user/user_permission";i:121;s:13:"module/latest";i:122;s:15:"module/featured";i:123;s:15:"module/category";i:124;s:17:"module/bestseller";i:125;s:13:"module/latest";i:126;s:15:"shipping/pickup";i:127;s:17:"shipping/citylink";i:128;s:13:"shipping/flat";i:129;s:13:"shipping/item";i:130;s:15:"shipping/weight";i:131;s:21:"payment/free_checkout";i:132;s:13:"shipping/free";i:133;s:23:"shipping/parcelforce_48";i:134;s:19:"shipping/royal_mail";i:135;s:12:"shipping/ups";i:136;s:13:"shipping/usps";i:137;s:17:"shipping/distance";i:138;s:17:"shipping/distance";i:139;s:15:"shipping/pickup";i:140;s:13:"shipping/flat";i:141;s:11:"payment/cod";}}'),
+(1, 'Главный администратор', 'a:2:{s:6:"access";a:145:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:19:"catalog/information";i:5;s:20:"catalog/manufacturer";i:6;s:14:"catalog/option";i:7;s:15:"catalog/product";i:8;s:14:"catalog/review";i:9;s:18:"common/filemanager";i:10;s:13:"design/banner";i:11;s:13:"design/layout";i:12;s:14:"extension/feed";i:13;s:16:"extension/module";i:14;s:17:"extension/payment";i:15;s:18:"extension/shipping";i:16;s:15:"extension/total";i:17;s:16:"feed/google_base";i:18;s:19:"feed/google_sitemap";i:19;s:18:"feed/yandex_market";i:20;s:20:"localisation/country";i:21;s:21:"localisation/currency";i:22;s:21:"localisation/geo_zone";i:23;s:21:"localisation/language";i:24;s:25:"localisation/length_class";i:25;s:25:"localisation/order_status";i:26;s:26:"localisation/return_action";i:27;s:26:"localisation/return_reason";i:28;s:26:"localisation/return_status";i:29;s:25:"localisation/stock_status";i:30;s:22:"localisation/tax_class";i:31;s:21:"localisation/tax_rate";i:32;s:25:"localisation/weight_class";i:33;s:17:"localisation/zone";i:34;s:14:"module/account";i:35;s:16:"module/affiliate";i:36;s:13:"module/banner";i:37;s:17:"module/bestseller";i:38;s:15:"module/carousel";i:39;s:15:"module/category";i:40;s:15:"module/featured";i:41;s:18:"module/google_talk";i:42;s:18:"module/information";i:43;s:13:"module/latest";i:44;s:16:"module/slideshow";i:45;s:14:"module/special";i:46;s:12:"module/store";i:47;s:14:"module/welcome";i:48;s:16:"payment/alertpay";i:49;s:24:"payment/authorizenet_aim";i:50;s:21:"payment/bank_transfer";i:51;s:14:"payment/cheque";i:52;s:11:"payment/cod";i:53;s:21:"payment/free_checkout";i:54;s:14:"payment/liqpay";i:55;s:20:"payment/moneybookers";i:56;s:14:"payment/nochex";i:57;s:15:"payment/paymate";i:58;s:16:"payment/paypoint";i:59;s:26:"payment/perpetual_payments";i:60;s:14:"payment/pp_pro";i:61;s:17:"payment/pp_pro_uk";i:62;s:19:"payment/pp_standard";i:63;s:15:"payment/sagepay";i:64;s:22:"payment/sagepay_direct";i:65;s:18:"payment/sagepay_us";i:66;s:25:"payment/sberbank_transfer";i:67;s:19:"payment/twocheckout";i:68;s:28:"payment/web_payment_software";i:69;s:20:"payment/webmoney_wme";i:70;s:20:"payment/webmoney_wmr";i:71;s:20:"payment/webmoney_wmu";i:72;s:20:"payment/webmoney_wmz";i:73;s:16:"payment/worldpay";i:74;s:27:"report/affiliate_commission";i:75;s:22:"report/customer_credit";i:76;s:21:"report/customer_order";i:77;s:22:"report/customer_reward";i:78;s:24:"report/product_purchased";i:79;s:21:"report/product_viewed";i:80;s:18:"report/sale_coupon";i:81;s:17:"report/sale_order";i:82;s:18:"report/sale_return";i:83;s:20:"report/sale_shipping";i:84;s:15:"report/sale_tax";i:85;s:14:"sale/affiliate";i:86;s:12:"sale/contact";i:87;s:11:"sale/coupon";i:88;s:13:"sale/customer";i:89;s:23:"sale/customer_blacklist";i:90;s:19:"sale/customer_group";i:91;s:10:"sale/order";i:92;s:11:"sale/return";i:93;s:12:"sale/voucher";i:94;s:18:"sale/voucher_theme";i:95;s:15:"setting/setting";i:96;s:13:"setting/store";i:97;s:17:"shipping/citylink";i:98;s:13:"shipping/flat";i:99;s:13:"shipping/free";i:100;s:13:"shipping/item";i:101;s:23:"shipping/parcelforce_48";i:102;s:15:"shipping/pickup";i:103;s:19:"shipping/royal_mail";i:104;s:12:"shipping/ups";i:105;s:13:"shipping/usps";i:106;s:15:"shipping/weight";i:107;s:11:"tool/backup";i:108;s:14:"tool/error_log";i:109;s:12:"total/coupon";i:110;s:12:"total/credit";i:111;s:14:"total/handling";i:112;s:19:"total/low_order_fee";i:113;s:12:"total/reward";i:114;s:14:"total/shipping";i:115;s:15:"total/sub_total";i:116;s:9:"total/tax";i:117;s:11:"total/total";i:118;s:13:"total/voucher";i:119;s:9:"user/user";i:120;s:20:"user/user_permission";i:121;s:13:"module/latest";i:122;s:15:"module/featured";i:123;s:15:"module/category";i:124;s:17:"module/bestseller";i:125;s:13:"module/latest";i:126;s:15:"shipping/pickup";i:127;s:17:"shipping/citylink";i:128;s:13:"shipping/flat";i:129;s:13:"shipping/item";i:130;s:15:"shipping/weight";i:131;s:21:"payment/free_checkout";i:132;s:13:"shipping/free";i:133;s:23:"shipping/parcelforce_48";i:134;s:19:"shipping/royal_mail";i:135;s:12:"shipping/ups";i:136;s:13:"shipping/usps";i:137;s:17:"shipping/distance";i:138;s:17:"shipping/distance";i:139;s:15:"shipping/pickup";i:140;s:13:"shipping/flat";i:141;s:11:"payment/cod";i:142;s:11:"module/news";i:143;s:11:"module/news";i:144;s:11:"module/news";}s:6:"modify";a:145:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:19:"catalog/information";i:5;s:20:"catalog/manufacturer";i:6;s:14:"catalog/option";i:7;s:15:"catalog/product";i:8;s:14:"catalog/review";i:9;s:18:"common/filemanager";i:10;s:13:"design/banner";i:11;s:13:"design/layout";i:12;s:14:"extension/feed";i:13;s:16:"extension/module";i:14;s:17:"extension/payment";i:15;s:18:"extension/shipping";i:16;s:15:"extension/total";i:17;s:16:"feed/google_base";i:18;s:19:"feed/google_sitemap";i:19;s:18:"feed/yandex_market";i:20;s:20:"localisation/country";i:21;s:21:"localisation/currency";i:22;s:21:"localisation/geo_zone";i:23;s:21:"localisation/language";i:24;s:25:"localisation/length_class";i:25;s:25:"localisation/order_status";i:26;s:26:"localisation/return_action";i:27;s:26:"localisation/return_reason";i:28;s:26:"localisation/return_status";i:29;s:25:"localisation/stock_status";i:30;s:22:"localisation/tax_class";i:31;s:21:"localisation/tax_rate";i:32;s:25:"localisation/weight_class";i:33;s:17:"localisation/zone";i:34;s:14:"module/account";i:35;s:16:"module/affiliate";i:36;s:13:"module/banner";i:37;s:17:"module/bestseller";i:38;s:15:"module/carousel";i:39;s:15:"module/category";i:40;s:15:"module/featured";i:41;s:18:"module/google_talk";i:42;s:18:"module/information";i:43;s:13:"module/latest";i:44;s:16:"module/slideshow";i:45;s:14:"module/special";i:46;s:12:"module/store";i:47;s:14:"module/welcome";i:48;s:16:"payment/alertpay";i:49;s:24:"payment/authorizenet_aim";i:50;s:21:"payment/bank_transfer";i:51;s:14:"payment/cheque";i:52;s:11:"payment/cod";i:53;s:21:"payment/free_checkout";i:54;s:14:"payment/liqpay";i:55;s:20:"payment/moneybookers";i:56;s:14:"payment/nochex";i:57;s:15:"payment/paymate";i:58;s:16:"payment/paypoint";i:59;s:26:"payment/perpetual_payments";i:60;s:14:"payment/pp_pro";i:61;s:17:"payment/pp_pro_uk";i:62;s:19:"payment/pp_standard";i:63;s:15:"payment/sagepay";i:64;s:22:"payment/sagepay_direct";i:65;s:18:"payment/sagepay_us";i:66;s:25:"payment/sberbank_transfer";i:67;s:19:"payment/twocheckout";i:68;s:28:"payment/web_payment_software";i:69;s:20:"payment/webmoney_wme";i:70;s:20:"payment/webmoney_wmr";i:71;s:20:"payment/webmoney_wmu";i:72;s:20:"payment/webmoney_wmz";i:73;s:16:"payment/worldpay";i:74;s:27:"report/affiliate_commission";i:75;s:22:"report/customer_credit";i:76;s:21:"report/customer_order";i:77;s:22:"report/customer_reward";i:78;s:24:"report/product_purchased";i:79;s:21:"report/product_viewed";i:80;s:18:"report/sale_coupon";i:81;s:17:"report/sale_order";i:82;s:18:"report/sale_return";i:83;s:20:"report/sale_shipping";i:84;s:15:"report/sale_tax";i:85;s:14:"sale/affiliate";i:86;s:12:"sale/contact";i:87;s:11:"sale/coupon";i:88;s:13:"sale/customer";i:89;s:23:"sale/customer_blacklist";i:90;s:19:"sale/customer_group";i:91;s:10:"sale/order";i:92;s:11:"sale/return";i:93;s:12:"sale/voucher";i:94;s:18:"sale/voucher_theme";i:95;s:15:"setting/setting";i:96;s:13:"setting/store";i:97;s:17:"shipping/citylink";i:98;s:13:"shipping/flat";i:99;s:13:"shipping/free";i:100;s:13:"shipping/item";i:101;s:23:"shipping/parcelforce_48";i:102;s:15:"shipping/pickup";i:103;s:19:"shipping/royal_mail";i:104;s:12:"shipping/ups";i:105;s:13:"shipping/usps";i:106;s:15:"shipping/weight";i:107;s:11:"tool/backup";i:108;s:14:"tool/error_log";i:109;s:12:"total/coupon";i:110;s:12:"total/credit";i:111;s:14:"total/handling";i:112;s:19:"total/low_order_fee";i:113;s:12:"total/reward";i:114;s:14:"total/shipping";i:115;s:15:"total/sub_total";i:116;s:9:"total/tax";i:117;s:11:"total/total";i:118;s:13:"total/voucher";i:119;s:9:"user/user";i:120;s:20:"user/user_permission";i:121;s:13:"module/latest";i:122;s:15:"module/featured";i:123;s:15:"module/category";i:124;s:17:"module/bestseller";i:125;s:13:"module/latest";i:126;s:15:"shipping/pickup";i:127;s:17:"shipping/citylink";i:128;s:13:"shipping/flat";i:129;s:13:"shipping/item";i:130;s:15:"shipping/weight";i:131;s:21:"payment/free_checkout";i:132;s:13:"shipping/free";i:133;s:23:"shipping/parcelforce_48";i:134;s:19:"shipping/royal_mail";i:135;s:12:"shipping/ups";i:136;s:13:"shipping/usps";i:137;s:17:"shipping/distance";i:138;s:17:"shipping/distance";i:139;s:15:"shipping/pickup";i:140;s:13:"shipping/flat";i:141;s:11:"payment/cod";i:142;s:11:"module/news";i:143;s:11:"module/news";i:144;s:11:"module/news";}}'),
 (10, 'Демонстрация', 'a:1:{s:6:"access";a:3:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";}}'),
 (11, 'client', 'a:2:{s:6:"access";a:116:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:19:"catalog/information";i:5;s:20:"catalog/manufacturer";i:6;s:14:"catalog/option";i:7;s:15:"catalog/product";i:8;s:14:"catalog/review";i:9;s:18:"common/filemanager";i:10;s:13:"design/banner";i:11;s:13:"design/layout";i:12;s:14:"extension/feed";i:13;s:16:"extension/module";i:14;s:17:"extension/payment";i:15;s:18:"extension/shipping";i:16;s:15:"extension/total";i:17;s:16:"feed/google_base";i:18;s:19:"feed/google_sitemap";i:19;s:20:"localisation/country";i:20;s:21:"localisation/currency";i:21;s:21:"localisation/geo_zone";i:22;s:21:"localisation/language";i:23;s:25:"localisation/length_class";i:24;s:25:"localisation/order_status";i:25;s:26:"localisation/return_action";i:26;s:26:"localisation/return_reason";i:27;s:26:"localisation/return_status";i:28;s:25:"localisation/stock_status";i:29;s:22:"localisation/tax_class";i:30;s:21:"localisation/tax_rate";i:31;s:25:"localisation/weight_class";i:32;s:17:"localisation/zone";i:33;s:14:"module/account";i:34;s:16:"module/affiliate";i:35;s:13:"module/banner";i:36;s:17:"module/bestseller";i:37;s:15:"module/carousel";i:38;s:15:"module/category";i:39;s:15:"module/featured";i:40;s:18:"module/google_talk";i:41;s:18:"module/information";i:42;s:13:"module/latest";i:43;s:16:"module/slideshow";i:44;s:14:"module/special";i:45;s:12:"module/store";i:46;s:14:"module/welcome";i:47;s:16:"payment/alertpay";i:48;s:24:"payment/authorizenet_aim";i:49;s:21:"payment/bank_transfer";i:50;s:14:"payment/cheque";i:51;s:11:"payment/cod";i:52;s:21:"payment/free_checkout";i:53;s:14:"payment/liqpay";i:54;s:20:"payment/moneybookers";i:55;s:14:"payment/nochex";i:56;s:15:"payment/paymate";i:57;s:16:"payment/paypoint";i:58;s:26:"payment/perpetual_payments";i:59;s:14:"payment/pp_pro";i:60;s:17:"payment/pp_pro_uk";i:61;s:19:"payment/pp_standard";i:62;s:15:"payment/sagepay";i:63;s:22:"payment/sagepay_direct";i:64;s:18:"payment/sagepay_us";i:65;s:19:"payment/twocheckout";i:66;s:28:"payment/web_payment_software";i:67;s:16:"payment/worldpay";i:68;s:27:"report/affiliate_commission";i:69;s:22:"report/customer_credit";i:70;s:21:"report/customer_order";i:71;s:22:"report/customer_reward";i:72;s:24:"report/product_purchased";i:73;s:21:"report/product_viewed";i:74;s:18:"report/sale_coupon";i:75;s:17:"report/sale_order";i:76;s:18:"report/sale_return";i:77;s:20:"report/sale_shipping";i:78;s:15:"report/sale_tax";i:79;s:14:"sale/affiliate";i:80;s:12:"sale/contact";i:81;s:11:"sale/coupon";i:82;s:13:"sale/customer";i:83;s:23:"sale/customer_blacklist";i:84;s:19:"sale/customer_group";i:85;s:10:"sale/order";i:86;s:11:"sale/return";i:87;s:12:"sale/voucher";i:88;s:18:"sale/voucher_theme";i:89;s:15:"setting/setting";i:90;s:13:"setting/store";i:91;s:17:"shipping/citylink";i:92;s:13:"shipping/flat";i:93;s:13:"shipping/free";i:94;s:13:"shipping/item";i:95;s:23:"shipping/parcelforce_48";i:96;s:15:"shipping/pickup";i:97;s:19:"shipping/royal_mail";i:98;s:12:"shipping/ups";i:99;s:13:"shipping/usps";i:100;s:15:"shipping/weight";i:101;s:11:"tool/backup";i:102;s:14:"tool/error_log";i:103;s:12:"total/coupon";i:104;s:12:"total/credit";i:105;s:14:"total/handling";i:106;s:16:"total/klarna_fee";i:107;s:19:"total/low_order_fee";i:108;s:12:"total/reward";i:109;s:14:"total/shipping";i:110;s:15:"total/sub_total";i:111;s:9:"total/tax";i:112;s:11:"total/total";i:113;s:13:"total/voucher";i:114;s:9:"user/user";i:115;s:20:"user/user_permission";}s:6:"modify";a:99:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:19:"catalog/information";i:5;s:20:"catalog/manufacturer";i:6;s:14:"catalog/option";i:7;s:15:"catalog/product";i:8;s:14:"catalog/review";i:9;s:18:"common/filemanager";i:10;s:13:"design/banner";i:11;s:13:"design/layout";i:12;s:14:"extension/feed";i:13;s:16:"extension/module";i:14;s:17:"extension/payment";i:15;s:18:"extension/shipping";i:16;s:15:"extension/total";i:17;s:16:"feed/google_base";i:18;s:19:"feed/google_sitemap";i:19;s:20:"localisation/country";i:20;s:21:"localisation/currency";i:21;s:21:"localisation/geo_zone";i:22;s:21:"localisation/language";i:23;s:25:"localisation/length_class";i:24;s:25:"localisation/order_status";i:25;s:26:"localisation/return_action";i:26;s:26:"localisation/return_reason";i:27;s:26:"localisation/return_status";i:28;s:25:"localisation/stock_status";i:29;s:22:"localisation/tax_class";i:30;s:21:"localisation/tax_rate";i:31;s:25:"localisation/weight_class";i:32;s:17:"localisation/zone";i:33;s:14:"module/account";i:34;s:16:"module/affiliate";i:35;s:13:"module/banner";i:36;s:17:"module/bestseller";i:37;s:15:"module/carousel";i:38;s:15:"module/category";i:39;s:15:"module/featured";i:40;s:18:"module/google_talk";i:41;s:18:"module/information";i:42;s:13:"module/latest";i:43;s:16:"module/slideshow";i:44;s:14:"module/special";i:45;s:12:"module/store";i:46;s:14:"module/welcome";i:47;s:16:"payment/alertpay";i:48;s:24:"payment/authorizenet_aim";i:49;s:21:"payment/bank_transfer";i:50;s:14:"payment/cheque";i:51;s:11:"payment/cod";i:52;s:21:"payment/free_checkout";i:53;s:14:"payment/liqpay";i:54;s:20:"payment/moneybookers";i:55;s:14:"payment/nochex";i:56;s:15:"payment/paymate";i:57;s:16:"payment/paypoint";i:58;s:26:"payment/perpetual_payments";i:59;s:14:"payment/pp_pro";i:60;s:17:"payment/pp_pro_uk";i:61;s:19:"payment/pp_standard";i:62;s:15:"payment/sagepay";i:63;s:22:"payment/sagepay_direct";i:64;s:18:"payment/sagepay_us";i:65;s:19:"payment/twocheckout";i:66;s:28:"payment/web_payment_software";i:67;s:16:"payment/worldpay";i:68;s:27:"report/affiliate_commission";i:69;s:22:"report/customer_credit";i:70;s:21:"report/customer_order";i:71;s:22:"report/customer_reward";i:72;s:24:"report/product_purchased";i:73;s:21:"report/product_viewed";i:74;s:18:"report/sale_coupon";i:75;s:17:"report/sale_order";i:76;s:18:"report/sale_return";i:77;s:20:"report/sale_shipping";i:78;s:15:"report/sale_tax";i:79;s:14:"sale/affiliate";i:80;s:12:"sale/contact";i:81;s:11:"sale/coupon";i:82;s:13:"sale/customer";i:83;s:23:"sale/customer_blacklist";i:84;s:19:"sale/customer_group";i:85;s:10:"sale/order";i:86;s:11:"sale/return";i:87;s:12:"sale/voucher";i:88;s:18:"sale/voucher_theme";i:89;s:17:"shipping/citylink";i:90;s:13:"shipping/flat";i:91;s:13:"shipping/free";i:92;s:13:"shipping/item";i:93;s:23:"shipping/parcelforce_48";i:94;s:15:"shipping/pickup";i:95;s:19:"shipping/royal_mail";i:96;s:12:"shipping/ups";i:97;s:13:"shipping/usps";i:98;s:15:"shipping/weight";}}');
 

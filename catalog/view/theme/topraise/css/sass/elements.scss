@@ -910,3 +910,44 @@
 
             }
         }
+
+/* opt form */
+.opt-form{
+    margin-top: 30px;
+    table{
+        tr{
+
+        }
+        td{
+            vertical-align: top;
+            padding: 6px 10px 6px 0;
+            &.left{
+                text-align: right;
+            }
+        }
+        input, textarea{
+            border: 1px solid #0778ab;
+            padding: 5px 5px;
+            margin-top: -3px;
+            width:200px;
+        }
+        textarea{
+            width: 300px;
+        }
+    }
+    .label{
+        margin: 0 0 10px 0;
+    }
+    .captcha{
+        input{
+            width: 100px;
+            margin-top: 6px;
+            float: left;
+        }
+        img{
+            margin-left: 20px;
+            float: left;
+        }
+    }
+
+}

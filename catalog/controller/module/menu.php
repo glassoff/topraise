@@ -13,7 +13,7 @@ class ControllerModuleMenu extends Controller {
                 'Новости' => $this->url->link('information/news'),
                 'Доставка и покупка' => '',
                 'Контакты' => $this->url->link('information/contact'),
-                'Оптовикам' => '',
+                'Оптовикам' => $this->url->link('information/opt'),
             ),
         );
 

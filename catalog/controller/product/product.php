@@ -4,6 +4,8 @@ class ControllerProductProduct extends Controller {
 	
 	public function index() { 
 		$this->language->load('product/product');
+
+        $this->document->addScript('catalog/view/javascript/jquery/tabs.js');
 	
 		$this->data['breadcrumbs'] = array();
 

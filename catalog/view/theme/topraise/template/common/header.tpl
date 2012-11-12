@@ -28,7 +28,6 @@
     <!--[if lt IE 8]>
     <link href="catalog/view/theme/topraise/css/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="catalog/view/theme/topraise/css/stylesheets/default1.css" />
 
     <?php foreach ($styles as $style) { ?>
     <link rel="<?php echo $style['rel']; ?>" type="text/css" href="<?php echo $style['href']; ?>" media="<?php echo $style['media']; ?>" />
@@ -37,22 +36,10 @@
     <script src="catalog/view/theme/topraise/js/jquery-1.4.4.min.js"></script>
     <script src="catalog/view/theme/topraise/js/jquery.tools.min.js"></script>
     <script src="catalog/view/theme/topraise/js/common.js"></script>
-    <script type="text/javascript" src="catalog/view/javascript/jquery/tabs.js"></script>
-    <script src="catalog/view/theme/topraise/js/gslider.js"></script>
 
     <?php foreach ($scripts as $script) { ?>
     <script type="text/javascript" src="<?php echo $script; ?>"></script>
     <?php } ?>
-
-    <script>
-        $(function(){
-            $('.evo-gallery').each(function(){
-                new evoGallery($(this), {
-                    loader_img: 'assets/images/ajax-loader-black.gif'
-                });
-            });
-        });
-    </script>
 
     <?php echo $google_analytics; ?>
 </head>

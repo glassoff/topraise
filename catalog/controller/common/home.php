@@ -5,6 +5,8 @@ class ControllerCommonHome extends Controller {
 		$this->document->setDescription($this->config->get('config_meta_description'));
 
 		$this->data['heading_title'] = $this->config->get('config_title');
+
+        $this->document->addScript('catalog/view/theme/topraise/js/gslider.js');
 		
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/home.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/common/home.tpl';

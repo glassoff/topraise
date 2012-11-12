@@ -11,7 +11,7 @@ class ControllerModuleMenu extends Controller {
             'Компания' => array(
                 'О нас' => $this->url->link('information/information', 'information_id=4'),
                 'Новости' => $this->url->link('information/news'),
-                'Доставка и покупка' => '',
+                'Доставка и покупка' => $this->url->link('information/buy-shipping'),
                 'Контакты' => $this->url->link('information/contact'),
                 'Оптовикам' => $this->url->link('information/opt'),
             ),

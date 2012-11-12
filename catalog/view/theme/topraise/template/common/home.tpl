@@ -1,5 +1,15 @@
 <?php echo $header; ?>
 
+<script>
+    $(function(){
+        $('.evo-gallery').each(function(){
+            new evoGallery($(this), {
+                loader_img: 'assets/images/ajax-loader-black.gif'
+            });
+        });
+    });
+</script>
+
 <div class="center home">
     <div class="home__info">
         <img class="home__info__name" src="catalog/view/theme/topraise/images/name.png" alt="Специализированный интернет-магазин сантехники" />

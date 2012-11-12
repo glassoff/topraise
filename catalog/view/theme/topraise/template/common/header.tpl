@@ -14,6 +14,8 @@
     <?php } ?>
     <?php if ($icon) { ?>
     <link href="<?php echo $icon; ?>" rel="icon" />
+    <?php }else{ ?>
+    <link href="catalog/view/theme/topraise/images/Favicon.ico" rel="icon" />
     <?php } ?>
     <?php foreach ($links as $link) { ?>
     <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />

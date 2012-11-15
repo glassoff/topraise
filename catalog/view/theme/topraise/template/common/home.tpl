@@ -15,15 +15,15 @@
         <img class="home__info__name" src="catalog/view/theme/topraise/images/name.png" alt="Специализированный интернет-магазин сантехники" />
         <div class="home__info__blocks">
             <div class="info-blocks">
-                <a class="b-info-block a-first" href="">
+                <a class="b-info-block a-first" href="<?php echo $simple ?>">
                     <i>Просто</i>
                 </a>
                 <div class="info-blocks__delimeter"></div>
-                <a class="b-info-block a-second" href="">
+                <a class="b-info-block a-second" href="<?php echo $comfortable ?>">
                     <i>Комфортно</i>
                 </a>
                 <div class="info-blocks__delimeter"></div>
-                <a class="b-info-block a-third" href="">
+                <a class="b-info-block a-third" href="<?php echo $economicly ?>">
                     <i>Экономично</i>
                 </a>
             </div>

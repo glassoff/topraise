@@ -951,3 +951,58 @@
     }
 
 }
+
+/* buy-shipping */
+.buy-shipping{
+
+}
+    .buy-shipping__tabs__headers{
+        border-bottom: 1px solid #b4b4b4;
+        padding-left: 8px;
+        a{
+            @include inline-block;
+            text-align: center;
+            height: 35px;
+            width:105px;
+            margin: 0 4px 0 0;
+            line-height: 35px;
+            background: 0 -35px no-repeat url(../../images/buy-shipping-tabs.png);
+            color: #000;
+            text-decoration: none;
+            &:hover{
+                background-position: -105px -35px;
+            }
+            &:active{
+                background-position: -210px -35px;
+            }
+            &.selected{
+                background-position: 0 0;
+                &:hover{
+                    background-position: -105px 0;
+                }
+                &:active{
+                    background-position: -210px 0;
+                }
+            }
+            span{
+                border-bottom: 1px dashed #000;
+            }
+        }
+    }
+    .buy-shipping__tabs__contents{
+        padding: 15px 0 0 0;
+    }
+
+.buy-tabs__contents{
+    @include clearfix;
+    margin-bottom: 25px;
+    img{
+        float: left;
+        margin-right: 20px;
+    }
+    .buy-tabs__contents__txt{
+        padding-top: 38px;
+        font-weight: bold;
+    }
+}
+

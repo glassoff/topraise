@@ -79,6 +79,7 @@ $(document).ready(function(){
           <li><a href="<?php echo $review; ?>"><?php echo $text_review; ?></a></li>
           <li><a href="<?php echo $information; ?>"><?php echo $text_information; ?></a></li>
           <li><a href="<?php echo $news; ?>"><?php echo $text_news; ?></a></li>
+            <li><a href="<?php echo $remont; ?>"><?php echo $text_remont; ?></a></li>
         </ul>
       </li>
       <li id="extension"><a class="top"><?php echo $text_extension; ?></a>

@@ -393,12 +393,17 @@ class ControllerCheckoutConfirm extends Controller {
 			$this->data['redirect'] = $redirect;
 		}
 
-        $this->data['total'] = $total;
+        if(isset($total)){
+            $this->data['total'] = $total;
+        }
 
         $this->data['back'] = $this->url->link('checkout/guest', '', 'SSL');
 
-        unset($data['products']);
-        $this->data = array_merge($this->data, $data);
+        if(isset($data)){
+            unset($data['products']);
+            $this->data = array_merge($this->data, $data);
+        }
+
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/confirm.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/checkout/confirm.tpl';

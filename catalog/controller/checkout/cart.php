@@ -104,7 +104,7 @@ class ControllerCheckoutCart extends Controller {
         	'separator' => $this->language->get('text_separator')
       	);
 			
-    	if ($this->cart->hasProducts() || !empty($this->session->data['vouchers'])) {
+    	if ($this->cart->hasProducts(true) || !empty($this->session->data['vouchers'])) {
 			$points = $this->customer->getRewardPoints();
 			
 			$points_total = 0;

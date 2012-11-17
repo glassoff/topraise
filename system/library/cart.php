@@ -377,8 +377,8 @@ class Cart {
 		return $product_total;
 	}
 	  
-  	public function hasProducts() {
-    	return count($this->session->data['cart']);
+  	public function hasProducts($all = false) {
+    	return $all ? count($this->session->data['cart']) : count(array_filter($this->session->data['cart']));
   	}
   
   	public function hasStock() {

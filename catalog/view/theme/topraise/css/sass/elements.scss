@@ -377,7 +377,7 @@
                 text-align: left;
                 @include inline-block;
                 font-size: 10pt;
-                @include link-colors(#000, $aHoverColor, $aActiveColor, #000, $aFocusColor);
+                @include link-colors(#000, $aHoverColor, $aActiveColor, #000, #000);
                 text-decoration: none;
                 padding: 6px;
                 &.selected{

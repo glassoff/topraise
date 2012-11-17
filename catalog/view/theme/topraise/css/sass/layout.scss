@@ -161,7 +161,7 @@ p{
                 margin: 0 0 0 31px;
                 color:#3da4d2;
                 a{
-                    @include link-colors(#3da4d2, $aHoverColor, $aActiveColor, #3da4d2, $aFocusColor);
+                    @include link-colors(#3da4d2, #89d9fe, #89d9fe, #3da4d2, $aFocusColor);
                 }
             }
             ul > li:before{
@@ -173,7 +173,7 @@ p{
             @include float-left;
             margin: 0 0 0 70px;
             a{
-                @include link-colors(#5fbde7, $aHoverColor, $aActiveColor, #5fbde7, $aFocusColor);
+                @include link-colors(#5fbde7, #89d9fe, #89d9fe, #5fbde7, $aFocusColor);
                 /*text-decoration: none;*/
             }
         }    
@@ -199,7 +199,7 @@ p{
             @include float-right;
             color:#94c5db;
             a{
-                @include link-colors(#94c5db, $aHoverColor, $aActiveColor, #94c5db, $aFocusColor);
+                @include link-colors(#94c5db, #89d9fe, #89d9fe, #94c5db, $aFocusColor);
             }
         }
 

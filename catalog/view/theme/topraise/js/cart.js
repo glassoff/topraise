@@ -120,7 +120,7 @@ $(function(){
         $('#cart-total-price').html(cartTotal);
 
         //$('[name=shipping_method]:checked').trigger('click');
-        if(hasError){
+        if(hasError || cartTotal == 0){
             disabledNext = true;
             disableNext();
         }

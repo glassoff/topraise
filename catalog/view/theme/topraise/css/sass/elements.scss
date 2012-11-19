@@ -250,6 +250,8 @@
         font-size: 36pt;
         color: #4bb2e1;
         margin-bottom: 18px;
+        line-height: 1.1;
+        padding: 4px 0;
     }
     .content__header_product{
         font-size: 24pt;
@@ -1006,3 +1008,87 @@
     }
 }
 
+/* remont list */
+.remont-list{
+    text-align: left;
+}
+    .remont-list__title{
+        font-size: 12pt;
+        font-weight: bold;
+        margin: 0 0 20px 0;
+    }
+    .remont-list__item{
+        @include inline-block;
+        text-align: left;
+        width: 310px;
+        //@include debug;
+        margin: 0 40px 40px 0;
+    }
+        .remont-list__item__img{
+            img{
+                width: 310px;
+                height: 201px;
+            }
+        }
+        .remont-list__item__date{
+            color: #4bb2e1;
+            margin: 4px 0 0 0;
+            font-size: 12pt;
+        }
+        .remont-list__item__title{
+            margin: 2px 0 0 0;
+            font-size: 10pt;
+            font-weight: bold;
+        }
+
+.remont-top{
+    @include clearfix;
+    margin: 0 0 30px 0;
+    b{
+        font-weight: bold;
+    }
+}
+    .remont-top__left{
+        @include float-left;
+        width: 300px;
+        margin: 0 40px 0 0;
+    }
+    .remont-top__right{
+        @include float-right;
+        width: 370px;
+    }
+        .remont-top__right__form{
+
+        }
+
+/* mount request */
+.mount-form{
+    input, textarea{
+        border: 1px solid #0778ab;
+        padding: 5px 5px;
+        width: 350px;
+    }
+    textarea{
+        height: 37px;
+    }
+    img{
+
+    }
+    button{
+        margin-top: 20px
+    }
+}
+    .mount-form__label{
+        margin: 15px 0 5px 0;
+    }
+    .mount-form__captcha{
+        @include clearfix;
+        input{
+            @include float-left;
+            margin-top: 6px;
+        }
+        img{
+            @include float-left;
+            margin-left: 20px;
+        }
+    }

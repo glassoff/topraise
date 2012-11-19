@@ -5,8 +5,8 @@ class ControllerModuleMenu extends Controller {
 
         $this->data['menu'] = array(
             'Услуги' => array(
-                'Монтаж оборудования' => '',
-                'Монтаж водоснабжения' => '',
+                'Монтаж оборудования' => $this->url->link('information/services', 'type=equipment'),
+                'Монтаж водоснабжения' => $this->url->link('information/services', 'type=water'),
             ),
             'Компания' => array(
                 'О нас' => $this->url->link('information/information', 'information_id=4'),

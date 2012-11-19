@@ -1,7 +1,7 @@
 <?php
 class ModelFidoRemont extends Model {
     public function addRemont($data) {
-        $this->db->query("INSERT INTO " . DB_PREFIX . "remont SET status = '" . (int)$data['status'] . "', date_added = now()");
+        $this->db->query("INSERT INTO " . DB_PREFIX . "remont SET status = '" . (int)$data['status'] . "', date_added = now(), type = '{$data['type']}'");
         $remont_id = $this->db->getLastId();
         if (isset($data['image'])) {
             $this->db->query("UPDATE " . DB_PREFIX . "remont SET image = '" . $this->db->escape($data['image']) . "' WHERE remont_id = '" . (int)$remont_id . "'");
@@ -21,7 +21,7 @@ class ModelFidoRemont extends Model {
     }
 
     public function editRemont($remont_id, $data) {
-        $this->db->query("UPDATE " . DB_PREFIX . "remont SET status = '" . (int)$data['status'] . "' WHERE remont_id = '" . (int)$remont_id . "'");
+        $this->db->query("UPDATE " . DB_PREFIX . "remont SET status = '" . (int)$data['status'] . "', type = '{$data['type']}' WHERE remont_id = '" . (int)$remont_id . "'");
         $this->db->query("DELETE FROM " . DB_PREFIX . "remont_description WHERE remont_id = '" . (int)$remont_id . "'");
         if (isset($data['image'])) {
             $this->db->query("UPDATE " . DB_PREFIX . "remont SET image = '" . $this->db->escape($data['image']) . "' WHERE remont_id = '" . (int)$remont_id . "'");
@@ -89,7 +89,7 @@ class ModelFidoRemont extends Model {
     }
 
     public function checkRemont() {
-        $create_remont = "CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "remont` (`remont_id` int(11) NOT NULL auto_increment, `status` int(1) NOT NULL default '0', `image` varchar(255) collate utf8_bin default NULL, `image_size` int(1) NOT NULL default '0', `date_added` datetime default NULL, PRIMARY KEY  (`remont_id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
+        $create_remont = "CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "remont` (`remont_id` int(11) NOT NULL auto_increment, `status` int(1) NOT NULL default '0', `type` enum('equipment','water') COLLATE utf8_bin NOT NULL DEFAULT 'equipment', `image` varchar(255) collate utf8_bin default NULL, `image_size` int(1) NOT NULL default '0', `date_added` datetime default NULL, PRIMARY KEY  (`remont_id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
         $this->db->query($create_remont);
         $create_remont_descriptions = "CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "remont_description` (`remont_id` int(11) NOT NULL default '0', `language_id` int(11) NOT NULL default '0', `title` varchar(64) collate utf8_bin NOT NULL default '', `meta_description` varchar(255) collate utf8_bin NOT NULL, `description` text collate utf8_bin NOT NULL, PRIMARY KEY  (`remont_id`,`language_id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
         $this->db->query($create_remont_descriptions);

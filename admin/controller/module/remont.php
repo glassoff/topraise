@@ -323,6 +323,7 @@ class ControllerModuleRemont extends Controller {
 
         $this->data['entry_title'] = $this->language->get('entry_title');
         $this->data['entry_keyword'] = $this->language->get('entry_keyword');
+        $this->data['entry_type'] = $this->language->get('entry_type');
         $this->data['entry_meta_description'] = $this->language->get('entry_meta_description');
         $this->data['entry_description'] = $this->language->get('entry_description');
         $this->data['entry_store'] = $this->language->get('entry_store');
@@ -411,6 +412,14 @@ class ControllerModuleRemont extends Controller {
             $this->data['keyword'] = $remont_info['keyword'];
         } else {
             $this->data['keyword'] = '';
+        }
+
+        if (isset($this->request->post['type'])) {
+            $this->data['type'] = $this->request->post['type'];
+        } elseif (isset($remont_info)) {
+            $this->data['type'] = $remont_info['type'];
+        } else {
+            $this->data['type'] = '';
         }
 
         if (isset($this->request->post['status'])) {

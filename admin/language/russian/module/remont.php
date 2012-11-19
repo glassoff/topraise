@@ -31,6 +31,7 @@ $_['entry_remontpage_thumb']   = 'Маленький размер новости
 $_['entry_remontpage_popup']   = 'Размер большого окна:';
 $_['entry_title']            = 'Заголовок:';
 $_['entry_keyword']          = 'SEO Keyword:';
+$_['entry_type']          = 'Тип:';
 $_['entry_meta_description'] = 'Meta Tag Description:';
 $_['entry_description']      = 'История:';
 $_['entry_store']            = 'Магазины:';

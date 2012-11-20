@@ -119,32 +119,30 @@ CKEDITOR.replace('description<?php echo $language['language_id']; ?>', {
 <?php } ?>
 //--></script> 
 <script type="text/javascript"><!--
-function image_upload(field, preview) {
-	$('#dialog').remove();
+function image_upload(field, thumb) {
+    $('#dialog').remove();
 
-	$('#content').prepend('<div id="dialog" style="padding: 3px 0px 0px 0px;"><iframe src="index.php?route=common/filemanager&token=<?php echo $token; ?>&field=' + encodeURIComponent(field) + '" style="padding:0; margin: 0; display: block; width: 100%; height: 100%;" frameborder="no" scrolling="auto"></iframe></div>');
+    $('#content').prepend('<div id="dialog" style="padding: 3px 0px 0px 0px;"><iframe src="index.php?route=common/filemanager&token=<?php echo $token; ?>&field=' + encodeURIComponent(field) + '" style="padding:0; margin: 0; display: block; width: 100%; height: 100%;" frameborder="no" scrolling="auto"></iframe></div>');
 
-	$('#dialog').dialog({
-		title: '<?php echo $text_image_manager; ?>',
-		close: function (event, ui) {
-			if ($('#' + field).attr('value')) {
-				$.ajax({
-					url: 'index.php?route=common/filemanager/image&token=<?php echo $token; ?>',
-					type: 'POST',
-					data: 'image=' + encodeURIComponent($('#' + field).val()),
-					dataType: 'text',
-					success: function(data) {
-						$('#' + preview).replaceWith('<img src="' + data + '" alt="" id="' + preview + '" class="image" onclick="image_upload(\'' + field + '\', \'' + preview + '\');" />');
-					}
-				});
-			}
-		},	
-		bgiframe: false,
-		width: 700,
-		height: 400,
-		resizable: false,
-		modal: false
-	});
+    $('#dialog').dialog({
+        title: '<?php echo $text_image_manager; ?>',
+        close: function (event, ui) {
+            if ($('#' + field).attr('value')) {
+                $.ajax({
+                    url: 'index.php?route=common/filemanager/image&token=<?php echo $token; ?>&image=' + encodeURIComponent($('#' + field).attr('value')),
+                    dataType: 'text',
+                    success: function(text) {
+                        $('#' + thumb).replaceWith('<img src="' + text + '" alt="" id="' + thumb + '" />');
+                    }
+                });
+            }
+        },
+        bgiframe: false,
+        width: 800,
+        height: 400,
+        resizable: false,
+        modal: false
+    });
 };
 //--></script> 
 <script type="text/javascript"><!--

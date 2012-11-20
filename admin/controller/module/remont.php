@@ -330,11 +330,20 @@ class ControllerModuleRemont extends Controller {
         $this->data['entry_status'] = $this->language->get('entry_status');
         $this->data['entry_image'] = $this->language->get('entry_image');
 
+        $this->data['entry_images'] = $this->language->get('entry_images');
+        $this->data['entry_sort_order'] = $this->language->get('entry_sort_order');
+        $this->data['button_add_image'] = $this->language->get('button_add_image');
+        $this->data['text_browse'] = $this->language->get('text_browse');
+        $this->data['text_clear'] = $this->language->get('text_clear');
+        $this->data['button_remove'] = $this->language->get('button_remove');
+
+
         $this->data['button_save'] = $this->language->get('button_save');
         $this->data['button_cancel'] = $this->language->get('button_cancel');
 
         $this->data['tab_general'] = $this->language->get('tab_general');
         $this->data['tab_data'] = $this->language->get('tab_data');
+        $this->data['tab_image'] = $this->language->get('tab_image');
 
         $this->data['token'] = $this->session->data['token'];
 
@@ -428,6 +437,34 @@ class ControllerModuleRemont extends Controller {
             $this->data['status'] = $remont_info['status'];
         } else {
             $this->data['status'] = '';
+        }
+
+        $this->load->model('tool/image');
+
+        $this->data['no_image'] = $this->model_tool_image->resize('no_image.jpg', 100, 100);
+
+        if (isset($this->request->post['remont_image'])) {
+            $remont_images = $this->request->post['remont_image'];
+        } elseif (isset($this->request->get['remont_id'])) {
+            $remont_images = $this->model_fido_remont->getRemontImages($this->request->get['remont_id']);
+        } else {
+            $remont_images = array();
+        }
+
+        $this->data['remont_images'] = array();
+
+        foreach ($remont_images as $remont_image) {
+            if ($remont_image['image'] && file_exists(DIR_IMAGE . $remont_image['image'])) {
+                $image = $remont_image['image'];
+            } else {
+                $image = 'no_image.jpg';
+            }
+
+            $this->data['remont_images'][] = array(
+                'image'      => $image,
+                'thumb'      => $this->model_tool_image->resize($image, 100, 100),
+                'sort_order' => $remont_image['sort_order']
+            );
         }
 
         if (isset($this->request->post['image'])) {

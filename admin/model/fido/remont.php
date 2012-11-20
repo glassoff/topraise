@@ -17,6 +17,13 @@ class ModelFidoRemont extends Model {
                 $this->db->query("INSERT INTO " . DB_PREFIX . "remont_to_store SET remont_id = '" . (int)$remont_id . "', store_id = '" . (int)$store_id . "'");
             }
         }
+
+        if (isset($data['remont_image'])) {
+            foreach ($data['remont_image'] as $remont_image) {
+                $this->db->query("INSERT INTO " . DB_PREFIX . "remont_image SET remont_id = '" . (int)$remont_id . "', image = '" . $this->db->escape(html_entity_decode($remont_image['image'], ENT_QUOTES, 'UTF-8')) . "', sort_order = '" . (int)$remont_image['sort_order'] . "'");
+            }
+        }
+
         $this->cache->delete('remont');
     }
 
@@ -39,6 +46,15 @@ class ModelFidoRemont extends Model {
                 $this->db->query("INSERT INTO " . DB_PREFIX . "remont_to_store SET remont_id = '" . (int)$remont_id . "', store_id = '" . (int)$store_id . "'");
             }
         }
+
+        $this->db->query("DELETE FROM " . DB_PREFIX . "remont_image WHERE remont_id = '" . (int)$remont_id . "'");
+
+        if (isset($data['remont_image'])) {
+            foreach ($data['remont_image'] as $remont_image) {
+                $this->db->query("INSERT INTO " . DB_PREFIX . "remont_image SET remont_id = '" . (int)$remont_id . "', image = '" . $this->db->escape(html_entity_decode($remont_image['image'], ENT_QUOTES, 'UTF-8')) . "', sort_order = '" . (int)$remont_image['sort_order'] . "'");
+            }
+        }
+
         $this->cache->delete('remont');
     }
 
@@ -88,6 +104,13 @@ class ModelFidoRemont extends Model {
         return $query->row['total'];
     }
 
+    public function getRemontImages($remont_id)
+    {
+        $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "remont_image WHERE remont_id = '" . (int)$remont_id . "'");
+
+        return $query->rows;
+    }
+
     public function checkRemont() {
         $create_remont = "CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "remont` (`remont_id` int(11) NOT NULL auto_increment, `status` int(1) NOT NULL default '0', `type` enum('equipment','water') COLLATE utf8_bin NOT NULL DEFAULT 'equipment', `image` varchar(255) collate utf8_bin default NULL, `image_size` int(1) NOT NULL default '0', `date_added` datetime default NULL, PRIMARY KEY  (`remont_id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
         $this->db->query($create_remont);
@@ -95,6 +118,9 @@ class ModelFidoRemont extends Model {
         $this->db->query($create_remont_descriptions);
         $create_remont_to_store = "CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "remont_to_store` (`remont_id` int(11) NOT NULL, `store_id` int(11) NOT NULL, PRIMARY KEY  (`remont_id`, `store_id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
         $this->db->query($create_remont_to_store);
+
+        $create_remont_images = "CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "remont_image` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `remont_id` int(11) NOT NULL,  `image` varchar(255) NOT NULL,  `sort_order` int(3) NOT NULL,  PRIMARY KEY (`id`)) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8";
+        $this->db->query($create_remont_images);
     }
 }
 ?>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 20 2012 г., 19:55
+-- Время создания: Ноя 20 2012 г., 23:15
 -- Версия сервера: 5.1.65
 -- Версия PHP: 5.3.17
 
@@ -19,6 +19,42 @@ SET time_zone = "+00:00";
 --
 -- База данных: `topraise`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `extension`
+--
+
+DROP TABLE IF EXISTS `extension`;
+CREATE TABLE IF NOT EXISTS `extension` (
+  `extension_id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(32) NOT NULL,
+  `code` varchar(32) NOT NULL,
+  PRIMARY KEY (`extension_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=456 ;
+
+--
+-- Дамп данных таблицы `extension`
+--
+
+INSERT INTO `extension` (`extension_id`, `type`, `code`) VALUES
+(22, 'total', 'shipping'),
+(57, 'total', 'sub_total'),
+(59, 'total', 'total'),
+(431, 'module', 'bestseller'),
+(444, 'shipping', 'distance'),
+(455, 'module', 'remont'),
+(454, 'module', 'menu'),
+(430, 'module', 'category'),
+(411, 'module', 'affiliate'),
+(408, 'module', 'account'),
+(451, 'module', 'news'),
+(438, 'payment', 'free_checkout'),
+(447, 'shipping', 'flat'),
+(432, 'module', 'latest'),
+(445, 'shipping', 'distance'),
+(446, 'shipping', 'pickup');
 
 -- --------------------------------------------------------
 

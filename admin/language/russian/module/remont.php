@@ -39,6 +39,8 @@ $_['entry_image']            = 'Изображение:<br /><span class="help">
 $_['entry_headline_chars']   = 'Количество символов для отображения на странице новости:';
 $_['entry_module_headline']  = 'Показать заголовок в модуле:';
 
+$_['entry_images'] = 'Изображения';
+
 // Button
 $_['button_remont']            = 'Ремонты записи';
 $_['button_module']          = 'Настройки модуля';
@@ -50,4 +52,11 @@ $_['error_remontpage_popup']   = 'Требуется размер!';
 $_['error_title']            = 'Заголовок должен быть больше, чем за 3 и менее 64 символов!';
 $_['error_description']      = 'Main Story must be greater than 3 characters!';
 $_['error_num_chars']        = 'Warning: You must enter number of characters to display!';
+
+$_['tab_image'] = 'Изображения';
+$_['button_add_image'] = 'Добавить изображение';
+$_['text_browse'] = 'Обзор';
+$_['text_clear'] = 'Очистить';
+$_['button_remove'] = 'Удалить';
+
 ?>

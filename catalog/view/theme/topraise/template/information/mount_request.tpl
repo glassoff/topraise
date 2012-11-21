@@ -34,7 +34,6 @@
     <div class="mount-form__captcha">
         <input type="text" name="captcha" value="<?php echo $captcha ?>" style="width: 100px; "/> <img src="index.php?route=information/opt/captcha" alt="" />
     </div>
-    <br />
     <?php if ($error_captcha) { ?>
     <span class="error"><?php echo $error_captcha; ?></span>
     <?php } ?>

@@ -14,7 +14,7 @@
             <div class="buttons"><a onclick="$('#form').submit();" class="button"><span><?php echo $button_save; ?></span></a><a onclick="location = '<?php echo $cancel; ?>';" class="button"><span><?php echo $button_cancel; ?></span></a></div>
         </div>
         <div class="content">
-            <div id="tabs" class="htabs"><a href="#tab_general"><?php echo $tab_general; ?></a><a href="#tab_data"><?php echo $tab_data; ?></a><a href="#tab_image"><?php echo $tab_image; ?></a></div>
+            <div id="tabs" class="htabs"><a href="#tab_general"><?php echo $tab_general; ?></a><a href="#tab_data"><?php echo $tab_data; ?></a><a href="#tab_image"><?php echo $tab_image; ?></a><a href="#tab_video"><?php echo $tab_video; ?></a></div>
             <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form">
                 <div id="tab_general">
                     <?php if(count($languages) > 1):?>
@@ -139,6 +139,14 @@
                             <td class="left"><a onclick="addImage();" class="button"><?php echo $button_add_image; ?></a></td>
                         </tr>
                         </tfoot>
+                    </table>
+                </div>
+                <div id="tab_video">
+                    <table class="form">
+                        <tr>
+                            <td><?php echo $entry_video_youtube; ?></td>
+                            <td><input type="text" name="video_youtube" value="<?php echo $video_youtube; ?>" size="60" /></td>
+                        </tr>
                     </table>
                 </div>
             </form>

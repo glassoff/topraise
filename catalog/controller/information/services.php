@@ -37,6 +37,7 @@ class ControllerInformationServices extends Controller {
                     'href'         => $this->url->link('information/mount', 'remont_id=' . $result['remont_id']),
                     'date_added'   => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
                     'thumb' => $thumb,
+                    'video_code' => $result['video_code'],
                 );
             }
 

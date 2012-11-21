@@ -1,7 +1,15 @@
 <?php
 class ModelFidoRemont extends Model {
     public function addRemont($data) {
-        $this->db->query("INSERT INTO " . DB_PREFIX . "remont SET status = '" . (int)$data['status'] . "', date_added = now(), type = '{$data['type']}'");
+        if($data['video_youtube']){
+            $video_code = $this->getVideoCode($data['video_youtube']);
+            $data['image'] = $this->loadVideoThumb($data['video_youtube']);
+        }
+        else{
+            $video_code = '';
+        }
+
+        $this->db->query("INSERT INTO " . DB_PREFIX . "remont SET status = '" . (int)$data['status'] . "', date_added = now(), type = '{$data['type']}', video_youtube = '{$data['video_youtube']}', video_code = '{$video_code}'");
         $remont_id = $this->db->getLastId();
         if (isset($data['image'])) {
             $this->db->query("UPDATE " . DB_PREFIX . "remont SET image = '" . $this->db->escape($data['image']) . "' WHERE remont_id = '" . (int)$remont_id . "'");
@@ -28,7 +36,15 @@ class ModelFidoRemont extends Model {
     }
 
     public function editRemont($remont_id, $data) {
-        $this->db->query("UPDATE " . DB_PREFIX . "remont SET status = '" . (int)$data['status'] . "', type = '{$data['type']}' WHERE remont_id = '" . (int)$remont_id . "'");
+        if($data['video_youtube']){
+            $video_code = $this->getVideoCode($data['video_youtube']);
+            $data['image'] = $this->loadVideoThumb($data['video_youtube']);
+        }
+        else{
+            $video_code = '';
+        }
+
+        $this->db->query("UPDATE " . DB_PREFIX . "remont SET status = '" . (int)$data['status'] . "', type = '{$data['type']}', video_youtube = '{$data['video_youtube']}', video_code = '{$video_code}' WHERE remont_id = '" . (int)$remont_id . "'");
         $this->db->query("DELETE FROM " . DB_PREFIX . "remont_description WHERE remont_id = '" . (int)$remont_id . "'");
         if (isset($data['image'])) {
             $this->db->query("UPDATE " . DB_PREFIX . "remont SET image = '" . $this->db->escape($data['image']) . "' WHERE remont_id = '" . (int)$remont_id . "'");
@@ -56,6 +72,40 @@ class ModelFidoRemont extends Model {
         }
 
         $this->cache->delete('remont');
+    }
+
+    protected function getVideoCode($url)
+    {
+        $parts = parse_url($url);
+        parse_str($parts['query'], $parsed_query);
+        return '
+            <object width="640" height="360">
+                <param name="movie" value="https://www.youtube.com/v/'.$parsed_query['v'].'?version=3"></param>
+                <param name="allowFullScreen" value="true"></param>
+                <param name="allowScriptAccess" value="always"></param>
+                <embed src="https://www.youtube.com/v/'.$parsed_query['v'].'?version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="640" height="360"></embed>
+            </object>
+        ';
+    }
+
+    protected function loadVideoThumb($url)
+    {
+        $parts = parse_url($url);
+        parse_str($parts['query'], $parsed_query);
+        $imageUrl = 'http://img.youtube.com/vi/'.$parsed_query['v'].'/0.jpg';
+
+        $path = DIR_IMAGE . 'data/' . $parsed_query['v'] . '.jpg';
+        $fp = fopen($path, 'w');
+
+        $ch = curl_init($imageUrl);
+        curl_setopt($ch, CURLOPT_FILE, $fp);
+
+        $data = curl_exec($ch);
+
+        curl_close($ch);
+        fclose($fp);
+
+        return 'data/' . $parsed_query['v'] . '.jpg';
     }
 
     public function deleteRemont($remont_id) {
@@ -112,7 +162,7 @@ class ModelFidoRemont extends Model {
     }
 
     public function checkRemont() {
-        $create_remont = "CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "remont` (`remont_id` int(11) NOT NULL auto_increment, `status` int(1) NOT NULL default '0', `type` enum('equipment','water') COLLATE utf8_bin NOT NULL DEFAULT 'equipment', `image` varchar(255) collate utf8_bin default NULL, `image_size` int(1) NOT NULL default '0', `date_added` datetime default NULL, PRIMARY KEY  (`remont_id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
+        $create_remont = "CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "remont` (`remont_id` int(11) NOT NULL auto_increment, `status` int(1) NOT NULL default '0', `type` enum('equipment','water') COLLATE utf8_bin NOT NULL DEFAULT 'equipment', `image` varchar(255) collate utf8_bin default NULL, `image_size` int(1) NOT NULL default '0', `video_youtube` varchar(255) COLLATE utf8_bin NOT NULL, `video_code` text COLLATE utf8_bin NOT NULL, `date_added` datetime default NULL, PRIMARY KEY  (`remont_id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
         $this->db->query($create_remont);
         $create_remont_descriptions = "CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "remont_description` (`remont_id` int(11) NOT NULL default '0', `language_id` int(11) NOT NULL default '0', `title` varchar(64) collate utf8_bin NOT NULL default '', `meta_description` varchar(255) collate utf8_bin NOT NULL, `description` text collate utf8_bin NOT NULL, PRIMARY KEY  (`remont_id`,`language_id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
         $this->db->query($create_remont_descriptions);

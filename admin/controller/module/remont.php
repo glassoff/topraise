@@ -344,6 +344,9 @@ class ControllerModuleRemont extends Controller {
         $this->data['tab_general'] = $this->language->get('tab_general');
         $this->data['tab_data'] = $this->language->get('tab_data');
         $this->data['tab_image'] = $this->language->get('tab_image');
+        $this->data['tab_video'] = $this->language->get('tab_video');
+
+        $this->data['entry_video_youtube'] = $this->language->get('entry_video_youtube');
 
         $this->data['token'] = $this->session->data['token'];
 
@@ -437,6 +440,14 @@ class ControllerModuleRemont extends Controller {
             $this->data['status'] = $remont_info['status'];
         } else {
             $this->data['status'] = '';
+        }
+
+        if (isset($this->request->post['video_youtube'])) {
+            $this->data['video_youtube'] = $this->request->post['video_youtube'];
+        } elseif (isset($remont_info)) {
+            $this->data['video_youtube'] = $remont_info['video_youtube'];
+        } else {
+            $this->data['video_youtube'] = '';
         }
 
         $this->load->model('tool/image');

@@ -59,4 +59,7 @@ $_['text_browse'] = 'Обзор';
 $_['text_clear'] = 'Очистить';
 $_['button_remove'] = 'Удалить';
 
+$_['tab_video'] = 'Видео';
+$_['entry_video_youtube'] = 'Ссылка на страницу видео на YouTube';
+
 ?>

@@ -29,6 +29,9 @@
                 <div class="remont-list__item">
                     <a class="remont-list__item__img" href="<?php echo $remont['href'] ?>">
                         <img src="<?php echo $remont['thumb'] ?>" />
+                        <?php if($remont['video_code']): ?>
+                        <div class="remont-list__item__img__play"></div>
+                        <?php endif; ?>
                     </a>
                     <div class="remont-list__item__date">
                         <?php echo $remont['date_added'] ?>

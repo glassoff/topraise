@@ -43,6 +43,8 @@ class ControllerInformationMount extends Controller {
 
             $this->data['description'] = html_entity_decode($remont_info['description']);
 
+            $this->data['video_code'] = $remont_info['video_code'];
+
             $this->load->model('tool/image');
 
             if ($remont_info['image']) {

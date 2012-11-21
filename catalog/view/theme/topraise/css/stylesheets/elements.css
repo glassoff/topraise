@@ -1528,38 +1528,54 @@
   margin: 0 40px 40px 0;
 }
 
-/* line 1028, ../sass/elements.scss */
+/* line 1027, ../sass/elements.scss */
+.remont-list__item__img {
+  display: block;
+  position: relative;
+}
+/* line 1030, ../sass/elements.scss */
 .remont-list__item__img img {
   width: 310px;
   height: 201px;
 }
 
-/* line 1033, ../sass/elements.scss */
+/* line 1035, ../sass/elements.scss */
+.remont-list__item__img__play {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: center center no-repeat url(../../images/play.png);
+}
+
+/* line 1044, ../sass/elements.scss */
 .remont-list__item__date {
   color: #4bb2e1;
   margin: 4px 0 0 0;
   font-size: 12pt;
 }
 
-/* line 1038, ../sass/elements.scss */
+/* line 1049, ../sass/elements.scss */
 .remont-list__item__title {
   margin: 2px 0 0 0;
   font-size: 10pt;
   font-weight: bold;
 }
 
-/* line 1044, ../sass/elements.scss */
+/* line 1055, ../sass/elements.scss */
 .remont-top {
   overflow: hidden;
   *zoom: 1;
   margin: 0 0 30px 0;
 }
-/* line 1047, ../sass/elements.scss */
+/* line 1058, ../sass/elements.scss */
 .remont-top b {
   font-weight: bold;
 }
 
-/* line 1051, ../sass/elements.scss */
+/* line 1062, ../sass/elements.scss */
 .remont-top__left {
   display: inline;
   float: left;
@@ -1567,7 +1583,7 @@
   margin: 0 40px 0 0;
 }
 
-/* line 1056, ../sass/elements.scss */
+/* line 1067, ../sass/elements.scss */
 .remont-top__right {
   display: inline;
   float: right;
@@ -1575,38 +1591,38 @@
 }
 
 /* mount request */
-/* line 1066, ../sass/elements.scss */
+/* line 1077, ../sass/elements.scss */
 .mount-form input, .mount-form textarea {
   border: 1px solid #0778ab;
   padding: 5px 5px;
   width: 350px;
 }
-/* line 1071, ../sass/elements.scss */
+/* line 1082, ../sass/elements.scss */
 .mount-form textarea {
   height: 37px;
 }
-/* line 1077, ../sass/elements.scss */
+/* line 1088, ../sass/elements.scss */
 .mount-form button {
   margin-top: 20px;
 }
 
-/* line 1081, ../sass/elements.scss */
+/* line 1092, ../sass/elements.scss */
 .mount-form__label {
   margin: 15px 0 5px 0;
 }
 
-/* line 1084, ../sass/elements.scss */
+/* line 1095, ../sass/elements.scss */
 .mount-form__captcha {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 1086, ../sass/elements.scss */
+/* line 1097, ../sass/elements.scss */
 .mount-form__captcha input {
   display: inline;
   float: left;
   margin-top: 6px;
 }
-/* line 1090, ../sass/elements.scss */
+/* line 1101, ../sass/elements.scss */
 .mount-form__captcha img {
   display: inline;
   float: left;

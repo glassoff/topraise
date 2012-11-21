@@ -11,6 +11,11 @@
             <h1 class="content__header news_header"><?php echo $heading_title; ?></h1>
 
             <div class="remont-item">
+
+                <?php if($video_code): ?>
+                <?php echo $video_code ?>
+                <?php endif; ?>
+
                 <?php echo $description; ?>
                 <div>
                     <a onclick="location='<?php echo $remont; ?>'" class="news-item__back"><?php echo $button_remont; ?></a>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 20 2012 г., 23:15
+-- Время создания: Ноя 26 2012 г., 20:47
 -- Версия сервера: 5.1.65
 -- Версия PHP: 5.3.17
 
@@ -157,22 +157,25 @@ CREATE TABLE IF NOT EXISTS `remont` (
   `type` enum('equipment','water') COLLATE utf8_bin NOT NULL DEFAULT 'equipment',
   `image` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `image_size` int(1) NOT NULL DEFAULT '0',
+  `video_youtube` varchar(255) COLLATE utf8_bin NOT NULL,
+  `video_code` text COLLATE utf8_bin NOT NULL,
   `date_added` datetime DEFAULT NULL,
   PRIMARY KEY (`remont_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=9 ;
 
 --
 -- Дамп данных таблицы `remont`
 --
 
-INSERT INTO `remont` (`remont_id`, `status`, `type`, `image`, `image_size`, `date_added`) VALUES
-(1, 1, 'water', 'data/1e5a8au-960.jpg', 0, '2012-11-17 21:49:09'),
-(2, 1, 'equipment', 'data/test.jpg', 0, '2012-11-17 22:16:24'),
-(3, 1, 'water', 'data/9ab61au-960.jpg', 0, '2012-11-17 22:17:52'),
-(4, 1, 'equipment', 'data/2a0b2au-960.jpg', 0, '2012-11-17 22:18:20'),
-(5, 1, 'equipment', 'data/18bd34u-960.jpg', 0, '2012-11-17 22:18:48'),
-(6, 1, 'equipment', 'data/3c0b2au-960.jpg', 0, '2012-11-17 22:19:24'),
-(7, 1, 'equipment', 'data/1b6902u-960.jpg', 0, '2012-11-17 22:19:56');
+INSERT INTO `remont` (`remont_id`, `status`, `type`, `image`, `image_size`, `video_youtube`, `video_code`, `date_added`) VALUES
+(1, 1, 'water', 'data/Qe85pYpdgAI.jpg', 0, 'http://www.youtube.com/watch?v=Qe85pYpdgAI&amp;feature=g-all-u', '\n            <object width="640" height="360">\n                <param name="movie" value="https://www.youtube.com/v/Qe85pYpdgAI?version=3"></param>\n                <param name="allowFullScreen" value="true"></param>\n                <param name="allowScriptAccess" value="always"></param>\n                <embed src="https://www.youtube.com/v/Qe85pYpdgAI?version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="640" height="360"></embed>\n            </object>\n        ', '2012-11-17 21:49:09'),
+(2, 1, 'equipment', 'data/test.jpg', 0, '', '', '2012-11-17 22:16:24'),
+(3, 1, 'water', 'data/18bd34u-960.jpg', 0, '', '', '2012-11-17 22:17:52'),
+(4, 1, 'equipment', 'data/2a0b2au-960.jpg', 0, '', '', '2012-11-17 22:18:20'),
+(5, 1, 'equipment', 'data/18bd34u-960.jpg', 0, '', '', '2012-11-17 22:18:48'),
+(6, 1, 'equipment', 'data/3c0b2au-960.jpg', 0, '', '', '2012-11-17 22:19:24'),
+(7, 1, 'equipment', 'data/1b6902u-960.jpg', 0, '', '', '2012-11-17 22:19:56'),
+(8, 1, 'equipment', 'data/r-T2qAjAa-Y.jpg', 0, 'http://www.youtube.com/watch?v=r-T2qAjAa-Y&amp;feature=g-all-u', '\n            <object width="640" height="360">\n                <param name="movie" value="https://www.youtube.com/v/r-T2qAjAa-Y?version=3"></param>\n                <param name="allowFullScreen" value="true"></param>\n                <param name="allowScriptAccess" value="always"></param>\n                <embed src="https://www.youtube.com/v/r-T2qAjAa-Y?version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="640" height="360"></embed>\n            </object>\n        ', '2012-11-21 00:54:37');
 
 -- --------------------------------------------------------
 
@@ -201,7 +204,40 @@ INSERT INTO `remont_description` (`remont_id`, `language_id`, `title`, `meta_des
 (4, 1, 'При обстреле Газы убиты трое боевиков ХАМАС', '', '&lt;p&gt;\r\n	sdfdgfdhfgdhfg&lt;/p&gt;\r\n'),
 (5, 1, '&quot;Спартак&quot; не сумел обыграть &quot;Волгу&quot; в чемпио', '', '&lt;h2&gt;\r\n	&quot;Спартак&quot; не сумел обыграть &quot;Волгу&quot; в чемпионате России&lt;/h2&gt;\r\n'),
 (6, 1, 'На финской ферме застрелили трех человек', '', '&lt;p&gt;\r\n	вот так то&lt;/p&gt;\r\n'),
-(7, 1, 'Министерство просвещения Молдавии извинилось за учителя-русофоба', '', '&lt;p&gt;\r\n	Молодцы че&lt;/p&gt;\r\n');
+(7, 1, 'Министерство просвещения Молдавии извинилось за учителя-русофоба', '', '&lt;p&gt;\r\n	Молодцы че&lt;/p&gt;\r\n'),
+(8, 1, 'sfdgdsgfdg', '', '&lt;p&gt;\r\n	sdfdsgfdgfdgfsd&lt;/p&gt;\r\n');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `remont_image`
+--
+
+DROP TABLE IF EXISTS `remont_image`;
+CREATE TABLE IF NOT EXISTS `remont_image` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `remont_id` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `sort_order` int(3) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=74 ;
+
+--
+-- Дамп данных таблицы `remont_image`
+--
+
+INSERT INTO `remont_image` (`id`, `remont_id`, `image`, `sort_order`) VALUES
+(9, 2, 'data/9ab61au-960.jpg', 0),
+(8, 2, 'data/18bd34u-960.jpg', 0),
+(21, 8, 'data/2a0b2au-960.jpg', 0),
+(23, 1, 'data/apple_cinema_30.jpg', 0),
+(73, 3, 'data/Qe85pYpdgAI.jpg', 0),
+(72, 3, 'data/9ab61au-960.jpg', 0),
+(71, 3, 'data/3c0b2au-960.jpg', 0),
+(70, 3, 'data/2a0b2au-960.jpg', 0),
+(69, 3, 'data/1e5a8au-960.jpg', 0),
+(68, 3, 'data/1b6902u-960.jpg', 0),
+(67, 3, 'data/18bd34u-960.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -227,7 +263,8 @@ INSERT INTO `remont_to_store` (`remont_id`, `store_id`) VALUES
 (4, 0),
 (5, 0),
 (6, 0),
-(7, 0);
+(7, 0),
+(8, 0);
 
 -- --------------------------------------------------------
 

@@ -1103,3 +1103,62 @@
             margin-left: 20px;
         }
     }
+
+/* remont images carousel */
+.remont-images{
+    //@include debug;
+    @include clearfix;
+    position: relative;
+    padding:0px 55px 0px 55px;
+    margin: 0 0 25px 0;
+    //width: 480px;
+    ul{
+        display: block;
+    }
+    li{
+        @include float-left;
+        margin: 0 6px 0 0;
+    }
+}
+
+.arrow-prev, .arrow-next{
+    position:absolute;
+    top:50%;
+    display:block;
+    width:30px;
+    background: url(../../images/arrows-small.png);
+    margin-top:-50px;
+    @include hide-text(100px);
+}
+.arrow-prev{
+    left:5px;
+    background-position: 0px 0;
+    &:hover{
+        background-position:-30px 0;
+    }
+    &:active{
+        background-position: -60px 0;
+    }
+    &.disabled{
+        background-position: -90px 0;
+        cursor: default;
+    }
+}
+.arrow-next{
+    right:5px;
+    background-position:-120px 0;
+    &:hover{
+        background-position:-150px 0;
+    }
+    &:active{
+        background-position:-180px 0;
+    }
+    &.disabled{
+        background-position: -210px 0;
+        cursor: default;
+    }
+}
+
+.remont-video{
+    margin: 0 0 25px 0;
+}

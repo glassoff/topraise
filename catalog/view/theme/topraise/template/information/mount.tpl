@@ -12,8 +12,43 @@
 
             <div class="remont-item">
 
+                <?php if(count($images)): ?>
+                    <div class="remont-images">
+                        <ul id="remont-images">
+                            <?php foreach($images as $image): ?>
+                                <li>
+                                    <a href="<?php echo $image['popup'] ?>" class="colorbox" rel="colorbox"><img src="<?php echo $image['thumb'] ?>" /></a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                        <a class="arrow-prev" href="#">Previous</a>
+                        <a class="arrow-next" href="#">Next</a>
+                    </div>
+
+                    <script>
+                        $(function(){
+                            $('#remont-images').carouFredSel({
+                                auto: false,
+                                prev: '.arrow-prev',
+                                next: '.arrow-next',
+                                circular: false,
+                                infinite: false,
+                                width: 600,
+
+                            });
+
+                            $('.colorbox').colorbox({
+                                overlayClose: true,
+                                opacity: 0.5
+                            });
+                        });
+                    </script>
+                <?php endif; ?>
+
                 <?php if($video_code): ?>
-                <?php echo $video_code ?>
+                    <div class="remont-video">
+                    <?php echo $video_code ?>
+                    </div>
                 <?php endif; ?>
 
                 <?php echo $description; ?>

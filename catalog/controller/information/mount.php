@@ -53,6 +53,23 @@ class ControllerInformationMount extends Controller {
                 $this->data['image'] = FALSE;
             }
 
+            $this->data['images'] = array();
+
+            $results = $this->model_fido_remont->getRemontImages($remont_id);
+
+            $this->document->addScript('catalog/view/theme/topraise/js/jquery.carouFredSel-6.1.0-packed.js');
+
+            $this->document->addScript('catalog/view/javascript/jquery/colorbox/jquery.colorbox-min.js');
+            $this->document->addStyle('catalog/view/javascript/jquery/colorbox/colorbox.css');
+
+
+            foreach ($results as $result) {
+                $this->data['images'][] = array(
+                    'popup' => $this->model_tool_image->resize($result['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height')),
+                    'thumb' => $this->model_tool_image->cropsize($result['image'], 174, 110)
+                );
+            }
+
             $this->data['date_added'] = date($this->language->get('date_format_short'), strtotime($remont_info['date_added']));
 
             $this->data['min_height'] = $this->config->get('remont_thumb_height');

@@ -23,5 +23,11 @@ class ModelFidoRemont extends Model {
             return FALSE;
         }
     }
+
+    public function getRemontImages($remont_id) {
+        $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "remont_image WHERE remont_id = '" . (int)$remont_id . "' ORDER BY sort_order ASC");
+
+        return $query->rows;
+    }
 }
 ?>

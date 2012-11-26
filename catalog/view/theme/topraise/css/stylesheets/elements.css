@@ -1628,3 +1628,80 @@
   float: left;
   margin-left: 20px;
 }
+
+/* remont images carousel */
+/* line 1108, ../sass/elements.scss */
+.remont-images {
+  overflow: hidden;
+  *zoom: 1;
+  position: relative;
+  padding: 0px 55px 0px 55px;
+  margin: 0 0 25px 0;
+}
+/* line 1115, ../sass/elements.scss */
+.remont-images ul {
+  display: block;
+}
+/* line 1118, ../sass/elements.scss */
+.remont-images li {
+  display: inline;
+  float: left;
+  margin: 0 6px 0 0;
+}
+
+/* line 1124, ../sass/elements.scss */
+.arrow-prev, .arrow-next {
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 30px;
+  background: url(../../images/arrows-small.png);
+  margin-top: -50px;
+  height: 0;
+  padding-top: 100px;
+  font-size: 0;
+  text-indent: -6000px;
+}
+
+/* line 1133, ../sass/elements.scss */
+.arrow-prev {
+  left: 5px;
+  background-position: 0px 0;
+}
+/* line 1136, ../sass/elements.scss */
+.arrow-prev:hover {
+  background-position: -30px 0;
+}
+/* line 1139, ../sass/elements.scss */
+.arrow-prev:active {
+  background-position: -60px 0;
+}
+/* line 1142, ../sass/elements.scss */
+.arrow-prev.disabled {
+  background-position: -90px 0;
+  cursor: default;
+}
+
+/* line 1147, ../sass/elements.scss */
+.arrow-next {
+  right: 5px;
+  background-position: -120px 0;
+}
+/* line 1150, ../sass/elements.scss */
+.arrow-next:hover {
+  background-position: -150px 0;
+}
+/* line 1153, ../sass/elements.scss */
+.arrow-next:active {
+  background-position: -180px 0;
+}
+/* line 1156, ../sass/elements.scss */
+.arrow-next.disabled {
+  background-position: -210px 0;
+  cursor: default;
+}
+
+/* line 1162, ../sass/elements.scss */
+.remont-video {
+  margin: 0 0 25px 0;
+}

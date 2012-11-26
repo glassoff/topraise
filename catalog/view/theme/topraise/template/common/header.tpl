@@ -5,7 +5,6 @@
     <meta charset='utf-8' />
 
     <title><?php echo $title; ?></title>
-    <base href="<?php echo $base; ?>" />
     <?php if ($description) { ?>
     <meta name="description" content="<?php echo $description; ?>" />
     <?php } ?>

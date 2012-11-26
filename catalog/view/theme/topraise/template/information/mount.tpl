@@ -17,7 +17,7 @@
                         <ul id="remont-images">
                             <?php foreach($images as $image): ?>
                                 <li>
-                                    <a href="<?php echo $image['popup'] ?>" class="colorbox" rel="colorbox"><img src="<?php echo $image['thumb'] ?>" /></a>
+                                    <a href="<?php echo $image['popup'] ?>" class="colorbox" rel="colorbox"><img width="174" height="110" src="<?php echo $image['thumb'] ?>" /></a>
                                 </li>
                             <?php endforeach; ?>
                         </ul>
@@ -33,8 +33,7 @@
                                 next: '.arrow-next',
                                 circular: false,
                                 infinite: false,
-                                width: 600,
-
+                                width: 600
                             });
 
                             $('.colorbox').colorbox({

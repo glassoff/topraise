@@ -1,6 +1,17 @@
 <?php
 class ModelFidoRemont extends Model {
     public function addRemont($data) {
+        //set remont main image
+        if(isset($data['remont_image'])){
+            $images = $data['remont_image'];
+            $orders = array();
+            foreach($images as $image){
+                $orders[] = $image['sort_order'];
+            }
+            array_multisort($images, SORT_ASC, $orders);
+            $data['image'] = $images[0]['image'];
+        }
+
         if($data['video_youtube']){
             $video_code = $this->getVideoCode($data['video_youtube']);
             $data['image'] = $this->loadVideoThumb($data['video_youtube']);
@@ -36,6 +47,17 @@ class ModelFidoRemont extends Model {
     }
 
     public function editRemont($remont_id, $data) {
+        //set remont main image
+        if(isset($data['remont_image'])){
+            $images = $data['remont_image'];
+            $orders = array();
+            foreach($images as $image){
+                $orders[] = $image['sort_order'];
+            }
+            array_multisort($images, SORT_ASC, $orders);
+            $data['image'] = $images[0]['image'];
+        }
+
         if($data['video_youtube']){
             $video_code = $this->getVideoCode($data['video_youtube']);
             $data['image'] = $this->loadVideoThumb($data['video_youtube']);

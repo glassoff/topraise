@@ -65,6 +65,11 @@ class ControllerCommonFooter extends Controller {
             );
         }
 
+        $this->data['delivery_href'] = $this->url->link('information/buy-shipping');
+        $this->data['howbuy_href'] = $this->url->link('information/buy-shipping');
+        $this->data['actions_href'] = '';
+        $this->data['news_href'] = $this->url->link('information/news');
+
 
 		
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/footer.tpl')) {

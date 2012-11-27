@@ -1705,3 +1705,45 @@
 .remont-video {
   margin: 0 0 25px 0;
 }
+
+/* pagination */
+/* line 1167, ../sass/elements.scss */
+.pagination {
+  text-align: center;
+}
+/* line 1169, ../sass/elements.scss */
+.pagination .links {
+  font-size: 14pt;
+  color: #b9b9b9;
+}
+/* line 1172, ../sass/elements.scss */
+.pagination .links b {
+  color: #4bb2e1;
+}
+/* line 1175, ../sass/elements.scss */
+.pagination .links a {
+  color: #b9b9b9;
+  text-decoration: none;
+}
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.pagination .links a:visited {
+  color: #b9b9b9;
+}
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.pagination .links a:focus {
+  color: #fc5f5f;
+}
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.pagination .links a:hover {
+  color: #fc5f5f;
+}
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.pagination .links a:active {
+  color: #fc5f5f;
+}
+
+/* line 1181, ../sass/elements.scss */
+.pagination_top {
+  text-align: right;
+  margin: 0 35px 30px 0;
+}

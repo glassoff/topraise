@@ -3,10 +3,10 @@ class Pagination {
 	public $total = 0;
 	public $page = 1;
 	public $limit = 20;
-	public $num_links = 10;
+	public $num_links = 8;
 	public $url = '';
 	public $text = 'Showing {start} to {end} of {total} ({pages} Pages)';
-	public $text_first = '|&lt;';
+	public $text_first = 1;//'|&lt;';
 	public $text_last = '&gt;|';
 	public $text_next = '&gt;';
 	public $text_prev = '&lt;';
@@ -32,12 +32,12 @@ class Pagination {
 		$num_pages = ceil($total / $limit);
 		
 		$output = '';
-		
-		if ($page > 1) {
-			$output .= ' <a href="' . str_replace('{page}', 1, $this->url) . '">' . $this->text_first . '</a> <a href="' . str_replace('{page}', $page - 1, $this->url) . '">' . $this->text_prev . '</a> ';
-    	}
+
+        $output .= ' <b>[1]</b> ';
 
 		if ($num_pages > 1) {
+            $output = '';
+
 			if ($num_pages <= $num_links) {
 				$start = 1;
 				$end = $num_pages;
@@ -56,25 +56,42 @@ class Pagination {
 				}
 			}
 
+            if ($page > 1 && $start != 1) {
+                $output .= ' <a href="' . str_replace('{page}', 1, $this->url) . '">' . $this->text_first . '</a> ';//<a href="' . str_replace('{page}', $page - 1, $this->url) . '">' . $this->text_prev . '</a> ';
+            }
+
 			if ($start > 1) {
-				$output .= ' .... ';
+                if($start > 2){
+                    $output .= ' .... ';
+                }
+                else{
+                    $output .= '&middot;';
+                }
 			}
 
 			for ($i = $start; $i <= $end; $i++) {
 				if ($page == $i) {
-					$output .= ' <b>' . $i . '</b> ';
+					$output .= ' <b>[' . $i . ']</b> ';
 				} else {
 					$output .= ' <a href="' . str_replace('{page}', $i, $this->url) . '">' . $i . '</a> ';
-				}	
+				}
+                if($i < $end){
+                    $output .= '&middot;';
+                }
 			}
 							
 			if ($end < $num_pages) {
-				$output .= ' .... ';
+                if($num_pages - $end > 1){
+                    $output .= ' .... ';
+                }
+                else{
+                    $output .= '&middot;';
+                }
 			}
 		}
-		
-   		if ($page < $num_pages) {
-			$output .= ' <a href="' . str_replace('{page}', $page + 1, $this->url) . '">' . $this->text_next . '</a> <a href="' . str_replace('{page}', $num_pages, $this->url) . '">' . $this->text_last . '</a> ';
+
+   		if ($page < $num_pages && $end != $num_pages) {
+			$output .= /*' <a href="' . str_replace('{page}', $page + 1, $this->url) . '">' . $this->text_next . '</a>*/' <a href="' . str_replace('{page}', $num_pages, $this->url) . '">' . $this->total . '</a> ';
 		}
 		
 		$find = array(
@@ -91,7 +108,7 @@ class Pagination {
 			$num_pages
 		);
 		
-		return ($output ? '<div class="' . $this->style_links . '">' . $output . '</div>' : '') . '<div class="' . $this->style_results . '">' . str_replace($find, $replace, $this->text) . '</div>';
+		return ($output ? '<div class="' . $this->style_links . '">' . $output . '</div>' : '');// . '<div class="' . $this->style_results . '">' . str_replace($find, $replace, $this->text) . '</div>';
 	}
 }
 ?>

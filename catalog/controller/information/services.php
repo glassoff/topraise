@@ -21,7 +21,17 @@ class ControllerInformationServices extends Controller {
 
         $this->load->language('information/services-' . $type);
 
-        $remont_data = $this->model_fido_remont->getRemont($type);
+        if (isset($this->request->get['page'])) {
+            $page = $this->request->get['page'];
+        } else {
+            $page = 1;
+        }
+
+        $limit = 6; //CONFIG
+
+        $remonts_total = $this->model_fido_remont->getTotalRemont($type);
+
+        $remont_data = $this->model_fido_remont->getRemont($type, ($page - 1) * $limit, $limit);
 
         if ($remont_data) {
             foreach ($remont_data as $result) {
@@ -59,6 +69,14 @@ class ControllerInformationServices extends Controller {
             $this->data['button_continue'] = $this->language->get('button_continue');
 
             $this->data['continue'] = $this->url->link('common/home');
+
+            $pagination = new Pagination();
+            $pagination->total = $remonts_total;
+            $pagination->page = $page;
+            $pagination->limit = $limit;
+            $pagination->url = $this->url->link('information/services', '&type='.$type.'&page={page}');
+
+            $this->data['pagination'] = $pagination->render();
 
 
             if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/information/services.tpl')) {

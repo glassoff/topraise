@@ -79,7 +79,17 @@ class ControllerInformationNews extends Controller {
 
 			$this->response->setOutput($this->render());
 	  	} else {
-	  		$news_data = $this->model_fido_news->getNews();
+
+            if (isset($this->request->get['page'])) {
+                $page = $this->request->get['page'];
+            } else {
+                $page = 1;
+            }
+
+            $limit = 6; //CONFIG
+
+            $news_total = $this->model_fido_news->getTotalNews();
+	  		$news_data = $this->model_fido_news->getNews(($page - 1) * $limit, $limit);
 
 	  		if ($news_data) {
 				foreach ($news_data as $result) {
@@ -114,6 +124,14 @@ class ControllerInformationNews extends Controller {
 				$this->data['button_continue'] = $this->language->get('button_continue');
 
 				$this->data['continue'] = $this->url->link('common/home');
+
+                  $pagination = new Pagination();
+                  $pagination->total = $news_total;
+                  $pagination->page = $page;
+                  $pagination->limit = $limit;
+                  $pagination->url = $this->url->link('information/news', '&page={page}');
+
+                  $this->data['pagination'] = $pagination->render();
 
 				if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/information/news.tpl')) {
 					$this->template = $this->config->get('config_template') . '/template/information/news.tpl';

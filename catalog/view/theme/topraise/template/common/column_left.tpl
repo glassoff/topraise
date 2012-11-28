@@ -1,6 +1,6 @@
 <div class="page__middle__left">
-    <h5 class="icon-item icon-item_new"><a href="">НАШИ НОВИНКИ</a></h5>
-    <h5 class="icon-item icon-item_best"><a href="">БЕСТСЕЛЛЕРЫ</a></h5>
+    <h5 class="icon-item icon-item_new"><a href="<?php echo $href_latest ?>">НАШИ НОВИНКИ</a></h5>
+    <h5 class="icon-item icon-item_best"><a href="<?php echo $href_bestsellers ?>">БЕСТСЕЛЛЕРЫ</a></h5>
 
     <div class="home__search search_form">
         <form>

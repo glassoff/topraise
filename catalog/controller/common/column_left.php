@@ -75,6 +75,10 @@ class ControllerCommonColumnLeft extends Controller {
 				$this->data['modules'][] = $module;
 			}
 		}
+
+        $this->data['href_latest'] = $this->url->link('product/part', 'type=latest');
+        $this->data['href_bestsellers'] = $this->url->link('product/part', 'type=bestsellers');
+
 		
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/column_left.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/common/column_left.tpl';

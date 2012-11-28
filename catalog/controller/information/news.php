@@ -101,7 +101,7 @@ class ControllerInformationNews extends Controller {
                     }
 					$this->data['news_data'][] = array(
 						'title'        => $result['title'],
-						'description'  => substr(html_entity_decode($result['description']), 0, $this->config->get('news_headline_chars')),
+						'description'  => utf8_substr(strip_tags(html_entity_decode($result['description'])), 0, $this->config->get('news_headline_chars')),
 						'href'         => $this->url->link('information/news', 'news_id=' . $result['news_id']),
 						'date_added'   => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
                         'thumb' => $thumb,

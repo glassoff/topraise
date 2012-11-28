@@ -17,7 +17,7 @@
                         <ul id="remont-images">
                             <?php foreach($images as $image): ?>
                                 <li>
-                                    <a href="<?php echo $image['popup'] ?>" class="colorbox" rel="colorbox"><img width="174" height="110" src="<?php echo $image['thumb'] ?>" /></a>
+                                    <a title="Установка раковины на кухне" href="<?php echo $image['popup'] ?>" class="colorbox" rel="colorbox"><img width="174" height="110" src="<?php echo $image['thumb'] ?>" /></a>
                                 </li>
                             <?php endforeach; ?>
                         </ul>
@@ -38,7 +38,9 @@
 
                             $('.colorbox').colorbox({
                                 overlayClose: true,
-                                opacity: 0.5
+                                opacity: 0.5,
+                                transition: 'none',
+                                loop: false
                             });
                         });
                     </script>

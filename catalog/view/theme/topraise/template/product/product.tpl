@@ -114,7 +114,9 @@
 
                     $('.colorbox').colorbox({
                         overlayClose: true,
-                        opacity: 0.5
+                        opacity: 0.5,
+                        transition: 'none',
+                        loop: false
                     });
                 });
             </script>

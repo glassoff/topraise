@@ -39,8 +39,10 @@
                 <?php } ?>
                 <!-- categories -->
                 </div>
-                <h2 class="subheader"><?php echo $heading_title; ?></h2>
-                <?php echo $description; ?>
+                <?php if(strlen($description) > 0): ?>
+                    <h2 class="subheader"><?php echo $heading_title; ?></h2>
+                    <?php echo $description; ?>
+                <?php endif; ?>
             <?php } elseif($products) { ?>
                 <div class="pagination pagination_top"><?php echo $pagination; ?></div>
                 <div class="catalog-container">

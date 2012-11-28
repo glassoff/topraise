@@ -340,7 +340,7 @@
         margin: 0 auto;
 
         a{
-            @include link-colors(#fff, $aHoverColor, $aActiveColor, #fff, $aFocusColor);
+            @include link-colors(#fff, #89d9fe, #89d9fe, #fff, $aFocusColor);
         }
     }
     .category-item__img{
@@ -388,6 +388,7 @@
                     span{
                         border: none;
                     }
+                    @include link-colors(#000, #89d9fe, #000, #000, #000);
                 }
                 span{
                     border-bottom: 1px dashed #000;

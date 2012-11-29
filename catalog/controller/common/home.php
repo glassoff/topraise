@@ -11,6 +11,14 @@ class ControllerCommonHome extends Controller {
         $this->data['simple'] = $this->url->link('information/buy-shipping') . "#simple";
         $this->data['comfortable'] = $this->url->link('information/buy-shipping') . "#comfortable";
         $this->data['economicly'] = $this->url->link('information/buy-shipping') . "#economicly";
+
+        $this->load->model('catalog/category');
+        $categories = $this->model_catalog_category->getCategories(0);
+
+        $this->data['hrefs'] = array();
+        foreach($categories as $category){
+            $this->data['hrefs'][$category['category_id']] = $this->url->link('product/category', 'path=' . $category['category_id']);
+        }
 		
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/home.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/common/home.tpl';

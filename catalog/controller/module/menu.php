@@ -5,17 +5,24 @@ class ControllerModuleMenu extends Controller {
 
         $this->data['menu'] = array(
             'Услуги' => array(
-                'Монтаж оборудования' => $this->url->link('information/services', 'type=equipment'),
-                'Монтаж водоснабжения' => $this->url->link('information/services', 'type=water'),
+                array('title' => 'Монтаж оборудования', 'route' => 'information/services', 'params' => 'type=equipment'),
+                array('title' => 'Монтаж водоснабжения', 'route' => 'information/services', 'params' => 'type=water'),
             ),
             'Компания' => array(
-                'О нас' => $this->url->link('information/information', 'information_id=4'),
-                'Новости' => $this->url->link('information/news'),
-                'Доставка и покупка' => $this->url->link('information/buy-shipping'),
-                'Контакты' => $this->url->link('information/contact'),
-                'Оптовикам' => $this->url->link('information/opt'),
+                array('title' => 'О нас', 'route' => 'information/information', 'params' => 'information_id=4'),
+                array('title' => 'Новости', 'route' => 'information/news', 'params' => ''),
+                array('title' => 'Доставка и покупка', 'route' => 'information/buy-shipping', 'params' => ''),
+                array('title' => 'Контакты', 'route' => 'information/contact', 'params' => ''),
+                array('title' => 'Оптовикам', 'route' => 'information/opt', 'params' => ''),
             ),
         );
+
+        foreach($this->data['menu'] as & $menuGroup){
+            foreach($menuGroup as & $menuItem){
+                $menuItem['href'] = $this->url->link($menuItem['route'], $menuItem['params']);
+                $menuItem['active'] = $this->isCurrentUrl($menuItem['route'], $menuItem['params']);
+            }
+        }
 
         if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/menu.tpl')) {
             $this->template = $this->config->get('config_template') . '/template/module/menu.tpl';
@@ -26,4 +33,27 @@ class ControllerModuleMenu extends Controller {
         $this->render();
     }
 
+    protected function isCurrentUrl($route, $params)
+    {
+        $currentRoute = $this->request->get['route'];
+        if($currentRoute == $route){
+            if(!$params){
+                return true;
+            }
+            else{
+                parse_str($params, $parts);
+
+                foreach ($parts as $k => $v) {
+                    if(isset($this->request->get[$k]) && $this->request->get[$k] == $v){
+                        unset($parts[$k]);
+                    }
+                }
+
+                if(!$parts){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

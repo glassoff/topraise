@@ -4,8 +4,8 @@
     <div class="box-content">
         <div class="box-category">
             <ul>
-                <?php foreach($submenu as $subtitle => $href): ?>
-                <li><a href="<?php echo $href ?>"><?php echo $subtitle ?></a></li>
+                <?php foreach($submenu as $subitem): ?>
+                <li><a href="<?php echo $subitem['href'] ?>" class="<?php if($subitem['active']): ?>active<?php endif;?>"><?php echo $subitem['title'] ?></a></li>
                 <?php endforeach; ?>
             </ul>
         </div>

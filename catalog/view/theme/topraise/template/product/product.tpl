@@ -9,7 +9,7 @@
 
         <div class="page__middle__right content content_product">
             <h1 class="content__header content__header_product"><?php echo $heading_title; ?></h1>
-            <span class="content_product__sku">№ товара 12545DA</span>
+            <span class="content_product__sku">№ товара <?php echo $product_info['sku'] ?></span>
 
             <div class="product-content">
                 <div class="compare-products">
@@ -50,6 +50,14 @@
                                     </tr>
                                     <?php endforeach; ?>
                                 <?php endforeach; ?>
+                                <?php if($product_info['height'] > 0 && $product_info['width'] > 0 && $product_info['length'] > 0): ?>
+                                <tr>
+                                    <td>Размеры (ВхШхГ)</td>
+                                    <td>
+                                        <?php echo floatval($product_info['height']) ?>x<?php echo floatval($product_info['width']) ?>x<?php echo floatval($product_info['length']) ?> <?php echo $product_info['length_class'] ?>
+                                    </td>
+                                </tr>
+                                <?php endif; ?>
                             </table>
                         </div>
                     </div>

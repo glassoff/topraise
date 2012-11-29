@@ -11,7 +11,7 @@
             <h1 class="content__header"><?php echo $heading_title; ?></h1>
 
             <div class="remont-top">
-                <div class="remont-top__left">
+                <div class="remont-top__left typography">
                     <?php echo $text ?>
                 </div>
                 <div class="remont-top__right">

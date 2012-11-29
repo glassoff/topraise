@@ -15,7 +15,7 @@
 
             <div class="news-item">
                 <div class="news-item__date"><?php echo $date_added ?></div>
-                <div class="news-item__content">
+                <div class="news-item__content typography">
                     <?php if ($image) { ?>
                     <img class="news-item__content__image" src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" />
                     <?php } ?>

@@ -9,7 +9,10 @@
         <div class="page__middle__right content">
             <h1 class="content__header"><?php echo $heading_title; ?></h1>
 
-            <?php echo $description; ?>
+            <div class="typography">
+                <?php echo $description; ?>
+            </div>
+
         </div>
     </div>
 </div>

@@ -52,7 +52,10 @@
                     </div>
                 <?php endif; ?>
 
-                <?php echo $description; ?>
+                <div class="typography">
+                    <?php echo $description; ?>
+                </div>
+
                 <div>
                     <a onclick="location='<?php echo $remont; ?>'" class="news-item__back"><?php echo $button_remont; ?></a>
                 </div>

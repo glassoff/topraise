@@ -19,6 +19,8 @@ class ControllerCommonHome extends Controller {
         foreach($categories as $category){
             $this->data['hrefs'][$category['category_id']] = $this->url->link('product/category', 'path=' . $category['category_id']);
         }
+
+        $this->data['search_action'] = $this->url->link('product/search');
 		
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/home.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/common/home.tpl';

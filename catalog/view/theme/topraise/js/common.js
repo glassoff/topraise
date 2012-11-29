@@ -36,6 +36,21 @@ $(function(){
         }
     });
 
+    /* Search */
+    $('#search-form').bind('submit', function() {
+        url = $(this).attr('action');
+
+        var filter_name = $('input[name=\'filter_name\']', this).attr('value');
+
+        if (filter_name) {
+            url += '&filter_name=' + encodeURIComponent(filter_name) + '&filter_description=true';
+        }
+
+        location = url;
+
+        return false;
+    });
+
 });
 
 function addToCart(product_id, quantity) {

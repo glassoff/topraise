@@ -29,11 +29,8 @@
             </div>
         </div>
     </div>
-    <div class="home__search search_form">
-        <form>
-            <input type="text" placeholder="Поиск товара"/><button type="submit" class="button">найти</button>
-        </form>
-    </div>
+
+    <?php require('search-form.tpl') ?>
 
     <div id="notification"></div>
 

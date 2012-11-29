@@ -25,10 +25,14 @@
                 <div class="product-content__center product-info">
                     <input type="hidden" name="product_id" size="2" value="<?php echo $product_id; ?>" />
                     <div class="product-content__center__left">
+                        <?php if($popup): ?>
                         <a href="<?php echo $popup; ?>" class="product-content__img colorbox" title="<?php echo $heading_title; ?>">
                             <img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"/>
                             <div class="product-content__img__zoom"></div>
                         </a>
+                        <?php else: ?>
+                            <img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"/>
+                        <?php endif; ?>
                         <div class="product-item__buy">
                             <span class="price price__big"><?php echo $price ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span>
                             <button class="button button_buy" id="button-cart">Купить</button>

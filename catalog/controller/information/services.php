@@ -41,6 +41,10 @@ class ControllerInformationServices extends Controller {
 
                     $thumb = $this->model_tool_image->resize($result['image'], $this->config->get('remont_thumb_width'), $this->config->get('remont_thumb_height'));
                 }
+                else{
+                    $thumb = HTTP_SERVER . 'catalog/view/theme/topraise/images/default-mount.jpg';
+                }
+
                 $this->data['remont_data'][] = array(
                     'title'        => $result['title'],
                     'description'  => substr(html_entity_decode($result['description']), 0, $this->config->get('remont_headline_chars')),

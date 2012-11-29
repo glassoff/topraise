@@ -214,7 +214,7 @@ class ControllerProductProduct extends Controller {
 			if ($product_info['image']) {
 				$this->data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
 			} else {
-				$this->data['thumb'] = '';
+				$this->data['thumb'] = HTTP_SERVER . 'catalog/view/theme/topraise/images/default-product.jpg';;
 			}
 			
 			$this->data['images'] = array();

@@ -342,7 +342,7 @@ class ControllerCheckoutConfirm extends Controller {
                 if ($product['image']) {
                     $image = $this->model_tool_image->resize($product['image'], $this->config->get('config_image_cart_width'), $this->config->get('config_image_cart_height'));
                 } else {
-                    $image = '';
+                    $image = HTTP_SERVER . 'catalog/view/theme/topraise/images/default-product.jpg';;
                 }
 	
 				foreach ($product['option'] as $option) {

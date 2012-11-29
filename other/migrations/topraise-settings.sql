@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 26 2012 г., 20:47
+-- Время создания: Ноя 29 2012 г., 10:05
 -- Версия сервера: 5.1.65
 -- Версия PHP: 5.3.17
 
@@ -59,212 +59,62 @@ INSERT INTO `extension` (`extension_id`, `type`, `code`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `information`
+-- Структура таблицы `layout`
 --
 
-DROP TABLE IF EXISTS `information`;
-CREATE TABLE IF NOT EXISTS `information` (
-  `information_id` int(11) NOT NULL AUTO_INCREMENT,
-  `bottom` int(1) NOT NULL DEFAULT '0',
-  `sort_order` int(3) NOT NULL DEFAULT '0',
-  `status` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`information_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+DROP TABLE IF EXISTS `layout`;
+CREATE TABLE IF NOT EXISTS `layout` (
+  `layout_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
+  PRIMARY KEY (`layout_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
--- Дамп данных таблицы `information`
+-- Дамп данных таблицы `layout`
 --
 
-INSERT INTO `information` (`information_id`, `bottom`, `sort_order`, `status`) VALUES
-(3, 1, 3, 1),
-(4, 1, -1, 1),
-(5, 1, 4, 1);
+INSERT INTO `layout` (`layout_id`, `name`) VALUES
+(1, 'Home'),
+(2, 'Product'),
+(3, 'Category'),
+(4, 'Default'),
+(5, 'Manufacturer'),
+(6, 'Account'),
+(7, 'Checkout'),
+(8, 'Contact'),
+(9, 'Sitemap'),
+(10, 'Affiliate'),
+(11, 'Information');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `information_description`
+-- Структура таблицы `layout_route`
 --
 
-DROP TABLE IF EXISTS `information_description`;
-CREATE TABLE IF NOT EXISTS `information_description` (
-  `information_id` int(11) NOT NULL,
-  `language_id` int(11) NOT NULL,
-  `title` varchar(64) NOT NULL DEFAULT '',
-  `description` text NOT NULL,
-  `meta_description` varchar(255) NOT NULL,
-  `meta_keyword` varchar(255) NOT NULL,
-  `seo_title` varchar(255) NOT NULL,
-  `seo_h1` varchar(255) NOT NULL,
-  PRIMARY KEY (`information_id`,`language_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `information_description`
---
-
-INSERT INTO `information_description` (`information_id`, `language_id`, `title`, `description`, `meta_description`, `meta_keyword`, `seo_title`, `seo_h1`) VALUES
-(5, 1, 'Условия соглашения', '&lt;p&gt;\r\n	Условия соглашения&lt;/p&gt;\r\n', '', '', '', ''),
-(3, 1, 'Политика Безопасности', '&lt;p&gt;\r\n	Политика Безопасности&lt;/p&gt;\r\n', '', '', '', ''),
-(4, 1, 'О нас', '&lt;p&gt;\r\n	Мы специализированный интернет-магазин сантехники. У нас вы найдете самый большой выбор смесителей, аксессуаров и мебели для ванных комнат, стеклянных раковин, кухонных моек, зеркал и душевых кабин. На ваш выбор представлена эксклюзивная продукция на российском рынке сантехники — стеклянная мебель для ванных комнат, зеркала и раковины.&lt;br /&gt;\r\n	&lt;br /&gt;\r\n	Продукции торговых марок которые мы предлагаем имеет современный дизайн, уютную конструкцию, проста в установке и использовании, высокое качество по разумной цене. Все создана с использованием высоких технологий для современной жизни. Продукция имеет сервисное обслуживание по установке, ремонту,&amp;nbsp; уходу. Товарный знак, упаковка, маркировка защищены патентным правом, имеют сертификаты качества, гигиенические сертификаты и другие сертификаты. Продукция реализуется по всей России, имеет хорошие отзывы&amp;nbsp; потребителей разных стран Мира, в том числе и в России.&lt;br /&gt;\r\n	&lt;br /&gt;\r\n	Ознакомиться с полным ассортиментом нашего интернет-магазина Вы можете &lt;a href=&quot;/index.php?route=product/category&quot;&gt;здесь&lt;/a&gt;.&lt;br /&gt;\r\n	&lt;br /&gt;\r\n	Покупая нужный Вам товар в нашем интернет-магазине сантехники, вы экономите не только деньги, но и драгоценное время которого нам всем всегда не хватает!&lt;/p&gt;\r\n', '', '', '', '');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `information_to_layout`
---
-
-DROP TABLE IF EXISTS `information_to_layout`;
-CREATE TABLE IF NOT EXISTS `information_to_layout` (
-  `information_id` int(11) NOT NULL,
-  `store_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `layout_route`;
+CREATE TABLE IF NOT EXISTS `layout_route` (
+  `layout_route_id` int(11) NOT NULL AUTO_INCREMENT,
   `layout_id` int(11) NOT NULL,
-  PRIMARY KEY (`information_id`,`store_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `information_to_store`
---
-
-DROP TABLE IF EXISTS `information_to_store`;
-CREATE TABLE IF NOT EXISTS `information_to_store` (
-  `information_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
-  PRIMARY KEY (`information_id`,`store_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `route` varchar(255) NOT NULL,
+  PRIMARY KEY (`layout_route_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
 
 --
--- Дамп данных таблицы `information_to_store`
+-- Дамп данных таблицы `layout_route`
 --
 
-INSERT INTO `information_to_store` (`information_id`, `store_id`) VALUES
-(3, 0),
-(4, 0),
-(5, 0);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `remont`
---
-
-DROP TABLE IF EXISTS `remont`;
-CREATE TABLE IF NOT EXISTS `remont` (
-  `remont_id` int(11) NOT NULL AUTO_INCREMENT,
-  `status` int(1) NOT NULL DEFAULT '0',
-  `type` enum('equipment','water') COLLATE utf8_bin NOT NULL DEFAULT 'equipment',
-  `image` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `image_size` int(1) NOT NULL DEFAULT '0',
-  `video_youtube` varchar(255) COLLATE utf8_bin NOT NULL,
-  `video_code` text COLLATE utf8_bin NOT NULL,
-  `date_added` datetime DEFAULT NULL,
-  PRIMARY KEY (`remont_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=9 ;
-
---
--- Дамп данных таблицы `remont`
---
-
-INSERT INTO `remont` (`remont_id`, `status`, `type`, `image`, `image_size`, `video_youtube`, `video_code`, `date_added`) VALUES
-(1, 1, 'water', 'data/Qe85pYpdgAI.jpg', 0, 'http://www.youtube.com/watch?v=Qe85pYpdgAI&amp;feature=g-all-u', '\n            <object width="640" height="360">\n                <param name="movie" value="https://www.youtube.com/v/Qe85pYpdgAI?version=3"></param>\n                <param name="allowFullScreen" value="true"></param>\n                <param name="allowScriptAccess" value="always"></param>\n                <embed src="https://www.youtube.com/v/Qe85pYpdgAI?version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="640" height="360"></embed>\n            </object>\n        ', '2012-11-17 21:49:09'),
-(2, 1, 'equipment', 'data/test.jpg', 0, '', '', '2012-11-17 22:16:24'),
-(3, 1, 'water', 'data/18bd34u-960.jpg', 0, '', '', '2012-11-17 22:17:52'),
-(4, 1, 'equipment', 'data/2a0b2au-960.jpg', 0, '', '', '2012-11-17 22:18:20'),
-(5, 1, 'equipment', 'data/18bd34u-960.jpg', 0, '', '', '2012-11-17 22:18:48'),
-(6, 1, 'equipment', 'data/3c0b2au-960.jpg', 0, '', '', '2012-11-17 22:19:24'),
-(7, 1, 'equipment', 'data/1b6902u-960.jpg', 0, '', '', '2012-11-17 22:19:56'),
-(8, 1, 'equipment', 'data/r-T2qAjAa-Y.jpg', 0, 'http://www.youtube.com/watch?v=r-T2qAjAa-Y&amp;feature=g-all-u', '\n            <object width="640" height="360">\n                <param name="movie" value="https://www.youtube.com/v/r-T2qAjAa-Y?version=3"></param>\n                <param name="allowFullScreen" value="true"></param>\n                <param name="allowScriptAccess" value="always"></param>\n                <embed src="https://www.youtube.com/v/r-T2qAjAa-Y?version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="640" height="360"></embed>\n            </object>\n        ', '2012-11-21 00:54:37');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `remont_description`
---
-
-DROP TABLE IF EXISTS `remont_description`;
-CREATE TABLE IF NOT EXISTS `remont_description` (
-  `remont_id` int(11) NOT NULL DEFAULT '0',
-  `language_id` int(11) NOT NULL DEFAULT '0',
-  `title` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `meta_description` varchar(255) COLLATE utf8_bin NOT NULL,
-  `description` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`remont_id`,`language_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Дамп данных таблицы `remont_description`
---
-
-INSERT INTO `remont_description` (`remont_id`, `language_id`, `title`, `meta_description`, `description`) VALUES
-(1, 1, 'Ремонт раковины', '', '&lt;p&gt;\r\n	Ремонт раковины&lt;/p&gt;\r\n'),
-(2, 1, 'Монтаж душевой кабинки Coliseum 7080', '', '&lt;p&gt;\r\n	Генеральный директор петербургского &quot;Зенита&quot; Максим Митрофанов заявил, что его команда может сняться с розыгрыша чемпионата России по футболу, если к ней будут применены излишне жестокие санкции после матча с &quot;Динамо&quot; в Химках. Об этом, как сообщает &lt;a href=&quot;http://www.interfax.ru/&quot; target=&quot;_blank&quot;&gt;&quot;Интерфакс&quot;&lt;/a&gt;, он заявил журналистам в субботу, 17 ноября.&lt;/p&gt;\r\n&lt;p&gt;\r\n	Встреча в Химках была прервана на 37-й минуте, когда с гостевой трибуны во вратаря &quot;Динамо&quot; Антона Шунина была брошена петарда. Она взорвалась у него под ногой, после чего голкипера оглушило, и он упал, закрыв лицо руками. Арбитр прервал встречу, уведя команды с поля. Шунин был отправлен в Боткинскую больницу, предварительно ему диагностировали ожог роговицы.&lt;/p&gt;\r\n&lt;p&gt;\r\n	Гендиректор &quot;Зенита&quot; осудил поведение болельщиков, но призвал не считать виновным в инциденте именно питерский клуб.&lt;/p&gt;\r\n&lt;p&gt;\r\n	&quot;Реализацией билетов и допуском болельщиков на трибуны занималось &quot;Динамо&quot;, и нет доказательств, что на фанатском секторе находились только поклонники сине-бело-голубых, - заявил Максим Митрофанов. - &quot;Динамо&quot; пытается торпедировать ситуацию однозначно: виноват &quot;Зенит&quot;. Но если все будет так однозначно, акционеры &quot;Зенита&quot; могут задуматься о том, стоит ли продолжать участие в чемпионате России&quot;.&lt;/p&gt;\r\n'),
-(3, 1, 'Израиль отбил ракетную атаку на Тель-Авив', '', '&lt;p&gt;\r\n	В субботу, 17 ноября, в Тель-Авиве были слышны звуки сирен воздушной тревоги, сообщает агентство &lt;a href=&quot;http://www.reuters.com/&quot; target=&quot;_blank&quot;&gt;Reuters&lt;/a&gt;. По словам местных жителей, они слышали звук взрыва, а над южным предместьем Тель-Авива видели облако дыма.&lt;/p&gt;\r\n&lt;p&gt;\r\n	Как заявили представители армии обороны и полиции Израиля, залпом батареи системы ПВО &quot;Железный купол&quot; удалось сбить в воздухе нацеленную на город ракету. Ранее боевики движения &lt;a class=&quot;lp&quot; href=&quot;http://lenta.ru/lib/14160709/&quot;&gt;ХАМАС&lt;/a&gt; объявили, что они выпустили по Тель-Авиву очередную ракету.&lt;/p&gt;\r\n&lt;p&gt;\r\n	В среду, 14 ноября, Израиль начал в секторе Газа военно-воздушную операцию против ХАМАСа, поводом для которой послужили регулярные ракетные обстрелы израильской территории. Целями израильских ударов названы военные объекты и руководители ХАМАСа. 14 ноября погиб один из лидеров движения Ахмад Джабари.&lt;/p&gt;\r\n'),
-(4, 1, 'При обстреле Газы убиты трое боевиков ХАМАС', '', '&lt;p&gt;\r\n	sdfdgfdhfgdhfg&lt;/p&gt;\r\n'),
-(5, 1, '&quot;Спартак&quot; не сумел обыграть &quot;Волгу&quot; в чемпио', '', '&lt;h2&gt;\r\n	&quot;Спартак&quot; не сумел обыграть &quot;Волгу&quot; в чемпионате России&lt;/h2&gt;\r\n'),
-(6, 1, 'На финской ферме застрелили трех человек', '', '&lt;p&gt;\r\n	вот так то&lt;/p&gt;\r\n'),
-(7, 1, 'Министерство просвещения Молдавии извинилось за учителя-русофоба', '', '&lt;p&gt;\r\n	Молодцы че&lt;/p&gt;\r\n'),
-(8, 1, 'sfdgdsgfdg', '', '&lt;p&gt;\r\n	sdfdsgfdgfdgfsd&lt;/p&gt;\r\n');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `remont_image`
---
-
-DROP TABLE IF EXISTS `remont_image`;
-CREATE TABLE IF NOT EXISTS `remont_image` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `remont_id` int(11) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `sort_order` int(3) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=74 ;
-
---
--- Дамп данных таблицы `remont_image`
---
-
-INSERT INTO `remont_image` (`id`, `remont_id`, `image`, `sort_order`) VALUES
-(9, 2, 'data/9ab61au-960.jpg', 0),
-(8, 2, 'data/18bd34u-960.jpg', 0),
-(21, 8, 'data/2a0b2au-960.jpg', 0),
-(23, 1, 'data/apple_cinema_30.jpg', 0),
-(73, 3, 'data/Qe85pYpdgAI.jpg', 0),
-(72, 3, 'data/9ab61au-960.jpg', 0),
-(71, 3, 'data/3c0b2au-960.jpg', 0),
-(70, 3, 'data/2a0b2au-960.jpg', 0),
-(69, 3, 'data/1e5a8au-960.jpg', 0),
-(68, 3, 'data/1b6902u-960.jpg', 0),
-(67, 3, 'data/18bd34u-960.jpg', 0);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `remont_to_store`
---
-
-DROP TABLE IF EXISTS `remont_to_store`;
-CREATE TABLE IF NOT EXISTS `remont_to_store` (
-  `remont_id` int(11) NOT NULL,
-  `store_id` int(11) NOT NULL,
-  PRIMARY KEY (`remont_id`,`store_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Дамп данных таблицы `remont_to_store`
---
-
-INSERT INTO `remont_to_store` (`remont_id`, `store_id`) VALUES
-(1, 0),
-(2, 0),
-(3, 0),
-(4, 0),
-(5, 0),
-(6, 0),
-(7, 0),
-(8, 0);
+INSERT INTO `layout_route` (`layout_route_id`, `layout_id`, `store_id`, `route`) VALUES
+(30, 6, 0, 'account'),
+(17, 10, 0, 'affiliate/'),
+(29, 3, 0, 'product/category'),
+(26, 1, 0, 'common/home'),
+(20, 2, 0, 'product/product'),
+(24, 11, 0, 'information/information'),
+(22, 5, 0, 'product/manufacturer'),
+(23, 7, 0, 'checkout/'),
+(31, 8, 0, 'information/contact');
 
 -- --------------------------------------------------------
 
@@ -281,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `setting` (
   `value` text NOT NULL,
   `serialized` tinyint(1) NOT NULL,
   PRIMARY KEY (`setting_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2818 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3246 ;
 
 --
 -- Дамп данных таблицы `setting`
@@ -299,131 +149,100 @@ INSERT INTO `setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `seria
 (1079, 0, 'free_checkout', 'free_checkout_order_status_id', '14', 0),
 (14, 0, 'shipping', 'shipping_status', '1', 0),
 (15, 0, 'shipping', 'shipping_estimator', '1', 0),
-(1564, 0, 'news', 'news_popup_width', '310', 0),
-(1563, 0, 'news', 'news_thumb_height', '136', 0),
-(1562, 0, 'news', 'news_thumb_width', '310', 0),
-(1561, 0, 'news', 'news_headline_chars', '500', 0),
+(3245, 0, 'news', 'news_headline_module', '0', 0),
+(3244, 0, 'news', 'news_popup_height', '136', 0),
+(3243, 0, 'news', 'news_popup_width', '310', 0),
+(3242, 0, 'news', 'news_thumb_height', '136', 0),
 (2603, 0, 'category', 'category_module', 'a:5:{i:0;a:5:{s:9:"layout_id";s:1:"3";s:8:"position";s:11:"column_left";s:5:"count";s:1:"0";s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";}i:1;a:5:{s:9:"layout_id";s:2:"11";s:8:"position";s:11:"column_left";s:5:"count";s:1:"0";s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";}i:2;a:5:{s:9:"layout_id";s:1:"2";s:8:"position";s:11:"column_left";s:5:"count";s:1:"0";s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";}i:3;a:5:{s:9:"layout_id";s:1:"8";s:8:"position";s:11:"column_left";s:5:"count";s:1:"0";s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";}i:4;a:5:{s:9:"layout_id";s:1:"4";s:8:"position";s:11:"column_left";s:5:"count";s:1:"0";s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";}}', 1),
 (2812, 0, 'remont', 'remont_headline_chars', '100', 0),
 (1128, 0, 'distance', 'distance_rate', '100:400.00,200:500.00,500:1000.00,1000:1500.00', 0),
-(2811, 0, 'config', 'config_google_analytics', '', 0),
-(2810, 0, 'config', 'config_error_filename', 'error.txt', 0),
-(2808, 0, 'config', 'config_error_display', '1', 0),
-(2809, 0, 'config', 'config_error_log', '1', 0),
-(1566, 0, 'news', 'news_headline_module', '0', 0),
-(1565, 0, 'news', 'news_popup_height', '136', 0),
+(3232, 0, 'config', 'config_error_filename', 'error.txt', 0),
+(3233, 0, 'config', 'config_google_analytics', '', 0),
+(3241, 0, 'news', 'news_thumb_width', '310', 0),
+(3240, 0, 'news', 'news_headline_chars', '300', 0),
 (1152, 0, 'flat', 'flat_sort_order', '1', 0),
 (1151, 0, 'flat', 'flat_status', '1', 0),
 (1150, 0, 'flat', 'flat_geo_zone_id', '0', 0),
 (1149, 0, 'flat', 'flat_tax_class_id', '0', 0),
 (1148, 0, 'flat', 'flat_cost', '0', 0),
-(2806, 0, 'config', 'config_encryption', 'dfbec5b4a36a9c39ddbe3cd1078e7929', 0),
-(2807, 0, 'config', 'config_compression', '0', 0),
-(2805, 0, 'config', 'config_maintenance', '0', 0),
-(2804, 0, 'config', 'config_seo_url_postfix', '', 0),
-(2803, 0, 'config', 'config_seo_url_include_path', '0', 0),
-(2802, 0, 'config', 'config_seo_url_type', 'seo_url', 0),
-(2801, 0, 'config', 'config_seo_url', '0', 0),
+(3227, 0, 'config', 'config_maintenance', '0', 0),
+(3231, 0, 'config', 'config_error_log', '1', 0),
+(3230, 0, 'config', 'config_error_display', '1', 0),
+(3229, 0, 'config', 'config_compression', '0', 0),
 (1131, 0, 'distance', 'distance_status', '1', 0),
-(2800, 0, 'config', 'config_use_ssl', '0', 0),
+(3228, 0, 'config', 'config_encryption', 'dfbec5b4a36a9c39ddbe3cd1078e7929', 0),
 (56, 0, 'affiliate', 'affiliate_module', 'a:1:{i:0;a:4:{s:9:"layout_id";s:2:"10";s:8:"position";s:12:"column_right";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}}', 1),
-(2799, 0, 'config', 'config_sms_gate_password', '', 0),
-(2798, 0, 'config', 'config_sms_gate_username', '', 0),
+(3226, 0, 'config', 'config_seo_url_postfix', '', 0),
 (60, 0, 'account', 'account_module', 'a:1:{i:0;a:4:{s:9:"layout_id";s:1:"6";s:8:"position";s:12:"column_right";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}}', 1),
-(2797, 0, 'config', 'config_sms_message', '', 0),
-(2796, 0, 'config', 'config_sms_copy', '', 0),
-(2795, 0, 'config', 'config_sms_to', '', 0),
-(2794, 0, 'config', 'config_sms_from', '', 0),
-(2793, 0, 'config', 'config_sms_gatename', 'testsms', 0),
-(2792, 0, 'config', 'config_sms_alert', '0', 0),
-(2791, 0, 'config', 'config_fraud_status_id', '14', 0),
-(2790, 0, 'config', 'config_fraud_score', '', 0),
-(2789, 0, 'config', 'config_fraud_key', '', 0),
-(2788, 0, 'config', 'config_fraud_detection', '0', 0),
-(2787, 0, 'config', 'config_alert_emails', '', 0),
-(2786, 0, 'config', 'config_account_mail', '0', 0),
-(2785, 0, 'config', 'config_alert_mail', '1', 0),
-(2784, 0, 'config', 'config_smtp_timeout', '5', 0),
-(2783, 0, 'config', 'config_smtp_port', '25', 0),
-(2782, 0, 'config', 'config_smtp_password', '', 0),
-(2781, 0, 'config', 'config_smtp_username', '', 0),
-(2780, 0, 'config', 'config_smtp_host', '', 0),
-(2779, 0, 'config', 'config_mail_parameter', '', 0),
-(2778, 0, 'config', 'config_mail_protocol', 'mail', 0),
-(2777, 0, 'config', 'config_image_cart_height', '100', 0),
-(2776, 0, 'config', 'config_image_cart_width', '59', 0),
-(2775, 0, 'config', 'config_image_wishlist_height', '47', 0),
-(2774, 0, 'config', 'config_image_wishlist_width', '47', 0),
+(3225, 0, 'config', 'config_seo_url_include_path', '0', 0),
+(3224, 0, 'config', 'config_seo_url_type', 'seo_url', 0),
+(3222, 0, 'config', 'config_use_ssl', '0', 0),
+(3223, 0, 'config', 'config_seo_url', '0', 0),
+(3221, 0, 'config', 'config_sms_gate_password', '', 0),
+(3220, 0, 'config', 'config_sms_gate_username', '', 0),
+(3219, 0, 'config', 'config_sms_message', '', 0),
+(3217, 0, 'config', 'config_sms_to', '', 0),
+(3218, 0, 'config', 'config_sms_copy', '', 0),
+(3216, 0, 'config', 'config_sms_from', '', 0),
+(3214, 0, 'config', 'config_sms_alert', '0', 0),
+(3215, 0, 'config', 'config_sms_gatename', 'testsms', 0),
+(3213, 0, 'config', 'config_fraud_status_id', '14', 0),
+(3212, 0, 'config', 'config_fraud_score', '', 0),
+(3211, 0, 'config', 'config_fraud_key', '', 0),
 (1130, 0, 'distance', 'distance_geo_zone_id', '0', 0),
-(2772, 0, 'config', 'config_image_compare_width', '90', 0),
-(2771, 0, 'config', 'config_image_related_height', '100', 0),
-(2770, 0, 'config', 'config_image_related_width', '59', 0),
-(2769, 0, 'config', 'config_image_additional_height', '74', 0),
-(2768, 0, 'config', 'config_image_additional_width', '74', 0),
+(3210, 0, 'config', 'config_fraud_detection', '0', 0),
+(3209, 0, 'config', 'config_alert_emails', '', 0),
+(3208, 0, 'config', 'config_account_mail', '0', 0),
+(3207, 0, 'config', 'config_alert_mail', '1', 0),
+(3206, 0, 'config', 'config_smtp_timeout', '5', 0),
 (1081, 0, 'free_checkout', 'free_checkout_sort_order', '', 0),
-(2773, 0, 'config', 'config_image_compare_height', '90', 0),
-(2767, 0, 'config', 'config_image_product_height', '230', 0),
-(2766, 0, 'config', 'config_image_product_width', '130', 0),
-(2765, 0, 'config', 'config_image_popup_height', '500', 0),
-(2764, 0, 'config', 'config_image_popup_width', '500', 0),
+(3205, 0, 'config', 'config_smtp_port', '25', 0),
+(3204, 0, 'config', 'config_smtp_password', '', 0),
+(3203, 0, 'config', 'config_smtp_username', '', 0),
+(3202, 0, 'config', 'config_smtp_host', '', 0),
 (855, 0, 'bestseller', 'bestseller_module', 'a:1:{i:0;a:7:{s:5:"limit";s:2:"20";s:11:"image_width";s:3:"130";s:12:"image_height";s:3:"230";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";}}', 1),
 (854, 0, 'latest', 'latest_module', 'a:1:{i:0;a:7:{s:5:"limit";s:2:"20";s:11:"image_width";s:3:"175";s:12:"image_height";s:3:"180";s:9:"layout_id";s:1:"1";s:8:"position";s:14:"content_bottom";s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";}}', 1),
-(2762, 0, 'config', 'config_image_thumb_width', '120', 0),
-(2763, 0, 'config', 'config_image_thumb_height', '230', 0),
-(2761, 0, 'config', 'config_image_category_height', '80', 0),
-(2760, 0, 'config', 'config_image_category_width', '80', 0),
-(2759, 0, 'config', 'config_icon', '', 0),
-(2758, 0, 'config', 'config_logo', 'data/logo.png', 0),
-(2757, 0, 'config', 'config_return_status_id', '2', 0),
-(2756, 0, 'config', 'config_commission', '5', 0),
-(2755, 0, 'config', 'config_affiliate_id', '4', 0),
-(2754, 0, 'config', 'config_stock_status_id', '5', 0),
-(2753, 0, 'config', 'config_stock_checkout', '0', 0),
-(2752, 0, 'config', 'config_stock_warning', '0', 0),
-(2751, 0, 'config', 'config_stock_display', '0', 0),
-(2750, 0, 'config', 'config_complete_status_id', '5', 0),
-(2749, 0, 'config', 'config_order_status_id', '1', 0),
-(2748, 0, 'config', 'config_invoice_prefix', 'INV-2012-00', 0),
-(2747, 0, 'config', 'config_order_edit', '100', 0),
-(2746, 0, 'config', 'config_checkout_id', '5', 0),
-(2745, 0, 'config', 'config_guest_checkout', '1', 0),
-(2744, 0, 'config', 'config_cart_weight', '0', 0),
-(2743, 0, 'config', 'config_account_id', '3', 0),
-(2742, 0, 'config', 'config_customer_price', '0', 0),
-(2741, 0, 'config', 'config_customer_group_display', 'a:1:{i:0;s:1:"1";}', 1),
-(2740, 0, 'config', 'config_customer_group_id', '1', 0),
-(2739, 0, 'config', 'config_tax_customer', 'shipping', 0),
-(2738, 0, 'config', 'config_tax_default', 'shipping', 0),
-(2737, 0, 'config', 'config_vat', '0', 0),
-(2736, 0, 'config', 'config_tax', '0', 0),
-(2735, 0, 'config', 'config_voucher_max', '1000', 0),
-(2733, 0, 'config', 'config_upload_allowed', 'jpg, JPG, jpeg, gif, png, txt', 0),
-(2734, 0, 'config', 'config_voucher_min', '1', 0),
-(2732, 0, 'config', 'config_download', '0', 0),
-(2731, 0, 'config', 'config_review_status', '0', 0),
-(2730, 0, 'config', 'config_product_count', '0', 0),
-(2729, 0, 'config', 'config_admin_limit', '20', 0),
-(2728, 0, 'config', 'config_catalog_limit', '15', 0),
-(2727, 0, 'config', 'config_weight_class_id', '1', 0),
-(2726, 0, 'config', 'config_length_class_id', '1', 0),
-(2725, 0, 'config', 'config_currency_auto', '1', 0),
-(2724, 0, 'config', 'config_currency', 'RUB', 0),
-(2723, 0, 'config', 'config_admin_language', 'ru', 0),
-(2722, 0, 'config', 'config_language', 'ru', 0),
-(2721, 0, 'config', 'config_zone_id', '2761', 0),
-(2720, 0, 'config', 'config_country_id', '176', 0),
-(2719, 0, 'config', 'config_layout_id', '4', 0),
-(2718, 0, 'config', 'config_template', 'topraise', 0),
-(2717, 0, 'config', 'config_meta_description', '', 0),
-(2714, 0, 'config', 'config_fax', '', 0),
-(2715, 0, 'config', 'config_map', '', 0),
-(2716, 0, 'config', 'config_title', 'Top Raise - специализированный магазин сантехники', 0),
-(2713, 0, 'config', 'config_telephone', '(3822) 65-65-82', 0),
-(2712, 0, 'config', 'config_email', 'ooosefi@mail.ru', 0),
-(2709, 0, 'config', 'config_owner', 'Мое Имя', 0),
-(2710, 0, 'config', 'config_address', 'Россия, г. Томск, Иркутский проезд, 1', 0),
-(2711, 0, 'config', 'config_times', 'работает с 09:00 до 18:00 часов\r\nв субботу с 10:00 до 17:00 часов\r\nв воскресенье с 10:00 до 14:00 часов', 0),
-(2708, 0, 'config', 'config_name', 'Top Raise - специализированный магазин сантехники', 0),
+(3200, 0, 'config', 'config_mail_protocol', 'mail', 0),
+(3201, 0, 'config', 'config_mail_parameter', '', 0),
+(3199, 0, 'config', 'config_image_cart_height', '100', 0),
+(3196, 0, 'config', 'config_image_wishlist_width', '47', 0),
+(3197, 0, 'config', 'config_image_wishlist_height', '47', 0),
+(3198, 0, 'config', 'config_image_cart_width', '59', 0),
+(3195, 0, 'config', 'config_image_compare_height', '90', 0),
+(3194, 0, 'config', 'config_image_compare_width', '90', 0),
+(3193, 0, 'config', 'config_image_related_height', '100', 0),
+(3192, 0, 'config', 'config_image_related_width', '59', 0),
+(3191, 0, 'config', 'config_image_additional_height', '74', 0),
+(3190, 0, 'config', 'config_image_additional_width', '74', 0),
+(3189, 0, 'config', 'config_image_product_height', '230', 0),
+(3188, 0, 'config', 'config_image_product_width', '130', 0),
+(3187, 0, 'config', 'config_image_popup_height', '500', 0),
+(3186, 0, 'config', 'config_image_popup_width', '500', 0),
+(3185, 0, 'config', 'config_image_thumb_height', '230', 0),
+(3184, 0, 'config', 'config_image_thumb_width', '120', 0),
+(3183, 0, 'config', 'config_image_category_height', '80', 0),
+(3181, 0, 'config', 'config_icon', '', 0),
+(3182, 0, 'config', 'config_image_category_width', '80', 0),
+(3180, 0, 'config', 'config_logo', 'data/logo.png', 0),
+(3179, 0, 'config', 'config_return_status_id', '2', 0),
+(3178, 0, 'config', 'config_commission', '5', 0),
+(3177, 0, 'config', 'config_affiliate_id', '4', 0),
+(3176, 0, 'config', 'config_stock_status_id', '5', 0),
+(3175, 0, 'config', 'config_stock_checkout', '0', 0),
+(3174, 0, 'config', 'config_stock_warning', '0', 0),
+(3171, 0, 'config', 'config_order_status_id', '1', 0),
+(3172, 0, 'config', 'config_complete_status_id', '5', 0),
+(3173, 0, 'config', 'config_stock_display', '0', 0),
+(3170, 0, 'config', 'config_invoice_prefix', 'INV-2012-00', 0),
+(3169, 0, 'config', 'config_order_edit', '100', 0),
+(3168, 0, 'config', 'config_checkout_id', '5', 0),
+(3167, 0, 'config', 'config_guest_checkout', '1', 0),
+(3166, 0, 'config', 'config_cart_weight', '0', 0),
+(3165, 0, 'config', 'config_account_id', '3', 0),
+(3164, 0, 'config', 'config_customer_price', '0', 0),
+(3163, 0, 'config', 'config_customer_group_display', 'a:1:{i:0;s:1:"1";}', 1),
+(3160, 0, 'config', 'config_tax_default', 'shipping', 0),
+(3161, 0, 'config', 'config_tax_customer', 'shipping', 0),
 (1129, 0, 'distance', 'distance_tax_class_id', '0', 0),
 (1122, 0, 'pickup', 'pickup_sort_order', '0', 0),
 (1120, 0, 'pickup', 'pickup_geo_zone_id', '0', 0),
@@ -432,19 +251,35 @@ INSERT INTO `setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `seria
 (2814, 0, 'remont', 'remont_thumb_height', '201', 0),
 (2815, 0, 'remont', 'remont_popup_width', '310', 0),
 (2816, 0, 'remont', 'remont_popup_height', '201', 0),
-(2817, 0, 'remont', 'remont_headline_module', '0', 0);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `store`
---
-
-DROP TABLE IF EXISTS `store`;
-CREATE TABLE IF NOT EXISTS `store` (
-  `store_id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(64) NOT NULL,
-  `url` varchar(255) NOT NULL,
-  `ssl` varchar(255) NOT NULL,
-  PRIMARY KEY (`store_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+(2817, 0, 'remont', 'remont_headline_module', '0', 0),
+(3162, 0, 'config', 'config_customer_group_id', '1', 0),
+(3159, 0, 'config', 'config_vat', '0', 0),
+(3158, 0, 'config', 'config_tax', '0', 0),
+(3155, 0, 'config', 'config_upload_allowed', 'jpg, JPG, jpeg, gif, png, txt', 0),
+(3157, 0, 'config', 'config_voucher_max', '1000', 0),
+(3156, 0, 'config', 'config_voucher_min', '1', 0),
+(3154, 0, 'config', 'config_download', '0', 0),
+(3153, 0, 'config', 'config_review_status', '0', 0),
+(3152, 0, 'config', 'config_product_count', '0', 0),
+(3151, 0, 'config', 'config_admin_limit', '20', 0),
+(3150, 0, 'config', 'config_catalog_limit', '6', 0),
+(3149, 0, 'config', 'config_weight_class_id', '1', 0),
+(3148, 0, 'config', 'config_length_class_id', '1', 0),
+(3147, 0, 'config', 'config_currency_auto', '1', 0),
+(3143, 0, 'config', 'config_zone_id', '2761', 0),
+(3144, 0, 'config', 'config_language', 'ru', 0),
+(3145, 0, 'config', 'config_admin_language', 'ru', 0),
+(3146, 0, 'config', 'config_currency', 'RUB', 0),
+(3142, 0, 'config', 'config_country_id', '176', 0),
+(3141, 0, 'config', 'config_layout_id', '4', 0),
+(3140, 0, 'config', 'config_template', 'topraise', 0),
+(3136, 0, 'config', 'config_fax', '', 0),
+(3137, 0, 'config', 'config_map', '', 0),
+(3138, 0, 'config', 'config_title', 'Top Raise - специализированный магазин сантехники', 0),
+(3139, 0, 'config', 'config_meta_description', '', 0),
+(3134, 0, 'config', 'config_email', 'ooosefi@mail.ru', 0),
+(3135, 0, 'config', 'config_telephone', '(3822) 65-65-82', 0),
+(3133, 0, 'config', 'config_times', 'работает с 09:00 до 18:00 часов\r\nв субботу с 10:00 до 17:00 часов\r\nв воскресенье с 10:00 до 14:00 часов', 0),
+(3132, 0, 'config', 'config_address', 'Россия, г. Томск, Иркутский проезд, 1', 0),
+(3131, 0, 'config', 'config_owner', 'Мое Имя', 0),
+(3130, 0, 'config', 'config_name', 'Top Raise - специализированный магазин сантехники', 0);

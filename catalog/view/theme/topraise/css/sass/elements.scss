@@ -1204,3 +1204,55 @@
         @include link-colors($aHoverColor, $aHoverColor, $aHoverColor, $aHoverColor, $aHoverColor);
         cursor: default;
     }
+
+/* catalog filter */
+.catalog-filter{
+    margin: 0 0 12px 0;
+}
+    .catalog-filter__header{
+        border-bottom: 1px solid #b4b4b4;
+    }
+        .catalog-filter__header__tab{
+            margin: 0 0 0 35px;
+            background: 0 0 no-repeat url(../../images/filter-headers.png);
+            height: 35px;
+            width: 213px;
+            line-height: 35px;
+            text-align: center;
+            font-size: 12pt;
+        }
+    .catalog-filter__header_bottom{
+        .catalog-filter__header__tab{
+            background-position: -213px 0;
+            width: 102px;
+        }
+    }
+    .catalog-filter__header_bottom-down{
+        border-bottom:none;
+        .catalog-filter__header__tab{
+            background-position: -315px 0;
+            width: 42px;
+            height: 26px;
+            line-height: 26px;
+        }
+    }
+    .catalog-filter__content{
+        padding: 5px 0 5px 54px;
+        font-style: italic;
+        font-size: 10pt;
+        color: #000;
+    }
+        .catalog-filter__content__item{
+            line-height: 1.5;
+            margin: 10px 0;
+            b{
+                margin: 0 10px 0 0;
+            }
+            span{
+                margin: 0 10px 0 0;
+            }
+        }
+
+.filter-element{
+    display: none;
+}

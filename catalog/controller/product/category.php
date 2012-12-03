@@ -39,7 +39,9 @@ class ControllerProductCategory extends Controller {
        		'text'      => $this->language->get('text_home'),
 			'href'      => $this->url->link('common/home'),
        		'separator' => false
-   		);	
+   		);
+
+        $this->document->addScript('catalog/view/theme/topraise/js/catalog.js');
 			
 		if (isset($this->request->get['path'])) {
 			$path = '';

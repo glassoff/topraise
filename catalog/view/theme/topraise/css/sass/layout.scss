@@ -452,3 +452,13 @@ p{
     z-index: 1000;
     text-align: center;
 }
+
+/* pseudo link */
+.pseudo-a{
+    border-bottom: 1px dashed #000;
+    cursor: pointer;
+    &:hover{
+        color: $aHoverColor;
+        border-bottom-color: $aHoverColor;
+    }
+}

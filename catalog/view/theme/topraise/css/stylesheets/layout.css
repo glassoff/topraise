@@ -853,3 +853,15 @@ p {
   z-index: 1000;
   text-align: center;
 }
+
+/* pseudo link */
+/* line 457, ../sass/layout.scss */
+.pseudo-a {
+  border-bottom: 1px dashed #000;
+  cursor: pointer;
+}
+/* line 460, ../sass/layout.scss */
+.pseudo-a:hover {
+  color: #fc5f5f;
+  border-bottom-color: #fc5f5f;
+}

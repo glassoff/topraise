@@ -1822,3 +1822,70 @@
 .catalog-order__item_active:active {
   color: #fc5f5f;
 }
+
+/* catalog filter */
+/* line 1209, ../sass/elements.scss */
+.catalog-filter {
+  margin: 0 0 12px 0;
+}
+
+/* line 1212, ../sass/elements.scss */
+.catalog-filter__header {
+  border-bottom: 1px solid #b4b4b4;
+}
+
+/* line 1215, ../sass/elements.scss */
+.catalog-filter__header__tab {
+  margin: 0 0 0 35px;
+  background: 0 0 no-repeat url(../../images/filter-headers.png);
+  height: 35px;
+  width: 213px;
+  line-height: 35px;
+  text-align: center;
+  font-size: 12pt;
+}
+
+/* line 1225, ../sass/elements.scss */
+.catalog-filter__header_bottom .catalog-filter__header__tab {
+  background-position: -213px 0;
+  width: 102px;
+}
+
+/* line 1230, ../sass/elements.scss */
+.catalog-filter__header_bottom-down {
+  border-bottom: none;
+}
+/* line 1232, ../sass/elements.scss */
+.catalog-filter__header_bottom-down .catalog-filter__header__tab {
+  background-position: -315px 0;
+  width: 42px;
+  height: 26px;
+  line-height: 26px;
+}
+
+/* line 1239, ../sass/elements.scss */
+.catalog-filter__content {
+  padding: 5px 0 5px 54px;
+  font-style: italic;
+  font-size: 10pt;
+  color: #000;
+}
+
+/* line 1245, ../sass/elements.scss */
+.catalog-filter__content__item {
+  line-height: 1.5;
+  margin: 10px 0;
+}
+/* line 1248, ../sass/elements.scss */
+.catalog-filter__content__item b {
+  margin: 0 10px 0 0;
+}
+/* line 1251, ../sass/elements.scss */
+.catalog-filter__content__item span {
+  margin: 0 10px 0 0;
+}
+
+/* line 1256, ../sass/elements.scss */
+.filter-element {
+  display: none;
+}

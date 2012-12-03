@@ -45,18 +45,28 @@
                 <?php endif; ?>
             <?php } elseif($products) { ?>
 
-                <div>
-                    <?php foreach($filters as $name => $values): ?>
-                        <div>
-                            <?php echo $name ?>:
+                <div class="catalog-filter">
+                    <div class="catalog-filter__header">
+                        <div class="catalog-filter__header__tab"><span class="pseudo-a filter-open">Выбор по параметрам</span></div>
+                    </div>
+                    <div class="catalog-filter__content filter-element">
+                        <?php foreach($filters as $name => $values): ?>
+                        <div class="catalog-filter__content__item">
+                            <b><?php echo $name ?>:</b>
                             <?php foreach($values as $value): ?>
-                                <a href=""><?php echo $value ?></a>
+                            <span class="pseudo-a"><?php echo $value ?></span>
                             <?php endforeach; ?>
                         </div>
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="catalog-filter__header catalog-filter__header_bottom filter-element">
+                        <div class="catalog-filter__header__tab"><span class="pseudo-a filter-open">Свернуть</span></div>
+                    </div>
+                    <div class="catalog-filter__header catalog-filter__header_bottom-down filter-element">
+                        <div class="catalog-filter__header__tab"><span class="pseudo-a"></span></div>
+                    </div>
                 </div>
 
-                <br><br>
                 <div class="catalog-order">
                     <b><?php echo $text_sort; ?></b>
                     <?php foreach($sorts as $sorts): ?>

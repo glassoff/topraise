@@ -163,7 +163,7 @@ class ControllerProductCategory extends Controller {
 				'limit'              => $limit
 			);
 					
-			$product_total = $this->model_catalog_product->getTotalProducts($data); 
+			$product_total = $this->model_catalog_product->getTotalProducts($data);
 			
 			$results = $this->model_catalog_product->getProducts($data);
 			
@@ -179,23 +179,23 @@ class ControllerProductCategory extends Controller {
 							
 			$this->data['sorts'] = array();
 			
-			$this->data['sorts'][] = array(
+			/*$this->data['sorts'][] = array(
 				'text'  => $this->language->get('text_default'),
 				'value' => 'p.sort_order-ASC',
 				'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.sort_order&order=ASC' . $url)
-			);
+			);*/
 			
-			$this->data['sorts'][] = array(
+			/*$this->data['sorts'][] = array(
 				'text'  => $this->language->get('text_name_asc'),
 				'value' => 'pd.name-ASC',
 				'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=pd.name&order=ASC' . $url)
-			);
+			);*/
 
-			$this->data['sorts'][] = array(
+			/*$this->data['sorts'][] = array(
 				'text'  => $this->language->get('text_name_desc'),
 				'value' => 'pd.name-DESC',
 				'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=pd.name&order=DESC' . $url)
-			);
+			);*/
 
 			$this->data['sorts'][] = array(
 				'text'  => $this->language->get('text_price_asc'),
@@ -209,7 +209,7 @@ class ControllerProductCategory extends Controller {
 				'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.price&order=DESC' . $url)
 			); 
 			
-			if ($this->config->get('config_review_status')) {
+			/*if ($this->config->get('config_review_status')) {
 				$this->data['sorts'][] = array(
 					'text'  => $this->language->get('text_rating_desc'),
 					'value' => 'rating-DESC',
@@ -221,9 +221,9 @@ class ControllerProductCategory extends Controller {
 					'value' => 'rating-ASC',
 					'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=rating&order=ASC' . $url)
 				);
-			}
+			}*/
 			
-			$this->data['sorts'][] = array(
+			/*$this->data['sorts'][] = array(
 				'text'  => $this->language->get('text_model_asc'),
 				'value' => 'p.model-ASC',
 				'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.model&order=ASC' . $url)
@@ -233,7 +233,7 @@ class ControllerProductCategory extends Controller {
 				'text'  => $this->language->get('text_model_desc'),
 				'value' => 'p.model-DESC',
 				'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.model&order=DESC' . $url)
-			);
+			);*/
 			
 			$url = '';
 	
@@ -305,6 +305,26 @@ class ControllerProductCategory extends Controller {
 			$this->data['limit'] = $limit;
 		
 			$this->data['continue'] = $this->url->link('common/home');
+
+            //
+            $sql = "
+            SELECT a_d.*, p_a.text FROM attribute_description a_d
+            JOIN product_attribute p_a ON (p_a.attribute_id = a_d.attribute_id)
+            JOIN product_to_category p_c ON (p_c.product_id = p_a.product_id)
+            WHERE (p_c.category_id = {$category_id})
+            GROUP BY p_a.text
+            ORDER BY a_d.name
+            ";
+
+            $query = $this->db->query($sql);
+
+            $attributes = array();
+            foreach ($query->rows as $row) {
+                $attributes[$row['name']][] = $row['text'];
+            }
+
+            $this->data['filters'] = $attributes;
+
 
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/category.tpl')) {
 				$this->template = $this->config->get('config_template') . '/template/product/category.tpl';

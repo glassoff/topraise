@@ -44,6 +44,30 @@
                     <div class="typography"><?php echo $description; ?></div>
                 <?php endif; ?>
             <?php } elseif($products) { ?>
+
+                <div>
+                    <?php foreach($filters as $name => $values): ?>
+                        <div>
+                            <?php echo $name ?>:
+                            <?php foreach($values as $value): ?>
+                                <a href=""><?php echo $value ?></a>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+
+                <br><br>
+                <div class="catalog-order">
+                    <b><?php echo $text_sort; ?></b>
+                    <?php foreach($sorts as $sorts): ?>
+                        <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
+                        <a class="catalog-order__item catalog-order__item_active" href="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></a>
+                        <?php } else { ?>
+                        <a class="catalog-order__item" href="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></a>
+                        <?php } ?>
+                    <?php endforeach; ?>
+                </div>
+
                 <div class="pagination pagination_top"><?php echo $pagination; ?></div>
                 <div class="catalog-container">
                     <!-- products -->

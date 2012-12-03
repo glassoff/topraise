@@ -1764,3 +1764,61 @@
   text-align: right;
   margin: 0 35px 30px 0;
 }
+
+/* catalog order */
+/* line 1188, ../sass/elements.scss */
+.catalog-order {
+  margin: 0 0 0 35px;
+  font-style: italic;
+  font-size: 10pt;
+  color: #000;
+}
+/* line 1193, ../sass/elements.scss */
+.catalog-order b {
+  margin: 0 10px 0 0;
+}
+
+/* line 1198, ../sass/elements.scss */
+.catalog-order__item {
+  color: black;
+  margin: 0 30px 0 0;
+}
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.catalog-order__item:visited {
+  color: black;
+}
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.catalog-order__item:focus {
+  color: #fc5f5f;
+}
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.catalog-order__item:hover {
+  color: #fc5f5f;
+}
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.catalog-order__item:active {
+  color: #fc5f5f;
+}
+
+/* line 1202, ../sass/elements.scss */
+.catalog-order__item_active {
+  text-decoration: none;
+  color: #fc5f5f;
+  cursor: default;
+}
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.catalog-order__item_active:visited {
+  color: #fc5f5f;
+}
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.catalog-order__item_active:focus {
+  color: #fc5f5f;
+}
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.catalog-order__item_active:hover {
+  color: #fc5f5f;
+}
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+.catalog-order__item_active:active {
+  color: #fc5f5f;
+}

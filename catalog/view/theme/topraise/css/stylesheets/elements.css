@@ -1865,7 +1865,7 @@
 
 /* line 1239, ../sass/elements.scss */
 .catalog-filter__content {
-  padding: 5px 0 5px 54px;
+  padding: 5px 0 6px 54px;
   font-style: italic;
   font-size: 10pt;
   color: #000;
@@ -1883,9 +1883,19 @@
 /* line 1251, ../sass/elements.scss */
 .catalog-filter__content__item span {
   margin: 0 10px 0 0;
+  padding: 0 3px;
+}
+/* line 1255, ../sass/elements.scss */
+.catalog-filter__content__item .selected {
+  background-color: #4bb2e1;
 }
 
-/* line 1256, ../sass/elements.scss */
+/* line 1261, ../sass/elements.scss */
+.catalog-filter__result a {
+  margin-left: 13px;
+}
+
+/* line 1266, ../sass/elements.scss */
 .filter-element {
   display: none;
 }

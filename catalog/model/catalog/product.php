@@ -44,6 +44,11 @@ class ModelCatalogProduct extends Model {
 			if (!empty($data['filter_category_id'])) {
 				$sql .= " LEFT JOIN " . DB_PREFIX . "product_to_category p2c ON (p.product_id = p2c.product_id)";			
 			}
+
+            //
+            if (!empty($data['filter_attributes'])) {
+                $sql .= " LEFT JOIN " . DB_PREFIX . "product_attribute pa ON (p.product_id = pa.product_id)";
+            }
 			
 			$sql .= " WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'"; 
 			
@@ -112,6 +117,37 @@ class ModelCatalogProduct extends Model {
 			if (!empty($data['filter_manufacturer_id'])) {
 				$sql .= " AND p.manufacturer_id = '" . (int)$data['filter_manufacturer_id'] . "'";
 			}
+
+            //
+            if (!empty($data['filter_manufacturers'])) {
+                $sql .= " AND p.manufacturer_id IN (".implode(',', $data['filter_manufacturers']).")";
+            }
+            //
+            if (!empty($data['filter_sizes'])) {
+                $sqlSizes = array();
+                foreach($data['filter_sizes'] as $sizesItem){
+                    $sizes = explode('x', $sizesItem);
+                    $height = $sizes[0];
+                    $width = $sizes[1];
+                    $length = $sizes[2];
+
+                    $sqlSizes[] = "(p.height = '{$height}' AND p.width = '{$width}' AND p.length = '{$length}')";
+                }
+
+                $sql .= " AND " . implode(' OR ', $sqlSizes);
+            }
+            //
+            if (!empty($data['filter_attributes'])) {
+                $sqlAttrs = array();
+                foreach($data['filter_attributes'] as $attribute_id => $values){
+                    $sqlAttr = array();
+                    foreach($values as $attrValue){
+                        $sqlAttr[] = "pa.text = '{$attrValue}'";
+                    }
+                    $sqlAttrs[] = "(pa.attribute_id = '{$attribute_id}' AND (".implode(' OR ', $sqlAttr)."))";
+                }
+                $sql .= " AND " . implode(' AND ', $sqlAttrs);
+            }
 			
 			$sql .= " GROUP BY p.product_id";
 			
@@ -153,7 +189,7 @@ class ModelCatalogProduct extends Model {
 				$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
 			}
 			
-			$product_data = array();
+			$product_data = array(); //echo $sql;die();
 					
 			$query = $this->db->query($sql);
 		
@@ -435,6 +471,11 @@ class ModelCatalogProduct extends Model {
 		if (!empty($data['filter_tag'])) {
 			$sql .= " LEFT JOIN " . DB_PREFIX . "product_tag pt ON (p.product_id = pt.product_id)";			
 		}
+
+        //
+        if (!empty($data['filter_attributes'])) {
+            $sql .= " LEFT JOIN " . DB_PREFIX . "product_attribute pa ON (p.product_id = pa.product_id)";
+        }
 					
 		$sql .= " WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";
 		
@@ -503,7 +544,39 @@ class ModelCatalogProduct extends Model {
 		if (!empty($data['filter_manufacturer_id'])) {
 			$sql .= " AND p.manufacturer_id = '" . (int)$data['filter_manufacturer_id'] . "'";
 		}
-		
+
+        //
+        if (!empty($data['filter_manufacturers'])) {
+            $sql .= " AND p.manufacturer_id IN (".implode(',', $data['filter_manufacturers']).")";
+        }
+        //
+        if (!empty($data['filter_sizes'])) {
+            $sqlSizes = array();
+            foreach($data['filter_sizes'] as $sizesItem){
+                $sizes = explode('x', $sizesItem);
+                $height = $sizes[0];
+                $width = $sizes[1];
+                $length = $sizes[2];
+
+                $sqlSizes[] = "(p.height = '{$height}' AND p.width = '{$width}' AND p.length = '{$length}')";
+            }
+
+            $sql .= " AND " . implode(' OR ', $sqlSizes);
+        }
+        //
+        if (!empty($data['filter_attributes'])) {
+            $sqlAttrs = array();
+            foreach($data['filter_attributes'] as $attribute_id => $values){
+                $sqlAttr = array();
+                foreach($values as $attrValue){
+                    $sqlAttr[] = "pa.text = '{$attrValue}'";
+                }
+                $sqlAttrs[] = "(pa.attribute_id = '{$attribute_id}' AND (".implode(' OR ', $sqlAttr)."))";
+            }
+            $sql .= " AND " . implode(' AND ', $sqlAttrs);
+        }
+
+		//echo($sql);
 		$query = $this->db->query($sql);
 		
 		return $query->row['total'];

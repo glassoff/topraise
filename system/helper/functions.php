@@ -15,4 +15,17 @@ function productsFormat($count)
     }
 }
 
+function foundedFormat($count)
+{
+    $c = $count % 10;
+
+    if($c == 1){
+        return '';
+    }
+    elseif($c != 1 || $count == 11){
+        return 'о';
+    }
+    return '';
+}
+
 ?>

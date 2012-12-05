@@ -1237,7 +1237,7 @@
         }
     }
     .catalog-filter__content{
-        padding: 5px 0 5px 54px;
+        padding: 5px 0 6px 54px;
         font-style: italic;
         font-size: 10pt;
         color: #000;
@@ -1250,9 +1250,23 @@
             }
             span{
                 margin: 0 10px 0 0;
+                padding: 0 3px;
+            }
+            .selected{
+                background-color: #4bb2e1;
             }
         }
 
+    .catalog-filter__result{
+        a{
+            margin-left: 13px;
+        }
+    }
+
 .filter-element{
     display: none;
+}
+
+.filter-item{
+
 }

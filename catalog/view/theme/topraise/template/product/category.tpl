@@ -44,25 +44,30 @@
                     <div class="typography"><?php echo $description; ?></div>
                 <?php endif; ?>
             <?php } elseif($products) { ?>
+                <script>
+                    var filterUrl = '<?php echo $filter_url ?>';
+                    var currentCategory = '<?php echo $category_id ?>';
+                </script>
 
                 <div class="catalog-filter">
                     <div class="catalog-filter__header">
                         <div class="catalog-filter__header__tab"><span class="pseudo-a filter-open">Выбор по параметрам</span></div>
                     </div>
-                    <div class="catalog-filter__content filter-element">
+                    <div class="catalog-filter__content filter-element" style="<?php if($open_filter): ?>display: block;<?php endif;?>">
                         <?php foreach($filters as $name => $values): ?>
                         <div class="catalog-filter__content__item">
                             <b><?php echo $name ?>:</b>
                             <?php foreach($values as $value): ?>
-                            <span class="pseudo-a"><?php echo $value ?></span>
+                            <span class="pseudo-a filter-item <?php if($value['selected']): ?>selected<?php endif; ?>" data-name="filter<?php echo $value['name'] ?>" data-value="<?php echo $value['value'] ?>"><?php echo $value['text'] ?></span>
                             <?php endforeach; ?>
                         </div>
                         <?php endforeach; ?>
+                        <div class="catalog-filter__result filter-result"></div>
                     </div>
-                    <div class="catalog-filter__header catalog-filter__header_bottom filter-element">
+                    <div class="catalog-filter__header catalog-filter__header_bottom filter-element" style="<?php if($open_filter): ?>display: block;<?php endif;?>">
                         <div class="catalog-filter__header__tab"><span class="pseudo-a filter-open">Свернуть</span></div>
                     </div>
-                    <div class="catalog-filter__header catalog-filter__header_bottom-down filter-element">
+                    <div class="catalog-filter__header catalog-filter__header_bottom-down filter-element" style="<?php if($open_filter): ?>display: block;<?php endif;?>">
                         <div class="catalog-filter__header__tab"><span class="pseudo-a"></span></div>
                     </div>
                 </div>

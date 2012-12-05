@@ -42,6 +42,7 @@ class ControllerProductCategory extends Controller {
    		);
 
         $this->document->addScript('catalog/view/theme/topraise/js/catalog.js');
+        $this->data['filter_url'] = $this->url->link('product/category/filter');
 			
 		if (isset($this->request->get['path'])) {
 			$path = '';
@@ -164,6 +165,9 @@ class ControllerProductCategory extends Controller {
 				'start'              => ($page - 1) * $limit,
 				'limit'              => $limit
 			);
+
+            $filter_data = $this->getFilterData();
+            $data = array_merge($data, $filter_data);
 					
 			$product_total = $this->model_catalog_product->getTotalProducts($data);
 			
@@ -308,7 +312,72 @@ class ControllerProductCategory extends Controller {
 		
 			$this->data['continue'] = $this->url->link('common/home');
 
-            //
+            $this->data['category_id'] = $category_id;
+
+            $open_filter = false;
+
+            //manufactures XXX
+            $sql = "
+            SELECT m.manufacturer_id, m.name FROM product p
+            JOIN manufacturer m ON (m.manufacturer_id = p.manufacturer_id)
+            JOIN product_to_category p_c ON (p_c.product_id = p.product_id)
+            WHERE (p_c.category_id = {$category_id})
+            GROUP BY p.manufacturer_id
+            ORDER BY m.name
+            ";
+
+            $query = $this->db->query($sql);
+
+            $manufacturers = array();
+            foreach ($query->rows as $row) {
+                $manufacturers[] = array(
+                    'name' => 'manufacturers',
+                    'text' => $row['name'],
+                    'value' => $row['manufacturer_id'],
+                    'selected' => false
+                );
+            }
+
+            foreach($filter_data['filter_manufacturers'] as $manufacturer_id){
+                foreach($manufacturers as & $_data){
+                    if($_data['value'] == $manufacturer_id){
+                        $_data['selected'] = true;
+                        $open_filter = true;
+                    }
+                }
+            }
+
+            //sizes XXX
+            $sql = "
+            SELECT CONCAT_WS('x', p.length, p.width, p.height) as sizes, p.length, p.width, p.height FROM product p
+            JOIN product_to_category p_c ON (p_c.product_id = p.product_id)
+            WHERE (p_c.category_id = {$category_id})
+            GROUP BY sizes
+            ORDER BY sizes
+            ";
+
+            $query = $this->db->query($sql);
+
+            $sizes = array();
+            foreach ($query->rows as $row) {
+                $sizes[] = array(
+                    'name' => 'sizes',
+                    'text' => floatval($row['height']) . 'x' . floatval($row['width']) . 'x' . floatval($row['length']),
+                    'value' => $row['height'] . 'x' . $row['width'] . 'x' . $row['length'],
+                    'selected' => false
+                );
+            }
+
+            foreach($filter_data['filter_sizes'] as $size){
+                foreach($sizes as & $_data){
+                    if($_data['value'] == $size){
+                        $_data['selected'] = true;
+                        $open_filter = true;
+                    }
+                }
+            }
+
+            //attributes XXX
             $sql = "
             SELECT a_d.*, p_a.text FROM attribute_description a_d
             JOIN product_attribute p_a ON (p_a.attribute_id = a_d.attribute_id)
@@ -322,10 +391,34 @@ class ControllerProductCategory extends Controller {
 
             $attributes = array();
             foreach ($query->rows as $row) {
-                $attributes[$row['name']][] = $row['text'];
+                $attributes[$row['name']][] = array(
+                    'attribute_id' => $row['attribute_id'],
+                    'name' => 'attr'.$row['attribute_id'],
+                    'text' => $row['text'],
+                    'value' => $row['text'],
+                    'selected' => false
+                );
             }
 
-            $this->data['filters'] = $attributes;
+            foreach($attributes as & $values){
+                foreach($values as & $_data){
+                    if(isset($filter_data['filter_attributes'][$_data['attribute_id']]) && in_array($_data['value'], $filter_data['filter_attributes'][$_data['attribute_id']])){
+                        $_data['selected'] = true;
+                        $open_filter = true;
+                    }
+                }
+            }
+
+            $filters = array();
+            if(count($manufacturers)){
+                $filters['Производители'] = $manufacturers;
+            }
+            if(count($sizes)){
+                $filters['Размеры'] = $sizes;
+            }
+            $this->data['filters'] = array_merge($filters, $attributes);
+
+            $this->data['open_filter'] = $open_filter;
 
 
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/category.tpl')) {
@@ -447,6 +540,103 @@ class ControllerProductCategory extends Controller {
             'reviews'     => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
             'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'])
         );
+    }
+
+    protected function getFilterData()
+    {
+        $filter_manufacturers = array();
+        $filter_sizes = array();
+        $filter_attributes = array();
+
+        foreach($this->request->get as $k => $v){
+            if(preg_match('/^filter(.+)/is', $k, $match)){
+                $filterType = $match[1];
+                switch($filterType){
+                    case 'manufacturers':
+                        foreach((array)$v as $_v){
+                            $filter_manufacturers[] = (int)$_v;
+                        }
+                        break;
+                    case 'sizes':
+                        foreach((array)$v as $_v){
+                            $filter_sizes[] = $_v;
+                        }
+                        break;
+                    default:
+                        if(preg_match('/^attr(\d+)/is', $filterType, $match)){
+                            foreach((array)$v as $_v){
+                                $filter_attributes[$match[1]][] = $_v;
+                            }
+                        }
+                        break;
+                }
+            }
+        }
+
+        $data = array(
+            'filter_manufacturers' => $filter_manufacturers,
+            'filter_sizes' => $filter_sizes,
+            'filter_attributes' => $filter_attributes,
+        );
+
+        return $data;
+
+    }
+
+    public function filter()
+    {
+        $json = array('result' => 0);
+
+        if(isset($this->request->get['category'])){
+
+            $category_id = $this->request->get['category'];
+
+            $this->load->model('catalog/product');
+            $this->load->helper('functions');
+
+            $data = $this->getFilterData();
+            $data = array_merge($data, array('filter_category_id' => $category_id));
+
+            $product_total = $this->model_catalog_product->getTotalProducts($data);
+
+            $json['html'] = '<br>Найден'.foundedFormat($product_total).' '.$product_total.' ' . productsFormat($product_total);
+            $json['result'] = 'ok';
+            $json['count'] = $product_total;
+
+            if($product_total > 0){
+                $json['html'] .= ' <a href="'.$this->buildFilterUrl($category_id).'">Показать</a>';
+            }
+
+            $json['html'] .= '<br><br>';
+        }
+
+        $this->response->setOutput(json_encode($json));
+    }
+
+    protected function buildFilterUrl($category_id)
+    {
+        $params = array();
+        foreach($this->request->get as $k => $v){
+            if(preg_match('/^filter(.+)/is', $k, $match)){
+                $params[$k] = $v;
+            }
+        }
+        $q = http_build_query($params);
+
+        $this->load->model('catalog/category');
+
+        $parent_id = $this->model_catalog_category->getParentCategory($category_id);
+
+        if($parent_id){
+            $path = $parent_id . "_" . $category_id;
+        }
+        else{
+            $path = $category_id;
+        }
+
+        $url = $this->url->link('product/category', 'path=' . $path . '&' . $q);
+
+        return $url;
     }
 }
 ?>

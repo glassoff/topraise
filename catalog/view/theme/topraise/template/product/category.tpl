@@ -47,6 +47,8 @@
                 <script>
                     var filterUrl = '<?php echo $filter_url ?>';
                     var currentCategory = '<?php echo $category_id ?>';
+                    var minPrice = <?php echo floatval($price_limits["min"]) ?>;
+                    var maxPrice = <?php echo floatval($price_limits["max"]) ?>;
                 </script>
 
                 <div class="catalog-filter">
@@ -62,6 +64,18 @@
                             <?php endforeach; ?>
                         </div>
                         <?php endforeach; ?>
+
+                        <div class="catalog-filter__price">
+                            <div class="catalog-filter__price__header">Цена:</div>
+                            <div class="catalog-filter__inputs">
+                                от <input id="min-price" type="text" name="filterprice-min" value="<?php echo $filter_min_price ?>" /> до <input id="max-price" type="text" name="filterprice-max" value="<?php echo $filter_max_price ?>" />
+                            </div>
+                            <div class="catalog-filter__slider">
+                                <div id="slider-range"></div>
+                            </div>
+                        </div>
+
+
                         <div class="catalog-filter__result filter-result"></div>
                     </div>
                     <div class="catalog-filter__header catalog-filter__header_bottom filter-element" style="<?php if($open_filter): ?>display: block;<?php endif;?>">

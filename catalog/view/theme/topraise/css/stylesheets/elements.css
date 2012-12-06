@@ -1899,3 +1899,50 @@
 .filter-element {
   display: none;
 }
+
+/* price slider */
+/* line 1275, ../sass/elements.scss */
+.catalog-filter__price {
+  margin: 25px 0 12px 0;
+}
+/* line 1277, ../sass/elements.scss */
+.catalog-filter__price .catalog-filter__price__header {
+  font-weight: bold;
+  font-style: normal;
+  margin-left: 5px;
+}
+/* line 1282, ../sass/elements.scss */
+.catalog-filter__price .catalog-filter__inputs {
+  margin: 16px 0 0 5px;
+}
+/* line 1284, ../sass/elements.scss */
+.catalog-filter__price .catalog-filter__inputs input {
+  width: 60px;
+  margin: 0 15px;
+}
+/* line 1289, ../sass/elements.scss */
+.catalog-filter__price .catalog-filter__slider {
+  margin: 16px 0 0 0;
+  height: 30px;
+}
+/* line 1292, ../sass/elements.scss */
+.catalog-filter__price .catalog-filter__slider .ui-slider {
+  background: 0 -22px no-repeat url(../../images/slider.png);
+  border: none;
+  height: 5px;
+  width: 257px;
+}
+/* line 1298, ../sass/elements.scss */
+.catalog-filter__price .catalog-filter__slider .ui-slider-range {
+  top: 1px !important;
+  height: 3px !important;
+  background: #4bb2e1;
+}
+/* line 1303, ../sass/elements.scss */
+.catalog-filter__price .catalog-filter__slider .ui-state-default, .catalog-filter__price .catalog-filter__slider .ui-widget-content .ui-state-default, .catalog-filter__price .catalog-filter__slider .ui-widget-header .ui-state-default {
+  background: 0 0 no-repeat url(../../images/slider.png);
+  border: none;
+  width: 16px;
+  height: 22px;
+  top: 5px;
+}

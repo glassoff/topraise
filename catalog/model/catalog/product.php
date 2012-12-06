@@ -148,6 +148,14 @@ class ModelCatalogProduct extends Model {
                 }
                 $sql .= " AND " . implode(' AND ', $sqlAttrs);
             }
+
+            //
+            if(!empty($data['filter_price_min'])) {
+                $sql .= " AND p.price >= {$data['filter_price_min']}";
+            }
+            if(!empty($data['filter_price_max'])) {
+                $sql .= " AND p.price <= {$data['filter_price_max']}";
+            }
 			
 			$sql .= " GROUP BY p.product_id";
 			
@@ -574,6 +582,14 @@ class ModelCatalogProduct extends Model {
                 $sqlAttrs[] = "(pa.attribute_id = '{$attribute_id}' AND (".implode(' OR ', $sqlAttr)."))";
             }
             $sql .= " AND " . implode(' AND ', $sqlAttrs);
+        }
+
+        //
+        if(!empty($data['filter_price_min'])) {
+            $sql .= " AND p.price >= {$data['filter_price_min']}";
+        }
+        if(!empty($data['filter_price_max'])) {
+            $sql .= " AND p.price <= {$data['filter_price_max']}";
         }
 
 		//echo($sql);

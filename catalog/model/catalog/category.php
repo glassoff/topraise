@@ -64,5 +64,16 @@ class ModelCatalogCategory extends Model {
         $query = $this->db->query("SELECT parent_id FROM " . DB_PREFIX . "category WHERE category_id='{$category_id}'");
         return $query->row['parent_id'];
     }
+
+    public function getCategoryPriceLimits($category_id)
+    {
+        $sql = "SELECT MAX(p.price) as max, MIN(p.price) as min FROM " . DB_PREFIX . "product p
+            JOIN " . DB_PREFIX . "product_to_category p_c ON (p_c.product_id = p.product_id)
+            WHERE (p_c.category_id = {$category_id})";
+
+        $query = $this->db->query($sql);
+
+        return $query->row;
+    }
 }
 ?>

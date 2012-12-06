@@ -1270,3 +1270,43 @@
 .filter-item{
 
 }
+
+/* price slider */
+.catalog-filter__price{
+    margin: 25px 0 12px 0;
+    .catalog-filter__price__header{
+        font-weight: bold;
+        font-style: normal;
+        margin-left:5px;
+    }
+    .catalog-filter__inputs{
+        margin: 16px 0 0 5px;
+        input{
+            width: 60px;
+            margin: 0 15px;
+        }
+    }
+    .catalog-filter__slider{
+        margin: 16px 0 0 0;
+        height: 30px;
+        .ui-slider{
+            background: 0 -22px no-repeat url(../../images/slider.png);
+            border: none;
+            height: 5px;
+            width: 257px;
+        }
+        .ui-slider-range {
+            top:1px !important;
+            height: 3px !important;
+            background: #4bb2e1;
+        }
+        .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+            background: 0 0 no-repeat url(../../images/slider.png);
+            border: none;
+            width: 16px;
+            height: 22px;
+            top: 5px;
+        }
+    }
+
+}

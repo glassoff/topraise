@@ -41,6 +41,9 @@ class ControllerProductCategory extends Controller {
        		'separator' => false
    		);
 
+        $this->document->addScript('catalog/view/javascript/jquery/ui/jquery-ui-1.8.16.custom.min.js');
+        $this->document->addStyle('catalog/view/javascript/jquery/ui/themes/ui-lightness/jquery-ui-1.8.16.custom.css');
+
         $this->document->addScript('catalog/view/theme/topraise/js/catalog.js');
         $this->data['filter_url'] = $this->url->link('product/category/filter');
 			
@@ -314,7 +317,18 @@ class ControllerProductCategory extends Controller {
 
             $this->data['category_id'] = $category_id;
 
+
             $open_filter = false;
+
+            //price limits
+            $price_limits = $this->model_catalog_category->getCategoryPriceLimits($category_id);
+            $this->data['price_limits'] = $price_limits;
+
+            $this->data['filter_min_price'] = $filter_data['filter_price_min'] ? $filter_data['filter_price_min'] : floatval($price_limits['min']);
+            $this->data['filter_max_price'] = $filter_data['filter_price_max'] ? $filter_data['filter_price_max'] : floatval($price_limits['max']);
+            if($filter_data['filter_price_min'] || $filter_data['filter_price_max']){
+                $open_filter = true;
+            }
 
             //manufactures XXX
             $sql = "
@@ -547,6 +561,8 @@ class ControllerProductCategory extends Controller {
         $filter_manufacturers = array();
         $filter_sizes = array();
         $filter_attributes = array();
+        $filter_price_min = 0;
+        $filter_price_max = 0;
 
         foreach($this->request->get as $k => $v){
             if(preg_match('/^filter(.+)/is', $k, $match)){
@@ -561,6 +577,12 @@ class ControllerProductCategory extends Controller {
                         foreach((array)$v as $_v){
                             $filter_sizes[] = $_v;
                         }
+                        break;
+                    case 'price-min':
+                        $filter_price_min = floatval($v);
+                        break;
+                    case 'price-max':
+                        $filter_price_max = floatval($v);
                         break;
                     default:
                         if(preg_match('/^attr(\d+)/is', $filterType, $match)){
@@ -577,6 +599,8 @@ class ControllerProductCategory extends Controller {
             'filter_manufacturers' => $filter_manufacturers,
             'filter_sizes' => $filter_sizes,
             'filter_attributes' => $filter_attributes,
+            'filter_price_min' => $filter_price_min,
+            'filter_price_max' => $filter_price_max,
         );
 
         return $data;
@@ -599,7 +623,7 @@ class ControllerProductCategory extends Controller {
 
             $product_total = $this->model_catalog_product->getTotalProducts($data);
 
-            $json['html'] = '<br>Найден'.foundedFormat($product_total).' '.$product_total.' ' . productsFormat($product_total);
+            $json['html'] = 'Найден'.foundedFormat($product_total).' '.$product_total.' ' . productsFormat($product_total);
             $json['result'] = 'ok';
             $json['count'] = $product_total;
 

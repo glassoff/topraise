@@ -24,6 +24,29 @@ $(function(){
         }
     });
 
+    $('[name="filterprice-min"]').change(function(){
+        var val = parseInt($(this).val());
+        if(val < minPrice){
+            val = minPrice;
+        }
+        else if(val > parseInt($('[name="filterprice-max"]').val())){
+            val = parseInt($('[name="filterprice-max"]').val());
+        }
+        $( "#slider-range" ).slider('values', 0, val);
+        $(this).val(val);
+    });
+    $('[name="filterprice-max"]').change(function(){
+        var val = parseInt($(this).val());
+        if(val > maxPrice){
+            val = maxPrice;
+        }
+        else if(val < parseInt($('[name="filterprice-min"]').val())){
+            val = parseInt($('[name="filterprice-min"]').val());
+        }
+        $( "#slider-range" ).slider('values', 1, val);
+        $(this).val(val);
+    });
+
     function filterGetResults()
     {
         var data = {

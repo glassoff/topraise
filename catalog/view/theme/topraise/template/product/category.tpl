@@ -49,6 +49,12 @@
                     var currentCategory = '<?php echo $category_id ?>';
                     var minPrice = <?php echo floatval($price_limits["min"]) ?>;
                     var maxPrice = <?php echo floatval($price_limits["max"]) ?>;
+                    var addParams = {
+                        'order': '<?php echo $order ?>',
+                        'sort': '<?php echo $sort ?>',
+                        'limit': '<?php echo $limit ?>'
+                    };
+
                 </script>
 
                 <div class="catalog-filter">

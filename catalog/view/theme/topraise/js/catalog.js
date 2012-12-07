@@ -62,6 +62,11 @@ $(function(){
             }
             data[name].push(value);
         });
+
+        if(addParams){
+            data = $.extend(data, addParams);
+        }
+
         $.ajax({
             url: filterUrl,
             type: 'get',

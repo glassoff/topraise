@@ -179,12 +179,18 @@ class ControllerProductCategory extends Controller {
 			foreach ($results as $result) {
 				$this->data['products'][] = $this->processProduct($result);
 			}
-			
+
+            $filter_params = $this->buildFilterParams();
+
 			$url = '';
 	
 			if (isset($this->request->get['limit'])) {
 				$url .= '&limit=' . $this->request->get['limit'];
 			}
+
+            if($filter_params){
+                $url .= '&' . $filter_params;
+            }
 							
 			$this->data['sorts'] = array();
 			
@@ -299,6 +305,11 @@ class ControllerProductCategory extends Controller {
 			if (isset($this->request->get['limit'])) {
 				$url .= '&limit=' . $this->request->get['limit'];
 			}
+
+            if($filter_params){
+                $url .= '&' . $filter_params;
+            }
+
 					
 			$pagination = new Pagination();
 			$pagination->total = $product_total;
@@ -639,13 +650,7 @@ class ControllerProductCategory extends Controller {
 
     protected function buildFilterUrl($category_id)
     {
-        $params = array();
-        foreach($this->request->get as $k => $v){
-            if(preg_match('/^filter(.+)/is', $k, $match)){
-                $params[$k] = $v;
-            }
-        }
-        $q = http_build_query($params);
+        $q = $this->buildFilterParams();
 
         $this->load->model('catalog/category');
 
@@ -660,7 +665,32 @@ class ControllerProductCategory extends Controller {
 
         $url = $this->url->link('product/category', 'path=' . $path . '&' . $q);
 
+        if (isset($this->request->get['sort'])) {
+            $url .= '&sort=' . $this->request->get['sort'];
+        }
+
+        if (isset($this->request->get['order'])) {
+            $url .= '&order=' . $this->request->get['order'];
+        }
+
+        if (isset($this->request->get['limit'])) {
+            $url .= '&limit=' . $this->request->get['limit'];
+        }
+
         return $url;
+    }
+
+    protected function buildFilterParams()
+    {
+        $params = array();
+        foreach($this->request->get as $k => $v){
+            if(preg_match('/^filter(.+)/is', $k, $match)){
+                $params[$k] = $v;
+            }
+        }
+        $q = http_build_query($params);
+
+        return $q;
     }
 }
 ?>

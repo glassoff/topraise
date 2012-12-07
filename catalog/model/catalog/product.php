@@ -47,7 +47,9 @@ class ModelCatalogProduct extends Model {
 
             //
             if (!empty($data['filter_attributes'])) {
-                $sql .= " LEFT JOIN " . DB_PREFIX . "product_attribute pa ON (p.product_id = pa.product_id)";
+                foreach($data['filter_attributes'] as $attrId => $v){
+                    $sql .= " LEFT JOIN " . DB_PREFIX . "product_attribute pa{$attrId} ON (p.product_id = pa{$attrId}.product_id)";
+                }
             }
 			
 			$sql .= " WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'"; 
@@ -140,11 +142,7 @@ class ModelCatalogProduct extends Model {
             if (!empty($data['filter_attributes'])) {
                 $sqlAttrs = array();
                 foreach($data['filter_attributes'] as $attribute_id => $values){
-                    $sqlAttr = array();
-                    foreach($values as $attrValue){
-                        $sqlAttr[] = "pa.text = '{$attrValue}'";
-                    }
-                    $sqlAttrs[] = "(pa.attribute_id = '{$attribute_id}' AND (".implode(' OR ', $sqlAttr)."))";
+                    $sqlAttrs[] = "(pa{$attribute_id}.attribute_id = '{$attribute_id}' AND pa{$attribute_id}.text IN ('".implode("','", $values)."'))";
                 }
                 $sql .= " AND " . implode(' AND ', $sqlAttrs);
             }
@@ -482,7 +480,9 @@ class ModelCatalogProduct extends Model {
 
         //
         if (!empty($data['filter_attributes'])) {
-            $sql .= " LEFT JOIN " . DB_PREFIX . "product_attribute pa ON (p.product_id = pa.product_id)";
+            foreach($data['filter_attributes'] as $attrId => $v){
+                $sql .= " LEFT JOIN " . DB_PREFIX . "product_attribute pa{$attrId} ON (p.product_id = pa{$attrId}.product_id)";
+            }
         }
 					
 		$sql .= " WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";
@@ -575,11 +575,7 @@ class ModelCatalogProduct extends Model {
         if (!empty($data['filter_attributes'])) {
             $sqlAttrs = array();
             foreach($data['filter_attributes'] as $attribute_id => $values){
-                $sqlAttr = array();
-                foreach($values as $attrValue){
-                    $sqlAttr[] = "pa.text = '{$attrValue}'";
-                }
-                $sqlAttrs[] = "(pa.attribute_id = '{$attribute_id}' AND (".implode(' OR ', $sqlAttr)."))";
+                $sqlAttrs[] = "(pa{$attribute_id}.attribute_id = '{$attribute_id}' AND pa{$attribute_id}.text IN ('".implode("','", $values)."'))";
             }
             $sql .= " AND " . implode(' AND ', $sqlAttrs);
         }

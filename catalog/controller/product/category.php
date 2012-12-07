@@ -365,7 +365,7 @@ class ControllerProductCategory extends Controller {
             $sql = "
             SELECT CONCAT_WS('x', p.length, p.width, p.height) as sizes, p.length, p.width, p.height FROM product p
             JOIN product_to_category p_c ON (p_c.product_id = p.product_id)
-            WHERE (p_c.category_id = {$category_id})
+            WHERE (p_c.category_id = {$category_id} AND (p.length > 0 OR p.width > 0 OR p.height > 0))
             GROUP BY sizes
             ORDER BY sizes
             ";
@@ -396,7 +396,7 @@ class ControllerProductCategory extends Controller {
             SELECT a_d.*, p_a.text FROM attribute_description a_d
             JOIN product_attribute p_a ON (p_a.attribute_id = a_d.attribute_id)
             JOIN product_to_category p_c ON (p_c.product_id = p_a.product_id)
-            WHERE (p_c.category_id = {$category_id})
+            WHERE (p_c.category_id = {$category_id} AND CHAR_LENGTH(p_a.text) < 30)
             GROUP BY p_a.text
             ORDER BY a_d.name
             ";

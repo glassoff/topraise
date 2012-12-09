@@ -98,13 +98,13 @@ function addToCompare(product_id, callback) {
                     callback();
                 }
 
-                $('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+                /*$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
 
                 $('.success').fadeIn('slow');
 
                 $('#compare-total').html(json['total']);
 
-                $('html, body').animate({ scrollTop: 0 }, 'slow');
+                $('html, body').animate({ scrollTop: 0 }, 'slow');*/
             }
         }
     });

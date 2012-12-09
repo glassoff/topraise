@@ -365,7 +365,15 @@ class ControllerProductProduct extends Controller {
 					'href' => $this->url->link('product/search', 'filter_tag=' . $result['tag'])
 				);
 			}
-			
+
+            //check compare
+            $compared = array();
+            foreach ($this->session->data['compare'] as $key => $product_id) {
+                $compared[] = $product_id;
+            }
+
+            $this->data['compared'] = in_array($this->request->get['product_id'], $compared);
+
 			$this->model_catalog_product->updateViewed($this->request->get['product_id']);
 			
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/product.tpl')) {

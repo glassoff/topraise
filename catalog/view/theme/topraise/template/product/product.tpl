@@ -13,9 +13,32 @@
 
             <div class="product-content">
                 <div class="compare-products">
-                    <a class="no-active" href="">Сравнить товар</a>
-                    <button class="button _button_red button_green">Добавить</button>
+                    <div class="compare-products__off" style="<?php if($compared): ?>display: none;<?php endif; ?>">
+                        <span class="no-active">Сравнить товар</span>
+                        <button class="button button_green" id="compare-button-add" title="Добавить в список сравнения">Добавить</button>
+                    </div>
+                    <div class="compare-products__on" style="<?php if(!$compared): ?>display: none;<?php endif; ?>">
+                        <a class="" href="<?php echo $this->url->link('product/compare'); ?>">Сравнить товар</a>
+                        <button class="button button_red" id="compare-button-remove" title="Удалить из списка сравнения">Удалить</button>
+                    </div>
                 </div>
+
+                <script>
+                    $(function(){
+                        $('#compare-button-add').click(function(){
+                            addToCompare('<?php echo $product_id; ?>', function(){
+                                $('.compare-products__off').hide();
+                                $('.compare-products__on').show();
+                            });
+                        });
+                        $('#compare-button-remove').click(function(){
+                            removeFromCompare('<?php echo $product_id; ?>', function(){
+                                $('.compare-products__off').show();
+                                $('.compare-products__on').hide();
+                            });
+                        });
+                    });
+                </script>
 
                 <div class="product-tabs">
                     <a href="#description"><span>Описание</span></a>

@@ -103,11 +103,20 @@
                     <?php endforeach; ?>
                 </div>
 
+                <div class="catalog-compare">
+                    <span class="pseudo-a" id="compare-on">Сравнить товар</span>
+                    <button class="button _button_red button_red compare-view compare-cancel">отменить</button>
+                    <button class="button _button_red button_green compare-view compare-count" onclick="document.location = '<?php echo $this->url->link('product/compare'); ?>';">сравнить</button>
+                </div>
+
                 <div class="pagination pagination_top"><?php echo $pagination; ?></div>
                 <div class="catalog-container">
                     <!-- products -->
                     <?php foreach ($products as $product) { ?>
                     <div class="product-item product-item_full">
+                        <div class="product-item__compare compare-view">
+                            <div class="product-item__compare__icon compare-icon <?php if($product['compared']): ?>product-item__compare__icon_active<?php endif; ?>" data-productid="<?php echo $product['product_id']; ?>"></div>
+                        </div>
                         <div class="product-item__img">
                             <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" /></a>
                         </div>

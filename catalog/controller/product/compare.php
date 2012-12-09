@@ -77,7 +77,7 @@ class ControllerProductCompare extends Controller {
 				if ($product_info['image']) {
 					$image = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_compare_width'), $this->config->get('config_image_compare_height'));
 				} else {
-					$image = false;
+                    $image = HTTP_SERVER . 'catalog/view/theme/topraise/images/default-product.jpg';
 				}
 				
 				if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
@@ -184,7 +184,7 @@ class ControllerProductCompare extends Controller {
 		
 		if ($product_info) {
 			if (!in_array($this->request->post['product_id'], $this->session->data['compare'])) {	
-				if (count($this->session->data['compare']) >= 4) {
+				if (count($this->session->data['compare']) >= 10) {
 					array_shift($this->session->data['compare']);
 				}
 				
@@ -198,5 +198,49 @@ class ControllerProductCompare extends Controller {
 
 		$this->response->setOutput(json_encode($json));
 	}
+
+    public function remove() {
+        $this->language->load('product/compare');
+
+        $json = array();
+
+        if (!isset($this->session->data['compare'])) {
+            $this->session->data['compare'] = array();
+        }
+
+        if (isset($this->request->post['product_id'])) {
+            $product_id = $this->request->post['product_id'];
+        } else {
+            $product_id = 0;
+        }
+
+        $key = array_search($product_id, $this->session->data['compare']);
+
+        if ($key !== false) {
+            unset($this->session->data['compare'][$key]);
+
+            $json['success'] = 'ok';
+        }
+
+
+        $json['total'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
+
+        $this->response->setOutput(json_encode($json));
+    }
+
+    public function cancel()
+    {
+        $json = array();
+
+        if (!isset($this->session->data['compare'])) {
+            $this->session->data['compare'] = array();
+        }
+
+        unset($this->session->data['compare']);
+
+        $json['success'] = 'ok';
+
+        $this->response->setOutput(json_encode($json));
+    }
 }
 ?>

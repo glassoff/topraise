@@ -9,6 +9,9 @@ $(function(){
         filterGetResults();
     });
 
+    if(typeof(minPrice) == 'undefined') minPrice = 0;
+    if(typeof(maxPrice) == 'undefined') maxPrice = 100000;
+
     $( "#slider-range" ).slider({
         range: true,
         step: 10,
@@ -82,5 +85,53 @@ $(function(){
             }
         });
     }
+
+    //comparing
+    $('#compare-on').click(function(){
+        $('.compare-view').toggle();
+        if($('.compare-view').is(':visible')){
+            updateCompareButtons();
+        }
+    });
+
+    $('.compare-icon').click(function(){
+        var el = $(this);
+        var product_id = $(this).data('productid');
+        if($(this).hasClass('product-item__compare__icon_active')){
+            removeFromCompare(product_id, function(){
+                el.removeClass('product-item__compare__icon_active');
+                updateCompareButtons();
+            });
+        }
+        else{
+            addToCompare(product_id, function(){
+                el.addClass('product-item__compare__icon_active');
+                updateCompareButtons();
+            });
+        }
+
+    });
+
+    $('.compare-cancel').click(function(){
+        cancelCompare(1, function(){
+            $('.product-item__compare__icon_active').removeClass('product-item__compare__icon_active');
+            updateCompareButtons();
+            $('.compare-view').hide();
+        });
+    });
+
+    function updateCompareButtons()
+    {
+        var countCompared = $('.compare-icon').filter('.product-item__compare__icon_active').length;
+        $('button.compare-count').text('сравнить | ' + countCompared);
+        if(countCompared > 0){
+            $('button.compare-view').show();
+        }
+        else{
+            $('button.compare-view').hide();
+        }
+    }
+
+
 
 });

@@ -83,6 +83,76 @@ function addToCart(product_id, quantity) {
     });
 }
 
+function addToCompare(product_id, callback) {
+    $.ajax({
+        url: 'index.php?route=product/compare/add',
+        type: 'post',
+        data: 'product_id=' + product_id,
+        dataType: 'json',
+        success: function(json) {
+            $('.success, .warning, .attention, .information').remove();
+
+            if (json['success']) {
+
+                if(typeof(callback)=='function'){
+                    callback();
+                }
+
+                $('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+
+                $('.success').fadeIn('slow');
+
+                $('#compare-total').html(json['total']);
+
+                $('html, body').animate({ scrollTop: 0 }, 'slow');
+            }
+        }
+    });
+}
+
+function removeFromCompare(product_id, callback) {
+    $.ajax({
+        url: 'index.php?route=product/compare/remove',
+        type: 'post',
+        data: 'product_id=' + product_id,
+        dataType: 'json',
+        success: function(json) {
+            $('.success, .warning, .attention, .information').remove();
+
+            if (json['success']) {
+
+                if(typeof(callback)=='function'){
+                    callback();
+                }
+
+
+            }
+        }
+    });
+}
+
+function cancelCompare(category_id, callback)
+{
+    $.ajax({
+        url: 'index.php?route=product/compare/cancel',
+        type: 'post',
+        data: 'category_id=' + 1,
+        dataType: 'json',
+        success: function(json) {
+            $('.success, .warning, .attention, .information').remove();
+
+            if (json['success']) {
+
+                if(typeof(callback)=='function'){
+                    callback();
+                }
+
+
+            }
+        }
+    });
+}
+
 function showLoader()
 {
     var html = $(document.documentElement);

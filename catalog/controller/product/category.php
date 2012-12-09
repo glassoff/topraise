@@ -175,9 +175,22 @@ class ControllerProductCategory extends Controller {
 			$product_total = $this->model_catalog_product->getTotalProducts($data);
 			
 			$results = $this->model_catalog_product->getProducts($data);
-			
+
+            //check compare
+            $compared = array();
+            if(isset($this->session->data['compare'])){
+                foreach ($this->session->data['compare'] as $key => $product_id) {
+                    $compared[] = $product_id;
+                }
+            }
+
 			foreach ($results as $result) {
-				$this->data['products'][] = $this->processProduct($result);
+                $product_data = $this->processProduct($result);
+                $product_data['compared'] = false;
+                if(in_array($product_data['product_id'], $compared)){
+                    $product_data['compared'] = true;
+                }
+				$this->data['products'][] = $product_data;
 			}
 
             $filter_params = $this->buildFilterParams();

@@ -8,6 +8,8 @@ class ControllerInformationBuyShipping extends Controller {
         $this->document->setDescription('');
         $this->document->setKeywords('');
 
+        $this->data['tab'] = isset($this->request->request['tab']) ? $this->request->request['tab'] : '';
+
 
         $this->document->addScript('catalog/view/javascript/jquery/tabs.js');
 

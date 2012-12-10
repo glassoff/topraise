@@ -80,6 +80,9 @@
             <script>
                 $(function(){
                     $('.tabs a').tabs();
+                    <?php if($tab): ?>
+                    $('[href="#<?php echo $tab?>"]').trigger('click');
+                    <?php endif; ?>
                 });
             </script>
 

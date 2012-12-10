@@ -162,7 +162,7 @@ class ControllerProductCompare extends Controller {
 			}
 		}
 		
-		$this->data['continue'] = $this->url->link('common/home');
+		$this->data['continue'] = isset($main_category) ? $this->url->link('product/category', 'path='.$main_category) : $this->url->link('product/category');
 		
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/compare.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/product/compare.tpl';

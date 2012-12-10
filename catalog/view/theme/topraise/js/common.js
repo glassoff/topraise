@@ -95,7 +95,7 @@ function addToCompare(product_id, callback) {
             if (json['success']) {
 
                 if(typeof(callback)=='function'){
-                    callback();
+                    callback(json['count']);
                 }
 
                 /*$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
@@ -122,7 +122,7 @@ function removeFromCompare(product_id, callback) {
             if (json['success']) {
 
                 if(typeof(callback)=='function'){
-                    callback();
+                    callback(json['count']);
                 }
 
 
@@ -136,7 +136,7 @@ function cancelCompare(category_id, callback)
     $.ajax({
         url: 'index.php?route=product/compare/cancel',
         type: 'post',
-        data: 'category_id=' + 1,
+        data: 'category_id=' + category_id,
         dataType: 'json',
         success: function(json) {
             $('.success, .warning, .attention, .information').remove();
@@ -144,7 +144,7 @@ function cancelCompare(category_id, callback)
             if (json['success']) {
 
                 if(typeof(callback)=='function'){
-                    callback();
+                    callback(json['count']);
                 }
 
 

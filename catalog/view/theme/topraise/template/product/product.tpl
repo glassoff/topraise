@@ -18,7 +18,7 @@
                         <button class="button button_green" id="compare-button-add" title="Добавить в список сравнения">Добавить</button>
                     </div>
                     <div class="compare-products__on" style="<?php if(!$compared): ?>display: none;<?php endif; ?>">
-                        <a class="" href="<?php echo $this->url->link('product/compare'); ?>">Сравнить товар</a>
+                        <a class="" href="<?php echo $this->url->link('product/compare', 'category='.$main_category); ?>">Сравнить товар</a>
                         <button class="button button_red" id="compare-button-remove" title="Удалить из списка сравнения">Удалить</button>
                     </div>
                 </div>

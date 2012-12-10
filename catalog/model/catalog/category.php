@@ -75,5 +75,14 @@ class ModelCatalogCategory extends Model {
 
         return $query->row;
     }
+
+    public function getMainCategory($category_id)
+    {
+        $parent_id = $this->getParentCategory($category_id);
+        if($parent_id > 0){
+            return $this->getMainCategory($parent_id);
+        }
+        return $category_id;
+    }
 }
 ?>

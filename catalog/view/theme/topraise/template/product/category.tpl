@@ -54,6 +54,7 @@
                         'sort': '<?php echo $sort ?>',
                         'limit': '<?php echo $limit ?>'
                     };
+                    var comparedCount = <?php echo $compare_count; ?>;
 
                 </script>
 
@@ -106,7 +107,7 @@
                 <div class="catalog-compare">
                     <span class="pseudo-a" id="compare-on">Сравнить товар</span>
                     <button class="button _button_red button_red compare-view compare-cancel">отменить</button>
-                    <button class="button _button_red button_green compare-view compare-count" onclick="document.location = '<?php echo $this->url->link('product/compare'); ?>';">сравнить</button>
+                    <button class="button _button_red button_green compare-view compare-count" onclick="document.location = '<?php echo $this->url->link('product/compare', 'category='.$category_id); ?>';">сравнить</button>
                 </div>
 
                 <div class="pagination pagination_top"><?php echo $pagination; ?></div>

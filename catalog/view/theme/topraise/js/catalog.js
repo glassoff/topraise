@@ -98,31 +98,34 @@ $(function(){
         var el = $(this);
         var product_id = $(this).data('productid');
         if($(this).hasClass('product-item__compare__icon_active')){
-            removeFromCompare(product_id, function(){
+            removeFromCompare(product_id, function(count){
                 el.removeClass('product-item__compare__icon_active');
-                updateCompareButtons();
+                updateCompareButtons(count);
             });
         }
         else{
-            addToCompare(product_id, function(){
+            addToCompare(product_id, function(count){
                 el.addClass('product-item__compare__icon_active');
-                updateCompareButtons();
+                updateCompareButtons(count);
             });
         }
 
     });
 
     $('.compare-cancel').click(function(){
-        cancelCompare(1, function(){
+        cancelCompare(currentCategory, function(count){
             $('.product-item__compare__icon_active').removeClass('product-item__compare__icon_active');
-            updateCompareButtons();
+            updateCompareButtons(count);
             $('.compare-view').hide();
         });
     });
 
-    function updateCompareButtons()
+    function updateCompareButtons(count)
     {
-        var countCompared = $('.compare-icon').filter('.product-item__compare__icon_active').length;
+        if(typeof(count) != 'undefined'){
+            comparedCount = count;
+        }
+        var countCompared = comparedCount;//$('.compare-icon').filter('.product-item__compare__icon_active').length;
         $('button.compare-count').text('сравнить | ' + countCompared);
         if(countCompared > 0){
             $('button.compare-view').show();

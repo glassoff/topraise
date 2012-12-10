@@ -11,16 +11,16 @@ class ControllerProductCompare extends Controller {
 			$this->session->data['compare'] = array();
 		}	
 				
-		if (isset($this->request->get['remove'])) {
-			$key = array_search($this->request->get['remove'], $this->session->data['compare']);
+		if (isset($this->request->get['remove']) && isset($this->request->get['category'])) {
+			$key = array_search($this->request->get['remove'], $this->session->data['compare'][$this->request->get['category']]);
 				
 			if ($key !== false) {
-				unset($this->session->data['compare'][$key]);
+				unset($this->session->data['compare'][$this->request->get['category']][$key]);
 			}
 		
 			$this->session->data['success'] = $this->language->get('text_remove');
 		
-			$this->redirect($this->url->link('product/compare'));
+			$this->redirect($this->url->link('product/compare', 'category='.$this->request->get['category']));
 		}
 		
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -70,7 +70,26 @@ class ControllerProductCompare extends Controller {
 		
 		$this->data['attribute_groups'] = array();
 
-		foreach ($this->session->data['compare'] as $key => $product_id) {
+        $compared = array();
+
+        if(isset($this->request->get['category'])){
+            $this->load->model('catalog/category');
+            $main_category = $this->model_catalog_category->getMainCategory($this->request->get['category']);
+            if(isset($this->session->data['compare'][$main_category])){
+                $compared = $this->session->data['compare'][$main_category];
+            }
+        }
+        /*else{
+            foreach ($this->session->data['compare'] as $_category) {
+                foreach ((array)$_category as $_id) {
+                    $compared[] = $_id;
+                }
+
+            }
+
+        }*/
+
+		foreach ($compared as $key => $product_id) {
 			$product_info = $this->model_catalog_product->getProduct($product_id);
 			
 			if ($product_info) {
@@ -128,7 +147,7 @@ class ControllerProductCompare extends Controller {
 					'height'       => $this->length->format($product_info['height'], $product_info['length_class_id']),
 					'attribute'    => $attribute_data,
 					'href'         => $this->url->link('product/product', 'product_id=' . $product_id),
-					'remove'       => $this->url->link('product/compare', 'remove=' . $product_id)
+					'remove'       => $this->url->link('product/compare', 'remove=' . $product_id . '&category=' . $main_category)
 				);
 				
 				foreach ($attribute_groups as $attribute_group) {
@@ -139,7 +158,7 @@ class ControllerProductCompare extends Controller {
 					}
 				}
 			} else {
-				unset($this->session->data['compare'][$key]);
+				//unset($this->session->data['compare'][$key]);
 			}
 		}
 		
@@ -179,21 +198,33 @@ class ControllerProductCompare extends Controller {
 		}
 		
 		$this->load->model('catalog/product');
+        $this->load->model('catalog/category');
 		
 		$product_info = $this->model_catalog_product->getProduct($product_id);
-		
+
+        $json['count'] = 0;
+
 		if ($product_info) {
-			if (!in_array($this->request->post['product_id'], $this->session->data['compare'])) {	
-				if (count($this->session->data['compare']) >= 10) {
-					array_shift($this->session->data['compare']);
+
+            $category_id = $this->model_catalog_product->getProductMainCategory($product_id);
+
+            if(!isset($this->session->data['compare'][$category_id])){
+                $this->session->data['compare'][$category_id] = array();
+            }
+
+			if (!in_array($this->request->post['product_id'], $this->session->data['compare'][$category_id])) {
+				if (count($this->session->data['compare'][$category_id]) >= 10) {
+					array_shift($this->session->data['compare'][$category_id]);
 				}
 				
-				$this->session->data['compare'][] = $this->request->post['product_id'];
+				$this->session->data['compare'][$category_id][] = $this->request->post['product_id'];
 			}
 			 
 			$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('product/compare'));				
 		
-			$json['total'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
+			$json['total'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare'][$category_id]) ? count($this->session->data['compare'][$category_id]) : 0));
+
+            $json['count'] = (isset($this->session->data['compare'][$category_id]) ? count($this->session->data['compare'][$category_id]) : 0);
 		}	
 
 		$this->response->setOutput(json_encode($json));
@@ -214,16 +245,25 @@ class ControllerProductCompare extends Controller {
             $product_id = 0;
         }
 
-        $key = array_search($product_id, $this->session->data['compare']);
+        $this->load->model('catalog/product');
+
+        $main_category = $this->model_catalog_product->getProductMainCategory($product_id);
+        if(!isset($this->session->data['compare'][$main_category])){
+            $this->session->data['compare'][$main_category] = array();
+        }
+
+        $key = array_search($product_id, $this->session->data['compare'][$main_category]);
 
         if ($key !== false) {
-            unset($this->session->data['compare'][$key]);
+            unset($this->session->data['compare'][$main_category][$key]);
 
             $json['success'] = 'ok';
         }
 
 
-        $json['total'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
+        $json['total'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare'][$main_category]) ? count($this->session->data['compare'][$main_category]) : 0));
+
+        $json['count'] = (isset($this->session->data['compare'][$main_category]) ? count($this->session->data['compare'][$main_category]) : 0);
 
         $this->response->setOutput(json_encode($json));
     }
@@ -236,9 +276,20 @@ class ControllerProductCompare extends Controller {
             $this->session->data['compare'] = array();
         }
 
-        unset($this->session->data['compare']);
-
-        $json['success'] = 'ok';
+        if(isset($this->request->post['category_id'])){
+            $this->load->model('catalog/category');
+            $main_category = $this->model_catalog_category->getMainCategory($this->request->post['category_id']);
+            if(isset($this->session->data['compare'][$main_category])){
+                unset($this->session->data['compare'][$main_category]);
+                $json['success'] = 'ok';
+            }
+            $json['count'] = (isset($this->session->data['compare'][$main_category]) ? count($this->session->data['compare'][$main_category]) : 0);
+        }
+        else{
+            unset($this->session->data['compare']);
+            $json['success'] = 'ok';
+            $json['count'] = 0;
+        }
 
         $this->response->setOutput(json_encode($json));
     }

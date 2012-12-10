@@ -624,5 +624,20 @@ class ModelCatalogProduct extends Model {
             return false;
         }
     }
+
+    public function getProductMainCategory($product_id)
+    {
+        $this->load->model('catalog/category');
+
+        $categories = $this->getCategories($product_id);
+
+        foreach($categories as $category){
+            if($category['main_category']) break;
+        }
+
+        $category_id = $category['category_id'];
+
+        return $this->model_catalog_category->getMainCategory($category_id);
+    }
 }
 ?>

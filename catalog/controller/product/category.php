@@ -82,6 +82,16 @@ class ControllerProductCategory extends Controller {
 		$category_info = $this->model_catalog_category->getCategory($category_id);
 	
 		if ($category_info) {
+
+            //check compare
+            $main_category = $this->model_catalog_category->getMainCategory($category_id);
+            $compared = array();
+            if(isset($this->session->data['compare'][$main_category])){
+                foreach ($this->session->data['compare'][$main_category] as $key => $product_id) {
+                    $compared[] = $product_id;
+                }
+            }
+
 			if ($category_info['seo_title']) {
 		  		$this->document->setTitle($category_info['seo_title']);
 			} else {
@@ -103,7 +113,7 @@ class ControllerProductCategory extends Controller {
 			$this->data['text_price'] = $this->language->get('text_price');
 			$this->data['text_tax'] = $this->language->get('text_tax');
 			$this->data['text_points'] = $this->language->get('text_points');
-			$this->data['text_compare'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
+			$this->data['text_compare'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare'][$main_category]) ? count($this->session->data['compare'][$main_category]) : 0));
 			$this->data['text_display'] = $this->language->get('text_display');
 			$this->data['text_list'] = $this->language->get('text_list');
 			$this->data['text_grid'] = $this->language->get('text_grid');
@@ -114,6 +124,7 @@ class ControllerProductCategory extends Controller {
 			$this->data['button_wishlist'] = $this->language->get('button_wishlist');
 			$this->data['button_compare'] = $this->language->get('button_compare');
 			$this->data['button_continue'] = $this->language->get('button_continue');
+            $this->data['compare_count'] = isset($this->session->data['compare'][$main_category]) ? count($this->session->data['compare'][$main_category]) : 0;
 					
 			if ($category_info['image']) {
 				$this->data['thumb'] = $this->model_tool_image->resize($category_info['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
@@ -122,7 +133,7 @@ class ControllerProductCategory extends Controller {
 			}
 									
 			$this->data['description'] = html_entity_decode($category_info['description'], ENT_QUOTES, 'UTF-8');
-			$this->data['compare'] = $this->url->link('product/compare');
+			$this->data['compare'] = $this->url->link('product/compare', 'category='.$category_id);
 			
 			$url = '';
 			
@@ -175,14 +186,6 @@ class ControllerProductCategory extends Controller {
 			$product_total = $this->model_catalog_product->getTotalProducts($data);
 			
 			$results = $this->model_catalog_product->getProducts($data);
-
-            //check compare
-            $compared = array();
-            if(isset($this->session->data['compare'])){
-                foreach ($this->session->data['compare'] as $key => $product_id) {
-                    $compared[] = $product_id;
-                }
-            }
 
 			foreach ($results as $result) {
                 $product_data = $this->processProduct($result);

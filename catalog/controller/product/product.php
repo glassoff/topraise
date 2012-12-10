@@ -366,12 +366,16 @@ class ControllerProductProduct extends Controller {
 				);
 			}
 
+            $main_category = $this->model_catalog_product->getProductMainCategory($product_id);
             //check compare
             $compared = array();
-            foreach ($this->session->data['compare'] as $key => $product_id) {
-                $compared[] = $product_id;
+            if(isset($this->session->data['compare'][$main_category])){
+                foreach ($this->session->data['compare'][$main_category] as $key => $product_id) {
+                    $compared[] = $product_id;
+                }
             }
 
+            $this->data['main_category'] = $main_category;
             $this->data['compared'] = in_array($this->request->get['product_id'], $compared);
 
 			$this->model_catalog_product->updateViewed($this->request->get['product_id']);

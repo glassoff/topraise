@@ -33,6 +33,8 @@ class ControllerInformationServices extends Controller {
 
         $remont_data = $this->model_fido_remont->getRemont($type, ($page - 1) * $limit, $limit);
 
+        $this->data['remont_data'] = array();
+
         if ($remont_data) {
             foreach ($remont_data as $result) {
                 $thumb = false;
@@ -54,86 +56,54 @@ class ControllerInformationServices extends Controller {
                     'video_code' => $result['video_code'],
                 );
             }
-
-            $this->document->setTitle($this->language->get('heading_title'));
-
-            $this->document->breadcrumbs[] = array(
-                'href'      => $this->url->link('information/remont'),
-                'text'      => $this->language->get('heading_title'),
-                'separator' => $this->language->get('text_separator')
-            );
-
-            $this->data['heading_title'] = $this->language->get('heading_title');
-
-            $this->data['text'] = $this->language->get('text');
-
-            $this->data['text_read_more'] = $this->language->get('text_read_more');
-            $this->data['text_date_added'] = $this->language->get('text_date_added');
-
-            $this->data['button_continue'] = $this->language->get('button_continue');
-
-            $this->data['continue'] = $this->url->link('common/home');
-
-            $pagination = new Pagination();
-            $pagination->total = $remonts_total;
-            $pagination->page = $page;
-            $pagination->limit = $limit;
-            $pagination->url = $this->url->link('information/services', '&type='.$type.'&page={page}');
-
-            $this->data['pagination'] = $pagination->render();
-
-
-            if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/information/services.tpl')) {
-                $this->template = $this->config->get('config_template') . '/template/information/services.tpl';
-            } else {
-                $this->template = 'default/template/information/services.tpl';
-            }
-
-            $this->children = array(
-                'common/column_left',
-                'common/column_right',
-                'common/content_top',
-                'common/content_bottom',
-                'common/footer',
-                'common/header',
-                'information/mount_request',
-            );
-
-            $this->response->setOutput($this->render());
-        } else {
-            $this->document->setTitle($this->language->get('text_error'));
-
-            $this->document->breadcrumbs[] = array(
-                'href'      => $this->url->link('information/remont'),
-                'text'      => $this->language->get('text_error'),
-                'separator' => $this->language->get('text_separator')
-            );
-
-            $this->data['heading_title'] = $this->language->get('text_error');
-
-            $this->data['text_error'] = $this->language->get('text_error');
-
-            $this->data['button_continue'] = $this->language->get('button_continue');
-
-            $this->data['continue'] = $this->url->link('common/home');
-
-            if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/error/not_found.tpl')) {
-                $this->template = $this->config->get('config_template') . '/template/error/not_found.tpl';
-            } else {
-                $this->template = 'default/template/error/not_found.tpl';
-            }
-
-            $this->children = array(
-                'common/column_left',
-                'common/column_right',
-                'common/content_top',
-                'common/content_bottom',
-                'common/footer',
-                'common/header'
-            );
-
-            $this->response->setOutput($this->render());
         }
+
+        $this->document->setTitle($this->language->get('heading_title'));
+
+        $this->document->breadcrumbs[] = array(
+            'href'      => $this->url->link('information/remont'),
+            'text'      => $this->language->get('heading_title'),
+            'separator' => $this->language->get('text_separator')
+        );
+
+        $this->data['heading_title'] = $this->language->get('heading_title');
+
+        $this->data['text'] = $this->language->get('text');
+
+        $this->data['text_read_more'] = $this->language->get('text_read_more');
+        $this->data['text_date_added'] = $this->language->get('text_date_added');
+
+        $this->data['button_continue'] = $this->language->get('button_continue');
+
+        $this->data['continue'] = $this->url->link('common/home');
+
+        $pagination = new Pagination();
+        $pagination->total = $remonts_total;
+        $pagination->page = $page;
+        $pagination->limit = $limit;
+        $pagination->url = $this->url->link('information/services', '&type='.$type.'&page={page}');
+
+        $this->data['pagination'] = $pagination->render();
+
+
+        if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/information/services.tpl')) {
+            $this->template = $this->config->get('config_template') . '/template/information/services.tpl';
+        } else {
+            $this->template = 'default/template/information/services.tpl';
+        }
+
+        $this->children = array(
+            'common/column_left',
+            'common/column_right',
+            'common/content_top',
+            'common/content_bottom',
+            'common/footer',
+            'common/header',
+            'information/mount_request',
+        );
+
+        $this->response->setOutput($this->render());
+
     }
 
 }

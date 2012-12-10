@@ -23,6 +23,7 @@
                 </div>
             </div>
 
+            <?php if(count($remont_data) > 0): ?>
             <div class="remont-list">
                 <h3 class="remont-list__title">То, что мы уже сделали</h3>
                 <?php foreach($remont_data as $remont): ?>
@@ -43,6 +44,7 @@
                 <?php endforeach; ?>
                 <div class="pagination"><?php echo $pagination; ?></div>
             </div>
+            <?php endif; ?>
 
         </div>
     </div>

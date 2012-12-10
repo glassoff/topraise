@@ -99,7 +99,10 @@ class ModelFidoRemont extends Model {
     protected function getVideoCode($url)
     {
         $parts = parse_url($url);
-        parse_str($parts['query'], $parsed_query);
+        parse_str(html_entity_decode($parts['query']), $parsed_query);
+        if(!isset($parsed_query['v'])){
+            return '';
+        }
         return '
             <object width="640" height="360">
                 <param name="movie" value="https://www.youtube.com/v/'.$parsed_query['v'].'?version=3"></param>
@@ -113,7 +116,7 @@ class ModelFidoRemont extends Model {
     protected function loadVideoThumb($url)
     {
         $parts = parse_url($url);
-        parse_str($parts['query'], $parsed_query);
+        parse_str(html_entity_decode($parts['query']), $parsed_query);
         $imageUrl = 'http://img.youtube.com/vi/'.$parsed_query['v'].'/0.jpg';
 
         $path = DIR_IMAGE . 'data/' . $parsed_query['v'] . '.jpg';

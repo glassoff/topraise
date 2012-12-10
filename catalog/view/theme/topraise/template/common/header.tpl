@@ -55,7 +55,7 @@
                 <div class="header__content__right">
                     <div class="header__content__right__phone"><?php echo $telephone ?></div>
                     <div class="header__content__right__action">
-                        <a class="header__content__right__action__text" href="">Наши акции</a>
+                        <a class="header__content__right__action__text" href="<?php echo $this->url->link('information/information', 'information_id=7') ?>">Наши акции</a>
                         <div class="header__content__right__action__label"><img src="catalog/view/theme/topraise/images/action-new.png" /></div>
                     </div>
                     <div class="header__content__right__cart">

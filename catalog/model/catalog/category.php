@@ -76,6 +76,104 @@ class ModelCatalogCategory extends Model {
         return $query->row;
     }
 
+    public function getManufacturersForFilter($category_id)
+    {
+        $manufacturers = $this->cache->get('category_filter_manufacturers.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $category_id);
+
+        if(!$manufacturers){
+            $sql = "
+            SELECT m.manufacturer_id, m.name FROM product p
+            JOIN manufacturer m ON (m.manufacturer_id = p.manufacturer_id)
+            JOIN product_to_category p_c ON (p_c.product_id = p.product_id)
+            WHERE (p_c.category_id = {$category_id})
+            GROUP BY p.manufacturer_id
+            ORDER BY m.name
+            ";
+
+            $query = $this->db->query($sql);
+
+            $manufacturers = array();
+            foreach ($query->rows as $row) {
+                $manufacturers[] = array(
+                    'name' => 'manufacturers',
+                    'text' => $row['name'],
+                    'value' => $row['manufacturer_id'],
+                    'selected' => false
+                );
+            }
+
+            $this->cache->set('category_filter_manufacturers.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $category_id, $manufacturers);
+        }
+
+        return $manufacturers;
+    }
+
+    public function getSizesForFilter($category_id)
+    {
+        $sizes = $this->cache->get('category_filter_sizes.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $category_id);
+
+        if(!$sizes){
+
+            $sql = "
+            SELECT CONCAT_WS('x', p.length, p.width, p.height) as sizes, p.length, p.width, p.height FROM product p
+            JOIN product_to_category p_c ON (p_c.product_id = p.product_id)
+            WHERE (p_c.category_id = {$category_id} AND (p.length > 0 OR p.width > 0 OR p.height > 0))
+            GROUP BY sizes
+            ORDER BY sizes
+            ";
+
+            $query = $this->db->query($sql);
+
+            $sizes = array();
+            foreach ($query->rows as $row) {
+                $sizes[] = array(
+                    'name' => 'sizes',
+                    'text' => floatval($row['height']) . 'x' . floatval($row['width']) . 'x' . floatval($row['length']),
+                    'value' => $row['height'] . 'x' . $row['width'] . 'x' . $row['length'],
+                    'selected' => false
+                );
+            }
+
+            $this->cache->set('category_filter_sizes.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $category_id, $sizes);
+        }
+
+        return $sizes;
+    }
+
+    public function getAttributesForFilter($category_id)
+    {
+        $attributes = $this->cache->get('category_filter_attributes.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $category_id);
+
+        if(!$attributes){
+
+            $sql = "
+            SELECT a_d.*, p_a.text FROM attribute_description a_d
+            JOIN product_attribute p_a ON (p_a.attribute_id = a_d.attribute_id)
+            JOIN product_to_category p_c ON (p_c.product_id = p_a.product_id)
+            WHERE (p_c.category_id = {$category_id} AND CHAR_LENGTH(p_a.text) < 30)
+            GROUP BY p_a.text
+            ORDER BY a_d.name
+            ";
+
+            $query = $this->db->query($sql);
+
+            $attributes = array();
+            foreach ($query->rows as $row) {
+                $attributes[$row['name']][] = array(
+                    'attribute_id' => $row['attribute_id'],
+                    'name' => 'attr'.$row['attribute_id'],
+                    'text' => $row['text'],
+                    'value' => $row['text'],
+                    'selected' => false
+                );
+            }
+
+            $this->cache->set('category_filter_attributes.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id') . '.' . $category_id, $attributes);
+        }
+
+        return $attributes;
+    }
+
     public function getMainCategory($category_id)
     {
         $parent_id = $this->getParentCategory($category_id);

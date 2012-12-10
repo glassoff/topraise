@@ -136,7 +136,7 @@ class ModelCatalogProduct extends Model {
                     $sqlSizes[] = "(p.height = '{$height}' AND p.width = '{$width}' AND p.length = '{$length}')";
                 }
 
-                $sql .= " AND " . implode(' OR ', $sqlSizes);
+                $sql .= " AND (" . implode(' OR ', $sqlSizes) . ")";
             }
             //
             if (!empty($data['filter_attributes'])) {
@@ -569,7 +569,7 @@ class ModelCatalogProduct extends Model {
                 $sqlSizes[] = "(p.height = '{$height}' AND p.width = '{$width}' AND p.length = '{$length}')";
             }
 
-            $sql .= " AND " . implode(' OR ', $sqlSizes);
+            $sql .= " AND (" . implode(' OR ', $sqlSizes) . ")";
         }
         //
         if (!empty($data['filter_attributes'])) {

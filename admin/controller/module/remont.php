@@ -474,7 +474,8 @@ class ControllerModuleRemont extends Controller {
             $this->data['remont_images'][] = array(
                 'image'      => $image,
                 'thumb'      => $this->model_tool_image->resize($image, 100, 100),
-                'sort_order' => $remont_image['sort_order']
+                'sort_order' => $remont_image['sort_order'],
+                'description' => $remont_image['description']
             );
         }
 

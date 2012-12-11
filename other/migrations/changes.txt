@@ -1,1 +1,3 @@
 add sale information page (id=7)
+
+ALTER TABLE `remont_image` ADD `description` TEXT NOT NULL AFTER `image`

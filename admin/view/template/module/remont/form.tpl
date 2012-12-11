@@ -115,6 +115,7 @@
                         <thead>
                         <tr>
                             <td class="left"><?php echo $entry_images; ?></td>
+                            <td>Описание</td>
                             <td class="right"><?php echo $entry_sort_order; ?></td>
                             <td></td>
                         </tr>
@@ -127,6 +128,7 @@
                                 <input type="hidden" name="remont_image[<?php echo $image_row; ?>][image]" value="<?php echo $remont_image['image']; ?>" id="image<?php echo $image_row; ?>" />
                                 <br />
                                 <a onclick="image_upload('image<?php echo $image_row; ?>', 'thumb<?php echo $image_row; ?>');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb<?php echo $image_row; ?>').attr('src', '<?php echo $no_image; ?>'); $('#image<?php echo $image_row; ?>').attr('value', '');"><?php echo $text_clear; ?></a></div></td>
+                            <td><input type="text" name="remont_image[<?php echo $image_row; ?>][description]" value="<?php echo $remont_image['description']; ?>" size="35" /></td>
                             <td class="right"><input type="text" name="remont_image[<?php echo $image_row; ?>][sort_order]" value="<?php echo $remont_image['sort_order']; ?>" size="2" /></td>
                             <td class="left"><a onclick="$('#image-row<?php echo $image_row; ?>').remove();" class="button"><?php echo $button_remove; ?></a></td>
                         </tr>
@@ -135,7 +137,7 @@
                         <?php } ?>
                         <tfoot>
                         <tr>
-                            <td colspan="2"></td>
+                            <td colspan="3"></td>
                             <td class="left"><a onclick="addImage();" class="button"><?php echo $button_add_image; ?></a></td>
                         </tr>
                         </tfoot>
@@ -200,6 +202,7 @@ function addImage() {
     html  = '<tbody id="image-row' + image_row + '">';
     html += '  <tr>';
     html += '    <td class="left"><div class="image"><img src="<?php echo $no_image; ?>" alt="" id="thumb' + image_row + '" /><input type="hidden" name="remont_image[' + image_row + '][image]" value="" id="image' + image_row + '" /><br /><a onclick="image_upload(\'image' + image_row + '\', \'thumb' + image_row + '\');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$(\'#thumb' + image_row + '\').attr(\'src\', \'<?php echo $no_image; ?>\'); $(\'#image' + image_row + '\').attr(\'value\', \'\');"><?php echo $text_clear; ?></a></div></td>';
+    html += '    <td class="left"><input type="text" name="remont_image[' + image_row + '][description]" value="" size="35" /></td>';
     html += '    <td class="right"><input type="text" name="remont_image[' + image_row + '][sort_order]" value="" size="2" /></td>';
     html += '    <td class="left"><a onclick="$(\'#image-row' + image_row  + '\').remove();" class="button"><?php echo $button_remove; ?></a></td>';
     html += '  </tr>';

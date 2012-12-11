@@ -66,7 +66,8 @@ class ControllerInformationMount extends Controller {
             foreach ($results as $result) {
                 $this->data['images'][] = array(
                     'popup' => $this->model_tool_image->resize($result['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height')),
-                    'thumb' => $this->model_tool_image->cropsize($result['image'], 174, 110)
+                    'thumb' => $this->model_tool_image->cropsize($result['image'], 174, 110),
+                    'description' => $result['description'],
                 );
             }
 

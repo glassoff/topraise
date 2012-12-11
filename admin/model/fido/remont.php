@@ -39,7 +39,7 @@ class ModelFidoRemont extends Model {
 
         if (isset($data['remont_image'])) {
             foreach ($data['remont_image'] as $remont_image) {
-                $this->db->query("INSERT INTO " . DB_PREFIX . "remont_image SET remont_id = '" . (int)$remont_id . "', image = '" . $this->db->escape(html_entity_decode($remont_image['image'], ENT_QUOTES, 'UTF-8')) . "', sort_order = '" . (int)$remont_image['sort_order'] . "'");
+                $this->db->query("INSERT INTO " . DB_PREFIX . "remont_image SET remont_id = '" . (int)$remont_id . "', image = '" . $this->db->escape(html_entity_decode($remont_image['image'], ENT_QUOTES, 'UTF-8')) . "', description = '{$remont_image['description']}', sort_order = '" . (int)$remont_image['sort_order'] . "'");
             }
         }
 
@@ -89,7 +89,7 @@ class ModelFidoRemont extends Model {
 
         if (isset($data['remont_image'])) {
             foreach ($data['remont_image'] as $remont_image) {
-                $this->db->query("INSERT INTO " . DB_PREFIX . "remont_image SET remont_id = '" . (int)$remont_id . "', image = '" . $this->db->escape(html_entity_decode($remont_image['image'], ENT_QUOTES, 'UTF-8')) . "', sort_order = '" . (int)$remont_image['sort_order'] . "'");
+                $this->db->query("INSERT INTO " . DB_PREFIX . "remont_image SET remont_id = '" . (int)$remont_id . "', image = '" . $this->db->escape(html_entity_decode($remont_image['image'], ENT_QUOTES, 'UTF-8')) . "', description = '{$remont_image['description']}', sort_order = '" . (int)$remont_image['sort_order'] . "'");
             }
         }
 
@@ -194,7 +194,7 @@ class ModelFidoRemont extends Model {
         $create_remont_to_store = "CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "remont_to_store` (`remont_id` int(11) NOT NULL, `store_id` int(11) NOT NULL, PRIMARY KEY  (`remont_id`, `store_id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;";
         $this->db->query($create_remont_to_store);
 
-        $create_remont_images = "CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "remont_image` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `remont_id` int(11) NOT NULL,  `image` varchar(255) NOT NULL,  `sort_order` int(3) NOT NULL,  PRIMARY KEY (`id`)) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8";
+        $create_remont_images = "CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "remont_image` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `remont_id` int(11) NOT NULL,  `image` varchar(255) NOT NULL, `description` text NOT NULL, `sort_order` int(3) NOT NULL,  PRIMARY KEY (`id`)) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8";
         $this->db->query($create_remont_images);
     }
 }

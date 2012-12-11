@@ -64,9 +64,14 @@
                 </tr>
                 <tr>
                     <td>Адрес доставки</td>
-                    <td><?php echo $shipping_address_1 ?>
-                        <?php if($shipping_address_2): ?>
-                        <br/><br/><?php echo $shipping_address_2 ?>
+                    <td>
+                        <?php if($shipping_address_1): ?>
+                            <?php echo $shipping_address_1 ?>
+                            <?php if($shipping_address_2): ?>
+                            <br/><br/><?php echo $shipping_address_2 ?>
+                            <?php endif; ?>
+                        <?php else: ?>
+                        -
                         <?php endif; ?>
                     </td>
                 </tr>

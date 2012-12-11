@@ -17,6 +17,8 @@
         <td><input type="text" name="telephone" value="<?php echo $telephone; ?>" /><br/></td>
     </tr>
 </table>
+
+<?php if(!$no_delivery): ?>
 <h3 class="subsubheader"><?php echo $text_your_address; ?></h3>
 <table>
     <tr>
@@ -32,6 +34,11 @@
         <td><textarea name="address_2"><?php echo $address_2; ?></textarea><br/></td>
     </tr>
 </table>
+<?php else: ?>
+<input type="hidden" name="city" value="<?php echo $city; ?>" />
+<input type="hidden" name="address_1" value="<?php echo $address_1; ?>" />
+<input type="hidden" name="address_2" value="<?php echo $address_2; ?>" />
+<?php endif; ?>
 
 <?php if ($shipping_required) { ?>
 <input type="hidden" name="shipping_address" value="1" />

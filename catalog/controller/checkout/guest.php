@@ -188,6 +188,10 @@ class ControllerCheckoutGuest extends Controller {
 
           $this->data['total'] = $total;
 
+          //shipping method
+          $shipping = $this->session->data['shipping_method'];
+          $this->data['no_delivery'] = isset($shipping['code']) && $shipping['code'] == 'pickup.pickup' ? true : false;//XXX
+
         $this->data['back'] = $this->url->link('checkout/cart', '', 'SSL');
 		
 		if (isset($this->session->data['guest']['shipping_address'])) {
@@ -236,6 +240,11 @@ class ControllerCheckoutGuest extends Controller {
 		} 
 					
 		if (!$json) {
+
+            //shipping method
+            $shipping = $this->session->data['shipping_method'];
+            $no_delivery = isset($shipping['code']) && $shipping['code'] == 'pickup.pickup' ? true : false;//XXX
+
 			if ((utf8_strlen($this->request->post['firstname']) < 1) || (utf8_strlen($this->request->post['firstname']) > 32)) {
 				$json['error']['firstname'] = $this->language->get('error_firstname');
 			}
@@ -275,11 +284,11 @@ class ControllerCheckoutGuest extends Controller {
 				}						
 			}
 						
-			if ((utf8_strlen($this->request->post['address_1']) < 3) || (utf8_strlen($this->request->post['address_1']) > 128)) {
+			if (!$no_delivery && (utf8_strlen($this->request->post['address_1']) < 3) || (utf8_strlen($this->request->post['address_1']) > 128)) {
 				$json['error']['address_1'] = $this->language->get('error_address_1');
 			}
 	
-			if ((utf8_strlen($this->request->post['city']) < 2) || (utf8_strlen($this->request->post['city']) > 128)) {
+			if (!$no_delivery && (utf8_strlen($this->request->post['city']) < 2) || (utf8_strlen($this->request->post['city']) > 128)) {
 				$json['error']['city'] = $this->language->get('error_city');
 			}
 			

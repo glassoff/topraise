@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Дек 09 2012 г., 18:32
+-- Время создания: Дек 11 2012 г., 23:29
 -- Версия сервера: 5.1.65
 -- Версия PHP: 5.3.17
 
@@ -23,6 +23,73 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `banner`
+--
+
+DROP TABLE IF EXISTS `banner`;
+CREATE TABLE IF NOT EXISTS `banner` (
+  `banner_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  PRIMARY KEY (`banner_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+--
+-- Дамп данных таблицы `banner`
+--
+
+INSERT INTO `banner` (`banner_id`, `name`, `status`) VALUES
+(9, 'Верхний баннер', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `banner_image`
+--
+
+DROP TABLE IF EXISTS `banner_image`;
+CREATE TABLE IF NOT EXISTS `banner_image` (
+  `banner_image_id` int(11) NOT NULL AUTO_INCREMENT,
+  `banner_id` int(11) NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  PRIMARY KEY (`banner_image_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=81 ;
+
+--
+-- Дамп данных таблицы `banner_image`
+--
+
+INSERT INTO `banner_image` (`banner_image_id`, `banner_id`, `link`, `image`) VALUES
+(79, 9, '/', 'data/1b6902u-960.jpg'),
+(80, 9, '/', 'data/2a0b2au-960.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `banner_image_description`
+--
+
+DROP TABLE IF EXISTS `banner_image_description`;
+CREATE TABLE IF NOT EXISTS `banner_image_description` (
+  `banner_image_id` int(11) NOT NULL,
+  `language_id` int(11) NOT NULL,
+  `banner_id` int(11) NOT NULL,
+  `title` varchar(64) NOT NULL,
+  PRIMARY KEY (`banner_image_id`,`language_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `banner_image_description`
+--
+
+INSERT INTO `banner_image_description` (`banner_image_id`, `language_id`, `banner_id`, `title`) VALUES
+(79, 1, 9, 'еуче'),
+(80, 1, 9, 'ыаывавыа');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `extension`
 --
 
@@ -32,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `extension` (
   `type` varchar(32) NOT NULL,
   `code` varchar(32) NOT NULL,
   PRIMARY KEY (`extension_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=456 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=457 ;
 
 --
 -- Дамп данных таблицы `extension`
@@ -47,8 +114,7 @@ INSERT INTO `extension` (`extension_id`, `type`, `code`) VALUES
 (455, 'module', 'remont'),
 (454, 'module', 'menu'),
 (430, 'module', 'category'),
-(411, 'module', 'affiliate'),
-(408, 'module', 'account'),
+(456, 'module', 'banner'),
 (451, 'module', 'news'),
 (438, 'payment', 'free_checkout'),
 (447, 'shipping', 'flat'),
@@ -71,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `setting` (
   `value` text NOT NULL,
   `serialized` tinyint(1) NOT NULL,
   PRIMARY KEY (`setting_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3558 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3560 ;
 
 --
 -- Дамп данных таблицы `setting`
@@ -106,9 +172,8 @@ INSERT INTO `setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `seria
 (3557, 0, 'config', 'config_google_analytics', '', 0),
 (1131, 0, 'distance', 'distance_status', '1', 0),
 (3556, 0, 'config', 'config_error_filename', 'error.txt', 0),
-(56, 0, 'affiliate', 'affiliate_module', 'a:1:{i:0;a:4:{s:9:"layout_id";s:2:"10";s:8:"position";s:12:"column_right";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}}', 1),
+(3559, 0, 'banner', 'banner_module', 'a:6:{i:0;a:7:{s:9:"banner_id";s:1:"9";s:5:"width";s:4:"1000";s:6:"height";s:2:"71";s:9:"layout_id";s:1:"3";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";}i:1;a:7:{s:9:"banner_id";s:1:"9";s:5:"width";s:4:"1000";s:6:"height";s:2:"71";s:9:"layout_id";s:1:"7";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";}i:2;a:7:{s:9:"banner_id";s:1:"9";s:5:"width";s:4:"1000";s:6:"height";s:2:"71";s:9:"layout_id";s:1:"8";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";}i:3;a:7:{s:9:"banner_id";s:1:"9";s:5:"width";s:4:"1000";s:6:"height";s:2:"71";s:9:"layout_id";s:1:"4";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";}i:4;a:7:{s:9:"banner_id";s:1:"9";s:5:"width";s:4:"1000";s:6:"height";s:2:"71";s:9:"layout_id";s:2:"11";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";}i:5;a:7:{s:9:"banner_id";s:1:"9";s:5:"width";s:4:"1000";s:6:"height";s:2:"71";s:9:"layout_id";s:1:"2";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:0:"";}}', 1),
 (3555, 0, 'config', 'config_error_log', '1', 0),
-(60, 0, 'account', 'account_module', 'a:1:{i:0;a:4:{s:9:"layout_id";s:1:"6";s:8:"position";s:12:"column_right";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}}', 1),
 (3554, 0, 'config', 'config_error_display', '1', 0),
 (3553, 0, 'config', 'config_compression', '0', 0),
 (3552, 0, 'config', 'config_encryption', 'dfbec5b4a36a9c39ddbe3cd1078e7929', 0),

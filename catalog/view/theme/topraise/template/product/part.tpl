@@ -1,7 +1,7 @@
 <?php echo $header; ?>
 
 <div class="center page">
-    <div class="page__banner"><a href=""><img src="catalog/view/theme/topraise/images/banner.jpg"/></a></div>
+    <?php echo $content_top ?>
     <div id="notification"></div>
     <div class="page__middle">
 

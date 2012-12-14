@@ -13,7 +13,7 @@
             <div class="footer__top__links">
                 <h5 class="footer-icon footer-icon_delivery"><a href="<?php echo $delivery_href ?>">ДОСТАВКА</a></h5>
                 <h5 class="footer-icon footer-icon_how-buy"><a href="<?php echo $howbuy_href ?>">КАК КУПИТЬ</a></h5>
-                <h5 class="footer-icon footer-icon_actions"><a href="<?php echo $actions_href ?>">ВСЕ АКЦИИ</a></h5>
+                <h5 class="footer-icon footer-icon_actions"><a href="<?php echo $actions_href ?>">АКЦИЯ</a></h5>
                 <h5 class="footer-icon footer-icon_all-news"><a href="<?php echo $news_href ?>">ВСЕ НОВОСТИ</a></h5>
             </div>
             <div class="footer__top__contacts">

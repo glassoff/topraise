@@ -67,7 +67,7 @@ class ControllerCommonFooter extends Controller {
 
         $this->data['delivery_href'] = $this->url->link('information/buy-shipping', 'tab=shipping');
         $this->data['howbuy_href'] = $this->url->link('information/buy-shipping');
-        $this->data['actions_href'] = '';
+        $this->data['actions_href'] = $this->url->link('information/information', 'information_id=7');
         $this->data['news_href'] = $this->url->link('information/news');
 
 

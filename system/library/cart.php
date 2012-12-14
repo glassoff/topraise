@@ -231,7 +231,7 @@ class Cart {
 						'quantity'        => $quantity,
 						'minimum'         => $product_query->row['minimum'],
 						'subtract'        => $product_query->row['subtract'],
-						'stock'           => $stock,
+						'stock'           => true,//$stock, //XXX always in stock!
 						'price'           => ($price + $option_price),
 						'total'           => ($price + $option_price) * $quantity,
 						'reward'          => $reward * $quantity,

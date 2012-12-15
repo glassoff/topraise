@@ -1,8 +1,9 @@
-image/cache
-system/cache
-system/database
-system/logs
-download/
+image/cache/*
+system/cache/*
+!index.html
+system/logs/error.txt
+download/*
+!index.html
 .idea/*
 .idea
 /.idea

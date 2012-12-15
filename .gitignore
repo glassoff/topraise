@@ -10,3 +10,5 @@ download/
 install/*
 .sass-cache
 .DS_Store
+config.php
+admin/config.php

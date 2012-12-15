@@ -12,7 +12,7 @@ function evoGallery(container, options){
 	
 	this.container = container;
 	
-	this.totalPages = this.container.data('totalPages') || 1;
+	this.totalPages = this.container.data('totalpages') || 1;
 	
 	this.scrollable = $('.b-images__scrollable', this.container);
 	this.pages = $('.b-images__pages', this.container);
@@ -22,9 +22,9 @@ function evoGallery(container, options){
 	
 	this.scrollable.scrollable({
 		items: '.b-images_pages',
-		circular: false,
+		circular: true,
 		keyboard: false
-	});
+	}).autoscroll({ autoplay: true });
 	
 	this.scroll = this.scrollable.data("scrollable");
 	

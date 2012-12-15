@@ -3,10 +3,30 @@
 <script>
     $(function(){
         $('.evo-gallery').each(function(){
-            new evoGallery($(this), {
-                loader_img: 'assets/images/ajax-loader-black.gif'
+            var prev = $(".eg_previous_link", this);
+            var next = $(".eg_next_link", this);
+            var scrolled = $('.b-images__scrollable', $(this)).scrollable({
+                items: '.b-images_pages',
+                circular: true,
+                keyboard: false,
+                prev: prev,
+                next: next
+            }).autoscroll({ autoplay: false, interval: 5000 });
+            var scrollApi = scrolled.data("scrollable");
+
+            scrollApi.play();
+            var conf = scrollApi.getConf();
+
+            prev.click(function(){
+                //conf.circular = false;
+                scrollApi.stop();
+            });
+            next.click(function(){
+                //conf.circular = false;
+                scrollApi.stop();
             });
         });
+
     });
 </script>
 

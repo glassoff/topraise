@@ -6,8 +6,6 @@ class ControllerCommonHome extends Controller {
 
 		$this->data['heading_title'] = $this->config->get('config_title');
 
-        $this->document->addScript('catalog/view/theme/topraise/js/gslider.js');
-
         $this->data['simple'] = $this->url->link('information/buy-shipping') . "#simple";
         $this->data['comfortable'] = $this->url->link('information/buy-shipping') . "#comfortable";
         $this->data['economicly'] = $this->url->link('information/buy-shipping') . "#economicly";

@@ -14,19 +14,19 @@
 .header-menu li a {
   color: black;
 }
-/* line 18, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .header-menu li a:visited {
   color: black;
 }
-/* line 21, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .header-menu li a:focus {
   color: #fc5f5f;
 }
-/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .header-menu li a:hover {
   color: #fc5f5f;
 }
-/* line 27, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .header-menu li a:active {
   color: #fc5f5f;
 }
@@ -60,19 +60,19 @@
 .cartbar__content a {
   color: #3d3d3d;
 }
-/* line 18, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .cartbar__content a:visited {
   color: #3d3d3d;
 }
-/* line 21, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .cartbar__content a:focus {
   color: #fc5f5f;
 }
-/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .cartbar__content a:hover {
   color: #fc5f5f;
 }
-/* line 27, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .cartbar__content a:active {
   color: #fc5f5f;
 }
@@ -198,27 +198,27 @@
 }
 
 /* gallery */
-/* line 7, /Users/dmitryryumin/works/topraise/topraise/catalog/view/theme/topraise/css/sass/_slider.scss */
+/* line 7, ../sass/_slider.scss */
 .b-images {
   padding: 0px 90px 0px 90px;
   position: relative;
 }
-/* line 11, /Users/dmitryryumin/works/topraise/topraise/catalog/view/theme/topraise/css/sass/_slider.scss */
+/* line 11, ../sass/_slider.scss */
 .b-images .b-images__scrollable {
   position: relative;
   overflow: hidden;
 }
-/* line 16, /Users/dmitryryumin/works/topraise/topraise/catalog/view/theme/topraise/css/sass/_slider.scss */
+/* line 16, ../sass/_slider.scss */
 .b-images .b-images__scrollable .b-images__pages {
   width: 20000em;
   position: relative;
 }
-/* line 21, /Users/dmitryryumin/works/topraise/topraise/catalog/view/theme/topraise/css/sass/_slider.scss */
+/* line 21, ../sass/_slider.scss */
 .b-images .b-images__scrollable .b-images__pages ul {
   float: left;
   width: 1000px;
 }
-/* line 25, /Users/dmitryryumin/works/topraise/topraise/catalog/view/theme/topraise/css/sass/_slider.scss */
+/* line 25, ../sass/_slider.scss */
 .b-images .b-images__scrollable .b-images__pages ul .b-images__item {
   display: -moz-inline-stack;
   display: inline-block;
@@ -233,11 +233,11 @@
   text-align: center;
   line-height: 442px;
 }
-/* line 34, /Users/dmitryryumin/works/topraise/topraise/catalog/view/theme/topraise/css/sass/_slider.scss */
+/* line 34, ../sass/_slider.scss */
 .b-images .b-images__scrollable .b-images__pages ul .b-images__item a img {
   vertical-align: middle;
 }
-/* line 42, /Users/dmitryryumin/works/topraise/topraise/catalog/view/theme/topraise/css/sass/_slider.scss */
+/* line 42, ../sass/_slider.scss */
 .b-images .eg_previous_link, .b-images .eg_next_link {
   cursor: pointer;
   position: absolute;
@@ -251,43 +251,43 @@
   font-size: 0;
   text-indent: -6000px;
 }
-/* line 52, /Users/dmitryryumin/works/topraise/topraise/catalog/view/theme/topraise/css/sass/_slider.scss */
+/* line 52, ../sass/_slider.scss */
 .b-images .eg_previous_link {
   left: 0;
   background-position: 0px 0;
 }
-/* line 55, /Users/dmitryryumin/works/topraise/topraise/catalog/view/theme/topraise/css/sass/_slider.scss */
+/* line 55, ../sass/_slider.scss */
 .b-images .eg_previous_link:hover {
   background-position: -46px 0;
 }
-/* line 58, /Users/dmitryryumin/works/topraise/topraise/catalog/view/theme/topraise/css/sass/_slider.scss */
+/* line 58, ../sass/_slider.scss */
 .b-images .eg_previous_link:active {
   background-position: -92px 0;
 }
-/* line 61, /Users/dmitryryumin/works/topraise/topraise/catalog/view/theme/topraise/css/sass/_slider.scss */
+/* line 61, ../sass/_slider.scss */
 .b-images .eg_previous_link.disabled {
   background-position: -138px 0;
   cursor: default;
 }
-/* line 66, /Users/dmitryryumin/works/topraise/topraise/catalog/view/theme/topraise/css/sass/_slider.scss */
+/* line 66, ../sass/_slider.scss */
 .b-images .eg_next_link {
   right: 0;
   background-position: -184px 0;
 }
-/* line 69, /Users/dmitryryumin/works/topraise/topraise/catalog/view/theme/topraise/css/sass/_slider.scss */
+/* line 69, ../sass/_slider.scss */
 .b-images .eg_next_link:hover {
   background-position: -230px 0;
 }
-/* line 72, /Users/dmitryryumin/works/topraise/topraise/catalog/view/theme/topraise/css/sass/_slider.scss */
+/* line 72, ../sass/_slider.scss */
 .b-images .eg_next_link:active {
   background-position: -276px 0;
 }
-/* line 75, /Users/dmitryryumin/works/topraise/topraise/catalog/view/theme/topraise/css/sass/_slider.scss */
+/* line 75, ../sass/_slider.scss */
 .b-images .eg_next_link.disabled {
   background-position: -322px 0;
   cursor: default;
 }
-/* line 80, /Users/dmitryryumin/works/topraise/topraise/catalog/view/theme/topraise/css/sass/_slider.scss */
+/* line 80, ../sass/_slider.scss */
 .b-images .eg_next_off, .b-images .eg_previous_off {
   display: none;
 }
@@ -543,19 +543,19 @@
   color: black;
   font-size: 10pt;
 }
-/* line 18, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .box .box-category a:visited {
   color: black;
 }
-/* line 21, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .box .box-category a:focus {
   color: #fc5f5f;
 }
-/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .box .box-category a:hover {
   color: #fc5f5f;
 }
-/* line 27, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .box .box-category a:active {
   color: #fc5f5f;
 }
@@ -604,19 +604,19 @@
 .category-item__title a {
   color: white;
 }
-/* line 18, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .category-item__title a:visited {
   color: white;
 }
-/* line 21, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .category-item__title a:focus {
   color: #fc5f5f;
 }
-/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .category-item__title a:hover {
   color: #89d9fe;
 }
-/* line 27, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .category-item__title a:active {
   color: #89d9fe;
 }
@@ -672,19 +672,19 @@
   text-decoration: none;
   padding: 6px;
 }
-/* line 18, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .product-content .product-tabs a:visited {
   color: black;
 }
-/* line 21, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .product-content .product-tabs a:focus {
   color: black;
 }
-/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .product-content .product-tabs a:hover {
   color: #fc5f5f;
 }
-/* line 27, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .product-content .product-tabs a:active {
   color: #fc5f5f;
 }
@@ -698,19 +698,19 @@
 .product-content .product-tabs a.selected span {
   border: none;
 }
-/* line 18, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .product-content .product-tabs a.selected:visited {
   color: black;
 }
-/* line 21, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .product-content .product-tabs a.selected:focus {
   color: black;
 }
-/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .product-content .product-tabs a.selected:hover {
   color: #89d9fe;
 }
-/* line 27, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .product-content .product-tabs a.selected:active {
   color: black;
 }
@@ -731,19 +731,19 @@
   font-size: 10pt;
   margin: 0 15px 0 0;
 }
-/* line 18, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .product-content .compare-products a:visited {
   color: black;
 }
-/* line 21, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .product-content .compare-products a:focus {
   color: #fc5f5f;
 }
-/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .product-content .compare-products a:hover {
   color: #fc5f5f;
 }
-/* line 27, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .product-content .compare-products a:active {
   color: #fc5f5f;
 }
@@ -853,19 +853,19 @@
 .short-product-list__title a {
   color: black;
 }
-/* line 18, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .short-product-list__title a:visited {
   color: black;
 }
-/* line 21, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .short-product-list__title a:focus {
   color: #fc5f5f;
 }
-/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .short-product-list__title a:hover {
   color: #fc5f5f;
 }
-/* line 27, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .short-product-list__title a:active {
   color: #fc5f5f;
 }
@@ -986,19 +986,19 @@
 .cart-table tr.excluded a {
   color: #7f7f7f;
 }
-/* line 18, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .cart-table tr.excluded a:visited {
   color: #7f7f7f;
 }
-/* line 21, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .cart-table tr.excluded a:focus {
   color: #7f7f7f;
 }
-/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .cart-table tr.excluded a:hover {
   color: #7f7f7f;
 }
-/* line 27, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .cart-table tr.excluded a:active {
   color: #7f7f7f;
 }
@@ -1099,19 +1099,19 @@
   background: 0 0 no-repeat url(../../images/checkout-button.png);
   color: black;
 }
-/* line 18, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .content_checkout__button:visited {
   color: black;
 }
-/* line 21, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .content_checkout__button:focus {
   color: black;
 }
-/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .content_checkout__button:hover {
   color: black;
 }
-/* line 27, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .content_checkout__button:active {
   color: black;
 }
@@ -1262,19 +1262,19 @@
   text-decoration: none;
   color: black;
 }
-/* line 18, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .news-list-item__header a:visited {
   color: black;
 }
-/* line 21, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .news-list-item__header a:focus {
   color: black;
 }
-/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .news-list-item__header a:hover {
   color: black;
 }
-/* line 27, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .news-list-item__header a:active {
   color: black;
 }
@@ -1308,19 +1308,19 @@
 .news-list-item__content__more a {
   color: #4bb2e1;
 }
-/* line 18, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .news-list-item__content__more a:visited {
   color: #900099;
 }
-/* line 21, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .news-list-item__content__more a:focus {
   color: #fc5f5f;
 }
-/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .news-list-item__content__more a:hover {
   color: #fc5f5f;
 }
-/* line 27, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .news-list-item__content__more a:active {
   color: #fc5f5f;
 }
@@ -1362,19 +1362,19 @@
   text-decoration: underline;
   color: black;
 }
-/* line 18, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .news-item__back:visited {
   color: #900099;
 }
-/* line 21, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .news-item__back:focus {
   color: #fc5f5f;
 }
-/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .news-item__back:hover {
   color: #fc5f5f;
 }
-/* line 27, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .news-item__back:active {
   color: #fc5f5f;
 }
@@ -1776,19 +1776,19 @@
   color: #b9b9b9;
   text-decoration: none;
 }
-/* line 18, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .pagination .links a:visited {
   color: #b9b9b9;
 }
-/* line 21, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .pagination .links a:focus {
   color: #fc5f5f;
 }
-/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .pagination .links a:hover {
   color: #fc5f5f;
 }
-/* line 27, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .pagination .links a:active {
   color: #fc5f5f;
 }
@@ -1817,19 +1817,19 @@
   color: black;
   margin: 0 30px 0 0;
 }
-/* line 18, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .catalog-order__item:visited {
   color: black;
 }
-/* line 21, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .catalog-order__item:focus {
   color: #fc5f5f;
 }
-/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .catalog-order__item:hover {
   color: #fc5f5f;
 }
-/* line 27, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .catalog-order__item:active {
   color: #fc5f5f;
 }
@@ -1840,19 +1840,19 @@
   color: #fc5f5f;
   cursor: default;
 }
-/* line 18, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .catalog-order__item_active:visited {
   color: #fc5f5f;
 }
-/* line 21, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 21, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .catalog-order__item_active:focus {
   color: #fc5f5f;
 }
-/* line 24, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .catalog-order__item_active:hover {
   color: #fc5f5f;
 }
-/* line 27, /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 .catalog-order__item_active:active {
   color: #fc5f5f;
 }
@@ -1862,13 +1862,17 @@
 .catalog-filter {
   margin: 0 0 12px 0;
 }
-
 /* line 1238, ../sass/elements.scss */
+.catalog-filter .pseudo-a.selected:hover {
+  color: #89d9fe;
+}
+
+/* line 1243, ../sass/elements.scss */
 .catalog-filter__header {
   border-bottom: 1px solid #b4b4b4;
 }
 
-/* line 1241, ../sass/elements.scss */
+/* line 1246, ../sass/elements.scss */
 .catalog-filter__header__tab {
   margin: 0 0 0 35px;
   background: 0 0 no-repeat url(../../images/filter-headers.png);
@@ -1879,17 +1883,17 @@
   font-size: 12pt;
 }
 
-/* line 1251, ../sass/elements.scss */
+/* line 1256, ../sass/elements.scss */
 .catalog-filter__header_bottom .catalog-filter__header__tab {
   background-position: -213px 0;
   width: 102px;
 }
 
-/* line 1256, ../sass/elements.scss */
+/* line 1261, ../sass/elements.scss */
 .catalog-filter__header_bottom-down {
   border-bottom: none;
 }
-/* line 1258, ../sass/elements.scss */
+/* line 1263, ../sass/elements.scss */
 .catalog-filter__header_bottom-down .catalog-filter__header__tab {
   background-position: -315px 0;
   width: 42px;
@@ -1897,7 +1901,7 @@
   line-height: 26px;
 }
 
-/* line 1265, ../sass/elements.scss */
+/* line 1270, ../sass/elements.scss */
 .catalog-filter__content {
   padding: 5px 0 6px 54px;
   font-style: italic;
@@ -1905,74 +1909,74 @@
   color: #000;
 }
 
-/* line 1271, ../sass/elements.scss */
+/* line 1276, ../sass/elements.scss */
 .catalog-filter__content__item {
   line-height: 1.5;
   margin: 10px 0;
 }
-/* line 1274, ../sass/elements.scss */
+/* line 1279, ../sass/elements.scss */
 .catalog-filter__content__item b {
   margin: 0 10px 0 0;
 }
-/* line 1277, ../sass/elements.scss */
+/* line 1282, ../sass/elements.scss */
 .catalog-filter__content__item span {
   margin: 0 10px 0 0;
   padding: 0 3px;
 }
-/* line 1281, ../sass/elements.scss */
+/* line 1286, ../sass/elements.scss */
 .catalog-filter__content__item .selected {
   background-color: #4bb2e1;
 }
 
-/* line 1287, ../sass/elements.scss */
+/* line 1292, ../sass/elements.scss */
 .catalog-filter__result a {
   margin-left: 13px;
 }
 
-/* line 1292, ../sass/elements.scss */
+/* line 1297, ../sass/elements.scss */
 .filter-element {
   display: none;
 }
 
 /* price slider */
-/* line 1301, ../sass/elements.scss */
+/* line 1306, ../sass/elements.scss */
 .catalog-filter__price {
   margin: 25px 0 12px 0;
 }
-/* line 1303, ../sass/elements.scss */
+/* line 1308, ../sass/elements.scss */
 .catalog-filter__price .catalog-filter__price__header {
   font-weight: bold;
   font-style: normal;
   margin-left: 5px;
 }
-/* line 1308, ../sass/elements.scss */
+/* line 1313, ../sass/elements.scss */
 .catalog-filter__price .catalog-filter__inputs {
   margin: 16px 0 0 5px;
 }
-/* line 1310, ../sass/elements.scss */
+/* line 1315, ../sass/elements.scss */
 .catalog-filter__price .catalog-filter__inputs input {
   width: 60px;
   margin: 0 15px;
 }
-/* line 1315, ../sass/elements.scss */
+/* line 1320, ../sass/elements.scss */
 .catalog-filter__price .catalog-filter__slider {
   margin: 16px 0 0 0;
   height: 30px;
 }
-/* line 1318, ../sass/elements.scss */
+/* line 1323, ../sass/elements.scss */
 .catalog-filter__price .catalog-filter__slider .ui-slider {
   background: 0 -22px no-repeat url(../../images/slider.png);
   border: none;
   height: 5px;
   width: 257px;
 }
-/* line 1324, ../sass/elements.scss */
+/* line 1329, ../sass/elements.scss */
 .catalog-filter__price .catalog-filter__slider .ui-slider-range {
   top: 1px !important;
   height: 3px !important;
   background: #4bb2e1;
 }
-/* line 1329, ../sass/elements.scss */
+/* line 1334, ../sass/elements.scss */
 .catalog-filter__price .catalog-filter__slider .ui-state-default, .catalog-filter__price .catalog-filter__slider .ui-widget-content .ui-state-default, .catalog-filter__price .catalog-filter__slider .ui-widget-header .ui-state-default {
   background: 0 0 no-repeat url(../../images/slider.png);
   border: none;
@@ -1982,35 +1986,35 @@
 }
 
 /* catalog compare */
-/* line 1341, ../sass/elements.scss */
+/* line 1346, ../sass/elements.scss */
 .catalog-compare {
   margin: 12px 0 0 35px;
   height: 24px;
   line-height: 24px;
 }
-/* line 1345, ../sass/elements.scss */
+/* line 1350, ../sass/elements.scss */
 .catalog-compare button {
   margin-left: 15px;
 }
 
-/* line 1349, ../sass/elements.scss */
+/* line 1354, ../sass/elements.scss */
 .compare-view {
   display: none;
 }
 
 /* compare page */
-/* line 1354, ../sass/elements.scss */
+/* line 1359, ../sass/elements.scss */
 .compared {
   position: relative;
 }
-/* line 1356, ../sass/elements.scss */
+/* line 1361, ../sass/elements.scss */
 .compared .product-item-left {
   overflow: hidden;
   *zoom: 1;
   width: 190px;
   position: relative;
 }
-/* line 1364, ../sass/elements.scss */
+/* line 1369, ../sass/elements.scss */
 .compared .product-item-left__remove {
   background: 0 -36px no-repeat url(../../images/compare-buttons.png);
   width: 20px;
@@ -2019,22 +2023,22 @@
   left: 50px;
   top: 0px;
 }
-/* line 1371, ../sass/elements.scss */
+/* line 1376, ../sass/elements.scss */
 .compared .product-item-left__remove:hover {
   background-position: -20px -36px;
 }
 
-/* line 1377, ../sass/elements.scss */
+/* line 1382, ../sass/elements.scss */
 .compared-table th, .compared-table td {
   width: 190px;
   padding: 10px 17px;
 }
-/* line 1382, ../sass/elements.scss */
+/* line 1387, ../sass/elements.scss */
 .compared-table th {
   border-bottom: 1px solid #b4b4b4;
   padding: 0 17px 20px 17px;
 }
-/* line 1389, ../sass/elements.scss */
+/* line 1394, ../sass/elements.scss */
 .compared-table .attr-name {
   width: 282px;
   overflow: hidden;
@@ -2042,7 +2046,7 @@
   white-space: nowrap;
 }
 
-/* line 1397, ../sass/elements.scss */
+/* line 1402, ../sass/elements.scss */
 .compared__col {
   position: absolute;
   left: 0;
@@ -2053,18 +2057,18 @@
   background: #fff;
 }
 
-/* line 1406, ../sass/elements.scss */
+/* line 1411, ../sass/elements.scss */
 .compared__data {
   position: relative;
   z-index: 1;
   overflow: hidden;
 }
-/* line 1410, ../sass/elements.scss */
+/* line 1415, ../sass/elements.scss */
 .compared__data table {
   position: relative;
 }
 
-/* line 1415, ../sass/elements.scss */
+/* line 1420, ../sass/elements.scss */
 .compared__button-left, .compared__button-right {
   background: 0 0 no-repeat url(../../images/compare-buttons.png);
   width: 35px;
@@ -2074,34 +2078,34 @@
   z-index: 3;
 }
 
-/* line 1423, ../sass/elements.scss */
+/* line 1428, ../sass/elements.scss */
 .compared__button-left {
   left: 270px;
 }
-/* line 1426, ../sass/elements.scss */
+/* line 1431, ../sass/elements.scss */
 .compared__button-left:hover {
   background-position: -35px 0;
 }
-/* line 1429, ../sass/elements.scss */
+/* line 1434, ../sass/elements.scss */
 .compared__button-left:active {
   background-position: -70px 0;
 }
 
-/* line 1433, ../sass/elements.scss */
+/* line 1438, ../sass/elements.scss */
 .compared__button-right {
   background-position: -105px 0;
   right: 0;
 }
-/* line 1436, ../sass/elements.scss */
+/* line 1441, ../sass/elements.scss */
 .compared__button-right:hover {
   background-position: -140px 0;
 }
-/* line 1439, ../sass/elements.scss */
+/* line 1444, ../sass/elements.scss */
 .compared__button-right:active {
   background-position: -175px 0;
 }
 
-/* line 1444, ../sass/elements.scss */
+/* line 1449, ../sass/elements.scss */
 .content_compare .buttons {
   margin: 20px 0 0 20px;
 }

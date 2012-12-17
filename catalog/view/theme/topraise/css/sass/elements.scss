@@ -1234,6 +1234,11 @@
 /* catalog filter */
 .catalog-filter{
     margin: 0 0 12px 0;
+    .pseudo-a.selected{
+        &:hover{
+            color: #89d9fe;
+        }
+    }
 }
     .catalog-filter__header{
         border-bottom: 1px solid #b4b4b4;

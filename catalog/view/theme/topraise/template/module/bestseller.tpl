@@ -3,7 +3,7 @@
 
     <?php $countBlocks = ceil(count($products) / 4); ?>
     <div class="home__popular__content">
-        <div class="b-images evo-gallery" data-totalpages="<?php echo $countBlocks ?>"><div class="b-images__scrollable"><div class="b-images__pages">
+        <div class="b-images evo-gallery autoscroll" data-totalpages="<?php echo $countBlocks ?>"><div class="b-images__scrollable"><div class="b-images__pages">
             <!-- popular -->
             <?php for($i = 0; $i < $countBlocks; $i++): ?>
             <ul>

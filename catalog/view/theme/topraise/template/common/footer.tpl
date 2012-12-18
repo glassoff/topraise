@@ -45,5 +45,7 @@
 <div class="overlay"></div>
 <div class="preloader"><img src="catalog/view/theme/topraise/images/loader.gif"/></div>
 
+<?php echo $footer_js ?>
+
 </body>
 </html>

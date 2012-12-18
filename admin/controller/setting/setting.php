@@ -133,6 +133,7 @@ class ControllerSettingSetting extends Controller {
 		$this->data['entry_error_log'] = $this->language->get('entry_error_log');
 		$this->data['entry_error_filename'] = $this->language->get('entry_error_filename');
 		$this->data['entry_google_analytics'] = $this->language->get('entry_google_analytics');
+        $this->data['entry_footer_js'] = $this->language->get('entry_footer_js');
 		$this->data['entry_sms_gatename'] = $this->language->get('entry_sms_gatename');
 		$this->data['entry_sms_to'] = $this->language->get('entry_sms_to');
 		$this->data['entry_sms_from'] = $this->language->get('entry_sms_from');
@@ -996,6 +997,12 @@ class ControllerSettingSetting extends Controller {
 		} else {
 			$this->data['config_google_analytics'] = $this->config->get('config_google_analytics');
 		}
+
+        if (isset($this->request->post['config_footer_js'])) {
+            $this->data['config_footer_js'] = $this->request->post['config_footer_js'];
+        } else {
+            $this->data['config_footer_js'] = $this->config->get('config_footer_js');
+        }
 		
 		if (isset($this->request->post['config_sms_gatename'])) {
 			$this->data['config_sms_gatename'] = $this->request->post['config_sms_gatename'];

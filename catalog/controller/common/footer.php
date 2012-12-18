@@ -70,7 +70,7 @@ class ControllerCommonFooter extends Controller {
         $this->data['actions_href'] = $this->url->link('information/information', 'information_id=7');
         $this->data['news_href'] = $this->url->link('information/news');
 
-
+        $this->data['footer_js'] = html_entity_decode($this->config->get('config_footer_js'), ENT_QUOTES, 'UTF-8');
 		
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/footer.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/common/footer.tpl';

@@ -32,8 +32,7 @@
     <link rel="<?php echo $style['rel']; ?>" type="text/css" href="<?php echo $style['href']; ?>" media="<?php echo $style['media']; ?>" />
     <?php } ?>
 
-    <script src="catalog/view/theme/topraise/js/jquery-1.4.4.min.js"></script>
-    <script src="catalog/view/theme/topraise/js/jquery.tools.min.js"></script>
+    <script src="catalog/view/theme/topraise/js/jquery-1.7.2.min.js"></script>
     <script src="catalog/view/theme/topraise/js/common.js"></script>
 
     <?php foreach ($scripts as $script) { ?>

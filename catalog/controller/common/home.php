@@ -19,6 +19,8 @@ class ControllerCommonHome extends Controller {
         }
 
         $this->data['search_action'] = $this->url->link('product/search');
+
+        $this->document->addScript('catalog/view/theme/topraise/js/jquery.tools.min.js');
 		
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/home.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/common/home.tpl';

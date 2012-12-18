@@ -93,7 +93,7 @@ $(function(){
     function enableNext()
     {
         if(!disabledNext){
-            $('#next-button').removeClass('content_checkout__button_disabled').attr('disabled', '');
+            $('#next-button').removeClass('content_checkout__button_disabled').attr('disabled', false);
         }
 
     }

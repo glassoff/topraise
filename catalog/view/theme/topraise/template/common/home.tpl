@@ -12,7 +12,7 @@
                 keyboard: false,
                 prev: prev,
                 next: next
-            })
+            });
 
             if(autoscroll){
                 scrolled.autoscroll({ autoplay: false, interval: 5000 });

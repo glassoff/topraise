@@ -1237,6 +1237,7 @@
     .pseudo-a.selected{
         &:hover{
             color: #89d9fe;
+            border-bottom-color: #89d9fe;
         }
     }
 }
@@ -1251,6 +1252,12 @@
             line-height: 35px;
             text-align: center;
             font-size: 12pt;
+            .pseudo-a{
+                &:hover{
+                    color: #c0eafd;
+                    border-bottom-color: #c0eafd;
+                }
+            }
         }
     .catalog-filter__header_bottom{
         .catalog-filter__header__tab{

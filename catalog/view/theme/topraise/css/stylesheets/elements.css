@@ -1865,14 +1865,15 @@
 /* line 1238, ../sass/elements.scss */
 .catalog-filter .pseudo-a.selected:hover {
   color: #89d9fe;
+  border-bottom-color: #89d9fe;
 }
 
-/* line 1243, ../sass/elements.scss */
+/* line 1244, ../sass/elements.scss */
 .catalog-filter__header {
   border-bottom: 1px solid #b4b4b4;
 }
 
-/* line 1246, ../sass/elements.scss */
+/* line 1247, ../sass/elements.scss */
 .catalog-filter__header__tab {
   margin: 0 0 0 35px;
   background: 0 0 no-repeat url(../../images/filter-headers.png);
@@ -1882,18 +1883,23 @@
   text-align: center;
   font-size: 12pt;
 }
-
 /* line 1256, ../sass/elements.scss */
+.catalog-filter__header__tab .pseudo-a:hover {
+  color: #c0eafd;
+  border-bottom-color: #c0eafd;
+}
+
+/* line 1263, ../sass/elements.scss */
 .catalog-filter__header_bottom .catalog-filter__header__tab {
   background-position: -213px 0;
   width: 102px;
 }
 
-/* line 1261, ../sass/elements.scss */
+/* line 1268, ../sass/elements.scss */
 .catalog-filter__header_bottom-down {
   border-bottom: none;
 }
-/* line 1263, ../sass/elements.scss */
+/* line 1270, ../sass/elements.scss */
 .catalog-filter__header_bottom-down .catalog-filter__header__tab {
   background-position: -315px 0;
   width: 42px;
@@ -1901,7 +1907,7 @@
   line-height: 26px;
 }
 
-/* line 1270, ../sass/elements.scss */
+/* line 1277, ../sass/elements.scss */
 .catalog-filter__content {
   padding: 5px 0 6px 54px;
   font-style: italic;
@@ -1909,74 +1915,74 @@
   color: #000;
 }
 
-/* line 1276, ../sass/elements.scss */
+/* line 1283, ../sass/elements.scss */
 .catalog-filter__content__item {
   line-height: 1.5;
   margin: 10px 0;
 }
-/* line 1279, ../sass/elements.scss */
+/* line 1286, ../sass/elements.scss */
 .catalog-filter__content__item b {
   margin: 0 10px 0 0;
 }
-/* line 1282, ../sass/elements.scss */
+/* line 1289, ../sass/elements.scss */
 .catalog-filter__content__item span {
   margin: 0 10px 0 0;
   padding: 0 3px;
 }
-/* line 1286, ../sass/elements.scss */
+/* line 1293, ../sass/elements.scss */
 .catalog-filter__content__item .selected {
   background-color: #4bb2e1;
 }
 
-/* line 1292, ../sass/elements.scss */
+/* line 1299, ../sass/elements.scss */
 .catalog-filter__result a {
   margin-left: 13px;
 }
 
-/* line 1297, ../sass/elements.scss */
+/* line 1304, ../sass/elements.scss */
 .filter-element {
   display: none;
 }
 
 /* price slider */
-/* line 1306, ../sass/elements.scss */
+/* line 1313, ../sass/elements.scss */
 .catalog-filter__price {
   margin: 25px 0 12px 0;
 }
-/* line 1308, ../sass/elements.scss */
+/* line 1315, ../sass/elements.scss */
 .catalog-filter__price .catalog-filter__price__header {
   font-weight: bold;
   font-style: normal;
   margin-left: 5px;
 }
-/* line 1313, ../sass/elements.scss */
+/* line 1320, ../sass/elements.scss */
 .catalog-filter__price .catalog-filter__inputs {
   margin: 16px 0 0 5px;
 }
-/* line 1315, ../sass/elements.scss */
+/* line 1322, ../sass/elements.scss */
 .catalog-filter__price .catalog-filter__inputs input {
   width: 60px;
   margin: 0 15px;
 }
-/* line 1320, ../sass/elements.scss */
+/* line 1327, ../sass/elements.scss */
 .catalog-filter__price .catalog-filter__slider {
   margin: 16px 0 0 0;
   height: 30px;
 }
-/* line 1323, ../sass/elements.scss */
+/* line 1330, ../sass/elements.scss */
 .catalog-filter__price .catalog-filter__slider .ui-slider {
   background: 0 -22px no-repeat url(../../images/slider.png);
   border: none;
   height: 5px;
   width: 257px;
 }
-/* line 1329, ../sass/elements.scss */
+/* line 1336, ../sass/elements.scss */
 .catalog-filter__price .catalog-filter__slider .ui-slider-range {
   top: 1px !important;
   height: 3px !important;
   background: #4bb2e1;
 }
-/* line 1334, ../sass/elements.scss */
+/* line 1341, ../sass/elements.scss */
 .catalog-filter__price .catalog-filter__slider .ui-state-default, .catalog-filter__price .catalog-filter__slider .ui-widget-content .ui-state-default, .catalog-filter__price .catalog-filter__slider .ui-widget-header .ui-state-default {
   background: 0 0 no-repeat url(../../images/slider.png);
   border: none;
@@ -1986,35 +1992,35 @@
 }
 
 /* catalog compare */
-/* line 1346, ../sass/elements.scss */
+/* line 1353, ../sass/elements.scss */
 .catalog-compare {
   margin: 12px 0 0 35px;
   height: 24px;
   line-height: 24px;
 }
-/* line 1350, ../sass/elements.scss */
+/* line 1357, ../sass/elements.scss */
 .catalog-compare button {
   margin-left: 15px;
 }
 
-/* line 1354, ../sass/elements.scss */
+/* line 1361, ../sass/elements.scss */
 .compare-view {
   display: none;
 }
 
 /* compare page */
-/* line 1359, ../sass/elements.scss */
+/* line 1366, ../sass/elements.scss */
 .compared {
   position: relative;
 }
-/* line 1361, ../sass/elements.scss */
+/* line 1368, ../sass/elements.scss */
 .compared .product-item-left {
   overflow: hidden;
   *zoom: 1;
   width: 190px;
   position: relative;
 }
-/* line 1369, ../sass/elements.scss */
+/* line 1376, ../sass/elements.scss */
 .compared .product-item-left__remove {
   background: 0 -36px no-repeat url(../../images/compare-buttons.png);
   width: 20px;
@@ -2023,22 +2029,22 @@
   left: 50px;
   top: 0px;
 }
-/* line 1376, ../sass/elements.scss */
+/* line 1383, ../sass/elements.scss */
 .compared .product-item-left__remove:hover {
   background-position: -20px -36px;
 }
 
-/* line 1382, ../sass/elements.scss */
+/* line 1389, ../sass/elements.scss */
 .compared-table th, .compared-table td {
   width: 190px;
   padding: 10px 17px;
 }
-/* line 1387, ../sass/elements.scss */
+/* line 1394, ../sass/elements.scss */
 .compared-table th {
   border-bottom: 1px solid #b4b4b4;
   padding: 0 17px 20px 17px;
 }
-/* line 1394, ../sass/elements.scss */
+/* line 1401, ../sass/elements.scss */
 .compared-table .attr-name {
   width: 282px;
   overflow: hidden;
@@ -2046,7 +2052,7 @@
   white-space: nowrap;
 }
 
-/* line 1402, ../sass/elements.scss */
+/* line 1409, ../sass/elements.scss */
 .compared__col {
   position: absolute;
   left: 0;
@@ -2057,18 +2063,18 @@
   background: #fff;
 }
 
-/* line 1411, ../sass/elements.scss */
+/* line 1418, ../sass/elements.scss */
 .compared__data {
   position: relative;
   z-index: 1;
   overflow: hidden;
 }
-/* line 1415, ../sass/elements.scss */
+/* line 1422, ../sass/elements.scss */
 .compared__data table {
   position: relative;
 }
 
-/* line 1420, ../sass/elements.scss */
+/* line 1427, ../sass/elements.scss */
 .compared__button-left, .compared__button-right {
   background: 0 0 no-repeat url(../../images/compare-buttons.png);
   width: 35px;
@@ -2078,34 +2084,34 @@
   z-index: 3;
 }
 
-/* line 1428, ../sass/elements.scss */
+/* line 1435, ../sass/elements.scss */
 .compared__button-left {
   left: 270px;
 }
-/* line 1431, ../sass/elements.scss */
+/* line 1438, ../sass/elements.scss */
 .compared__button-left:hover {
   background-position: -35px 0;
 }
-/* line 1434, ../sass/elements.scss */
+/* line 1441, ../sass/elements.scss */
 .compared__button-left:active {
   background-position: -70px 0;
 }
 
-/* line 1438, ../sass/elements.scss */
+/* line 1445, ../sass/elements.scss */
 .compared__button-right {
   background-position: -105px 0;
   right: 0;
 }
-/* line 1441, ../sass/elements.scss */
+/* line 1448, ../sass/elements.scss */
 .compared__button-right:hover {
   background-position: -140px 0;
 }
-/* line 1444, ../sass/elements.scss */
+/* line 1451, ../sass/elements.scss */
 .compared__button-right:active {
   background-position: -175px 0;
 }
 
-/* line 1449, ../sass/elements.scss */
+/* line 1456, ../sass/elements.scss */
 .content_compare .buttons {
   margin: 20px 0 0 20px;
 }

@@ -119,7 +119,9 @@
 
                                 $('#cart-total-price').html(json['total_price']);
 
-                                $('html, body').animate({ scrollTop: 0 }, 'slow');
+                                $('html, body').animate({ scrollTop: 0 }, 'slow', function(){
+                                    activeCart();
+                                });
                             }
                         }
                     });

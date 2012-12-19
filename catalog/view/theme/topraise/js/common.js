@@ -1,5 +1,6 @@
 var ajaxProcess = false;
 var showLoaderTime = 0;
+var cartActiveImg;
 
 $(function(){
     $('.tocart').click(function(){
@@ -51,7 +52,17 @@ $(function(){
         return false;
     });
 
+    cartActiveImg = $('<img/>').attr('src', 'catalog/view/theme/topraise/images/cart.gif');
+
 });
+
+function activeCart()
+{
+    $('#cart-icon').attr('src', cartActiveImg.attr('src'));
+    window.setTimeout(function(){
+        $('#cart-icon').attr('src', 'catalog/view/theme/topraise/images/cart-icon.png');
+    }, 1000);
+}
 
 function addToCart(product_id, quantity) {
     quantity = typeof(quantity) != 'undefined' ? quantity : 1;
@@ -77,7 +88,9 @@ function addToCart(product_id, quantity) {
 
                 $('#cart-total-price').html(json['total_price']);
 
-                $('html, body').animate({ scrollTop: 0 }, 'slow');
+                $('html, body').animate({ scrollTop: 0 }, 'slow', function(){
+                    activeCart();
+                });
             }
         }
     });

@@ -8,8 +8,9 @@
 </head>
 <body>
 <?php foreach ($orders as $order) { ?>
-<div style="page-break-after: always;">
+<div style="page-break-after: always; width: 850px;overflow: hidden;margin:0 auto;">
   <h1><?php echo $text_invoice; ?></h1>
+    <img src="view/image/invoice-header.jpg"/>
   <table class="store">
     <tr>
       <td><?php echo $order['store_name']; ?><br />

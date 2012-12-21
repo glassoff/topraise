@@ -279,7 +279,7 @@ class ModelCheckoutOrder extends Model {
 			$template->data['text_quantity'] = $language->get('text_new_quantity');
 			$template->data['text_price'] = $language->get('text_new_price');
 			$template->data['text_total'] = $language->get('text_new_total');
-			$template->data['text_footer'] = $language->get('text_new_footer');
+			$template->data['text_footer'] = sprintf($language->get('text_new_footer'), nl2br($this->config->get('config_telephone')));
 			$template->data['text_powered'] = $language->get('text_new_powered');
 			
 			$template->data['logo'] = HTTP_IMAGE . $this->config->get('config_logo');		

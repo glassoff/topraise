@@ -362,7 +362,7 @@
         margin: 0 auto;
 
         a{
-            @include link-colors(#fff, #89d9fe, #89d9fe, #fff, $aFocusColor);
+            @include link-colors(#fff, #89d9fe, #89d9fe, #fff, #89d9fe);
         }
     }
     .category-item__img{

@@ -31,6 +31,7 @@ class User {
 				$this->logout();
 			}
     	}
+
   	}
 		
   	public function login($username, $password) {
@@ -51,7 +52,7 @@ class User {
 					$this->permission[$key] = $value;
 				}
 			}
-		
+
       		return true;
     	} else {
       		return false;

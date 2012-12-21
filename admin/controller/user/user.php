@@ -175,12 +175,17 @@ class ControllerUserUser extends Controller {
     	
 		foreach ($results as $result) {
 			$action = array();
-			
-			$action[] = array(
-				'text' => $this->language->get('text_edit'),
-				'href' => $this->url->link('user/user/update', 'token=' . $this->session->data['token'] . '&user_id=' . $result['user_id'] . $url, 'SSL')
-			);
-					
+
+            if($result['user_group_id'] == 1 && !$this->user->hasPermission('modify', 'user/user_permission')){
+
+            }
+            else{
+                $action[] = array(
+                    'text' => $this->language->get('text_edit'),
+                    'href' => $this->url->link('user/user/update', 'token=' . $this->session->data['token'] . '&user_id=' . $result['user_id'] . $url, 'SSL')
+                );
+            }
+
       		$this->data['users'][] = array(
 				'user_id'    => $result['user_id'],
 				'username'   => $result['username'],
@@ -414,6 +419,12 @@ class ControllerUserUser extends Controller {
 		$this->load->model('user/user_group');
 		
     	$this->data['user_groups'] = $this->model_user_user_group->getUserGroups();
+
+        foreach($this->data['user_groups'] as $k => $_group){
+            if($_group['user_group_id'] == 1 && !$this->user->hasPermission('modify', 'user/user_permission')){
+                unset($this->data['user_groups'][$k]);
+            }
+        }
  
      	if (isset($this->request->post['status'])) {
       		$this->data['status'] = $this->request->post['status'];

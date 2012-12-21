@@ -97,7 +97,12 @@
             <tr>
               <td><?php echo $entry_image; ?></td>
               <td valign="top"><input type="hidden" name="image" value="<?php echo $image; ?>" id="image" />
-                <img src="<?php echo $preview; ?>" alt="" id="preview" class="image" onclick="image_upload('image', 'preview');" /></td>
+                <img src="<?php echo $preview; ?>" alt="" id="preview" class="image" onclick="image_upload('image', 'preview');" />
+                <br/>
+                  <a onclick="$('#preview').attr('src', '<?php echo $no_image; ?>'); $('#image').attr('value', '');">Очистить</a>
+              </td>
+
+
             </tr>
           </table>
         </div>

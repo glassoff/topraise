@@ -35,7 +35,7 @@
                 &copy; 2012 Top raise All rights reserved
             </div>
             <div class="footer__bottom__right">
-                Разработано в <a href="">AltaLab</a> Branding & I. C. laboratory
+                Разработано в <a href="http://alta-lab.com" target="_blank">AltaLab</a> Branding & I. C. laboratory
             </div>
         </div>
     </div>

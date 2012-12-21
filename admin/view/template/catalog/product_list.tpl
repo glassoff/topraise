@@ -43,11 +43,11 @@
 				<?php } else { ?>
 				<a href="<?php echo $sort_category; ?>"><?php echo $column_category; ?></a>
 			  <?php } ?></td>
-              <td class="right"><?php if ($sort == 'p.quantity') { ?>
+              <!--td class="right"><?php if ($sort == 'p.quantity') { ?>
                 <a href="<?php echo $sort_quantity; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_quantity; ?></a>
                 <?php } else { ?>
                 <a href="<?php echo $sort_quantity; ?>"><?php echo $column_quantity; ?></a>
-                <?php } ?></td>
+                <?php } ?></td-->
               <td class="left"><?php if ($sort == 'p.status') { ?>
                 <a href="<?php echo $sort_status; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_status; ?></a>
                 <?php } else { ?>
@@ -73,7 +73,7 @@
                 <?php } ?>
               <?php } ?>
               </td>
-              <td align="right"><input type="text" name="filter_quantity" value="<?php echo $filter_quantity; ?>" style="text-align: right;" /></td>
+              <!--td align="right"><input type="text" name="filter_quantity" value="<?php echo $filter_quantity; ?>" style="text-align: right;" /></td-->
               <td><select name="filter_status">
                   <option value="*"></option>
                   <?php if ($filter_status) { ?>
@@ -113,13 +113,13 @@
                 <?php } ?> <?php } ?>
             
               </td>
-              <td class="right"><?php if ($product['quantity'] <= 0) { ?>
+              <!--td class="right"><?php if ($product['quantity'] <= 0) { ?>
                 <span style="color: #FF0000;"><?php echo $product['quantity']; ?></span>
                 <?php } elseif ($product['quantity'] <= 5) { ?>
                 <span style="color: #FFA500;"><?php echo $product['quantity']; ?></span>
                 <?php } else { ?>
                 <span style="color: #008000;"><?php echo $product['quantity']; ?></span>
-                <?php } ?></td>
+                <?php } ?></td-->
               <td class="left"><?php echo $product['status']; ?></td>
               <td class="right"><?php foreach ($product['action'] as $action) { ?>
                 [ <a href="<?php echo $action['href']; ?>"><?php echo $action['text']; ?></a> ]

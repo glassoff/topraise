@@ -50,7 +50,7 @@
                       <?php } ?></td>
               </tr>
             <tr>
-              <td><span class="required">*</span> <?php echo $entry_email; ?></td>
+              <td><span class="required">*</span> <?php echo $entry_email; ?><br/><span class="help">Контактный email магазина (отображается на сайте)</span></td>
               <td><input type="text" name="config_email" value="<?php echo $config_email; ?>" size="40" />
                 <?php if ($error_email) { ?>
                 <span class="error"><?php echo $error_email; ?></span>
@@ -748,6 +748,14 @@
                 <?php echo $text_no; ?>
                 <?php } ?></td>
             </tr>
+              <tr>
+                  <td>Адреса для оповещений о заказе<br/><span class="help">Список email адресов через запятую</span></td>
+                  <td><input type="text" name="config_order_email" value="<?php echo $config_order_email; ?>" size="30"/></td>
+              </tr>
+              <tr>
+                  <td>Адреса для оповещений о сотрудничестве<br/><span class="help">Список email адресов через запятую</span></td>
+                  <td><input type="text" name="config_other_email" value="<?php echo $config_other_email; ?>" size="30"/></td>
+              </tr>
             <tr>
               <td><?php echo $entry_account_mail; ?></td>
               <td><?php if ($config_account_mail) { ?>

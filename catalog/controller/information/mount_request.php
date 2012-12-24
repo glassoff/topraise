@@ -16,7 +16,7 @@ class ControllerInformationMountRequest extends Controller {
             $mail->password = $this->config->get('config_smtp_password');
             $mail->port = $this->config->get('config_smtp_port');
             $mail->timeout = $this->config->get('config_smtp_timeout');
-            $mail->setTo($this->config->get('config_email'));
+            //$mail->setTo($this->config->get('config_email'));
             $mail->setFrom($this->config->get('config_email'));
             $mail->setSender($this->request->post['name']);
             $mail->setSubject(html_entity_decode(sprintf($this->language->get('email_subject'), $this->request->post['name']), ENT_QUOTES, 'UTF-8'));
@@ -32,7 +32,16 @@ class ControllerInformationMountRequest extends Controller {
                 ENT_QUOTES, 'UTF-8');
 
             $mail->setText(strip_tags(html_entity_decode($emailText, ENT_QUOTES, 'UTF-8')));
-            $mail->send();
+            //$mail->send();
+
+            $emails = explode(',', $this->config->get('config_other_email'));
+
+            foreach ($emails as $email) {
+                if ($email && preg_match('/^[^\@]+@.*\.[a-z]{2,6}$/i', $email)) {
+                    $mail->setTo($email);
+                    $mail->send();
+                }
+            }
 
             $this->redirect($this->url->link('information/mount_request/success'));
         }

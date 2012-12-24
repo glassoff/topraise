@@ -550,13 +550,22 @@ class ModelCheckoutOrder extends Model {
 				$mail->password = $this->config->get('config_smtp_password');
 				$mail->port = $this->config->get('config_smtp_port');
 				$mail->timeout = $this->config->get('config_smtp_timeout');
-				$mail->setTo($this->config->get('config_email'));
+				//$mail->setTo($this->config->get('config_email'));
 				$mail->setFrom($this->config->get('config_email'));
 				$mail->setSender($order_info['store_name']);
 				$mail->setSubject(html_entity_decode($subject, ENT_QUOTES, 'UTF-8'));
 				$mail->setText(html_entity_decode($text, ENT_QUOTES, 'UTF-8'));
-				$mail->send();
-				
+				//$mail->send();
+
+                $emails = explode(',', $this->config->get('config_order_email'));
+
+                foreach ($emails as $email) {
+                    if ($email && preg_match('/^[^\@]+@.*\.[a-z]{2,6}$/i', $email)) {
+                        $mail->setTo($email);
+                        $mail->send();
+                    }
+                }
+
 				// Send to additional alert emails
 				$emails = explode(',', $this->config->get('config_alert_emails'));
 				

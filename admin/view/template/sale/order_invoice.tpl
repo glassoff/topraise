@@ -117,6 +117,50 @@
     </tr>
   </table>
   <?php } ?>
+    <table class="sign" align="right">
+        <tr>
+            <td>
+                Дата: ___ ___________ ______
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table align="right">
+                    <tr>
+                        <td>Покупатель: </td>
+                        <td>__________________ /</td>
+                        <td> _________________</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="text-align: center;">Ф.И.О.</td>
+                        <td style="text-align: center;">Подпись</td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table align="right">
+                    <tr>
+                        <td>Продавец: </td>
+                        <td>__________________ /</td>
+                        <td> _________________</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="text-align: center;">Ф.И.О.</td>
+                        <td style="text-align: center;">Подпись</td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+        <tr>
+            <td><br>М.П<br><br></td>
+        </tr>
+    </table>
 </div>
 <?php } ?>
 </body>

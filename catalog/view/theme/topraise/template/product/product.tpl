@@ -65,6 +65,12 @@
                         <div id="description" class="typography"><?php echo $description; ?></div>
                         <div id="specs">
                             <table class="specs__table">
+                                <?php if($product_info['manufacturer']): ?>
+                                    <tr>
+                                        <td><?php echo $text_manufacturer ?></td>
+                                        <td><?php echo $product_info['manufacturer'] ?></td>
+                                    </tr>
+                                <?php endif; ?>
                                 <?php foreach ($attribute_groups as $attribute_group): ?>
                                     <?php foreach ($attribute_group['attribute'] as $attribute): ?>
                                     <tr>

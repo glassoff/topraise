@@ -162,9 +162,10 @@
             </tr>
             <tr>
               <td><?php echo $entry_dimension; ?></td>
-              <td><input type="text" name="length" value="<?php echo $length; ?>" size="4" />
-                <input type="text" name="width" value="<?php echo $width; ?>" size="4" />
-                <input type="text" name="height" value="<?php echo $height; ?>" size="4" /></td>
+              <td><input type="text" name="height" value="<?php echo $height; ?>" size="4" />
+                  <input type="text" name="width" value="<?php echo $width; ?>" size="4" />
+                  <input type="text" name="length" value="<?php echo $length; ?>" size="4" />
+                </td>
             </tr>
             <tr>
               <td><?php echo $entry_length; ?></td>

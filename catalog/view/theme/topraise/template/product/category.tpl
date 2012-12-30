@@ -8,7 +8,7 @@
         <?php echo $column_left; ?>
 
         <div class="page__middle__right content">
-            <h1 class="content__header"><?php echo $heading_title; ?></h1>
+            <h1 class="content__header"><?php echo $seo_h1; ?></h1>
 
             <?php if ($categories) { ?>
                 <div class="catalog-container">
@@ -40,7 +40,7 @@
                 <!-- categories -->
                 </div>
                 <?php if(strlen($description) > 0): ?>
-                    <h2 class="subheader"><?php echo $heading_title; ?></h2>
+                    <h2 class="subheader"><?php echo $seo_h1; ?></h2>
                     <div class="typography"><?php echo $description; ?></div>
                 <?php endif; ?>
             <?php } elseif($products) { ?>
@@ -136,6 +136,12 @@
                     <!-- products -->
                 </div>
                 <div class="pagination"><?php echo $pagination; ?></div>
+
+                <?php if(strlen($description) > 0): ?>
+                <h2 class="subheader"><?php echo $seo_h1; ?></h2>
+                <div class="typography"><?php echo $description; ?></div>
+                <?php endif; ?>
+
             <?php } ?>
 
             <?php if (!$categories && !$products) { ?>

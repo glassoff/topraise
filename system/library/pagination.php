@@ -3,7 +3,7 @@ class Pagination {
 	public $total = 0;
 	public $page = 1;
 	public $limit = 20;
-	public $num_links = 8;
+	public $num_links = 4;
 	public $url = '';
 	public $text = 'Showing {start} to {end} of {total} ({pages} Pages)';
 	public $text_first = 1;//'|&lt;';
@@ -91,7 +91,7 @@ class Pagination {
 		}
 
    		if ($page < $num_pages && $end != $num_pages) {
-			$output .= /*' <a href="' . str_replace('{page}', $page + 1, $this->url) . '">' . $this->text_next . '</a>*/' <a href="' . str_replace('{page}', $num_pages, $this->url) . '">' . $this->total . '</a> ';
+			$output .= /*' <a href="' . str_replace('{page}', $page + 1, $this->url) . '">' . $this->text_next . '</a>*/' <a href="' . str_replace('{page}', $num_pages, $this->url) . '">' . $num_pages . '</a> ';
 		}
 		
 		$find = array(

@@ -23,7 +23,7 @@ class ControllerInformationOpt extends Controller {
             $mail->setText(strip_tags(html_entity_decode($this->request->post['enquiry'], ENT_QUOTES, 'UTF-8')));
             //$mail->send();
 
-            $emails = explode(',', $this->config->get('config_other_email'));
+            $emails = explode(',', $this->config->get('config_order_email'));
 
             foreach ($emails as $email) {
                 if ($email && preg_match('/^[^\@]+@.*\.[a-z]{2,6}$/i', $email)) {

@@ -13,3 +13,4 @@ install/*
 .DS_Store
 config.php
 admin/config.php
+image/data/*

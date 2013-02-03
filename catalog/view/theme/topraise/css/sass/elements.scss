@@ -729,6 +729,12 @@
     @include clearfix;
     width: 270px;
 }
+.product-item-left_special{
+    .price_old{
+        text-decoration: line-through;
+        color: #9d9c9c;
+    }
+}
     .product-item-left__img{
         @include float-left;
         img{

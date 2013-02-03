@@ -3,7 +3,7 @@
         <th><div style="font-size: 14pt; width: 200px;">характеристики товара</div></th>
         <?php foreach($products as $product): ?>
         <th>
-            <div class="product-item-left">
+            <div class="product-item-left <?php if($product['special']): ?>product-item-left_special<?php endif; ?>">
                 <a href="<?php echo $product['remove']; ?>" class="product-item-left__remove" title="Убрать из списка сравнения"></a>
                 <a href="<?php echo $product['href']; ?>" class="product-item-left__img" title="<?php echo $product['name']; ?>">
                     <img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>"/>
@@ -15,7 +15,12 @@
                         </a>
                     </h4>
                     <div class="product-item-left__content__description">
-                        <p><span class="price"><?php echo $product['price'] ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span></p>
+                        <p>
+                        <?php if($product['special']): ?>
+                            <span class="price"><?php echo $product['special'] ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span><br/>
+                        <?php endif; ?>
+                        <span class="price price_old"><?php echo $product['price'] ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span>
+                        </p>
                     </div>
                 </div>
             </div>

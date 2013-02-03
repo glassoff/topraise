@@ -16,7 +16,7 @@
             <div class="catalog-container">
                 <!-- products -->
                 <?php foreach ($products as $product) { ?>
-                <div class="product-item product-item_full">
+                <div class="product-item product-item_full <?php if($product['special']): ?>product-item_special<?php endif; ?>">
                     <div class="product-item__img">
                         <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" /></a>
                     </div>
@@ -27,6 +27,16 @@
                         </div>
                     </div>
                     <div class="product-item__buy">
+                        <?php if($product['special']): ?>
+                        <div class="product-item__discount">
+                            <div class="product-item__discount__price">
+                                <span class="price price__big"><?php echo $product['special'] ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span>
+                            </div>
+                            <div class="product-item__discount__title">
+                                Новая цена
+                            </div>
+                        </div>
+                        <?php endif; ?>
                         <span class="price price__big"><?php echo $product['price']; ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span>
                         <button class="button button_buy tocart" data-productid="<?php echo $product['product_id']; ?>">Купить</button>
                     </div>

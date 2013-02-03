@@ -1,9 +1,1 @@
-/* line 8, ../sass/pages.scss */
-.catalog-container {
-  overflow: hidden;
-  *zoom: 1;
-}
-/* line 10, ../sass/pages.scss */
-.catalog-container .product-item, .catalog-container .category-item {
-  margin: 0 0 18px 35px;
-}
+.catalog-container{overflow:hidden;*zoom:1}.catalog-container .product-item,.catalog-container .category-item{margin:0 0 18px 35px}

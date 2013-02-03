@@ -11,7 +11,7 @@
             <h1 class="content__header content__header_product"><?php echo $heading_title; ?></h1>
             <span class="content_product__sku">№ товара <?php echo $product_info['sku'] ?></span>
 
-            <div class="product-content">
+            <div class="product-content <?php if($special): ?>product-content__special<?php endif; ?>">
                 <div class="compare-products">
                     <div class="compare-products__off" style="<?php if($compared): ?>display: none;<?php endif; ?>">
                         <span class="no-active">Сравнить товар</span>
@@ -57,6 +57,16 @@
                             <img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"/>
                         <?php endif; ?>
                         <div class="product-item__buy">
+                            <?php if($special): ?>
+                            <div class="product-item__discount">
+                                <div class="product-item__discount__price">
+                                    <span class="price price__big"><?php echo $special ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span>
+                                </div>
+                                <div class="product-item__discount__title">
+                                    Новая цена
+                                </div>
+                            </div>
+                            <?php endif; ?>
                             <span class="price price__big"><?php echo $price ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span>
                             <button class="button button_buy" id="button-cart">Купить</button>
                         </div>

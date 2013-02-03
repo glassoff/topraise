@@ -262,6 +262,7 @@ p{
 .price{
     font-size: 12pt;
     text-align: left;
+    vertical-align: middle;
 }
     .price__sign{
         font-family: "Rubl-Verdana";
@@ -300,7 +301,8 @@ p{
     background: 0 0 no-repeat url(../../images/button-buy.png);
     color:#000;
     margin: 0 0 0 3px;
-    font-size:9pt;    
+    font-size:9pt;
+    vertical-align:middle;
     &:hover{
         background-position: -61px 0;
     }

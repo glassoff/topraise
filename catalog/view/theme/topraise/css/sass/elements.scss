@@ -488,6 +488,9 @@
             color:#9d9c9c;
             text-decoration: line-through;
         }
+        .product-item__discount__price{
+            top:7px;
+        }
     }
         .product-content__center{
             @include clearfix;

@@ -613,7 +613,12 @@ class ModelCatalogProduct extends Model {
     public function getCategoryMainProduct($categoryId)
     {
         $sql = "SELECT pc.product_id FROM " . DB_PREFIX . "product_to_category pc
-            WHERE pc.category_id = '$categoryId' LIMIT 0, 1";
+            LEFT JOIN " . DB_PREFIX . "product p ON (p.product_id = pc.product_id)
+            LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id)
+            LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id)
+            WHERE pc.category_id = '$categoryId' AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "'
+            AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'
+            LIMIT 0, 1";
 
         $query = $this->db->query($sql);
 

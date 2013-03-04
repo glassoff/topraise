@@ -326,7 +326,13 @@ class ModelCatalogProduct extends Model {
             //
             if($query->num_rows < $limit){
                 $limit = $limit - $query->num_rows;
-                $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "product` p ORDER BY viewed DESC LIMIT " . (int)$limit);
+                $ids = implode(', ', array_keys($product_data));
+                $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "product` p
+                    LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id)
+                    WHERE p.status = '1' AND p.date_available <= NOW()
+			                   AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'
+			                   AND p.product_id NOT IN ($ids)
+			        ORDER BY viewed DESC LIMIT " . (int)$limit);
                 foreach ($query->rows as $result) {
                     $product_data[$result['product_id']] = $this->getProduct($result['product_id']);
                 }

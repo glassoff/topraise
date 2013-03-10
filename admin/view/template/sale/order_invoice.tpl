@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php foreach ($orders as $order) { ?>
-<div style="page-break-after: always; width: 850px;overflow: hidden;margin:0 auto;margin-top:10px;">
+<div style="<?php if (count($orders) > 1):?>page-break-after: always;<?php endif; ?> width: 850px;overflow: hidden;margin:0 auto;margin-top:10px;">
   <h1><?php echo $text_invoice; ?></h1>
     <img src="view/image/invoice-header.jpg"/>
   <table class="store">

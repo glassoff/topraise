@@ -1,7 +1,13 @@
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
 body {
 	background: #FFFFFF;
     margin:0;
     padding:0;
+    height: 100%;
 }
 body, td, th, input, select, textarea, option, optgroup {
 	font-family: Verdana, Arial, Helvetica, sans-serif;

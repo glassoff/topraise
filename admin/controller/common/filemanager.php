@@ -483,9 +483,25 @@ class ControllerCommonFileManager extends Controller {
       		$json['error'] = $this->language->get('error_permission');  
     	}
 		
-		if (!isset($json['error'])) {	
+		if (!isset($json['error'])) {
+            $exists = false;
+            if(file_exists($directory . '/' . $filename)){
+                $parts = pathinfo($filename);
+                $fname = basename($filename, '.'.$parts['extension']);
+                for($i = 1; true; $i++){
+                    $filename = $fname . '(copy' . $i . ')' . '.'.$parts['extension'];
+                    if(!file_exists($directory . '/' . $filename)){
+                        break;
+                    }
+                }
+                $exists = true;
+            }
+
 			if (@move_uploaded_file($this->request->files['image']['tmp_name'], $directory . '/' . $filename)) {		
 				$json['success'] = $this->language->get('text_uploaded');
+                if($exists){
+                    $json['success'] .= ' Файл с таким именем уже существует, поэтому загруженный файл был переименован в ' . $filename;
+                }
 			} else {
 				$json['error'] = $this->language->get('error_uploaded');
 			}

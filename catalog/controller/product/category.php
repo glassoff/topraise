@@ -155,18 +155,43 @@ class ControllerProductCategory extends Controller {
 			$results = $this->model_catalog_category->getCategories($category_id);
 			
 			foreach ($results as $result) {
-				$data = array(
-					'filter_category_id'  => $result['category_id'],
-					'filter_sub_category' => true	
-				);
-							
-				$product_total = $this->model_catalog_product->getTotalProducts($data);
-				
-				$this->data['categories'][] = array(
-					'name'  => $result['name'] . ' (' . $product_total . ')',
-					'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url),
-                    'main_product' => $this->processProduct($this->model_catalog_product->getCategoryMainProduct($result['category_id'])),
-				);
+                //get three level categories
+                $subcategories = array();
+                $results3 = $this->model_catalog_category->getCategories($result['category_id']);
+                if(count($results3) > 0){
+                    foreach($results3 as $result3){
+                        $data = array(
+                            'filter_category_id'  => $result3['category_id'],
+                            'filter_sub_category' => true
+                        );
+                        $product_total = $this->model_catalog_product->getTotalProducts($data);
+                        $result3['name'] = $result3['name'] . ' (' . $product_total . ')';
+                        $result3['href'] = $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result3['category_id'] . $url);
+                        $subcategories[] = $result3;
+                    }
+
+                    $this->data['categories'][] = array(
+                        'name'  => $result['name'],
+                        'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url),
+                        'subcategories' => $subcategories,
+                        'image'  => $this->model_tool_image->resize($result['image'], 188, 439)//XXX
+                    );
+                }
+                else{
+                    $data = array(
+                        'filter_category_id'  => $result['category_id'],
+                        'filter_sub_category' => true
+                    );
+
+                    $product_total = $this->model_catalog_product->getTotalProducts($data);
+
+                    $this->data['categories'][] = array(
+                        'name'  => $result['name'] . ' (' . $product_total . ')',
+                        'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url),
+                        'main_product' => $this->processProduct($this->model_catalog_product->getCategoryMainProduct($result['category_id'])),
+                        'subcategories' => $subcategories
+                    );
+                }
 			}
 
             //get category products

@@ -14,36 +14,49 @@
                 <div class="catalog-container">
                 <!-- categories -->
                 <?php foreach ($categories as $category) { ?>
-                    <?php $product = $category['main_product']; ?>
                     <div class="category-item">
                         <h3 class="category-item__title"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></h3>
                         <div class="category-item__img"></div>
 
-                        <div class="product-item product-item_full <?php if($product['special']): ?>product-item_special<?php endif; ?>">
-                            <div class="product-item__img">
-                                <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" /></a>
+                        <?php if(count($category['subcategories']) > 0): ?>
+                            <!-- image 188x439 -->
+                            <div class="product-item product-item_full subcategories" style="background-image: url(<?php echo $category['image'] ?>);">
+                                <ul>
+                                <?php foreach($category['subcategories'] as $subcategory): ?>
+                                    <li>
+                                        <a href="<?php echo $subcategory['href'] ?>"><?php echo $subcategory['name'] ?></a>
+                                    </li>
+                                <?php endforeach; ?>
+                                </ul>
                             </div>
-                            <div class="product-item__middle">
-                                <h4 class="product-item__title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
-                                <div class="product-item__description">
-                                    <?php echo $product['description']; ?>
+                        <?php else: ?>
+                            <?php $product = $category['main_product']; ?>
+                            <div class="product-item product-item_full <?php if($product['special']): ?>product-item_special<?php endif; ?>">
+                                <div class="product-item__img">
+                                    <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" /></a>
+                                </div>
+                                <div class="product-item__middle">
+                                    <h4 class="product-item__title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
+                                    <div class="product-item__description">
+                                        <?php echo $product['description']; ?>
+                                    </div>
+                                </div>
+                                <div class="product-item__buy">
+                                    <?php if($product['special']): ?>
+                                    <div class="product-item__discount">
+                                        <div class="product-item__discount__price">
+                                            <span class="price price__big"><?php echo $product['special'] ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span>
+                                        </div>
+                                        <div class="product-item__discount__title">
+                                            Новая цена
+                                        </div>
+                                    </div>
+                                    <?php endif; ?>
+                                    <span class="price price__big"><?php echo $product['price']; ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span>
+                                    <button class="button button_buy tocart" data-productid="<?php echo $product['product_id']; ?>">Купить</button>
                                 </div>
                             </div>
-                            <div class="product-item__buy">
-                                <?php if($product['special']): ?>
-                                <div class="product-item__discount">
-                                    <div class="product-item__discount__price">
-                                        <span class="price price__big"><?php echo $product['special'] ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span>
-                                    </div>
-                                    <div class="product-item__discount__title">
-                                        Новая цена
-                                    </div>
-                                </div>
-                                <?php endif; ?>
-                                <span class="price price__big"><?php echo $product['price']; ?> <span class="price__sign">Р</span><span class="price__dot">уб.</span></span>
-                                <button class="button button_buy tocart" data-productid="<?php echo $product['product_id']; ?>">Купить</button>
-                            </div>
-                        </div>
+                        <?php endif; ?>
 
                     </div>
                 <?php } ?>

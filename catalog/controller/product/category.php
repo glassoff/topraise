@@ -166,7 +166,7 @@ class ControllerProductCategory extends Controller {
                         );
                         $product_total = $this->model_catalog_product->getTotalProducts($data);
                         $result3['name'] = $result3['name'] . ' (' . $product_total . ')';
-                        $result3['href'] = $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result3['category_id'] . $url);
+                        $result3['href'] = $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . '_' . $result3['category_id'] . $url);
                         $subcategories[] = $result3;
                     }
 

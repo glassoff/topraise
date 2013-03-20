@@ -19,6 +19,21 @@
                             <?php } else { ?>
                             <a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
                             <?php } ?>
+
+                            <?php if ($child['children']) { ?>
+                            <ul>
+                                <?php foreach ($child['children'] as $child3) { ?>
+                                <li>
+                                    <?php if ($child3['category_id'] == $child3_id) { ?>
+                                    <a href="<?php echo $child3['href']; ?>" class="active"><?php echo $child3['name']; ?></a>
+                                    <?php } else { ?>
+                                    <a href="<?php echo $child3['href']; ?>"><?php echo $child3['name']; ?></a>
+                                    <?php } ?>
+                                </li>
+                                <?php } ?>
+                            </ul>
+                            <?php } ?>
+
                         </li>
                         <?php } ?>
                     </ul>

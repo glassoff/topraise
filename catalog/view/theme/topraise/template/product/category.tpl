@@ -20,7 +20,7 @@
 
                         <?php if(count($category['subcategories']) > 0): ?>
                             <!-- image 188x439 -->
-                            <div class="product-item product-item_full subcategories" style="background-image: url(<?php echo $category['image'] ?>);">
+                            <div class="product-item product-item_full subcategories" style="background-image: url('<?php echo $category['image'] ?>');">
                                 <ul>
                                 <?php foreach($category['subcategories'] as $subcategory): ?>
                                     <li>

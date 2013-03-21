@@ -22,7 +22,7 @@
 
     <link href="catalog/view/theme/topraise/css/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
     <link href="catalog/view/theme/topraise/css/stylesheets/layout.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <link href="catalog/view/theme/topraise/css/stylesheets/elements.css?v=3" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="catalog/view/theme/topraise/css/stylesheets/elements.css?v=4" media="screen, projection" rel="stylesheet" type="text/css" />
     <link href="catalog/view/theme/topraise/css/stylesheets/pages.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <!--[if lt IE 8]>
     <link href="catalog/view/theme/topraise/css/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />

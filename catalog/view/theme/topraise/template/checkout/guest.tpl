@@ -136,7 +136,7 @@
                                 $('#payment-address select[name=\'zone_id\'] + br').after('<span class="error">' + json['error']['zone'] + '</span>');
                             }
                         } else {
-                            document.location = "index.php?route=checkout/confirm";
+                            document.location = "index.php?route=checkout/payment_method";
                         }
                     },
                     error: function(xhr, ajaxOptions, thrownError) {

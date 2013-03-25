@@ -43,19 +43,19 @@ class ControllerCheckoutPaymentMethod extends Controller {
 			$this->load->model('setting/extension');
 			
 			$results = $this->model_setting_extension->getExtensions('payment');
-	
+
 			foreach ($results as $result) {
 				if ($this->config->get($result['code'] . '_status')) {
 					$this->load->model('payment/' . $result['code']);
 					
-					$method = $this->{'model_payment_' . $result['code']}->getMethod($payment_address, $total); 
+					$method = $this->{'model_payment_' . $result['code']}->getMethod($payment_address, $total);
 					
 					if ($method) {
 						$method_data[$result['code']] = $method;
 					}
 				}
 			}
-						 
+
 			$sort_order = array(); 
 		  
 			foreach ($method_data as $key => $value) {
@@ -115,12 +115,27 @@ class ControllerCheckoutPaymentMethod extends Controller {
 		} else {
 			$this->data['agree'] = '';
 		}
+
+          $this->data['totals'] = $total_data;
+
+          $this->data['total'] = $total;
+
 			
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/payment_method.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/checkout/payment_method.tpl';
 		} else {
 			$this->template = 'default/template/checkout/payment_method.tpl';
 		}
+
+          $this->children = array(
+              'common/column_left',
+              'common/column_right',
+              'common/content_bottom',
+              'common/content_top',
+              'common/footer',
+              'common/header',
+              'module/cart_products',
+          );
 		
 		$this->response->setOutput($this->render());
   	}

@@ -416,7 +416,7 @@ class ControllerCheckoutGuest extends Controller {
 			$this->session->data['account'] = 'guest';
 
             //set payment method ##
-            $method_data = array();
+            /*$method_data = array();
 
             $this->load->model('setting/extension');
 
@@ -435,7 +435,7 @@ class ControllerCheckoutGuest extends Controller {
                 }
             }
             //print_r($method_data);die();
-            $this->session->data['payment_method'] = $method_data['free_checkout'];
+            $this->session->data['payment_method'] = $method_data['free_checkout'];*/
 
 			
 			//unset($this->session->data['shipping_method']);

@@ -397,7 +397,7 @@ class ControllerCheckoutConfirm extends Controller {
             $this->data['total'] = $total;
         }
 
-        $this->data['back'] = $this->url->link('checkout/guest', '', 'SSL');
+        $this->data['back'] = $this->url->link('checkout/payment_method', '', 'SSL');
 
         if(isset($data)){
             unset($data['products']);

@@ -51,7 +51,7 @@
 
 
         <div class="content_checkout__bottom">
-            <a class="button button_a content_checkout__button" href="<?php echo $back; ?>">Вернуться</a>
+            <a class="button button_a content_checkout__button" href="<?php echo $back; ?>#content">Вернуться</a>
             <button class="button content_checkout__button content_checkout__button_next" type="submit" id="button-payment-method">Продолжить</button>
             <div class="checkout-amount">
                 <div class="checkout-price">
@@ -72,7 +72,7 @@
                 $.ajax({
                     url: 'index.php?route=checkout/payment_method/validate',
                     type: 'post',
-                    data: $('#payment-method input[type=\'radio\']:checked, #payment-method input[type=\'checkbox\']:checked, #payment-method textarea'),
+                    data: $('#payment-method input[type=\'radio\']:checked, #payment-method input[type=\'hidden\'], #payment-method input[type=\'checkbox\']:checked, #payment-method textarea'),
                     dataType: 'json',
                     beforeSend: function() {
                         $('#button-payment-method').attr('disabled', true);
@@ -94,7 +94,7 @@
                                 $('.warning').fadeIn('slow');
                             }
                         } else {
-                            document.location = "index.php?route=checkout/confirm";
+                            document.location = "index.php?route=checkout/confirm#content";
                         }
                     },
                     error: function(xhr, ajaxOptions, thrownError) {

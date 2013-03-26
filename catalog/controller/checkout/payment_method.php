@@ -120,6 +120,8 @@ class ControllerCheckoutPaymentMethod extends Controller {
 
           $this->data['total'] = $total;
 
+          $this->data['back'] = $this->url->link('checkout/guest', '', 'SSL');
+
 			
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/payment_method.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/checkout/payment_method.tpl';

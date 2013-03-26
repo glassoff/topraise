@@ -49,7 +49,7 @@
 
 
         <div class="content_checkout__bottom">
-            <a class="button button_a content_checkout__button" href="<?php echo $back; ?>">Вернуться</a>
+            <a class="button button_a content_checkout__button" href="<?php echo $back; ?>#content">Вернуться</a>
             <button class="button content_checkout__button content_checkout__button_next" type="submit" id="button-guest">Продолжить</button>
             <div class="checkout-amount">
                 <div class="checkout-price">
@@ -136,7 +136,7 @@
                                 $('#payment-address select[name=\'zone_id\'] + br').after('<span class="error">' + json['error']['zone'] + '</span>');
                             }
                         } else {
-                            document.location = "index.php?route=checkout/payment_method";
+                            document.location = "index.php?route=checkout/payment_method#content";
                         }
                     },
                     error: function(xhr, ajaxOptions, thrownError) {

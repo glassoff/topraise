@@ -103,8 +103,8 @@
 
 
 
-        <div class="content_checkout__bottom">
-            <a class="button button_a content_checkout__button" href="<?php echo $back; ?>">Вернуться</a>
+        <div class="_content_checkout__bottom">
+            <a class="button button_a content_checkout__button" href="<?php echo $back; ?>#content">Вернуться</a>
 
             <?php echo $payment; ?>
 

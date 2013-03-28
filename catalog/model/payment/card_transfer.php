@@ -22,14 +22,12 @@ class ModelPaymentCardTransfer extends Model {
 
             $count = count($payments);
 
-            $i = 0;
-            foreach ($payments as $payment) {
-                $i++;
+            foreach ($payments as $i => $payment) {
                 if(!$payment['card_transfer_status']){
                     continue;
                 }
                 $method_data[] = array(
-                    'code'       => 'card_transfer',
+                    'code'       => 'card_transfer' . '_' . $i,
                     'title'      => $this->language->get('text_title') . ' ' . $payment['card_transfer_name'],
                     'sort_order' => $this->config->get('card_transfer_sort_order') + $payment['card_transfer_sort_order'] / 10
                 );

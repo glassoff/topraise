@@ -53,11 +53,8 @@ class ControllerCheckoutPaymentMethod extends Controller {
 					
 					if ($method) {
                         if($count > 0){
-                            $i = 0;
                             foreach ($method as $m) {
-                                $i++;
-                                $m['code'] = $m['code'] . '_' . $i;
-                                $method_data[$result['code'] . '_' . $i] = $m;
+                                $method_data[$m['code']] = $m;
                             }
 
                         }

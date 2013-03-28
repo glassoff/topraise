@@ -1,6 +1,11 @@
 <?php
 class ControllerPaymentCardTransfer extends Controller {
-    protected function index() {
+    protected function index($args) {
+
+        $method = $args['method'];
+        $parts = explode('_', $method);
+        $id = array_pop($parts);
+
         $this->language->load('payment/card_transfer');
 
         $this->data['text_instruction'] = $this->language->get('text_instruction');
@@ -9,7 +14,13 @@ class ControllerPaymentCardTransfer extends Controller {
 
         $this->data['button_confirm'] = $this->language->get('button_confirm');
 
-        $this->data['bank'] = nl2br($this->config->get('card_transfer_bank_' . $this->config->get('config_language_id')));
+
+        $payments = $this->config->get('card_payment');//print_r($payments);die();
+        $payment = $payments[$id];
+
+        $this->data['bank'] = $payment['card_transfer_bank_' . $this->config->get('config_language_id')];
+
+        //$this->data['bank'] = nl2br($this->config->get('card_transfer_bank_' . $this->config->get('config_language_id')));
 
         $this->data['continue'] = $this->url->link('checkout/success');
 

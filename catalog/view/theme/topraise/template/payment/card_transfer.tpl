@@ -14,6 +14,7 @@ $('#button-confirm').bind('click', function() {
     $.ajax({
         type: 'get',
         url: 'index.php?route=payment/card_transfer/confirm',
+        data: {'id': '<?php echo $id ?>'},
         success: function() {
             location = '<?php echo $continue; ?>';
         }

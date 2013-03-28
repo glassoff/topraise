@@ -6,6 +6,8 @@ class ControllerPaymentCardTransfer extends Controller {
         $parts = explode('_', $method);
         $id = array_pop($parts);
 
+        $this->data['id'] = $id;
+
         $this->language->load('payment/card_transfer');
 
         $this->data['text_instruction'] = $this->language->get('text_instruction');
@@ -38,8 +40,16 @@ class ControllerPaymentCardTransfer extends Controller {
 
         $this->load->model('checkout/order');
 
+        $id = $this->request->get['id'];
+
+        $payments = $this->config->get('card_payment');
+        $payment = $payments[$id];
+
         $comment  = $this->language->get('text_instruction') . "\n\n";
-        $comment .= $this->config->get('card_transfer_bank_' . $this->config->get('config_language_id')) . "\n\n";
+        //$comment .= $this->config->get('card_transfer_bank_' . $this->config->get('config_language_id')) . "\n\n";
+
+        $comment .= $payment['card_transfer_bank_' . $this->config->get('config_language_id')] . "\n\n";
+
         $comment .= $this->language->get('text_payment');
 
         $this->model_checkout_order->confirm($this->session->data['order_id'], $this->config->get('card_transfer_order_status_id'), $comment, true);

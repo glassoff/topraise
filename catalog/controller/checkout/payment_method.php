@@ -47,11 +47,23 @@ class ControllerCheckoutPaymentMethod extends Controller {
 			foreach ($results as $result) {
 				if ($this->config->get($result['code'] . '_status')) {
 					$this->load->model('payment/' . $result['code']);
-					
-					$method = $this->{'model_payment_' . $result['code']}->getMethod($payment_address, $total);
+
+                    $count = 0;
+					$method = $this->{'model_payment_' . $result['code']}->getMethod($payment_address, $total, $count);
 					
 					if ($method) {
-						$method_data[$result['code']] = $method;
+                        if($count > 0){
+                            $i = 0;
+                            foreach ($method as $m) {
+                                $i++;
+                                $m['code'] = $m['code'] . '_' . $i;
+                                $method_data[$result['code'] . '_' . $i] = $m;
+                            }
+
+                        }
+                        else{
+                            $method_data[$result['code']] = $method;
+                        }
 					}
 				}
 			}
@@ -64,7 +76,7 @@ class ControllerCheckoutPaymentMethod extends Controller {
 	
 			array_multisort($sort_order, SORT_ASC, $method_data);			
 			
-			$this->session->data['payment_methods'] = $method_data;			
+			$this->session->data['payment_methods'] = $method_data;
 		}			
 		
 		$this->data['text_payment_method'] = $this->language->get('text_payment_method');
@@ -183,7 +195,7 @@ class ControllerCheckoutPaymentMethod extends Controller {
 				break;
 			}				
 		}
-											
+
 		if (!$json) {
 			if (!isset($this->request->post['payment_method'])) {
 				$json['error']['warning'] = $this->language->get('error_payment');

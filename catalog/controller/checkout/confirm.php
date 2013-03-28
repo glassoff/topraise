@@ -387,8 +387,9 @@ class ControllerCheckoutConfirm extends Controller {
 			}  
 
 			$this->data['totals'] = $total_data;
-	
-			$this->data['payment'] = $this->getChild('payment/' . $this->session->data['payment_method']['code']);
+
+            $paymentClass = preg_replace('/_\d/', '', $this->session->data['payment_method']['code']);
+			$this->data['payment'] = $this->getChild('payment/' . $paymentClass);
 		} else {
 			$this->data['redirect'] = $redirect;
 		}

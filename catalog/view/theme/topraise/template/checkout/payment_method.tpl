@@ -14,13 +14,18 @@
                         <div class="checkout-steps__item__title">Покупка</div>
                         <div class="checkout-steps__arrow"></div>
                     </div>
-                    <div class="checkout-steps__item checkout-steps__item_active">
+                    <div class="checkout-steps__item">
                         <div class="checkout-steps__point">2</div>
                         <div class="checkout-steps__item__title">Контактная информация</div>
                         <div class="checkout-steps__arrow"></div>
                     </div>
-                    <div class="checkout-steps__item">
+                    <div class="checkout-steps__item checkout-steps__item_active">
                         <div class="checkout-steps__point">3</div>
+                        <div class="checkout-steps__item__title">Способ оплаты</div>
+                        <div class="checkout-steps__arrow"></div>
+                    </div>
+                    <div class="checkout-steps__item">
+                        <div class="checkout-steps__point">4</div>
                         <div class="checkout-steps__item__title">Подтверждение</div>
                         <div class="checkout-steps__arrow"></div>
                     </div>

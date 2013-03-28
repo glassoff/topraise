@@ -86,11 +86,11 @@
                                 <?php } ?></td>
                         </tr>
                         <?php } ?>
-                        <tr>
+                        <!--tr>
                             <td><?php echo $entry_total; ?></td>
                             <td><input type="text" name="card_payment[<?php echo $payment_row ?>][card_transfer_total]" value="<?php echo $payment['card_transfer_total']; ?>" /></td>
-                        </tr>
-                        <tr>
+                        </tr-->
+                        <!--tr>
                             <td><?php echo $entry_order_status; ?></td>
                             <td><select name="card_payment[<?php echo $payment_row ?>][card_transfer_order_status_id]">
                                 <?php foreach ($order_statuses as $order_status) { ?>
@@ -101,8 +101,8 @@
                                 <?php } ?>
                                 <?php } ?>
                             </select></td>
-                        </tr>
-                        <tr>
+                        </tr-->
+                        <!--tr>
                             <td><?php echo $entry_geo_zone; ?></td>
                             <td><select name="card_payment[<?php echo $payment_row ?>][card_transfer_geo_zone_id]">
                                 <option value="0"><?php echo $text_all_zones; ?></option>
@@ -114,7 +114,7 @@
                                 <?php } ?>
                                 <?php } ?>
                             </select></td>
-                        </tr>
+                        </tr-->
                         <tr>
                             <td><?php echo $entry_status; ?></td>
                             <td><select name="card_payment[<?php echo $payment_row ?>][card_transfer_status]">
@@ -159,7 +159,7 @@ html += '<table class="form">';
         html +=  '</tr>';
                 <?php } ?>
 
-    html += '<tr>';
+    /*html += '<tr>';
     html += '<td><?php echo $entry_total; ?></td>';
     html += '<td><input type="text" name="card_payment[' + payment_row + '][card_transfer_total]" value="" /></td>';
     html += '</tr>';
@@ -170,9 +170,9 @@ html += '<table class="form">';
             html += '<option value="<?php echo $order_status['order_status_id']; ?>"><?php echo $order_status['name']; ?></option>';
     <?php } ?>
     html += '</select></td>';
-    html += '</tr>';
+    html += '</tr>';*/
 
-    html += '<tr>';
+    /*html += '<tr>';
     html +=        '<td><?php echo $entry_geo_zone; ?></td>';
     html += '<td><select name="card_payment[' + payment_row + '][card_transfer_geo_zone_id]">';
     html += '<option value="0"><?php echo $text_all_zones; ?></option>';
@@ -180,7 +180,7 @@ html += '<table class="form">';
         html += '<option value="<?php echo $geo_zone['geo_zone_id']; ?>"><?php echo $geo_zone['name']; ?></option>';
     <?php } ?>
     html += '</select></td>';
-    html += '</tr>';
+    html += '</tr>';*/
 
 
     html += '<tr>';

@@ -17,8 +17,6 @@ class ControllerPaymentCardTransfer extends Controller {
             $this->redirect($this->url->link('extension/payment', 'token=' . $this->session->data['token'], 'SSL'));
         }
 
-        //print_r($this->config->get('card_payment'));die();
-
         $this->data['heading_title'] = $this->language->get('heading_title');
 
         $this->data['text_enabled'] = $this->language->get('text_enabled');
@@ -87,13 +85,48 @@ class ControllerPaymentCardTransfer extends Controller {
         } elseif ($this->config->get('card_payment')) {
             $this->data['payments'] = $this->config->get('card_payment');
         }
-//print_r($this->data['payments']);die();
-        //
-
 
 
         $this->data['languages'] = $languages;
 
+
+        if (isset($this->request->post['card_transfer_total'])) {
+            $this->data['card_transfer_total'] = $this->request->post['card_transfer_total'];
+        } else {
+            $this->data['card_transfer_total'] = $this->config->get('card_transfer_total');
+        }
+
+        if (isset($this->request->post['card_transfer_order_status_id'])) {
+            $this->data['card_transfer_order_status_id'] = $this->request->post['card_transfer_order_status_id'];
+        } else {
+            $this->data['card_transfer_order_status_id'] = $this->config->get('card_transfer_order_status_id');
+        }
+
+        $this->load->model('localisation/order_status');
+
+        $this->data['order_statuses'] = $this->model_localisation_order_status->getOrderStatuses();
+
+        if (isset($this->request->post['card_transfer_geo_zone_id'])) {
+            $this->data['card_transfer_geo_zone_id'] = $this->request->post['card_transfer_geo_zone_id'];
+        } else {
+            $this->data['card_transfer_geo_zone_id'] = $this->config->get('card_transfer_geo_zone_id');
+        }
+
+        $this->load->model('localisation/geo_zone');
+
+        $this->data['geo_zones'] = $this->model_localisation_geo_zone->getGeoZones();
+
+        if (isset($this->request->post['card_transfer_status'])) {
+            $this->data['card_transfer_status'] = $this->request->post['card_transfer_status'];
+        } else {
+            $this->data['card_transfer_status'] = $this->config->get('card_transfer_status');
+        }
+
+        if (isset($this->request->post['card_transfer_sort_order'])) {
+            $this->data['card_transfer_sort_order'] = $this->request->post['card_transfer_sort_order'];
+        } else {
+            $this->data['card_transfer_sort_order'] = $this->config->get('card_transfer_sort_order');
+        }
 
         $this->load->model('localisation/order_status');
 

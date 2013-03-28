@@ -30,7 +30,7 @@ class ModelPaymentCardTransfer extends Model {
                 }
                 $method_data[] = array(
                     'code'       => 'card_transfer',
-                    'title'      => $this->language->get('text_title') . ' ' . $i,
+                    'title'      => $this->language->get('text_title') . ' ' . $payment['card_transfer_name'],
                     'sort_order' => $this->config->get('card_transfer_sort_order') + $payment['card_transfer_sort_order'] / 10
                 );
             }

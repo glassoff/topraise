@@ -76,6 +76,10 @@
                 <div id="tab-module-<?php echo $payment_row; ?>" class="vtabs-content">
 
                     <table class="form">
+                        <tr>
+                            <td><?php echo $entry_name; ?></td>
+                            <td><input type="text" name="card_payment[<?php echo $payment_row ?>][card_transfer_name]" value="<?php echo $payment['card_transfer_name']; ?>" /></td>
+                        </tr>
                         <?php foreach ($languages as $language) { ?>
                         <tr>
                             <td><span class="required">*</span> <?php echo $entry_bank; ?></td>
@@ -147,6 +151,10 @@ function addModule() {
     html  = '<div id="tab-module-' + payment_row + '" class="vtabs-content">';
 
 html += '<table class="form">';
+    html += '<tr>';
+    html += '<td><?php echo $entry_name; ?></td>';
+    html += '<td><input type="text" name="card_payment[' + payment_row + '][card_transfer_name]" value="" /></td>';
+    html += '</tr>';
             <?php foreach ($languages as $language) { ?>
         html +=    '<tr>';
         html +=                '<td><span class="required">*</span> <?php echo $entry_bank; ?></td>';

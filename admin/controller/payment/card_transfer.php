@@ -23,6 +23,7 @@ class ControllerPaymentCardTransfer extends Controller {
         $this->data['text_disabled'] = $this->language->get('text_disabled');
         $this->data['text_all_zones'] = $this->language->get('text_all_zones');
 
+        $this->data['entry_name'] = $this->language->get('entry_name');
         $this->data['entry_bank'] = $this->language->get('entry_bank');
         $this->data['entry_total'] = $this->language->get('entry_total');
         $this->data['entry_order_status'] = $this->language->get('entry_order_status');

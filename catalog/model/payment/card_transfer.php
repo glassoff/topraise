@@ -18,17 +18,20 @@ class ModelPaymentCardTransfer extends Model {
         $method_data = array();
 
         if ($status) {
-            $payments = $this->config->get('card_payment');
+            $payments = $this->config->get('card_payment');//print_r($payments);die();
 
             $count = count($payments);
 
             $i = 0;
             foreach ($payments as $payment) {
                 $i++;
+                if(!$payment['card_transfer_status']){
+                    continue;
+                }
                 $method_data[] = array(
                     'code'       => 'card_transfer',
                     'title'      => $this->language->get('text_title') . ' ' . $i,
-                    'sort_order' => $this->config->get('card_transfer_sort_order')
+                    'sort_order' => $this->config->get('card_transfer_sort_order') + $payment['card_transfer_sort_order'] / 10
                 );
             }
         }

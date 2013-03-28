@@ -68,7 +68,7 @@ class ControllerCheckoutPaymentMethod extends Controller {
 				}
 			}
 
-			$sort_order = array(); 
+			$sort_order = array();//print_r($method_data);die();
 		  
 			foreach ($method_data as $key => $value) {
 				$sort_order[$key] = $value['sort_order'];

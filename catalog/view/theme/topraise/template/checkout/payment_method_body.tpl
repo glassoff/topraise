@@ -43,6 +43,12 @@
         var tip = $(this).parents('td').data('tip');
         $('.tip__content').text(tip);
 
+        if(!tip){
+            $('.tip').hide();
+            return;
+        }
+        $('.tip').show();
+
         var firstPos = 15;
         var bgHeight = 30;
         var height = $('.tip').height();

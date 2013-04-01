@@ -48,7 +48,7 @@
             <?php echo $cart_products; ?>
         </div>
 
-        <div id="payment-method" class="checkout-address">
+        <div id="payment-method" class="shipping-methods">
             <div class="checkout-content">
                 <?php require_once('payment_method_body.tpl') ?>
             </div>

@@ -135,6 +135,10 @@
                             <td><?php echo $entry_sort_order; ?></td>
                             <td><input type="text" name="card_payment[<?php echo $payment_row ?>][card_transfer_sort_order]" value="<?php echo $payment['card_transfer_sort_order']; ?>" size="1" /></td>
                         </tr>
+                        <tr>
+                            <td>Описание</td>
+                            <td><textarea style="width:300px;height:100px;" name="card_payment[<?php echo $payment_row ?>][card_transfer_tip]"><?php echo $payment['card_transfer_tip']; ?></textarea></td>
+                        </tr>
                     </table>
 
                 </div>
@@ -205,6 +209,10 @@ html += '<table class="form">';
     html += '<td><input type="text" name="card_payment[' + payment_row + '][card_transfer_sort_order]" value="" size="1" /></td>';
     html += '</tr>';
 
+    html += '<tr>';
+    html += '<td>Описание</td>';
+    html += '<td><textarea style="width:300px;height:100px;" name="card_payment[' + payment_row + '][card_transfer_tip]"></textarea></td>';
+    html += '</tr>';
 
     html +=    '</table>';
 

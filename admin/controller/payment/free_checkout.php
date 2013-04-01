@@ -82,6 +82,12 @@ class ControllerPaymentFreeCheckout extends Controller {
 		} else {
 			$this->data['free_checkout_sort_order'] = $this->config->get('free_checkout_sort_order');
 		}
+
+        if (isset($this->request->post['free_checkout_tip'])) {
+            $this->data['free_checkout_tip'] = $this->request->post['free_checkout_tip'];
+        } else {
+            $this->data['free_checkout_tip'] = $this->config->get('free_checkout_tip');
+        }
 						
 		$this->template = 'payment/free_checkout.tpl';
 		$this->children = array(

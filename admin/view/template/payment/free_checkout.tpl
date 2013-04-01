@@ -45,6 +45,12 @@
               <td><?php echo $entry_sort_order; ?></td>
               <td><input type="text" name="free_checkout_sort_order" value="<?php echo $free_checkout_sort_order; ?>" size="1" /></td>
             </tr>
+            <tr>
+                <td>Описание</td>
+                <td>
+                    <textarea style="width:300px;height:100px;" name="free_checkout_tip"><?php echo $free_checkout_tip; ?></textarea>
+                </td>
+            </tr>
           </table>
         </div>
       </form>

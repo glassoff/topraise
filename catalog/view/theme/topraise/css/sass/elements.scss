@@ -1546,3 +1546,32 @@
     }
 }
 
+/* tip */
+.tip-table{
+
+}
+    table td.tip-table__content{
+        white-space:nowrap;
+        padding-right: 20px;
+        vertical-align: top;
+    }
+    table td.tip-table__tip{
+        padding-left: 20px;
+        vertical-align: top;
+    }
+
+.tip{
+    padding: 0 0 0 17px;
+    background: 0 0 no-repeat url(../../images/tip-arrow.png);
+    background-position: 0 15px;
+}
+    .tip__content{
+        background: #4bb2e1;
+        @include border-radius(10px);
+        padding: 35px 35px;
+        color:#fff;
+    }
+
+.tip-table .tip{
+    margin-top: -15px;
+}

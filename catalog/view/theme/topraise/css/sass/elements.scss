@@ -783,6 +783,9 @@
         background-position: -399px 0;
     }
 }
+.content_checkout__button_prev{
+
+}
 .content_checkout__button_next{
     @include float-right;
     margin-left: 23px;
@@ -1575,3 +1578,20 @@
 .tip-table .tip{
     margin-top: -15px;
 }
+
+/* payment process */
+.content_checkout__payment{
+    @include clearfix;
+    .content_checkout__button_prev{
+        display: block;
+        margin-top: -39px;
+    }
+}
+    .content_checkout__payment__content{
+        margin-top: 20px;
+        border-bottom: 1px dashed #000000;
+        padding: 0 0 15px 0;
+        .subsubheader{
+            margin-top:20px;
+        }
+    }

@@ -1,14 +1,21 @@
-<h2><?php echo $text_instruction; ?></h2>
-<div class="content">
-    <p><?php echo $text_description; ?></p>
-    <p><?php echo $bank; ?></p>
-    <p><?php echo $text_payment; ?></p>
-</div>
-<div class="buttons">
-    <div class="right">
-        <input type="button" value="<?php echo $button_confirm; ?>" id="button-confirm" class="button" />
+
+<div class="content_checkout__payment__content">
+
+    <h3 class="subsubheader"><?php echo $text_instruction; ?></h3>
+    <div class="content">
+        <p><?php echo $text_description; ?></p>
+        <p><?php echo $bank; ?></p>
+        <p>Также данная информация по оплате будет отправлена вам на email адрес.</p>
+        <p><?php echo $text_payment; ?></p>
     </div>
+
 </div>
+
+
+<div class="content_checkout__bottom">
+    <button type="button" id="button-confirm" class="button content_checkout__button content_checkout__button_next"><?php echo $button_confirm; ?></button>
+</div>
+
 <script type="text/javascript"><!--
 $('#button-confirm').bind('click', function() {
     $.ajax({

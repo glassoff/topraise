@@ -106,16 +106,11 @@
         </script>
         <?php endif; ?>
 
-
-
-        <div class="_content_checkout__bottom">
-            <a class="button button_a content_checkout__button" href="<?php echo $back; ?>#content">Вернуться</a>
-
+        <div class="content_checkout__payment">
             <?php echo $payment; ?>
 
+            <a class="button button_a content_checkout__button content_checkout__button_prev" href="<?php echo $back; ?>#content">Вернуться</a>
         </div>
-
-
 
     </div>
 </div>

@@ -20,7 +20,7 @@ class ControllerPaymentCardTransfer extends Controller {
         $payments = $this->config->get('card_payment');//print_r($payments);die();
         $payment = $payments[$id];
 
-        $this->data['bank'] = $payment['card_transfer_bank_' . $this->config->get('config_language_id')];
+        $this->data['bank'] = nl2br($payment['card_transfer_bank_' . $this->config->get('config_language_id')]);
 
         //$this->data['bank'] = nl2br($this->config->get('card_transfer_bank_' . $this->config->get('config_language_id')));
 

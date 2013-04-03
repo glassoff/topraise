@@ -3,10 +3,10 @@
 
     <h3 class="subsubheader"><?php echo $text_instruction; ?></h3>
     <div class="content">
-        <p><?php echo $text_description; ?></p>
+        <p style="font-weight: bold; margin-bottom:15px;"><?php echo $text_description; ?></p>
         <p><?php echo $bank; ?></p>
-        <p>Также данная информация по оплате будет отправлена вам на email адрес.</p>
-        <p><?php echo $text_payment; ?></p>
+        <p style="font-weight: bold; margin-top: 15px;">Также данная информация по оплате будет отправлена вам на email адрес.</p>
+        <p style="font-weight: bold;"><?php echo $text_payment; ?></p>
     </div>
 
 </div>

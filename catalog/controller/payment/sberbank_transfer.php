@@ -4,6 +4,7 @@ class ControllerPaymentSberBankTransfer extends Controller {
 		$this->language->load('payment/sberbank_transfer');
 
 		$this->data['text_printpay'] = str_replace('{href}', $this->url->link('payment/sberbank_transfer/printpay', '', 'SSL'), $this->language->get('text_printpay'));
+        $this->data['text_instruction_title'] = $this->language->get('text_instruction_title');
 		$this->data['text_instruction'] = $this->language->get('text_instruction');
 		$this->data['text_payment'] = $this->language->get('text_payment');
 		$this->data['text_payment_coment'] = $this->language->get('text_payment_coment');

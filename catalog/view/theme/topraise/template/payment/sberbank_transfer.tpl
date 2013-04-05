@@ -1,7 +1,7 @@
 
 <div class="content_checkout__payment__content">
 
-    <h3 class="subsubheader"><?php echo $text_instruction; ?></h3>
+    <h3 class="subsubheader"><?php echo $text_instruction_title; ?></h3>
     <div class="content">
         <?php echo $text_instruction; ?><br /><br />
         <?php echo $text_printpay; ?><br /><br />

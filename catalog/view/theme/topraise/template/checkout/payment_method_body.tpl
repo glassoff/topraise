@@ -10,7 +10,7 @@
             <table class="radio">
                 <?php foreach ($payment_methods as $payment_method) { ?>
                 <tr class="highlight">
-                    <td data-tip="<?php echo $payment_method['tip'] ?>"><?php if ($payment_method['code'] == $code || !$code) { ?>
+                    <td data-tip="<?php if(isset($payment_method['tip'])) {echo $payment_method['tip'];} ?>"><?php if ($payment_method['code'] == $code || !$code) { ?>
                         <?php $code = $payment_method['code']; ?>
                         <input type="radio" name="payment_method" value="<?php echo $payment_method['code']; ?>" id="<?php echo $payment_method['code']; ?>" checked="checked" />
                         <?php } else { ?>

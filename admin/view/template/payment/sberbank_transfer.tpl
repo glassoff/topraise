@@ -110,6 +110,12 @@
           <td><?php echo $entry_sort_order; ?></td>
           <td><input type="text" name="sberbank_transfer_sort_order" value="<?php echo $sberbank_transfer_sort_order; ?>" size="1" /></td>
         </tr>
+          <tr>
+              <td>Описание</td>
+              <td>
+                  <textarea style="width:300px;height:100px;" name="sberbank_transfer_tip"><?php echo $sberbank_transfer_tip; ?></textarea>
+              </td>
+          </tr>
       </table>
     </form>
   </div>

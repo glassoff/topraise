@@ -202,6 +202,12 @@ class ControllerPaymentSberBankTransfer extends Controller {
 			$this->data['sberbank_transfer_sort_order'] = $this->config->get('sberbank_transfer_sort_order');
 		}
 
+        if (isset($this->request->post['sberbank_transfer_tip'])) {
+            $this->data['sberbank_transfer_tip'] = $this->request->post['sberbank_transfer_tip'];
+        } else {
+            $this->data['sberbank_transfer_tip'] = $this->config->get('sberbank_transfer_tip');
+        }
+
 		$this->template = 'payment/sberbank_transfer.tpl';
 		$this->children = array(
 			'common/header',

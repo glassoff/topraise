@@ -21,7 +21,8 @@ class ModelPaymentSberBankTransfer extends Model {
       		$method_data = array(
         		'code'       => 'sberbank_transfer',
         		'title'      => $this->language->get('text_title'),
-				'sort_order' => $this->config->get('sberbank_transfer_sort_order')
+				'sort_order' => $this->config->get('sberbank_transfer_sort_order'),
+                  'tip' => $this->config->get('sberbank_transfer_tip')
       		);
     	}
 

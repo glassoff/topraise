@@ -133,7 +133,8 @@ class ControllerCheckoutPaymentMethod extends Controller {
           $this->data['city'] = $payment_address['city'];
           $this->data['address_1'] = $payment_address['address_1'];
 
-          $this->data['address_show'] = true;//!$payment_address['address_1'] ? true : false;
+          $this->data['address_show'] = !$payment_address['address_1'] 
+              || (isset($this->session->data['guest']['setted_address']) && $this->session->data['guest']['setted_address']) ? true : false;
 
           $this->data['totals'] = $total_data;
 
@@ -231,6 +232,7 @@ class ControllerCheckoutPaymentMethod extends Controller {
             elseif((isset($this->request->post['city']) && $this->request->post['city']) && (isset($this->request->post['address_1']) && $this->request->post['address_1'])){
                 $this->session->data['guest']['payment']['city'] = $this->request->post['city'];
                 $this->session->data['guest']['payment']['address_1'] = $this->request->post['address_1'];
+                $this->session->data['guest']['setted_address'] = true;
             }
 			
 			if (!$json) {

@@ -22,7 +22,8 @@ class ModelPaymentSberBankTransfer extends Model {
         		'code'       => 'sberbank_transfer',
         		'title'      => $this->language->get('text_title'),
 				'sort_order' => $this->config->get('sberbank_transfer_sort_order'),
-                  'tip' => $this->config->get('sberbank_transfer_tip')
+                'tip' => $this->config->get('sberbank_transfer_tip'),
+                'required_address' => true
       		);
     	}
 

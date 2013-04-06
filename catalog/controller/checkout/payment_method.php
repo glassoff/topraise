@@ -125,6 +125,16 @@ class ControllerCheckoutPaymentMethod extends Controller {
 			$this->data['agree'] = '';
 		}
 
+
+          $this->data['text_your_address'] = $this->language->get('text_your_address');
+          $this->data['entry_city'] = $this->language->get('entry_city');
+          $this->data['entry_address_1'] = $this->language->get('entry_address_1');
+
+          $this->data['city'] = $payment_address['city'];
+          $this->data['address_1'] = $payment_address['address_1'];
+
+          $this->data['address_show'] = !$payment_address['address_1'] ? true : false;
+
           $this->data['totals'] = $total_data;
 
           $this->data['total'] = $total;
@@ -211,6 +221,17 @@ class ControllerCheckoutPaymentMethod extends Controller {
 					$json['error']['warning'] = sprintf($this->language->get('error_agree'), $information_info['title']);
 				}
 			}
+
+            if(
+                (isset($this->request->post['required_address']) && $this->request->post['required_address']) &&
+                ((isset($this->request->post['city']) && !$this->request->post['city']) || (isset($this->request->post['address_1']) && !$this->request->post['address_1']))
+                ){
+                $json['error']['warning'] = 'Укажите ваш адрес';
+            }
+            elseif((isset($this->request->post['city']) && $this->request->post['city']) && (isset($this->request->post['address_1']) && $this->request->post['address_1'])){
+                $this->session->data['guest']['payment']['city'] = $this->request->post['city'];
+                $this->session->data['guest']['payment']['address_1'] = $this->request->post['address_1'];
+            }
 			
 			if (!$json) {
 				$this->session->data['payment_method'] = $this->session->data['payment_methods'][$this->request->post['payment_method']];

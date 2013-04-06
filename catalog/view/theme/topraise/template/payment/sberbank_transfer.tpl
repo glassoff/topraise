@@ -9,7 +9,8 @@
         <?php if ($text_order_history) { ?>
         <?php echo $text_order_history; ?><br /><br />
         <?php } ?>
-        <?php echo $text_payment_coment; ?>
+        <p style="font-weight: bold; ">Также данная информация по оплате будет отправлена вам на email адрес.</p>
+        <p style="font-weight: bold;"><?php echo $text_payment_coment; ?></p>
     </div>
 
 </div>

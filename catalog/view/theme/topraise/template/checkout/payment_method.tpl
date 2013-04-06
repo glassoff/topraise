@@ -77,7 +77,7 @@
                 $.ajax({
                     url: 'index.php?route=checkout/payment_method/validate',
                     type: 'post',
-                    data: $('#payment-method input[type=\'radio\']:checked, #payment-method input[type=\'hidden\'], #payment-method input[type=\'checkbox\']:checked, #payment-method textarea'),
+                    data: $('#payment-method input[type=\'radio\']:checked, #payment-method input[type=\'hidden\'], #payment-method input[type=\'text\'], #payment-method input[type=\'checkbox\']:checked, #payment-method textarea'),
                     dataType: 'json',
                     beforeSend: function() {
                         $('#button-payment-method').attr('disabled', true);

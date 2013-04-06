@@ -1,6 +1,9 @@
 <?php 
 class ControllerCheckoutGuest extends Controller {
   	public function index() {
+
+          $this->document->setTitle('Оформление заказа - Личные данные');
+
     	$this->language->load('checkout/checkout');
 		
 		$this->data['text_select'] = $this->language->get('text_select');

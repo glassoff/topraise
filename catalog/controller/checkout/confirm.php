@@ -1,6 +1,9 @@
 <?php 
 class ControllerCheckoutConfirm extends Controller { 
 	public function index() {
+
+        $this->document->setTitle('Оформление заказа - Подтверждение');
+
 		$redirect = '';
 		
 		if ($this->cart->hasShipping()) {

@@ -1,6 +1,9 @@
 <?php  
 class ControllerCheckoutPaymentMethod extends Controller {
   	public function index() {
+
+          $this->document->setTitle('Оформление заказа - Способ оплаты');
+
 		$this->language->load('checkout/checkout');
 		
 		$this->load->model('account/address');
@@ -133,7 +136,7 @@ class ControllerCheckoutPaymentMethod extends Controller {
           $this->data['city'] = $payment_address['city'];
           $this->data['address_1'] = $payment_address['address_1'];
 
-          $this->data['address_show'] = !$payment_address['address_1'] 
+          $this->data['address_show'] = !$payment_address['address_1']
               || (isset($this->session->data['guest']['setted_address']) && $this->session->data['guest']['setted_address']) ? true : false;
 
           $this->data['totals'] = $total_data;

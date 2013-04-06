@@ -33,7 +33,7 @@
 </table>
 
 <?php if($address_show): ?>
-<div class="checkout-address" id="payment-address" style="display: none;">
+<div class="checkout-address" id="payment-address" style="display: none; border-bottom: none;">
     <h3 class="subsubheader">Для данного метода способа оплаты требуется указать ваш адрес</h3>
     <table>
         <tr>

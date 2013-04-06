@@ -133,7 +133,7 @@ class ControllerCheckoutPaymentMethod extends Controller {
           $this->data['city'] = $payment_address['city'];
           $this->data['address_1'] = $payment_address['address_1'];
 
-          $this->data['address_show'] = !$payment_address['address_1'] ? true : false;
+          $this->data['address_show'] = true;//!$payment_address['address_1'] ? true : false;
 
           $this->data['totals'] = $total_data;
 

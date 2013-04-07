@@ -137,7 +137,8 @@ class ControllerCheckoutPaymentMethod extends Controller {
           $this->data['address_1'] = $payment_address['address_1'];
 
           $this->data['address_show'] = !$payment_address['address_1']
-              || (isset($this->session->data['guest']['setted_address']) && $this->session->data['guest']['setted_address']) ? true : false;
+              || (isset($this->session->data['guest']['setted_address']) && $this->session->data['guest']['setted_address'])
+              || $payment_address['address_1'] && (isset($this->session->data['guest']['no_delivery']) && $this->session->data['guest']['no_delivery']) ? true : false;
 
           $this->data['totals'] = $total_data;
 

@@ -340,6 +340,8 @@ class ControllerCheckoutGuest extends Controller {
 			$this->session->data['guest']['payment']['city'] = $this->request->post['city'];
 			$this->session->data['guest']['payment']['country_id'] = $this->request->post['country_id'];
 			$this->session->data['guest']['payment']['zone_id'] = $this->request->post['zone_id'];
+
+            $this->session->data['guest']['no_delivery'] = $no_delivery;
 							
 			$this->load->model('localisation/country');
 			

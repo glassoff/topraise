@@ -87,11 +87,11 @@
 
         if($(this).parents('td').data('raddress')){
             $("[name=required_address]").val(1);
-            $('#payment-address').show();
+            $('#payment-address').fadeIn(800);
         }
         else{
             $("[name=required_address]").val(0);
-            $('#payment-address').hide();
+            $('#payment-address').fadeOut(200);
         }
     });
 

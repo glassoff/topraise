@@ -35,6 +35,7 @@
     </tr>
 </table>
 <?php else: ?>
+<input type="hidden" name="no_delivery" value="<?php echo $no_delivery ?>" />
 <input type="hidden" name="city" value="<?php echo $city; ?>" />
 <input type="hidden" name="address_1" value="<?php echo $address_1; ?>" />
 <input type="hidden" name="address_2" value="<?php echo $address_2; ?>" />

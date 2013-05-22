@@ -1101,6 +1101,14 @@ class ControllerCatalogProduct extends Controller {
 		} else {
 			$this->data['product_specials'] = array();
 		}
+
+          if (isset($this->request->post['product_main_special'])) {
+              $this->data['product_main_special'] = $this->request->post['product_main_special'];
+          }
+          else{
+              $this->data['product_main_special'] = $product_info["is_main_special"] ? true : false;
+          }
+
 		
 		if (isset($this->request->post['product_image'])) {
 			$product_images = $this->request->post['product_image'];

@@ -1,3 +1,5 @@
 add sale information page (id=7)
 
 ALTER TABLE `remont_image` ADD `description` TEXT NOT NULL AFTER `image`
+
+ALTER TABLE `product` ADD `is_main_special` BOOLEAN NOT NULL DEFAULT FALSE

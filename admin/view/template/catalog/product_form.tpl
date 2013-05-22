@@ -609,6 +609,12 @@
               </tr>
             </tfoot>
           </table>
+            <div>
+                <label><input type="checkbox" name="product_main_special" value="1" <?php if($product_main_special){ ?>checked<?php } ?> />Главный товар по акциям</label>
+                <div>
+                    <small>&nbsp;&nbsp;&nbsp;Товар будет отображаться сверху на странице Акции</small>
+                </div>
+            </div>
         </div>
         <div id="tab-image">
           <table id="images" class="list">

@@ -118,6 +118,43 @@
               <td><?php echo $entry_sort_order; ?></td>
               <td><input type="text" name="sort_order" value="<?php echo $sort_order; ?>" size="1" /></td>
             </tr>
+
+              <?php if(isset($information_info) && $information_info['information_id'] == 7): ?>
+              <tr>
+                  <td>Главный продукт по акции</td>
+                  <td><input type="text" name="filter_name" value="<?php echo $filter_name; ?>" /> <input type="hidden" name="product_main_special" value="<?php echo $product_main_special; ?>" /></td>
+              </tr>
+              <script>
+                  $('input[name=\'filter_name\']').autocomplete({
+                      delay: 0,
+                      source: function(request, response) {
+                          $.ajax({
+                              url: 'index.php?route=catalog/product/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request.term),
+                              dataType: 'json',
+                              success: function(json) {
+                                  response($.map(json, function(item) {
+                                      return {
+                                          label: item.name,
+                                          value: item.product_id
+                                      }
+                                  }));
+                              }
+                          });
+                      },
+                      select: function(event, ui) {
+                          $('input[name=\'filter_name\']').val(ui.item.label);
+
+                          $('input[name=\'product_main_special\']').val(ui.item.value);
+
+                          return false;
+                      },
+                      focus: function(event, ui) {
+                          return false;
+                      }
+                  });
+              </script>
+              <?php endif; ?>
+
           </table>
         </div>
         <div id="tab-design">

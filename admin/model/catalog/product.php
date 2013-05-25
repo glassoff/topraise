@@ -1,5 +1,15 @@
 <?php
 class ModelCatalogProduct extends Model {
+    public function getMainSpecialProduct()
+    {
+        $query = $this->db->query("SELECT product_id FROM " . DB_PREFIX . "product WHERE is_main_special = 1");
+        if ($query->num_rows) {
+            $product_id = $query->row['product_id'];
+            return $this->getProduct($product_id);
+        }
+
+        return false;
+    }
 	public function addProduct($data) {
 
         if((int)$data['product_main_special']){

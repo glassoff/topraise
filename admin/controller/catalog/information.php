@@ -344,6 +344,7 @@ class ControllerCatalogInformation extends Controller {
 
 		if (isset($this->request->get['information_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$information_info = $this->model_catalog_information->getInformation($this->request->get['information_id']);
+            $this->data['information_info'] = $information_info;
 		}
 		
 		$this->data['token'] = $this->session->data['token'];
@@ -403,6 +404,25 @@ class ControllerCatalogInformation extends Controller {
 		} else {
 			$this->data['sort_order'] = '';
 		}
+
+        //XXX
+        $this->load->model('catalog/product');
+        $product_info = $this->model_catalog_product->getMainSpecialProduct();
+        if (isset($this->request->post['filter_name'])) {
+            $this->data['filter_name'] = $this->request->post['filter_name'];
+        } elseif (!empty($product_info)) {
+            $this->data['filter_name'] = $product_info['name'];
+        } else {
+            $this->data['filter_name'] = '';
+        }
+
+        if (isset($this->request->post['product_main_special'])) {
+            $this->data['product_main_special'] = $this->request->post['product_main_special'];
+        } elseif (!empty($product_info)) {
+            $this->data['product_main_special'] = $product_info['product_id'];
+        } else {
+            $this->data['product_main_special'] = '';
+        }
 		
 		if (isset($this->request->post['information_layout'])) {
 			$this->data['information_layout'] = $this->request->post['information_layout'];

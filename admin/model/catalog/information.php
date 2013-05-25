@@ -31,6 +31,17 @@ class ModelCatalogInformation extends Model {
 	}
 	
 	public function editInformation($information_id, $data) {
+
+        //XXX
+        if($information_id == 7){
+//            if($data['filter_name'] && (int)$data['product_main_special']){
+                $this->db->query("UPDATE " . DB_PREFIX . "product SET is_main_special = FALSE;");
+//            }
+            if($data['filter_name'] && (int)$data['product_main_special']){
+                $this->db->query("UPDATE " . DB_PREFIX . "product SET is_main_special = 1 WHERE product_id = ".(int)$data['product_main_special'].";");
+            }
+        }
+
 		$this->db->query("UPDATE " . DB_PREFIX . "information SET sort_order = '" . (int)$data['sort_order'] . "', bottom = '" . (isset($data['bottom']) ? (int)$data['bottom'] : 0) . "', status = '" . (int)$data['status'] . "' WHERE information_id = '" . (int)$information_id . "'");
 		
 		$this->db->query("DELETE FROM " . DB_PREFIX . "information_description WHERE information_id = '" . (int)$information_id . "'");

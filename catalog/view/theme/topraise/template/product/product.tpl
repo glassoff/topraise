@@ -9,7 +9,9 @@
 
         <div class="page__middle__right content content_product">
             <h1 class="content__header content__header_product"><?php echo $heading_title; ?></h1>
+            <?php if($product_info['sku']): ?>
             <span class="content_product__sku">№ товара <?php echo $product_info['sku'] ?></span>
+            <?php endif; ?>
 
             <div class="product-content <?php if($special): ?>product-content__special<?php endif; ?>">
                 <div class="compare-products">

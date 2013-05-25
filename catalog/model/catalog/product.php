@@ -1,5 +1,17 @@
 <?php
 class ModelCatalogProduct extends Model {
+
+    public function getMainSpecialProduct()
+    {
+        $query = $this->db->query("SELECT product_id FROM " . DB_PREFIX . "product WHERE is_main_special = 1");
+        if ($query->num_rows) {
+            $product_id = $query->row['product_id'];
+            return $this->getProduct($product_id);
+        }
+
+        return false;
+    }
+
 	public function updateViewed($product_id) {
 		$this->db->query("UPDATE " . DB_PREFIX . "product SET viewed = (viewed + 1) WHERE product_id = '" . (int)$product_id . "'");
 	}

@@ -16,9 +16,15 @@ class ControllerModuleSpecial extends Controller {
 		$data = array(
 			'sort'  => 'pd.name',
 			'order' => 'ASC',
-			'start' => 0,
-			'limit' => $setting['limit']
+			'start' => 0
 		);
+
+        if(isset($setting['limit'])){
+            $data['limit'] = $setting['limit'];
+        }
+        else{
+            unset($data['start']);
+        }
 
 		$results = $this->model_catalog_product->getProductSpecials($data);
 

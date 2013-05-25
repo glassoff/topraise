@@ -1,6 +1,9 @@
 <?php 
 class ControllerInformationInformation extends Controller {
-	public function index() {  
+	public function index() {
+
+        define("INFORMATION_ID", 7);
+
     	$this->language->load('information/information');
 		
 		$this->load->model('catalog/information');
@@ -21,7 +24,7 @@ class ControllerInformationInformation extends Controller {
 		
 		$information_info = $this->model_catalog_information->getInformation($information_id);
    		
-		if ($information_info) {
+		if ($information_info && (($information_info['status'] && $information_info['information_id'] != INFORMATION_ID) || $information_info['information_id'] == INFORMATION_ID)) {
 			if ($information_info['seo_title']) {
 				$this->document->setTitle($information_info['seo_title']);
 			} else {
@@ -46,8 +49,10 @@ class ControllerInformationInformation extends Controller {
       		
 			$this->data['continue'] = $this->url->link('common/home');
 
+            $this->data['status'] = $information_info['status'];
+
             //XXX speacials page
-            if($information_id == 7){
+            if($information_id == INFORMATION_ID){
                 $this->load->model('catalog/product');
                 $this->load->model('tool/image');
 

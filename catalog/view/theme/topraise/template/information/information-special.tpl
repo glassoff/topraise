@@ -9,6 +9,7 @@
 
         <div class="page__middle__right content special-page">
 
+            <?php if($status): ?>
             <h1 class="content__header content__header_product"><?php echo $heading_title; ?></h1>
 
             <?php if(isset($main_special_product) && $main_special_product): ?>
@@ -21,8 +22,18 @@
                 <?php echo $description; ?>
             </div>
 
+            <?php else: ?>
+                <?php if(count($products)):?>
+                    <h1 class="content__header content__header_product">Товары по сниженной цене</h1>
+                <?php else: ?>
+                    <p>Товаров по акции нет</p>
+                <?php endif; ?>
+            <?php endif; ?>
+
             <?php if(count($products)): ?>
+            <?php if($status): ?>
             <h2 class="special-page__other-header">Остальные товары по новой цене</h2>
+            <?php endif; ?>
             <div class="catalog-container">
                 <!-- products -->
                 <?php foreach ($products as $product) { ?>

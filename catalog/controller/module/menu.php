@@ -14,6 +14,7 @@ class ControllerModuleMenu extends Controller {
                 array('title' => 'Доставка и покупка', 'route' => 'information/buy-shipping', 'params' => ''),
                 array('title' => 'Контакты', 'route' => 'information/contact', 'params' => ''),
                 array('title' => 'Оптовикам', 'route' => 'information/opt', 'params' => ''),
+                array('title' => 'Наши представительства', 'route' => 'information/affiliates', 'params' => ''),
             ),
         );
 

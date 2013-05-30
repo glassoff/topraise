@@ -1104,9 +1104,12 @@ class ControllerCatalogProduct extends Controller {
 
           if (isset($this->request->post['product_main_special'])) {
               $this->data['product_main_special'] = $this->request->post['product_main_special'];
+
+          } elseif (isset($this->request->get['product_id'])) {
+              $this->data['product_main_special'] = $product_info["is_main_special"] ? true : false;
           }
           else{
-              $this->data['product_main_special'] = $product_info["is_main_special"] ? true : false;
+              $this->data['product_main_special'] = false;
           }
 
 		

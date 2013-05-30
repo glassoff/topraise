@@ -1575,6 +1575,11 @@
     background: 0 0 no-repeat url(../../images/tip-arrow.png);
     background-position: 0 15px;
 }
+.tip_down{
+    padding: 0 0 18px 0;
+    background: 0 0 no-repeat url(../../images/tip-arrow_down.png);
+    background-position: 20px bottom;
+}
     .tip__content{
         background: #4bb2e1;
         @include border-radius(10px);

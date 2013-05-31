@@ -12,6 +12,12 @@ class ControllerInformationAffiliates extends Controller {
 
         $this->data['affiliates'] = $this->config->get('affiliates_module');
 
+        $sort_order = array();
+        foreach($this->data['affiliates'] as $key => $value){
+            $sort_order[$key] = $value['sort_order'];
+        }
+        array_multisort($sort_order, SORT_ASC, $this->data['affiliates']);
+
 
         if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/information/affiliates.tpl')) {
             $this->template = $this->config->get('config_template') . '/template/information/affiliates.tpl';

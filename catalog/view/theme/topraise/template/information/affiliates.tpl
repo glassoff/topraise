@@ -17,6 +17,7 @@
 
             <ul class="affiliates-page__list">
                 <?php foreach($affiliates as $affiliate): ?>
+                <?php if(!$affiliate['status']) continue; ?>
                 <li class="affiliates-page__list__item affiliate-item" data-address="<?php echo $affiliate['address'] ?>">
                     <div class="affiliates-page__list__item__wrapper">
                         <div class="affiliates-page__list__item__sel"></div>
@@ -24,12 +25,12 @@
                             <tr>
                                 <td class="affiliate-item-table__title-td"><span class="pseudo-a"><?php echo $affiliate['town'] ?></span></td>
                                 <td class="affiliate-item-table__address-td">
-                                    <?php echo nl2br($affiliate['address']) ?><br>
-                                    <?php echo $affiliate['name'] ?><br>
-                                    <?php echo nl2br($affiliate['contacts']) ?><br>
+                                    <p><?php echo nl2br($affiliate['address']) ?></p>
+                                    <p><?php echo nl2br($affiliate['name']) ?></p>
+                                    <p><?php echo nl2br($affiliate['contacts']) ?></p>
                                 </td>
                                 <td class="affiliate-item-table__times-td">
-                                    График работы:<br>
+                                    <p>График работы:</p>
                                     <?php echo nl2br($affiliate['times']) ?>
                                 </td>
                             </tr>

@@ -38,7 +38,7 @@
                         </tr>
                         <tr>
                             <td>Название:</td>
-                            <td><input type="text" name="affiliates_module[<?php echo $module_row; ?>][name]" value="<?php echo $module['name']; ?>" size="30" /></td>
+                            <td><textarea type="text" name="affiliates_module[<?php echo $module_row; ?>][name]" cols="80"><?php echo $module['name']; ?></textarea></td>
                         </tr>
                         <tr>
                             <td>Контактные данные:</td>
@@ -94,7 +94,7 @@ function addModule() {
     html += '    <tr>';
     html += '    <tr>';
     html += '      <td>Название:</td>';
-    html += '      <td><input type="text" name="affiliates_module[' + module_row + '][name]" value="" size="30" /></td>';
+    html += '      <td><textarea type="text" name="affiliates_module[' + module_row + '][name]" value="" cols="80"></textarea></td>';
     html += '    </tr>';
     html += '    <tr>';
     html += '      <td>Контактные данные:</td>';

@@ -332,7 +332,7 @@ class ControllerUserUserPermission extends Controller {
 		}
 		
 		$ignore = array(
-			'common/home',
+//			'common/home',
 			'common/startup',
 			'common/login',
 			'common/logout',
